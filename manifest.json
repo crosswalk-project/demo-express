@@ -1,7 +1,6 @@
 {
-    "version": "0.0.1",
+    "version": "0.1",
     "name": "DemoExpress",
-    "permissions": ["tabs", "unlimited_storage", "notifications", "http://*/*", "https://*/*", "Contacts"],
     "description": "DemoExpress",
     "file_name": "manifest.json",
     "app": {
