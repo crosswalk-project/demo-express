@@ -41,7 +41,7 @@
                 "*"
             ],
             "copylist": {
-                "LICENSE.BSD-3": "LICENSE.BSD-3",
+                "LICENSE": "LICENSE",
                 "inst.wgt.py": "inst.py",
                 "res/css": "res/css",
                 "res/font": "res/font",
@@ -79,7 +79,7 @@
                 "*"
             ],
             "copylist": {
-                "LICENSE.BSD-3": "LICENSE.BSD-3",
+                "LICENSE": "LICENSE",
                 "inst.xpk.py": "inst.py",
                 "res/css": "res/css",
                 "res/font": "res/font",
