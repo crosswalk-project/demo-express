@@ -11,25 +11,29 @@
     "pkg-list": {
         "apk,cordova": {
             "blacklist": [
-                "*"
+                "*",
+                ".git"
             ],
             "copylist": {
+                "LICENSE": "LICENSE",
                 "inst.apk.py": "inst.py"
             },
             "subapp-list": {
                 ".": {
                     "app-name": "demoexpress",
+                    "apk-type": "MANIFEST",
                     "blacklist": [
-                        "*"
+                        "*",
+                        ".git"
                     ],
                     "copylist": {
-                        "config.xml": "config.xml",
+                        "manifest.json": "manifest.json",
                         "css": "css",
                         "icon.png": "icon.png",
                         "index.html": "index.html",
                         "js": "js",
                         "res": "res",
-                        "tests": "tests",
+                        "samples": "samples",
                         "tests.android.xml": "tests.xml"
                     },
                     "install-path": "."
@@ -38,7 +42,8 @@
         },
         "wgt": {
             "blacklist": [
-                "*"
+                "*",
+                ".git"
             ],
             "copylist": {
                 "LICENSE": "LICENSE",
@@ -51,7 +56,8 @@
                 ".": {
                     "app-name": "demoexpress",
                     "blacklist": [
-                        "*"
+                        "*",
+                        ".git"
                     ],
                     "copylist": {
                         "config.xml": "config.xml",
@@ -60,13 +66,13 @@
                         "index.html": "index.html",
                         "js": "js",
                         "res": "res",
-                        "tests": "tests",
+                        "samples": "samples",
                         "tests.tizen.xml": "tests.xml"
                     },
                     "install-path": ".",
                     "sign-flag": "true"
                 },
-                "tests/Viewport/ViewportTest": {
+                "samples/Viewport/ViewportTest": {
                     "app-name": "ViewportTest",
                     "blacklist": [],
                     "install-path": ".",
@@ -76,7 +82,8 @@
         },
         "xpk": {
             "blacklist": [
-                "*"
+                "*",
+                ".git"
             ],
             "copylist": {
                 "LICENSE": "LICENSE",
@@ -89,7 +96,8 @@
                 ".": {
                     "app-name": "demoexpress",
                     "blacklist": [
-                        "*"
+                        "*",
+                        ".git"
                     ],
                     "copylist": {
                         "config.xml": "config.xml",
@@ -99,13 +107,13 @@
                         "js": "js",
                         "manifest.json": "manifest.json",
                         "res": "res",
-                        "tests": "tests",
+                        "samples": "samples",
                         "tests.tizen.xml": "tests.xml"
                     },
                     "install-path": ".",
                     "sign-flag": "true"
                 },
-                "tests/Viewport/ViewportTest": {
+                "samples/Viewport/ViewportTest": {
                     "app-name": "ViewportTest",
                     "blacklist": [],
                     "install-path": "."
