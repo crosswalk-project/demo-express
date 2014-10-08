@@ -42,7 +42,7 @@ function DisablePassButton(){
 
 function getAppName() {
   var lpath = window.parent._appURL;
-  var from = lpath.lastIndexOf("tests/") + 6;
+  var from = lpath.lastIndexOf("samples/") + 6;
   var to = lpath.lastIndexOf("/");
   return lpath.substring(from, to);
 }
