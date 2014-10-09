@@ -28,7 +28,7 @@ More information about API support in Crosswalk, see https://crosswalk-project.o
 ## Building
 * Run pack.py to pack DemoExpress package, e.g.: 
 
-    ./pack.py -t apk -m embedded -a x86 --tools= $PATH_TO_CROSSWALK
+    ./pack.py -t apk -m embedded -a x86 --tools=$PATH_TO_TOOLS
 
 * Check full options of `pack.py` by `--help` option.
 * You are ready to install and run DemoExpress(in zip package) on a target device.
