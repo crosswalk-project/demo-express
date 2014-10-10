@@ -4,9 +4,17 @@
     <tizen:application id="sampletest.DemoExpress" package="sampletest" required_version="2.2"/>
     <icon src="icon.png" height="117" width="117"/>
     <name>DemoExpress</name>
-    <tizen:privilege name="http://tizen.org/privilege/location"/>
-    <tizen:privilege name="http://tizen.org/privilege/mediacapture"/>
+    <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
+    <tizen:privilege name="http://tizen.org/privilege/content.read"/>
+    <tizen:privilege name="http://tizen.org/privilege/content.write"/>
+    <tizen:privilege name="http://tizen.org/privilege/download"/>
     <tizen:privilege name="http://tizen.org/privilege/filesystem.read"/>
     <tizen:privilege name="http://tizen.org/privilege/filesystem.write"/>
+    <tizen:privilege name="http://tizen.org/privilege/messaging.read"/>
+    <tizen:privilege name="http://tizen.org/privilege/messaging.write"/>
+    <tizen:privilege name="http://tizen.org/privilege/location"/>
+    <tizen:privilege name="http://tizen.org/privilege/mediacapture"/>
+    <tizen:privilege name="http://tizen.org/privilege/system"/>
+    <tizen:privilege name="http://tizen.org/privilege/systemmanager"/>
     <tizen:setting context-menu="disable" background-support="disable" encryption="disable" install-location="auto"/>
 </widget>
