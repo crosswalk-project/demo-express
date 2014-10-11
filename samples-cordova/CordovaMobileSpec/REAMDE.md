@@ -24,3 +24,10 @@ This sample demonstrates the Cordova Mobile Spec features, include:
 * In App Browser: Open URL and PDF in CordovaWebView
 * Keyboard: Get the shrinkView, hideForm, disableScrolling of Keyboard
 * File & File Transfer: Download and display file, Resolve files from extra file system
+
+## About Cordova Mobile Spec app
+
+* Source Code: [https://github.com/apache/cordova-mobile-spec](https://github.com/apache/cordova-mobile-spec)
+* Download the cordova mobile spec tests and check to the brach you needed
+* Build cordova\_mobile\_spec app following [Cordova Test Suite User Guide](https://github.com/crosswalk-project/crosswalk-test-suite/blob/master/doc/Cordova_Test_Suite_User_Guide.md)
+* Rename the apk with version and arch, upload to [Cordova Mobile Spec Test](https://github.com/crosswalk-project/demo-express/releases)

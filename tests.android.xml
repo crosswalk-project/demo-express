@@ -129,5 +129,11 @@
       <testcase component="sample" execution_type="manual" id="Clipboard" purpose="Clipboard">
       </testcase>
     </set>
+    <!--
+    <set name="Cordova">
+      <testcase component="sample" execution_type="manual" id="CordovaMobileSpec" purpose="CordovaMobileSpec">
+      </testcase>
+    </set>
+    -->
   </suite>
 </test_definition>

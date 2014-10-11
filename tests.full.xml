@@ -137,6 +137,12 @@
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="DragandDrop" purpose="Drag and Drop">
       </testcase>
     </set>
+    <!--
+    <set name="Cordova">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaMobileSpec" purpose="CordovaMobileSpec">
+      </testcase>
+    </set>
+    -->
     <set name="Others">
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="MediaRenderer" purpose="Media Renderer">
       </testcase>
