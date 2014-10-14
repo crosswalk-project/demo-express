@@ -34,8 +34,44 @@
                         "js": "js",
                         "res": "res",
                         "samples": "samples",
+                        "samples-wrt": "samples",
                         "tests.android.xml": "tests.xml"
                     },
+                    "install-path": "."
+                },
+                "samples-wrt/SchemesCheck/res": {
+                    "apk-icon-opt": "",
+                    "app-name": "schemescheck",
+                    "install-path": "."
+                },
+                "samples-wrt/ManifestDemo1/res": {
+                    "apk-icon-opt": "",
+                    "app-name": "manifestdemo1",
+                    "apk-type":"MANIFEST",
+                    "install-path": "."
+                },
+                "samples-wrt/ManifestDemo2/res": {
+                    "apk-icon-opt": "",
+                    "app-name": "manifestdemo2",
+                    "apk-type":"MANIFEST",
+                    "install-path": "."
+                },
+                "samples-wrt/ManifestDemo3/res": {
+                    "apk-icon-opt": "",
+                    "app-name": "manifestdemo3",
+                    "apk-type":"MANIFEST",
+                    "install-path": "."
+                },
+                "samples-wrt/ManifestDemo4/res": {
+                    "apk-icon-opt": "",
+                    "app-name": "manifestdemo4",
+                    "apk-type":"MANIFEST",
+                    "install-path": "."
+                },
+                "samples-wrt/ManifestDemo5/res": {
+                    "apk-icon-opt": "",
+                    "app-name": "manifestdemo5",
+                    "apk-type":"MANIFEST",
                     "install-path": "."
                 }
             }

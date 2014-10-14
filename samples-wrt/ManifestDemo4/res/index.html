@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2013 Intel Corporation.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+* Redistributions of works must retain the original copyright notice, this list
+  of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the original copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+* Neither the name of Intel Corporation nor the names of its contributors
+  may be used to endorse or promote products derived from this work without
+  specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY INTEL CORPORATION "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL INTEL CORPORATION BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Authors:
+        Wang, Hongjuan <hongjuanx.wang@intel.com>
+
+-->
+
+<meta charset="utf-8">
+<title>manifest_demo_4</title>
+<link rel="author" title="Intel" href="http://www.intel.com">
+<body>
+  <h4>Crosswalk Manifest Demo 4</h4>
+  This demo shows following features can be configured by manifest.json:
+  <ul>
+    <li>Icon: A jpg format icon (purple background color)</li>
+    <li>Xwalk_version: 1.0.0.0.1</li>
+    <li>Orientation: Landscape mode</li>
+    <li>Splash Screen: Purple background color</li>
+    <li>Splash Screen: Landscape mode</li>
+    <li>Splash Screen: Ready when the first visually non-empty paint has occurred</li>
+    <li>Display: Minimal-ui provides the end-user with some means to access a minimal set of UI elements for controlling navigation (i.e., back, forward, reload, and perhaps some way of viewing the document's address)</li>
+  </ul>
+  <script>
+    function sleep(time) {
+        var date = new Date();
+        var exit = date.getTime() + time;
+        while(true){
+            date = new Date();
+            if(date.getTime() > exit) {
+                window.screen.show();
+                return;
+            }
+        }
+    }
+    sleep(2000);
+  </script>
+</body>

@@ -1,0 +1,22 @@
+{
+  "name": "manifest_demo_1",
+  "xwalk_version": "1.0",
+  "icons":[
+    {
+      "src": "icon.png",
+      "sizes": "128x128"
+    }
+  ],
+  "start_url": "http://crosswalk-project.org", 
+  "orientation": "default",
+  "display": ["fullscreen"],
+  "xwalk_launch_screen": {
+    "ready_when": "complete",
+    "default": {
+      "background_color": "#FFBBFF",
+      "background_image": "bg.png",
+      "image": "loading-auto.png",
+      "image_border": "1px 1px 1px"
+    }
+  }
+}
