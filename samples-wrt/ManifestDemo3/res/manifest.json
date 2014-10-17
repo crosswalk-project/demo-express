@@ -1,0 +1,21 @@
+{
+  "name": "manifest_demo_3",
+  "xwalk_version": "1.0.0.1",
+  "icons":[
+    {
+      "src": "icon.bmp",
+      "sizes": "128x128"
+    }
+  ],
+  "start_url": "index.html",
+  "orientation": "landscape",
+  "display": "broswer",
+  "xwalk_launch_screen": {
+    "ready_when": "custom",
+    "default": {
+      "background_color": "#66CDAA",
+      "image": "loading-landscape.png",
+      "image_border": "1px repeat round"
+    }
+  }
+}
