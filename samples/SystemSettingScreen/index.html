@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2013 Samsung Electronics Co., Ltd.
+
+Licensed under the Apache License, Version 2.0 (the License);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Authors:
+        Choi, Jongheon <j-h.choi@samsung.com>
+
+-->
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" />
+<link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css" />
+<script src="../../js/jquery/jquery.js"></script>
+<script src="../../js/jquery/jquery.mobile.js"></script>
+<script src="../../js/tests.js"></script>
+<script src="js/main.js"></script>
+<style type="text/css">
+#imageHS ul, li {list-style:none;}
+#imageLS ul, li {list-style:none;}
+#imageHS img {margin:5px; width:65px; height:70px}
+#imageLS img {margin:5px; width:65px; height:70px}
+.text_content{border: 1px solid #000; width:100%; height:200px;}
+</style>
+</head>
+<body>
+    <div data-role="page" id="main">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 id="main_page_title"></h1>
+        </div>
+        <div id="content">
+            <h4>This sample demonstrates System setting feature basic functionalities by setting home screen with an picture and setting lock screen with an picture.</h4>
+            <div>Note: Make sure there is picture file in images floder.</div>
+            <ul data-role="listview" id="list1">
+                <li data-role="list-divider">Set HomeScreen Image</li>
+                <li class="ui-li-text-ellipsis" data-id="0">N/A</li>
+            </ul>
+            <ul data-role="listview" id="imageHS"></ul>
+            <ul data-role="listview" id="list2">
+                <li data-role="list-divider">Set LockScreen Image</li>
+                <li class="ui-li-text-ellipsis" data-id="0">N/A</li>
+            </ul>
+            <ul data-role="listview" id="imageLS"></ul>
+            <ul data-role="listview">
+                <li>
+                  <div data-role="button" id="imageHG">Get HomeScreen Image</div>
+                </li>
+                <li>
+                  <div data-role="button" id="imageLG">Get LockScreen Image</div>
+                </li>
+            </ul>
+            <p>Please check image below.</p>
+            <canvas id="canvas" class="text_content"></canvas>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+        </div>
+        <div data-role="popup" id="popup_info">
+            <font style="font-size:85%">
+                <p>The SystemSettingScreen feature: SystemSettingManager interface</p>
+            </font>
+        </div>
+    </div>
+</body>
+</html>
