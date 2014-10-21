@@ -564,9 +564,6 @@ def packCordova(build_json=None, app_src=None, app_dest=None, app_name=None):
             return False
     os.chdir(pack_tool)
 
-    if not doRemove([os.path.join(pack_tool, app_name, "assets", "www")]):
-        os.chdir(orig_dir)
-        return False
     if not doCopy(app_src, os.path.join(pack_tool, app_name, "assets", "www")):
         os.chdir(orig_dir)
         return False

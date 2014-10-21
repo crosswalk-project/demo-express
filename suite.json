@@ -35,6 +35,8 @@
                         "res": "res",
                         "samples": "samples",
                         "samples-wrt": "samples",
+                        "samples-cordova/cordova-incl.js": "cordova-incl.js",
+                        "samples-cordova": "samples",
                         "tests.android.xml": "tests.xml"
                     },
                     "install-path": "."
