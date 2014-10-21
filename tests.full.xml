@@ -119,6 +119,16 @@
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="ContactsManager" purpose="Contacts Manager">
       </testcase>
     </set>
+    <set name="UI">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="Clipboard" purpose="Clipboard">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="DragandDrop" purpose="Drag and Drop">
+      </testcase>
+    </set>
+    <set name="Security">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="Sandbox" purpose="Sandbox">
+      </testcase>
+    </set>
     <set name="Experimental API">
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="DeviceCapabilities" purpose="Device Capabilities">
       </testcase>
@@ -127,17 +137,32 @@
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="SIMD" purpose="SIMD">
       </testcase>
     </set>
-    <set name="Security">
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="Sandbox" purpose="Sandbox">
+    <set name="Tizen Extension APIs">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="ApplicationManager" purpose="ApplicationManager">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="AudioSystem" purpose="AudioSystem">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="Bookmark" purpose="Bookmark">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="Content" purpose="Content">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="Download" purpose="Download">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="TizenFileSystem" purpose="Tizen Filesystem">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="MessagePort" purpose="MessagePort">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="NBS" purpose="NBS">
+        <capability name="nbs"/>
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="SystemInfo" purpose="SystemInfo">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="SystemSettingIncomingCall" purpose="SystemSetting IncomingCall">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="SystemSettingScreen" purpose="SystemSetting Screen">
       </testcase>
     </set>
-    <set name="UI">
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="Clipboard" purpose="Clipboard">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="DragandDrop" purpose="Drag and Drop">
-      </testcase>
-    </set>
-    <set name="Others">
+    <set name="Others APIs">
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="MediaRenderer" purpose="Media Renderer">
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="MediaServer" purpose="Media Server">
@@ -167,30 +192,14 @@
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="ManifestDemo5" purpose="ManifestDemo5">
       </testcase>
     </set>
-    <set name="Tizen Extension APIs">
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="ApplicationManager" purpose="ApplicationManager">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="AudioSystem" purpose="AudioSystem">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="Bookmark" purpose="Bookmark">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="Content" purpose="Content">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="Download" purpose="Download">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="TizenFileSystem" purpose="Tizen Filesystem">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="MessagePort" purpose="MessagePort">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="NBS" purpose="NBS">
-        <capability name="nbs"/>
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="SystemInfo" purpose="SystemInfo">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="SystemSettingIncomingCall" purpose="SystemSetting IncomingCall">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="SystemSettingScreen" purpose="SystemSetting Screen">
-      </testcase>
+    <!--
+    <set name="Cordova">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaInfo" purpose="CordovaInfo">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaAccelerometer" purpose="CordovaAccelerometer">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaContacts" purpose="CordovaContacts">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaLazyLoadJS" purpose="CordovaLazyLoadJS">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaNetwork" purpose="CordovaNetwork">
     </set>
+    -->
   </suite>
 </test_definition>
