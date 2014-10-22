@@ -113,20 +113,20 @@
       <testcase component="sample" execution_type="manual" id="ContactsManager" purpose="Contacts Manager">
       </testcase>
     </set>
-    <set name="Experimental API">
-      <testcase component="sample" execution_type="manual" id="DeviceCapabilities" purpose="Device Capabilities">
-      </testcase>
-      <testcase component="sample" execution_type="manual" id="Presentation" purpose="Presentation">
-      </testcase>
-      <testcase component="sample" execution_type="manual" id="SIMD" purpose="SIMD">
+    <set name="UI">
+      <testcase component="sample" execution_type="manual" id="Clipboard" purpose="Clipboard">
       </testcase>
     </set>
     <set name="Security">
       <testcase component="sample" execution_type="manual" id="Sandbox" purpose="Sandbox">
       </testcase>
     </set>
-    <set name="UI">
-      <testcase component="sample" execution_type="manual" id="Clipboard" purpose="Clipboard">
+    <set name="Experimental API">
+      <testcase component="sample" execution_type="manual" id="DeviceCapabilities" purpose="Device Capabilities">
+      </testcase>
+      <testcase component="sample" execution_type="manual" id="Presentation" purpose="Presentation">
+      </testcase>
+      <testcase component="sample" execution_type="manual" id="SIMD" purpose="SIMD">
       </testcase>
     </set>
     <set name="Third Party Framework">
@@ -151,5 +151,19 @@
       <testcase component="sample" execution_type="manual" id="ManifestDemo5" purpose="ManifestDemo5">
       </testcase>
     </set>
+    <!--
+    <set name="Cordova">
+      <testcase component="sample" execution_type="manual" id="CordovaInfo" purpose="CordovaInfo">
+      </testcase>
+      <testcase component="sample" execution_type="manual" id="CordovaAccelerometer" purpose="CordovaAccelerometer">
+      </testcase>
+      <testcase component="sample" execution_type="manual" id="CordovaContacts" purpose="CordovaContacts">
+      </testcase>
+      <testcase component="sample" execution_type="manual" id="CordovaLazyLoadJS" purpose="CordovaLazyLoadJS">
+      </testcase>
+      <testcase component="sample" execution_type="manual" id="CordovaNetwork" purpose="CordovaNetwork">
+      </testcase>
+    </set>
+    -->
   </suite>
 </test_definition>

@@ -103,28 +103,20 @@
       <testcase component="sample" execution_type="manual" id="ContactsManager" purpose="Contacts Manager">
       </testcase>
     </set>
-    <set name="Experimental API">
-      <testcase component="sample" execution_type="manual" id="DeviceCapabilities" purpose="Device Capabilities">
-      </testcase>
-      <testcase component="sample" execution_type="manual" id="SIMD" purpose="SIMD">
-      </testcase>
-    </set>
-    <set name="Security">
-      <testcase component="sample" execution_type="manual" id="Sandbox" purpose="Sandbox">
-      </testcase>
-    </set>
     <set name="UI">
       <testcase component="sample" execution_type="manual" id="Clipboard" purpose="Clipboard">
       </testcase>
       <testcase component="sample" execution_type="manual" id="DragandDrop" purpose="Drag and Drop">
       </testcase>
     </set>
-    <set name="Others">
-      <testcase component="sample" execution_type="manual" id="MediaRenderer" purpose="Media Renderer">
+    <set name="Security">
+      <testcase component="sample" execution_type="manual" id="Sandbox" purpose="Sandbox">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="MediaServer" purpose="Media Server">
+    </set>
+    <set name="Experimental API">
+      <testcase component="sample" execution_type="manual" id="DeviceCapabilities" purpose="Device Capabilities">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="NFC" purpose="NFC">
+      <testcase component="sample" execution_type="manual" id="SIMD" purpose="SIMD">
       </testcase>
     </set>
     <set name="Tizen Extension APIs">
@@ -150,6 +142,14 @@
       <testcase component="sample" execution_type="manual" id="SystemSettingIncomingCall" purpose="SystemSetting IncomingCall">
       </testcase>
       <testcase component="sample" execution_type="manual" id="SystemSettingScreen" purpose="SystemSetting Screen">
+      </testcase>
+    </set>
+    <set name="Others APIs">
+      <testcase component="sample" execution_type="manual" id="MediaRenderer" purpose="Media Renderer">
+      </testcase>
+      <testcase component="sample" execution_type="manual" id="MediaServer" purpose="Media Server">
+      </testcase>
+      <testcase component="sample" execution_type="manual" id="NFC" purpose="NFC">
       </testcase>
     </set>
   </suite>
