@@ -40,49 +40,38 @@ function addMessage(obj) {
         document.getElementById('eventLog').innerHTML = "Received event: " + obj.type;
 }
 
-var events = [
-    'poweron',
-    'poweroff',
-    'pollstart',
-    'pollstop',
-    'tagfound',
-    'taglost',
-    'peerfound',
-    'peerlost'
-];
-
-function handleEvent(e) {
-    addMessage(e);
+function initNFC() {
+    $(".tagBtn").button("disable");
+    $(".peerBtn").button("disable");
+    startPoll();
 }
-
-events.forEach(function(event) {
-    navigator.nfc.addEventListener(event, handleEvent);
-});
 
 navigator.nfc.addEventListener('tagfound', tagFound);
 navigator.nfc.addEventListener('taglost', tagLost);
 navigator.nfc.addEventListener('peerfound', peerFound);
 navigator.nfc.addEventListener('peerlost', peerLost);
 
+
+
 function tagFound(e) {
     tag = e.tag;
-    document.getElementById('tag_methods').style.display = 'block';
+    $(".tagBtn").button("enable");
 }
 
 function tagLost(e) {
     tag = null;
-    document.getElementById('tag_methods').style.display = 'none';
+    $(".tagBtn").button("disable");
 }
 
 function peerFound(e) {
     peer = e.peer;
     peer.addEventListener('messageread', onMessageRead);
-    document.getElementById('peer_methods').style.display = 'block';
+    $(".peerBtn").button("enable");
 }
 
 function peerLost(e) {
     peer = null;
-    document.getElementById('peer_methods').style.display = 'none';
+    $(".peerBtn").button("disable");
 }
 
 function onMessageRead(e) {
@@ -90,36 +79,42 @@ function onMessageRead(e) {
 }
 
 function readNDEF() {
+    addMessage("Waiting to read NDEF...");
     tag.readNDEF().then(function(record) {
     addMessage("readNDEF succeeded: " + JSON.stringify(record));},
 function(){ addMessage("Cannot read tag"); });
 }
 
 function writeTextNDEF() {
+    addMessage("Waiting to write TextNDEF..." + tag);
     var text = new NDEFRecordText("hello world", "en-US", "UTF-8");
     tag.writeNDEF(new NDEFMessage([text])).then(function(){ addMessage("writeTextNDEF Succeeded"); },
 function(){ addMessage("writeTextNDEF Failed"); });
 }
 
 function writeURINDEF() {
+    addMessage("Waiting to write URINDEF...");
     var uri = new NDEFRecordURI("http://www.intel.com");
     tag.writeNDEF(new NDEFMessage([uri])).then(function(){ addMessage("writeURINDEF Succeeded"); },
 function(){ addMessage("writeURINDEF Failed"); });
 }
 
 function sendURINDEF() {
+    addMessage("Waiting to send URINDEF...");
     var uri = new NDEFRecordURI("http://www.google.com");
     peer.sendNDEF(new NDEFMessage([uri])).then(function(){ addMessage("sendURINDEF Succeeded"); },
 function(){ addMessage("sendURINDEF Failed"); });
 }
 
 function writeMediaNDEF() {
+    addMessage("Waiting to write MediaNDEF...");
     var media = new NDEFRecordMedia("text/plain", [104, 101, 108, 108, 111]);
     tag.writeNDEF(new NDEFMessage([media])).then(function(){ addMessage("NDEFRecordMedia Succeeded"); },
 function(){ addMessage("NDEFRecordMedia Failed"); });
 }
 
 function createNDEFRecord() {
+    addMessage("Waiting to create NDEFRecord...");
     var uri = new NDEFRecordURI("http://www.intel.com");
     uri.getPayload().then(function(res){ addMessage("payload: " + res); },
 function(){ addMessage("getPayload Failed"); });
