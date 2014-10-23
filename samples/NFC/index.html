@@ -41,7 +41,7 @@ Authors:
     <script src="../../js/tests.js"></script>
     <script src="js/main.js"></script>
   </head>
-  <body>
+  <body onload="initNFC()">
     <div data-role="header">
       <h1 id="main_page_title"></h1>
     </div>
@@ -50,14 +50,16 @@ Authors:
       <p>When running this sample, moving NFC tag close to the device to detect the NFC connection.</p>
       <a href="javascript: powerOff()" data-role="button">Turn OFF NFC</a>
       <a href="javascript: powerOn()" data-role="button">Turn ON NFC</a>
+      <a href="javascript: stopPoll()" data-role="button">Stop Poll</a>
+      <a href="javascript: startPoll()" data-role="button">Start Poll</a>
       <div id='tag_methods'>
-        <a href="javascript: readNDEF()" data-role="button">Tap to Read NDEF</a>
-        <a href="javascript: writeTextNDEF()" data-role="button">Tap to Write text NDEF</a>
-        <a href="javascript: writeURINDEF()" data-role="button">Tap to Write URI NDEF</a>
-        <a href="javascript: writeMediaNDEF()" data-role="button">Tap to Write Media NDEF</a>
+        <input type="button" class="tagBtn" value="Tap to Read NDEF" onclick="readNDEF()"/>
+        <input type="button" class="tagBtn" value="Tap to Write text NDEF" onclick="writeTextNDEF()"/>
+        <input type="button" class="tagBtn" value="Tap to Write URI NDEF" onclick="writeURINDEF()"/>
+        <input type="button" class="tagBtn" value="Tap to Write Media NDEF" onclick="writeMediaNDEF()"/>
       </div>
       <div id='peer_methods'>
-        <a href="javascript: sendURINDEF()" data-role="button">Send URI NDEF to peer</a>
+        <input type="button" class="peerBtn" value="Send URI NDEF to peer" onclick="sendURINDEF()"/>
       </div>
       <div id='log'></div>
       <div id='eventLog'></div>
