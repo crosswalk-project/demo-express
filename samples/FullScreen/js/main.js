@@ -28,13 +28,12 @@ Authors:
         Tan, Shiyou <shiyoux.tan@intel.com>
 */
 $(document).ready(function () {
-    DisablePassButton();
     $("#requestFullScreen").on(
         "click",
         function(evt) {
             document.documentElement.webkitRequestFullScreen();
             requestElement("cancelFullScreen");
-            EnablePassButton();
+            $(':jqmData(role=footer)').hide();
      });
 
      $("#cancelFullScreen").on(
@@ -42,6 +41,7 @@ $(document).ready(function () {
         function(evt) {
             document.webkitCancelFullScreen();
             requestElement("");
+            $(':jqmData(role=footer)').show();
      });
 
      $("#cssFullScreen").on(
@@ -54,8 +54,8 @@ $(document).ready(function () {
                 setTimeout(function() {
                     document.documentElement.webkitRequestFullScreen();
                 }, 50);
+                $(':jqmData(role=footer)').hide();
             }
-            EnablePassButton();
      });
 
      $("#cancelCssFullScreen").on(
@@ -69,6 +69,7 @@ $(document).ready(function () {
                 document.documentElement.webkitRequestFullScreen();
                 window.location.reload();
             }
+            $(':jqmData(role=footer)').show();
      });
 });
 
