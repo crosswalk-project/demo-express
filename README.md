@@ -1,56 +1,71 @@
 ## Introduction
 
-DemoExpress demostrate how to use Web API in Crosswalk application and development based on JQuery framework, including:
-* `Runtime & Packaging`: App URI
-* `Multimedia & Graphics`:
-  * CSS3 APIs
-  * Graphics related APIs: Cavas, SVG
-  * Muti-Media related APIs: HTML Audio/Video, Media Query, Web RTC
-* `Networking & Storage`:
-  * Networking related APIs: Web Messaging, Web Speech
-  * Storage related APIs: Web Storage, Index DB, Web SQL, Session History
-  * File related APIs: File API, File Directory & System, File Writer
-* `Performance & Optimization`: Navigation Timing, PageVisibility, Resource Timing, Animation Timing, Typed Arrary, Workers, ViewPort...
-* `Device & Hardware`: Screen Orientation, Device Orientation, Browser Status, Gamepad, WebGL, LocationGPS, Media Capture, Touch, Vibration, Web Notificaiton...
-* `Socail` : Contacts
-* `Experimental` : Device Capability, Presentation, SIMD
-* `Security` : CSP, Sandbox
-* `UI` : Clipboard, Drag&drop
-* `Others` : DLNA Media Server, DLNA Media Renderer, NFC, Cordova Mobile Spec
-* `Cordova` : Platform Info, Accelerometer, Contacts, Network
+DemoExpress is a centralized place to collect web feature samples, including W3C standard APIs, Tizen Extension APIs, embedded APIs, web runtime features. Following samples are published in DemoExpress([t] = Tizen only; [a] = Android only).
 
-More information about API support in Crosswalk, see https://crosswalk-project.org/#documentation/apis/web_apis
+* Runtime & Packaging: `App URI`
+* Multimedia & Graphics: `Animation Transform`, `Audio Play`, `Canvas`, `CSS Animation`, `CSS Style`, `CSS Style Attribute`, `Flexible Box`, `Media Queries`, `SVG Transformation`, `Transitions`, `[t]Video Play`, `[a]Video Play`, `WebRTC`
+* Networking & Storage: `FileReader`, `IndexedDB`, `Session History`, `Web Database`, `Web Messaging`, `Web Speech`, `Web Storage`
+* Performance & Optimization: `Animation Timing`, `[a]High Resolution Time`, `[t]High Resolution Time`, `Navigation Timing`, `[a]Page Visibility`, `Performance Timeline`, `Resource Timing`, `Selectors`, `Typed Array`, `User Timing`, `[t]Viewport`, `Workers`
+* Device & Hardware: `Accelerometer`, `[a]Battery Status`, `Browser State`, `[a]Camera`, `Camera via UserMedia`, `Full Screen`, `Forms`, `[a]GamePad`, `HTML Template`, `Input`, `[a]Location GPS`, `Notifications`, `Screen Orientation`, `ShadowDom`, `Touch`, `[a]Vibration`, `WebAudio`, `WebGL`
+* Socail: `Contacts Manager`
+* Experimental: `Device Capabilities`, `[a]Presentation`, `SIMD`
+* Security: `Sandbox`
+* UI: `Clipboard`, `[t]Drag and Drop`
+* Tizen Extension APIs: `[t]ApplicationManager`, `[t]AudioSystem`, `[t]Bookmark`, `[t]Content`, `[t]Download`, `[t]Tizen Filesystem`, `[t]MessagePort`, `[t]NBS`, `[t]SystemInfo`, `[t]SystemSetting IncomingCall`, `[t]SystemSetting Screen`
+* Third Party Framework: `[a]PDFjs`
+* Scheme: `[a]SchemeContent`, `[a]SchemesCheck`
+* Manifest: `[a]ManifestDemo1`, `[a]ManifestDemo2`, `[a]ManifestDemo3`, `[a]ManifestDemo4`, `[a]ManifestDemo5`
+* Cordova: `[a]CordovaInfo`, `[a]CordovaAccelerometer`, `[a]CordovaContacts`, `[a]CordovaLazyLoadJS`, `[a]CordovaNetwork`
+* Others APIs: `[t]Media Renderer`, `[t]Media Server`, `[t]NFC`
 
-## Prerequisite
-*   Python >=2.7
-*   Following the instructions to set up the Crosswalk build enviornment for tizen or android at https://crosswalk-project.org/#documentation/getting_started
-*   Install Crosswalk Runtime lib in android device, the lib in [https://download.01.org/crosswalk/releases/crosswalk/android/canary/&lt;version&gt;/&lt;arch&gt;/crosswalk-apks-&lt;version&gt;-&lt;arch&gt;.zip](https://download.01.org/crosswalk/releases/crosswalk/android/canary/)
-*   Set up the DLNA server (e.g. dleyna server) before running DLNA samples(`media server`, `media renderer`), details at https://github.com/01org/cloud-dleyna/wiki.
 
 ## Building
-* Run pack.py to pack DemoExpress package, e.g.:
 
-    ./pack.py -t apk -m shared -a x86 --tools=$PATH_TO_TOOLS
+* Follow the instructions to set up Crosswalk development environment on Tizen or Android at https://crosswalk-project.org/documentation/getting_started.html
+* Build DemoExpress based on Crosswalk Android binary:
+  * Download Crosswalk binary from [Crosswalk release](https://download.01.org/crosswalk/releases/crosswalk/android/).
+  * Unzip Crosswalk binary:
+   
+    $ mkdir -p /[userdir]/tools/crosswalk/
 
-* Check full options of `pack.py` by `--help` option.
-* You are ready to install and run DemoExpress(in zip package) on a target device.
-* If need test Cordova API, remove the comment of CordovaMobileSpec in `tests.android.xml`, add cordova and cordova_plugins in tools, pack cordova DemoExpress package:
+    $ unzip crosswalk-<version\>.zip -d /[userdir]/tools/
 
-    ./pack.py -t cordova --tools=$PATH_TO_TOOLS
+    $ cd /[userdir]/tools/
 
+    $ mv crosswalk-<version\>\* crosswalk/
 
-## Organization
-* Organize and filter the samples with tests.xml. 
-* 2 samples are available:
- * `tests.tizen.xml` filter the APIs and features supported on Tizen platform.
- * `tests.android.xml` fliter the APIs and features supported on Android platform.
-* Update tests.xml to make user customized samples filter.
+    To build DemoExpress based on Crosswalk Cordova Android binary, unzip Crosswalk Cordova binary:
 
+    $ mkdir -p /[userdir]/tools/cordova/
+
+    $ unzip crosswalk-cordova-<version\>-<arch\>.zip -d /[userdir]/tools/
+
+    $ cd /[userdir]/tools/
+
+    $ mv crosswalk-cordova-<version\>\* cordova/
+
+  * Goto DemoExpress folder to pack Android version:
+
+    $ ./pack.py -t apk -m shared -a x86|arm --tools='/[userdir]/tools/'
+    
+    Pack DemoExpress Android Cordova version:
+    $ ./pack.py -t cordova --tools='/[userdir]/tools/'
+
+* Install Crosswalk Runtime lib in android device, the lib in [https://download.01.org/crosswalk/releases/crosswalk/android/canary/&lt;version&gt;/&lt;arch&gt;/crosswalk-apks-&lt;version&gt;-&lt;arch&gt;.zip](https://download.01.org/crosswalk/releases/crosswalk/android/)
+* Install and run DemoExpress on target device
+
+## Customization
+
+* File 'tests.xml' is provided to customize the samples in DemoExpress. Feel free to disable the samples by:
+    e.g.
+    <!--
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaInfo" purpose="CordovaInfo">
+    -->
+
+* Two sample lists [tests.tizen.xml](https://github.com/crosswalk-project/demo-express/blob/master/tests.tizen.xml) and [tests.android.xml](https://github.com/crosswalk-project/demo-express/blob/master/tests.android.xml) are released for Tizen and Android by default. The Cordova samples are disabled in `tests.android.xml` by default.
 
 ## LICENSE
 
 Except as noted in `COPYING` and/or `NOTICE` files, or as headed with license
 info, test suite source code uses a BSD-3-Clause license that can be found in the
 `LICENSE` file.
-
-
