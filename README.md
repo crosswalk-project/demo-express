@@ -21,48 +21,44 @@ DemoExpress is a centralized place to collect web feature samples, including W3C
 
 ## Building
 
-* Follow the instructions to set up Crosswalk development environment on Tizen or Android at https://crosswalk-project.org/documentation/getting_started.html
+* Follow the instructions to set up Crosswalk development environment on Tizen or Android at [Getting started](https://crosswalk-project.org/documentation/getting_started.html)
 * Build DemoExpress based on Crosswalk Android binary:
   * Download Crosswalk binary from [Crosswalk release](https://download.01.org/crosswalk/releases/crosswalk/android/).
   * Unzip Crosswalk binary:
    
-    $ mkdir -p /[userdir]/tools/crosswalk/
+    `$ mkdir -p /[userdir]/tools/crosswalk/`
 
-    $ unzip crosswalk-<version\>.zip -d /[userdir]/tools/
+    `$ unzip crosswalk-<version\>.zip -d /[userdir]/tools/`
 
-    $ cd /[userdir]/tools/
+    `$ cd /[userdir]/tools/`
 
-    $ mv crosswalk-<version\>\* crosswalk/
+    `$ mv crosswalk-<version\>\* crosswalk/`
 
     To build DemoExpress based on Crosswalk Cordova Android binary, unzip Crosswalk Cordova binary:
 
-    $ mkdir -p /[userdir]/tools/cordova/
+    `$ mkdir -p /[userdir]/tools/cordova/`
 
-    $ unzip crosswalk-cordova-<version\>-<arch\>.zip -d /[userdir]/tools/
+    `$ unzip crosswalk-cordova-<version\>-<arch\>.zip -d /[userdir]/tools/`
 
-    $ cd /[userdir]/tools/
+    `$ cd /[userdir]/tools/`
 
-    $ mv crosswalk-cordova-<version\>\* cordova/
+    `$ mv crosswalk-cordova-<version\>\* cordova/`
 
   * Goto DemoExpress folder to pack Android version:
 
-    $ ./pack.py -t apk -m shared -a x86|arm --tools='/[userdir]/tools/'
+    `$ ./pack.py -t apk -m shared -a x86|arm --tools='/[userdir]/tools/'`
     
     Pack DemoExpress Android Cordova version:
-    $ ./pack.py -t cordova --tools='/[userdir]/tools/'
+    `$ ./pack.py -t cordova --tools='/[userdir]/tools/'`
 
-* Install Crosswalk Runtime lib in android device, the lib in [https://download.01.org/crosswalk/releases/crosswalk/android/canary/&lt;version&gt;/&lt;arch&gt;/crosswalk-apks-&lt;version&gt;-&lt;arch&gt;.zip](https://download.01.org/crosswalk/releases/crosswalk/android/)
+* Install Crosswalk Runtime lib on target device, the lib in [https://download.01.org/crosswalk/releases/crosswalk/android/canary/&lt;version&gt;/&lt;arch&gt;/crosswalk-apks-&lt;version&gt;-&lt;arch&gt;.zip](https://download.01.org/crosswalk/releases/crosswalk/android/)
 * Install and run DemoExpress on target device
 
 ## Customization
 
-* File 'tests.xml' is provided to customize the samples in DemoExpress. Feel free to disable the samples by:
-    e.g.
-    <!--
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaInfo" purpose="CordovaInfo">
-    -->
-
-* Two sample lists [tests.tizen.xml](https://github.com/crosswalk-project/demo-express/blob/master/tests.tizen.xml) and [tests.android.xml](https://github.com/crosswalk-project/demo-express/blob/master/tests.android.xml) are released for Tizen and Android by default. The Cordova samples are disabled in `tests.android.xml` by default.
+* File 'tests.xml' is provided to customize the samples in DemoExpress. Feel free to disable/enable the samples before packing the package.
+    
+* Two sample lists [tests.tizen.xml](https://github.com/crosswalk-project/demo-express/blob/master/tests.tizen.xml) and [tests.android.xml](https://github.com/crosswalk-project/demo-express/blob/master/tests.android.xml) are released for Tizen and Android. The Cordova samples are disabled in `tests.android.xml` by default.
 
 ## LICENSE
 
