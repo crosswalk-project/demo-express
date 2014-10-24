@@ -20,9 +20,7 @@ DemoExpress is a centralized place to collect web feature samples, including W3C
 
 
 ## Building
-
-* Follow the instructions to set up Crosswalk development environment on Tizen or Android at [Getting started](https://crosswalk-project.org/documentation/getting_started.html)
-* Build DemoExpress based on Crosswalk Android binary:
+* Pack the DemoExpress based on Crosswalk Android binary:
   * Download Crosswalk binary from [Crosswalk release](https://download.01.org/crosswalk/releases/crosswalk/android/).
   * Unzip Crosswalk binary:
    
@@ -34,7 +32,7 @@ DemoExpress is a centralized place to collect web feature samples, including W3C
 
     `$ mv crosswalk-<version\>\* crosswalk/`
 
-    To build DemoExpress based on Crosswalk Cordova Android binary, unzip Crosswalk Cordova binary:
+    For packing DemoExpress Crosswalk Cordova package, also need to unzip Crosswalk Cordova binary:
 
     `$ mkdir -p /[userdir]/tools/cordova/`
 
@@ -46,13 +44,19 @@ DemoExpress is a centralized place to collect web feature samples, including W3C
 
   * Goto DemoExpress folder to pack Android version:
 
-    `$ ./pack.py -t apk -m shared -a x86|arm --tools='/[userdir]/tools/'`
+    `$ ./pack.py -t apk -m shared|embedded -a x86|arm --tools='/[userdir]/tools/'`
     
     Pack DemoExpress Android Cordova version:
-    `$ ./pack.py -t cordova --tools='/[userdir]/tools/'`
 
-* Install Crosswalk Runtime lib on target device, the lib in [https://download.01.org/crosswalk/releases/crosswalk/android/canary/&lt;version&gt;/&lt;arch&gt;/crosswalk-apks-&lt;version&gt;-&lt;arch&gt;.zip](https://download.01.org/crosswalk/releases/crosswalk/android/)
-* Install and run DemoExpress on target device
+    `$ ./pack.py -t cordova --tools='/[userdir]/tools/'`
+   
+* pack.py script combine the pack command for Android, Android cordova version, the original pack methods could be checked in the Crosswalk website
+ * [Run Crosswalk App on Andriod](https://crosswalk-project.org/documentation/getting_started/run_on_android.html)
+ * [Develop Crosswalk Cordova App] (https://crosswalk-project.org/documentation/cordova/develop_an_application.html)
+
+## EXECUTION
+* If shared mode package, Install Crosswalk Runtime lib on target device before running DemoExpress, the lib in [https://download.01.org/crosswalk/releases/crosswalk/android/canary/&lt;version&gt;/&lt;arch&gt;/crosswalk-apks-&lt;version&gt;-&lt;arch&gt;.zip](https://download.01.org/crosswalk/releases/crosswalk/android/)
+* Install and Run DemoExpress on target device
 
 ## Customization
 
