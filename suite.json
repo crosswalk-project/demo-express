@@ -9,7 +9,7 @@
         "inst.*"
     ],
     "pkg-list": {
-        "apk,cordova": {
+        "apk": {
             "blacklist": [
                 "*",
                 ".git"
@@ -35,8 +35,6 @@
                         "res": "res",
                         "samples": "samples",
                         "samples-wrt": "samples",
-                        "samples-cordova/cordova-incl.js": "cordova-incl.js",
-                        "samples-cordova": "samples",
                         "tests.android.xml": "tests.xml"
                     },
                     "install-path": "."
@@ -74,6 +72,39 @@
                     "apk-icon-opt": "",
                     "app-name": "manifestdemo5",
                     "apk-type":"MANIFEST",
+                    "install-path": "."
+                }
+            }
+        },
+        "cordova": {
+            "blacklist": [
+                "*",
+                ".git"
+            ],
+            "copylist": {
+                "LICENSE": "LICENSE",
+                "inst.apk.py": "inst.py"
+            },
+            "subapp-list": {
+                ".": {
+                    "app-name": "demoexpress",
+                    "apk-type": "MANIFEST",
+                    "blacklist": [
+                        "*",
+                        ".git"
+                    ],
+                    "copylist": {
+                        "manifest.json": "manifest.json",
+                        "css": "css",
+                        "icon.png": "icon.png",
+                        "index.html": "index.html",
+                        "js": "js",
+                        "res": "res",
+                        "samples": "samples",
+                        "samples-cordova/cordova-incl.js": "cordova-incl.js",
+                        "samples-cordova": "samples",
+                        "tests.android.xml": "tests.xml"
+                    },
                     "install-path": "."
                 }
             }
