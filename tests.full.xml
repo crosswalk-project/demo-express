@@ -169,6 +169,8 @@
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="NFC" purpose="NFC">
       </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="SSO" purpose="SSO">
+      </testcase>
     </set>
     <set name="Third Party Framework">
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="PDFjs" purpose="PDFjs">
