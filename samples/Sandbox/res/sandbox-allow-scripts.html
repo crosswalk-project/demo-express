@@ -32,11 +32,17 @@ Authors:
 
 <meta charset="utf-8">
 <title>Support file of sandbox allow-scripts</title>
+<style>
+  #testDiv {
+    background: red;
+    height: 100px;
+    width: 100px;
+  }
+</style>
 
-<img src="../../../res/images/red-100x100.png"
-     alt="User agent does not support .png image">
+<div id="testDiv"></div>
 
 <script>
-  document.querySelector("img").src = "../../../res/images/green-100x100.png";
+  document.getElementById("testDiv").style.backgroundColor = "green";
 </script>
 
