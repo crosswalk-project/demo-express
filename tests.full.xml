@@ -16,8 +16,6 @@
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="CSSStyle" purpose="CSS Style">
       </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="CSSStyleAttribute" purpose="CSS Style Attribute">
-      </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="FlexibleBox" purpose="Flexible Box">
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="MediaQueries" purpose="Media Queries">
