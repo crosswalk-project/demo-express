@@ -33,8 +33,11 @@ var testTarget;
 
 $(document).ready(function(){
     DisablePassButton();
+    $("#slider-1").slider({
+      tooltip: 'always'
+    });
     document.getElementById("MediaPlayback").volume = 0.6;
-    $("#slider-1").hide();
+    pause();
 });
 
 function play() {

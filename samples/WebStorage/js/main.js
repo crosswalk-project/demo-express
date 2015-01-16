@@ -36,7 +36,7 @@ function getStorage(type) {
   var tdSession = document.createElement("td");
   var tdLocal = document.createElement("td");
   tdSession.innerHTML = type + 'Storage';
-  tdLocal.innerHTML = storage.getItem('value');
+  tdLocal.innerHTML = storage.getItem('webstorage-value');
   addtr.appendChild(tdSession);
   addtr.appendChild(tdLocal);
   table[0].appendChild(addtr);
@@ -47,8 +47,8 @@ function onAdd(){
   var status = document.querySelector('#status');
   var session = $("#session").val();
   var local = $("#local").val();
-  sessionStorage.setItem("value", session);
-  localStorage.setItem("value", local);
+  sessionStorage.setItem("webstorage-value", session);
+  localStorage.setItem("webstorage-value", local);
   getStorage('session');
   getStorage('local');
   status.innerHTML = 'storage added';

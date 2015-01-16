@@ -40,7 +40,7 @@ $(document).ready(function(){
     playVideo = window.performance.now();
     $("#playDiv").addClass("hideButton");
     $("#play2Div").removeClass("hideButton");
-    $("#play2").button("disable");
+    $("#play2").attr('disabled', true);
   }, false);
 
    m.addEventListener("ended", function() {

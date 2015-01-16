@@ -32,7 +32,7 @@ window.addEventListener(
     "devicemotion",
     function(evt) {
         var coordinate = evt.acceleration;
-        jQuery("#x").text("X: " + Math.round(coordinate.x-0));
-        jQuery("#y").text("Y: " + Math.round(coordinate.y-0));
-        jQuery("#z").text("Z: " + Math.round(coordinate.z-0));
+        $("#x").text("X: " + Math.round(coordinate.x-0));
+        $("#y").text("Y: " + Math.round(coordinate.y-0));
+        $("#z").text("Z: " + Math.round(coordinate.z-0));
     }, false);

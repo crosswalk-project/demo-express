@@ -57,6 +57,7 @@ function send() {
 }
 
 $(document).ready(function() {
+  showMessage("help", "This sample is designed by MessagePortManagerObject, MessagePortManager, LocalMessagePort and RemoteMessagePort interfaces.");
   $("#pc1_send").click(send);
   $("#test").html("");
 });

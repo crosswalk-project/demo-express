@@ -20,95 +20,83 @@ Authors:
 
 var gDownloadId, gDocumentsDir, gFiles;
 
-$(document).delegate("#main", "pageinit", function() {
-    if($("#list>li[data-id]").length == 0) {
-        var str_null = '<li class="ui-li-text-ellipsis" data-id="0">N/A</li>';
-        $("#list").append(str_null).trigger("create").listview("refresh");
+window.onload = function(){
+    $("#download").click(downloaded);
+    $("#resume").click(resume);
+    $("#pause").click(pause);
+    $("#cancel").click(cancel);
+    $("#delete").click(deleteAllFile);
+    prepareDirsAndFiles();
+};
+
+function downloaded() {
+    if (gDownloadId != undefined) {
+        var state = tizen.download.getState(gDownloadId);
+
+        if (state == "DOWNLOADING") {
+            $("#popup_info").modal(showMessage("success", "Already downloading"));
+        } else {
+            $("#popup_info").modal(showMessage("error", "Another download in progress"));
+        }
+    } else {
+        download();
     }
-    $("#list").delegate("div", "vclick", function() {
-        deleteFileFromFolder($(this).parent().data("id"));
-        return false;
-    });
+}
 
-    $("#download").bind("vclick", function() {
-        if (gDownloadId != undefined) {
-            var state = tizen.download.getState(gDownloadId);
-
-            if (state == "DOWNLOADING") {
-                alert("Already downloading");
-            } else {
-                alert("Another download in progress");
-            }
-        } else {
-            download();
-        }
-        return false;
-    });
-
-    $("#resume").bind("vclick", function() {
-        if (gDownloadId != undefined) {
-            var state = tizen.download.getState(gDownloadId);
-
-            if (state == "PAUSED") {
-                try {
-                    tizen.download.resume(gDownloadId);
-                    alert("Resumed");
-                } catch (exc) {
-                    alert("download.resume failed: " + exc.message);
-                }
-            } else {
-                alert("Another download in progress");
-            }
-        } else {
-            alert("No download in progress");
-        }
-        return false;
-    });
-
-    $("#pause").bind("vclick", function() {
-        if (gDownloadId == undefined) {
-            alert("No download in progress");
-            return false;
-        }
-
+function resume() {
+    if (gDownloadId != undefined) {
         var state = tizen.download.getState(gDownloadId);
 
         if (state == "PAUSED") {
-            alert("Already paused");
-        } else {
             try {
-                tizen.download.pause(gDownloadId);
-                alert("Paused");
+                tizen.download.resume(gDownloadId);
+                //$("#popup_info").modal(showMessage("success", "Resumed"));
             } catch (exc) {
-                alert("download.pause failed: " + exc.message);
+                $("#popup_info").modal(showMessage("error", "download.resume failed: " + exc.message));
             }
+        } else {
+            $("#popup_info").modal(showMessage("error", "Another download in progress"));
         }
+    } else {
+        $("#popup_info").modal(showMessage("error", "No download in progress"));
+    }
+}
+
+function pause() {
+    if (gDownloadId == undefined) {
+        $("#popup_info").modal(showMessage("error", "No download in progress"));
         return false;
-    });
+    }
 
-    $("#cancel").bind("vclick", function() {
-        if (gDownloadId == undefined) {
-            alert("No download in progress");
-            return false;
-        }
+    var state = tizen.download.getState(gDownloadId);
 
+    if (state == "PAUSED") {
+        $("#popup_info").modal(showMessage("success", "Already paused"));
+    } else {
         try {
-            tizen.download.cancel(gDownloadId);
+            tizen.download.pause(gDownloadId);
+            //$("#popup_info").modal(showMessage("success", "Paused"));
         } catch (exc) {
-            alert("download.cancel failed: " + exc.message);
+            $("#popup_info").modal(showMessage("error", "download.pause failed: " + exc.message));
         }
-        return false;
-    });
+    }
+}
 
-    $("#delete").bind("vclick", function() {
-        deleteAllFile();
+function cancel() {
+    if (gDownloadId == undefined) {
+        $("#popup_info").modal(showMessage("error", "No download in progress"));
         return false;
-    });
-    prepareDirsAndFiles();
-});
+    }
+
+    try {
+        tizen.download.cancel(gDownloadId);
+    } catch (exc) {
+        $("#popup_info").modal(showMessage("error", "download.cancel failed: " + exc.message));
+    }
+}
 
 function onError(err) {
-    alert("Error: " + err.message);
+    $("#popup_info").modal(showMessage("error", "Error: " + err.message));
 }
 
 function prepareDirsAndFiles() {
@@ -118,7 +106,7 @@ function prepareDirsAndFiles() {
             showFileList();
         }, onError, "rw");
     } catch (exc) {
-        alert("tizen.filesystem.resolve(\"downloads\") exc: " + exc.message);
+        $("#popup_info").modal(showMessage("error", "tizen.filesystem.resolve(\"downloads\") exc: " + exc.message));
     }
 }
 
@@ -126,22 +114,19 @@ function makeFileList(files) {
     var str = "";
 
     gFiles = files;
-    $("#list>li[data-id]").remove();
 
     if (files.length == 0) {
-        str = '<li class="ui-li-text-ellipsis" data-id="0">N/A</li>';
+        str = '<div class="panel-body">N/A</div>';
     }
 
     for (var i = 0; i < files.length; i++) {
         if (files[i].isDirectory == false) {
-            str += '<li class="ui-li-text-ellipsis" data-id="'
-                + i
-                + '">'
+            str += '<div class="panel-body">'
                 + files[i].name
-                + '<div data-role="button" data-inline="true">Delete</div></li>';
+                + '<button type="button" class="btn btn-default btn-block" onclick="deleteFileFromFolder('+ i +')">Delete</button></div>';
         }
     }
-    $("#list").append(str).trigger("create").listview("refresh");
+    $("#downloadFolderList").html(str);
 }
 
 function showFileList() {
@@ -159,14 +144,14 @@ function deleteFileFromFolder(id) {
 
     try {
         gDocumentsDir.deleteFile(gFiles[Number(id)].fullPath, showFileList, onError);
-        alert("Download delete");
+        //$("#popup_info").modal(showMessage("success", "Download delete"));
     } catch (exc) {
-        alert("deleteFile exc: " + exc.message);
+        $("#popup_info").modal(showMessage("error", "deleteFile exc: " + exc.message));
     }
 }
 
 function deleteAllFile() {
-    alert("Download delete all");
+    $("#popup_info").modal(showMessage("success", "Download delete all"));
     if(gFiles.length > 0)
         for(var i = 0; i < gFiles.length; i++)
             if(gFiles[i].isFile == true)
@@ -177,7 +162,7 @@ function download() {
     var url = $("#url").val();
 
     if (url == "") {
-        alert("Input target URL");
+        $("#popup_info").modal(showMessage("success", "Input target URL"));
         return;
     }
 
@@ -194,19 +179,19 @@ function download() {
             //showFileList();
         },
         oncanceled: function(id) {
-            alert("Canceled");
+            $("#popup_info").modal(showMessage("success", "Canceled"));
             //showFileList();
             console.log(id);
             gDownloadId = undefined;
             $("#progressbar").reportprogress(0);
         },
         oncompleted: function(id, fullPath) {
-            alert("Completed! Full path: " + fullPath);
+            $("#popup_info").modal(showMessage("success", "Completed! Full path: " + fullPath));
             showFileList();
             gDownloadId = undefined;
         },
         onfailed: function(id, error) {
-            alert("Failed! Err: " + error.name);
+            $("#popup_info").modal(showMessage("error", "Failed! Err: " + error.name));
             //showFileList();
             gDownloadId = undefined;
             $("#progressbar").reportprogress(0);
@@ -218,9 +203,9 @@ function download() {
 
     try {
         gDownloadId = tizen.download.start(downloadRequest, listener);
-        alert("Download");
+        //$("#popup_info").modal(showMessage("success", "Download"));
     } catch (exc) {
-        alert("download.start failed : " + exc.message);
+        $("#popup_info").modal(showMessage("error", "download.start failed : " + exc.message));
     }
 }
 

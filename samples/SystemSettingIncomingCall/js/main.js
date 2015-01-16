@@ -20,14 +20,14 @@ Authors:
 
 var path;
 
-$(document).delegate("#main", "pageinit", function() {
+window.onload = function(){
   fileAudio();
-});
+};
 
 function setCall() {
-  path = $("#ringtone").find("li").data("url");
+  path = $("#list").find("div").data("url");
   if(path == null || path =="") {
-    $("#list>li[data-id]").html("Error: there is no any audio file found.")
+    $("#list").html("Error: there is no any audio file found.");
   }
   setSystemProperty("INCOMING_CALL", path, onIncomingCallSetSuccess);
 }
@@ -35,10 +35,10 @@ function setCall() {
 function getPath() {
   try {
     tizen.systemsetting.getProperty("INCOMING_CALL", function(value) {
-      alert("Sound(Get) path : " + value);
+      $("#popup_info").modal(showMessage("success", "Sound(Get) path : " + value));
     }, onError);
   } catch (e) {
-    console.log("Exception: " + e.message);
+    $("#popup_info").modal(showMessage("error", "Exception: " + e.message));
   }
 }
 
@@ -47,11 +47,11 @@ function play() {
 }
 
 function onError(e) {
-    alert("Error: " + e.message);
+    $("#popup_info").modal(showMessage("error", "Error: " + e.message));
 }
 
 function onIncomingCallSetSuccess() {
-    alert("Change of INCOMING_CALL ringtone");
+    $("#popup_info").modal(showMessage("success", "Change of INCOMING_CALL ringtone"));
 }
 
 function onIncomingCallGetSuccess(value) {
@@ -64,9 +64,9 @@ function onIncomingCallGetSuccess(value) {
 function setSystemProperty(property, path, onSuccess) {
     try {
         tizen.systemsetting.setProperty(property, path, onSuccess, onError);
-        console.log(path);
+        $("#popup_info").modal(showMessage("success", path));
     } catch (e) {
-        console.log("Exception: " + e.message);
+        $("#popup_info").modal(showMessage("error", "Exception: " + e.message));
     }
 }
 
@@ -74,7 +74,7 @@ function getSystemProperty(property, onSuccess) {
     try {
         tizen.systemsetting.getProperty(property, onSuccess, onError);
     } catch (e) {
-        console.log("Exception: " + e.message);
+        $("#popup_info").modal(showMessage("error", "Exception: " + e.message));
     }
 }
 
@@ -82,27 +82,27 @@ function fileAudio() {
     var documentsDir, length = 0, str = "";
     function onsuccess(files) {
         if(files.length > 0) {
-            $("#list>li[data-id]").remove();
-        }
-        for (var i = 0; i < files.length; i++)
-        {
-            if(files[i].isFile == true)
-            {
-                var Url = files[i].toURI();
-                Url = Url.replace("file:///", "/");
-                str += '<li data-url="' + Url + '">' + files[i].name + '</li>';
-                length++;
-                if(length >= 9)
-                    break;
-            }
+          $("#list").html("");
+          for (var i = 0; i < files.length; i++)
+          {
+              if(files[i].isFile == true)
+              {
+                  var Url = files[i].toURI();
+                  Url = Url.replace("file:///", "/");
+                  str += '<div class="panel-body" data-url="' + Url + '">' + files[i].name + '</div>';
+                  length++;
+                  if(length >= 9)
+                      break;
+              }
+          }
         }
         if(length == 0)
-            alert("Not found Sound files\nPlease add sound files.\nAdd Path: " + documentsDir.toURI() + "/");
-        $("#ringtone").html(str).trigger("create").listview("refresh");
+            $("#popup_info").modal(showMessage("error", "Not found Sound files\nPlease add sound files.\nAdd Path: " + documentsDir.toURI() + "/"));
+        $("#list").html(str);
     }
 
     function onerror(error) {
-        console.log("The error " + error.message + " occurred when listing the files in the selected folder");
+        $("#popup_info").modal(showMessage("error", "The error " + error.message + " occurred when listing the files in the selected folder"));
     }
 
     tizen.filesystem.resolve(
@@ -111,7 +111,7 @@ function fileAudio() {
                 documentsDir = dir;
                 dir.listFiles(onsuccess, onerror);
             }, function(e) {
-                alert("Error " + e.message);
+                $("#popup_info").modal(showMessage("error", "Error " + e.message));
             }, "r"
     );
 }

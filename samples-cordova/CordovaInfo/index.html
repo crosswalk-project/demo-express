@@ -20,43 +20,39 @@
 
 -->
 
+<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>Cordova Mobile Spec</title>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<script src="../../js/jquery-2.1.3.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/tests.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../cordova-incl.js"></script>
+<script type="text/javascript" charset="utf-8" src="main.js"></script>
 
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <title>Cordova Mobile Spec</title>
-    <link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/main.css" />
-    <script src="../../js/jquery/jquery.js"></script>
-    <script src="../../js/jquery/jquery.mobile.js"></script>
-    <script src="../../js/tests.js"></script>
-	<script type="text/javascript" charset="utf-8" src="../../cordova-incl.js"></script>
-	<script type="text/javascript" charset="utf-8" src="main.js"></script>
-  </head>
-  <body onload="init();" id="stage">
-    <div data-role="header">
-        <h1 id="main_page_title"></h1>
-    </div>
-    <div data-role="content">
-        <h4>This sample demonstrates the app get cordova platform information.</h4>
-        <div id="info"  class="d">
-            <h4>cordova.version: <span id="cordova"> </span></h4>
-            <h4>Platform: <span id="platform">  </span></h4>
-            <h4>Version: <span id="version"> </span></h4>
-            <h4>UUID: <span id="uuid">  </span></h4>
-            <h4>Model: <span id="model"> </span></h4>
-            <h4>Width: <span id="width">  </span>,   Height: <span id="height">
-                       </span>, Color Depth: <span id="colorDepth"></span></h4>
-            <h4>User-Agent: <span id="user-agent"> </span></h4>
-        </div>
-    </div>
-    <div data-role="footer" data-position="fixed">
-    </div>
-    <div data-role="popup" id="popup_info">
-        <font class="fontSize">
-          <p>Cordova features: cordova interface, device interface, screen interface</p>
-        </font>
-    </div>
-  </body>
-</html>
+<body onload="init();" id="stage">
+  <div id="header">
+    <h3 id="main_page_title"></h3>
+  </div>
+  <div class="content">
+      <h4>This sample demonstrates the app get cordova platform information.</h4>
+      <div id="info"  class="d">
+          <h4>cordova.version: <span id="cordova"> </span></h4>
+          <h4>Platform: <span id="platform">  </span></h4>
+          <h4>Version: <span id="version"> </span></h4>
+          <h4>UUID: <span id="uuid">  </span></h4>
+          <h4>Model: <span id="model"> </span></h4>
+          <h4>Width: <span id="width">  </span>,   Height: <span id="height">
+                     </span>, Color Depth: <span id="colorDepth"></span></h4>
+          <h4>User-Agent: <span id="user-agent"> </span></h4>
+      </div>
+  </div>
+  <div class="footer">
+    <div id="footer"></div>
+  </div>
+  <div class="modal fade" id="popup_info">
+    <p>Cordova features: cordova interface, device interface, screen interface</p>
+  </div>
+</body>

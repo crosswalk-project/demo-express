@@ -30,42 +30,36 @@ Authors:
 
 -->
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
-    <link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/main.css" />
-    <script src="../../js/jquery/jquery.js"></script>
-    <script src="../../js/jquery/jquery.mobile.js"></script>
-    <script src="../../js/tests.js"></script>
-    <script src="./js/main.js"></script>
-  </head>
-  <body>
-    <div data-role="header">
-      <h1 id="main_page_title"></h1>
-    </div>
-    <div data-role="content">
-      <h4>This sample demonstrates the mark and measure method of User Timing can calculate the time of a task.</h4>
-      <div id="test">
-        <p id="result"></p>
-        <p id="start"></p>
-        <p id="duration"></p>
-      </div>
-      <div>
-        Multiply<input id="number1" type="text" value="1" maxlength="7"/>
-        to<input id="number2" type="text" value="100000" maxlength="8"/>
-      </div>
-      <a id="compute" data-role="button">Calculator</a>
-      
-    </div>
-    <div data-role="footer" data-position="fixed">
-    </div>
-    <div data-role="popup" id="popup_info">
-      <font class="fontSize">
-        <P>Input some number to the text box, then click the 'Calculator' button to get the result.</p>
-        <p></p>
-      </font>
-    </div>
-  </body>
-</html>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<script src="../../js/jquery-2.1.3.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/tests.js"></script>
+<script src="js/main.js"></script>
+
+<div id="header">
+  <h3 id="main_page_title">BatteryStatus</h3>
+</div>
+<div class="content">
+  <h4>This sample demonstrates the mark and measure method of User Timing can calculate the time of a task.</h4>
+  <div id="test">
+    <p id="result"></p>
+    <p id="start"></p>
+    <p id="duration"></p>
+  </div>
+  <div style="margin-top: 10px;">
+    Multiply<input id="number1" class="form-control" type="text" value="1" maxlength="7"/>
+    to<input id="number2" type="text" class="form-control" value="100000" maxlength="8"/>
+  </div>
+  <button id="compute" type="button" class="btn btn-default btn-lg btn-block" style="margin-top: 10px;">Calculator</button>
+  
+</div>
+<div class="footer">
+  <div id="footer"></div>
+</div>
+<div class="modal fade" id="popup_info">
+  <P>Input some number to the text box, then click the 'Calculator' button to get the result.</p>
+</div>

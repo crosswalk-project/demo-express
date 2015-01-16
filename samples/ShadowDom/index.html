@@ -29,69 +29,66 @@ Authors:
         Xu, Kang <kangx.xu@intel.com>
 
 -->
-<html>
-<head>
+
 <meta charset="utf-8" />
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" />
-<link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css" />
-<script src="../../js/jquery/jquery.js"></script>
-<script src="../../js/jquery/jquery.mobile.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<script src="../../js/jquery-2.1.3.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
 <script src="../../js/tests.js"></script>
 <script src="js/main.js"></script>
-</head>
-<body>
+
 <template id="templates">
-    <style>
-        .outer {
-            border: 2px solid blue;
-            border-radius: 1em;
-            background: blue;
-            font-size: 20pt;
-            width: 12em;
-            height: 7em;
-            text-align: center;
-        }
+  <style>
+    .outer {
+      border: 2px solid blue;
+      border-radius: 1em;
+      background: blue;
+      font-size: 20pt;
+      width: 12em;
+      height: 7em;
+      text-align: center;
+    }
 
-        .headLine {
-            color: white;
-            font-family: sans-serif;
-            padding: 0.5em;
-        }
+    .headLine {
+      color: white;
+      font-family: sans-serif;
+      padding: 0.5em;
+    }
 
-        .nameLine {
-            color: black;
-            background: white;
-            font-family: "Marker Felt", cursive;
-            font-size: 45pt;
-            padding-top: 0.2em;
-        }
-    </style>
-    <div class="outer">
-        <div class="headLine">
-        Hello! My name is
-        </div>
-        <div class="nameLine">
-            <content></content>
-        </div>
+    .nameLine {
+      color: black;
+      background: white;
+      font-family: "Marker Felt", cursive;
+      font-size: 45pt;
+      padding-top: 0.2em;
+    }
+  </style>
+  <div class="outer">
+    <div class="headLine">
+      Hello! My name is
     </div>
+    <div class="nameLine">
+      <content></content>
+    </div>
+  </div>
 </template>
-<div data-role="page">
-    <div data-role="header" data-position="fixed" data-tap-toggle="false">
-        <h1 id="main_page_title"></h1>
-    </div>
-    <div data-role="content">
-        <h4>This sample demonstrates the shadowdom with effect: submit and show the inputs.</h4>
-        <div id="outPut"></div>
-        <input type="text"></input>
-        <div id="submit" data-role="button">Submit</div>
-    </div>
-    <div data-role="footer" data-position="fixed" data-tap-toggle="false">
-    </div>
-    <div data-role="popup" id="popup_info">
-        <font style="font-size:85%">
-            <p>This sample is designed by createShadowRoot object.</p>
-        </font>
-    </div>
+<div id="header">
+  <h3 id="main_page_title"></h3>
 </div>
-</body>
-</html>
+
+<div class="content">
+    <h4>This sample demonstrates the shadowdom with effect: submit and show the inputs.</h4>
+    <div id="outPut" align="center"></div>
+    <input type="text" style="margin: 10px 0px 10px 0px;" class="form-control"></input>
+    <button id="submit" type="button" class="btn btn-default btn-lg btn-block">Submit</button>
+</div>
+
+<div class="footer">
+  <div id="footer"></div>
+</div>
+<div class="modal fade" id="popup_info">
+  <p>This sample is designed by createShadowRoot object.</p>
+</div>

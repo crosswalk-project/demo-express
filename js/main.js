@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2013 Intel Corporation.
+Copyright (c) 2014 Intel Corporation.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -25,257 +25,142 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Authors:
-        Wang, Jing J <jing.j.wang@intel.com>
-        Fan, Yugang <yugang.fan@intel.com>
-        Jiazhen, Shentu <jiazhenx.shentu@intel.com>
-
+        Lin, Wanming <wanmingx.lin@intel.com>
 */
 
+var popup_info;
+var fileName;
+
+if(!window.localStorage) {
+  showMessage("error", "This platform does not support localStorage!");
+}
+if(!window.sessionStorage) {
+  showMessage("error", "This platform does not support sessionStorage!");
+}
+var lstorage = window.localStorage;
 var sstorage = window.sessionStorage;
-var applist;
-var listArray = [];
-var caseArray = [];
-var setNum = -1;
 
-function getVersion() {
+function testStorage() {
+  lstorage.clear();
+  var tests = getApps("tests.xml", "xml");
+  var i = 0;
+  var sname, sbg, sicon, tid, tnum, tids, tpass, tfail, setarr, setresarr, casearr, testsuite;
+  /** get&set app-version **/
   var version = "";
-  $.ajax({
-    async : false,
-    type : "GET",
-    url : "config.xml",
-    dataType : "xml",
-    success : function(xml){
-      $(xml).find("widget").each(function(){version = $(this).attr("version");});
-    }
+  $(getApps("VERSION", "json")).each(function() {
+    version = $(this).attr("app-version");
   });
-  $.ajax({
-    async : false,
-    type : "GET",
-    url : "manifest.json",
-    dataType : "json",
-    success : function(json){
-      $(json).each(function(){version = $(this).attr("version");});
+  lstorage.setItem("app-version", version);
+  /** get&set test suite **/
+  $(tests).find("suite").each(function() {
+    testsuite = $(this).attr("name");
+  })
+  lstorage.setItem("test-suite", testsuite);
+  /** set loop **/
+  $(tests).find("set").each(function() {
+    sname = $(this).attr("name");
+    sbg = $(this).attr("background");
+    sicon = $(this).attr("icon");
+    if(!sbg) {
+      showMessage("error", "Invalid tests.xml! Miss background attribute in set node.");
     }
-  });
-  return version;
-}
-
-function getApps() {
-  var tests = "";
-  $.ajax({
-    async : false,
-    type : "GET",
-    url : "tests.xml",
-    dataType : "xml",
-    success : function(xml){tests = xml;}
-  });
-  return tests;
-}
-
-function checkRepeat() {
-  var i = 0; 
-  var j = 0;
-  var isRepeat, reapeatIndex;
-  $(applist).find("set").each(function(){
-    j = 0;
-    if(listArray.indexOf($(this).attr("name")) == -1) {
-      listArray[i] = $(this).attr("name");
-      caseArray[i] = [];
-      isRepeat = false;
-    } else {
-      reapeatIndex = listArray.indexOf($(this).attr("name"));
-      isRepeat = true;
+    if(!sicon) {
+      showMessage("error", "Invalid tests.xml! Miss icon attribute in set node.");
     }
-    $(this).find("testcase").each(function(){
-      if(isRepeat) {
-        for(var k = 0; k < caseArray[reapeatIndex].length; k++) {
-           if(caseArray[reapeatIndex][k].id != $(this).attr("id")) {
-             isRepeat = false
-           }else {
-             isRepeat = true;
-           }
-        }
-        if(!isRepeat) {
-          caseArray[reapeatIndex][caseArray[reapeatIndex].length]={"id":$(this).attr("id"), "name":$(this).attr("purpose")};
-        }
-      } else {
-         caseArray[i][j] = {"id":$(this).attr("id"), "name":$(this).attr("purpose")} ;
-      }
-      j++;
-    });
     i++;
-  });
-}
-
-function updateList() {
-  $("#mylist").empty();
-  for(var i = 0; i < listArray.length; i++) {
-    if(i != setNum) {
-      var appLine = "<div data-role=\"collapsible\" data-theme=\"b\"><h3>"+listArray[i]+"</h3>\n    <ul data-role=\"listview\" data-inset=\"false\">\n";
-    }else {
-      var appLine = "<div data-role=\"collapsible\" data-collapsed = \"false\" data-theme=\"b\"><h3>"+listArray[i]+"</h3>\n    <ul data-role=\"listview\" data-inset=\"false\">\n";
-    }
-    for(var j = 0; j < caseArray[i].length; j++) {
-      var url = "samples/" + caseArray[i][j].id + "/index.html?test_name="+caseArray[i][j].name;
-      appLine += "<li class=\"app\" id=\"" + caseArray[i][j].id + "\">"
-                  + "<a href=\"" + url + "\">" + "<h2 style=\"margin-left:25px\">" + caseArray[i][j].name + "</h2></a></li>\n";
-    }
-    appLine += "</ul></div>";
-    $("#mylist").append(appLine);
-  }
-  for(var i=0; i<sstorage.length; i++){
-    var name = sstorage.key(i);
-    var item = sstorage.getItem(name);
-    var node = $("h2:contains('"+ name + "')").map(function() {
-                 if ($(this).text() == name) {
-                   return this;
-                 }
-               }).parent().parent();
-    if (item == "PASS") {
-      node.attr("data-theme", "g");
-      node.append("<img src='css/images/pass.png' class='ui-li-thumb'>");
-      node.append("<span class='ui-li-count' style='color:green;'>PASS</span>");
-      node.find("a h2").css("padding-left", "20px");
-    } else if (item == "FAIL"){
-      node.attr("data-theme", "r");
-      node.append("<img src='css/images/fail.png' class='ui-li-thumb'>");
-      node.append("<span class='ui-li-count' style='color:red;'>FAIL</span>");
-      node.find("a h2").css("padding-left", "20px");
-    } else {
-      resultnum = item.split(",");
-      if (resultnum[3] == "PASS") {
-        node.attr("data-theme", "g");
-        node.append("<img src='css/images/pass.png' class='ui-li-thumb'>");
-        node.append("<span class='ui-li-count' style='color:green;'>"  + resultnum[0] + "</span>");
-        node.append("<span class='ui-li-count' style='color:red;'>"  + resultnum[1] + "</span>");
-        node.append("<span class='ui-li-count' style='color:gray;'>"  + resultnum[2] + "</span>");
-        node.find("a h2").css("padding-left", "20px");
-      } else if (resultnum[3] == "FAIL"){
-        node.attr("data-theme", "r");
-        node.append("<img src='css/images/fail.png' class='ui-li-thumb'>");
-        node.append("<span class='ui-li-count' style='color:green;'>"  + resultnum[0] + "</span>");
-        node.append("<span class='ui-li-count' style='color:red;'>"  + resultnum[1] + "</span>");
-        node.append("<span class='ui-li-count' style='color:gray;'>"  + resultnum[2] + "</span>");
-        node.find("a h2").css("padding-left", "20px");
+    var j = 0;
+    /** test case loop **/
+    tids = "";
+    $(this).find("testcase").each(function() {
+      tid = $(this).attr("id");
+      purpose = $(this).attr("purpose");
+      tids += tid + ",";
+      tnum = 1;
+      if($(this).attr("subcase")) {
+        tnum = parseInt($(this).attr("subcase"));
       }
-    }
-    setNum = -2;
-  }
-
-  $("#mylist").collapsibleset().trigger("create");
-  $(".ui-li-has-count").each(function() {
-    var childs = $(this).find(".ui-li-count");
-    if (childs.length == 3) {
-      $(childs[0]).css("min-width","10px");
-      $(childs[1]).css("min-width","10px");
-      $(childs[2]).css("min-width","10px");
-      var shiftSecond = ($(childs[2]).position().left - $(childs[1]).outerWidth());
-      var shiftFirst = (shiftSecond - 23);
-      $(childs[0]).css("left", shiftFirst).css("right","auto");
-      $(childs[1]).css("left", shiftSecond).css("right","auto");
-    }
-  });
-}
-
-function updateFooter() {
-  $(':jqmData(role=footer)').find(':jqmData(role=button) > span:first-child').css('padding', '15px 10px 15px 30px');
-  $("#popup_info").popup( "option", "theme", "a");
-  var maxHeight = $(window).height() - 100 + "px";
-  $("#popup_info").css("max-height", maxHeight);
-  $("#popup_info").css("margin-bottom", "30px");
-}
-
-function launchMain(node) {
-  if ($("#home_ui").find("div").length > 0) {
-    updateList();
-    $.mobile.changePage("#home_ui", {
-      'allowSamePageTransition' : true,
-      'transition' : 'slide',
-      'reverse' : true
+      casearr = {purpose:purpose, num:tnum, pass:"0", fail:"0", result:"", sid:"set" + i}; //result: "", "pass", "fail"
+      j += tnum;
+      lstorage.setItem(tid, JSON.stringify(casearr)); //store case info
     });
-    if (node != "") {
-      $("html,body").animate({
-        scrollTop:$("h2:contains(" + node +")").offset().top - 25
-      }, 500);
-    }
-  } else {
-    $.mobile.changePage("#main", {
-      'allowSamePageTransition' : true,
-      'transition' : 'slide',
-      'reverse' : true
-    });
-  }
-  $("#test_frame").attr("src", "");
-}
-
-function runApp(url) {
-  $.mobile.changePage("#test_ui", {
-    'allowSamePageTransition' : true,
-    'transition' : 'slide',
-    'changeHash' : false
+    setarr = {name:sname, background:sbg, icon:sicon, tids:tids.substring(0, tids.length-1)};
+    lstorage.setItem("set" + i, JSON.stringify(setarr)); //store set info
+    setresarr = {totalnum:j, passnum:"", failnum:""};
+    lstorage.setItem("set" + i + "res", JSON.stringify(setresarr)); //store set result
   });
-  $("#test_frame").attr("height", $(window).height());
-  $("#test_frame").attr("src", url);
+  lstorage.setItem("setnum", i);  //store set total num
 }
 
-function findSet(name) {
-   for(var i = 0; i < caseArray.length; i++) {
-     for(var j = 0; j < caseArray[i].length; j ++) {
-       if(name == caseArray[i][j].id) { 
-          setNum = i;
-       }   
-     }
-   }
-   return j;
-}
-
-$("#home_ui").live("pagebeforecreate", function () {
-  $("#version").text(getVersion());
-});
-
-$("#home_ui").live("pageshow", function () {
-  applist = getApps();
-  if(setNum == -1) {
-    checkRepeat();
+function listSet() {
+  $('#main_title').append(lstorage.getItem("test-suite"));
+  $("#help").click(help);
+  $("#exit").click(exit);
+  document.getElementById('app-version').innerHTML = lstorage.getItem("app-version");
+  var snum = parseInt(lstorage.getItem("setnum"));
+  for(var i = 0; i < snum; i++) {
+    var sid = "set" + (i + 1);
+    var setarr = JSON.parse(lstorage.getItem(sid));
+    var sname = setarr.name;
+    var sbg = "color-swatches " + setarr.background;
+    var sicon = "glyphicon " + setarr.icon;
+    var surl = "tests_list.html?sid=" + sid;
+    var setresarr = JSON.parse(lstorage.getItem(sid + "res"));
+    var totalnum = parseInt(setresarr.totalnum);
+    var passnum = setresarr.passnum;
+    var failnum = setresarr.failnum;
+    var setresline = "";
+    if(passnum != "" || failnum != "") {
+      setresline = '<span class=\"label label-primary\" style=\"margin-right:5px\">Total:' + totalnum +'</span>\n'
+                    + '<span class=\"label label-success\">' + passnum + '</span>\n'
+                    + '<span class=\"label label-danger\">' + failnum + '</span>\n'
+                    + '<span class=\"label label-default\">' + (totalnum-parseInt(passnum)-parseInt(failnum)) + '</span>\n';
+    }
+    var setline = '<div class=\"col-md-4\">\n<div class=\"media\">\n'
+                  + '<a class=\"pull-left\" href=\"' + surl + '\">\n'
+                  + '<div class=\"' + sbg + '\"><span class=\"' + sicon + '\"></span></div>\n</a>\n'
+                  + '<div class=\"media-body\">\n'
+                  + '<a href=\"' + surl +'\"><h4 class=\"media-heading\">' + sname + '</h4></a>\n'
+                  + setresline
+                  + '</div>\n</div>\n</div>\n';
+    $('#myset').append(setline);
   }
-  updateList();
-  updateFooter();
-});
+}
 
-$("#exit").live("click", function () {
+function help() {
+  showMessage("help", popup_info);
+}
+
+function exit() {
+  showMessage("exit", "Are you sure to exit?");
+  $("#ifConfirm").click(confirmExit);
+}
+
+function confirmExit() {
+  try {
+    var app = tizen.application.getCurrentApplication();
+    app.exit();
+  } catch(error) {
+    closeWindow();
+  } finally {
+    closeWindow();
+  }
+}
+
+function closeWindow() {
   window.open('', '_self');
   window.close();
+}
+
+function uselstorage() {
+  window.location.reload();
+  testStorage();
+}
+
+$(document).ready(function(){
+  popup_info = $("#popup_info").html();
+  testStorage();
+  listSet();
 });
 
-$("#reset").live("click", function (event) {
-  sstorage.clear();
-  updateList();
-  return false;
-});
 
-$(".app").live("click", function () {
-  findSet($(this).attr("id"));
-  //var caseUrl = "samples/" + caseArray[setNum][caseindex].id + "/index.html?test_name="+caseArray[setNum][caseindex].name;
- // ruanApp(caseUrl); 
-  runApp($(this).find("div div a").attr("href"));
-  return false;
-});
 
-$('#main').live('pageshow',function(){
-  for(var i=0;i<sstorage.length;i++){
-    var key = sstorage.key(i);
-    var str = "h2:contains("+ key +")";
-    var node = $(str).map(function() {
-                 if ($(this).text() == name) {
-                   return this;
-                 }
-               });
-    var item = sstorage.getItem(key);
-    if (item == "PASS") {
-      node.attr('style', 'color:green;');
-    } else if (item == "FAIL"){
-      node.attr('style', 'color:red;');
-    }
-  }
-  updateFooter();
-});

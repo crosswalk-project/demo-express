@@ -29,48 +29,47 @@ Authors:
         Shentu, Jiazhen <jiazhenx.shentu@intel.com>
 
 -->
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
-    <link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/main.css" />
-    <script src="../../js/jquery/jquery.js"></script>
-    <script src="../../js/jquery/jquery.mobile.js"></script>
-    <script src="../../js/tests.js"></script>
-    <script src="js/main.js"></script>
-  </head>
-  <body>
-    <div data-role="header">
-      <h1 id="main_page_title"></h1>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<script src="../../js/jquery-2.1.3.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/tests.js"></script>
+<script src="js/main.js"></script>
+
+<div id="header">
+  <h3 id="main_page_title"></h3>
+</div>
+
+<div class="content">
+  <h4>This sample demonstrates the Session History with two effects: this page is added 10 session history state from 1 - 10, backing or forwarding to current history state by clicking 'Back' or 'Forward'.</h4>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      Current history state
     </div>
-    <div data-role="content">
-      <h4>This sample demonstrates the Session History with two effects: this page is added 10 session history state from 1 - 10, backing or forwarding to current history state by clicking 'Back' or 'Forward' .</h4>
-      <ul data-role="listview">
-        <li data-role="list-divider">Current history state</li>
-        <li>
-          <lable id="sessionID"></lable>
-        </li>
-        <li>
-          <div class="ui-grid-a">
-            <div class="ui-block-a">
-              <input id="back" type="button" data-icon="arrow-l" value="Back"/>
-            </div>
-            <div class="ui-block-b">
-              <input id="forward" type="button" data-icon="arrow-r" value="Forward" data-iconpos="right"/>
-            </div>
-          </div>
-        </li>
-        <li>
-      </ul>
-      <p>Note:Please do not click other buttons except 'Back' and 'Forward'  during the test, otherwise it will affect test result.</p>
+      <div class="panel-body" id="sessionID"></div>
+  </div>
+
+  <div class="div-bar">
+    <div class="bar-grid-a">
+      <button id="sback" type="button" class="btn btn-default btn-lg btn-block">
+        <span class="glyphicon glyphicon-chevron-left navbar-left"></span><span>Back</span>
+      </button>
     </div>
-    <div data-role="footer" data-position="fixed">
+    <div class="bar-grid-a">
+      <button id="sforward" type="button" class="btn btn-default btn-lg btn-block"/>
+        <span>Forward</span><span class="glyphicon glyphicon-chevron-right navbar-right"></span>
+      </button>
     </div>
-    <div data-role="popup" id="popup_info">
-      <font class="fontSize">
-       <p>This sample is designed by history and PopStateEvent interface.</p>
-      </font>
-    </div>
-  </body>
-</html>
+  </div>
+  <p>Note:Please do not click other buttons except 'Back' and 'Forward' during the test, otherwise it will affect test result.</p>
+</div>
+<div class="footer">
+  <div id="footer"></div>
+</div>
+<div class="modal fade" id="popup_info">
+  <p>This sample is designed by history and PopStateEvent interface.</p>
+</div>

@@ -46,7 +46,7 @@ Authors:
     opacity: 1;
     overflow: auto;
 }
-h3{
+#h{
     font-family: TestFont, Georgia, "Times New Roman", Times, serif;
     text-align: center;
 }
@@ -255,4 +255,9 @@ div.ui-slider {
 .u .ui-btn-inner, .q .ui-btn-inner{
     padding: .6em 5px;
     overflow: visible;
+}
+.textArr{
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: normal;
 }

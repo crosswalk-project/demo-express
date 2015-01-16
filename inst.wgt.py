@@ -13,7 +13,7 @@ from optparse import OptionParser, make_option
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PKG_NAME = os.path.basename(SCRIPT_DIR)
 PARAMETERS = None
-XW_ENV = "export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/5000/dbus/user_bus_socket"
+#XW_ENV = "export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/5000/dbus/user_bus_socket"
 SRC_DIR = "/home/app/content"
 PKG_SRC_DIR = "%s/tct/opt/%s" % (SRC_DIR, PKG_NAME)
 
@@ -39,8 +39,16 @@ def doCMD(cmd):
 
 def updateCMD(cmd=None):
     if "pkgcmd" in cmd:
-        cmd = "su - app -c '%s;%s'" % (XW_ENV, cmd)
+        cmd = "su - %s -c '%s;%s'" % (PARAMETERS.user, XW_ENV, cmd)
     return cmd
+def getUSERID():
+    if PARAMETERS.mode == "SDB":
+        cmd = "sdb -s %s shell id -u %s" % (
+            PARAMETERS.device, PARAMETERS.user)
+    else:
+        cmd = "ssh %s \"id -u %s\"" % (
+            PARAMETERS.device, PARAMETERS.user )
+    return doCMD(cmd)
 
 
 def getPKGID(pkg_name=None):
@@ -57,16 +65,9 @@ def getPKGID(pkg_name=None):
 
     test_pkg_id = None
     for line in output:
-        pkg_infos = line.split()
-        if len(pkg_infos) == 4:
-            continue
-        name = pkg_infos[5]
-        name = name.lstrip('[').rstrip(']')
-        print "name is: %s" % name
-        if pkg_name == name:
-            test_pkg_id = pkg_infos[3]
-            test_pkg_id = test_pkg_id.lstrip('[').rstrip(']')
-            print test_pkg_id
+        if line.find("[" + pkg_name + "]") != -1:
+            pkgidIndex = line.split().index("pkgid")
+            test_pkg_id = line.split()[pkgidIndex+1].strip("[]")
             break
     return test_pkg_id
 
@@ -165,12 +166,16 @@ def main():
             "-i", dest="binstpkg", action="store_true", help="Install package")
         opts_parser.add_option(
             "-u", dest="buninstpkg", action="store_true", help="Uninstall package")
+        opts_parser.add_option(
+            "-a", dest="user", action="store", help="User name")
         global PARAMETERS
         (PARAMETERS, args) = opts_parser.parse_args()
     except Exception, e:
         print "Got wrong option: %s, exit ..." % e
         sys.exit(1)
 
+    if not PARAMETERS.user:
+        PARAMETERS.user = "app"
     if not PARAMETERS.mode:
         PARAMETERS.mode = "SDB"
 
@@ -188,6 +193,15 @@ def main():
         print "No device provided"
         sys.exit(1)
 
+    user_info = getUSERID()
+    re_code = user_info[0]
+    if re_code == 0 :
+        global XW_ENV
+        userid = user_info[1][0]
+        XW_ENV = "export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/%s/dbus/user_bus_socket"%str(userid)
+    else:
+        print "[Error] cmd commands error : %s"%str(user_info[1])
+        sys.exit(1)
     if PARAMETERS.binstpkg and PARAMETERS.buninstpkg:
         print "-i and -u are conflict"
         sys.exit(1)

@@ -50,7 +50,7 @@ function getPoint (obj) {
   var t = obj.offsetTop;
   var l = obj.offsetLeft;
 
-  while (obj = obj.offsetParent) {
+  while (obj == obj.offsetParent) {
     obj = obj.offsetParent;
     if (obj != undefined) {
       t += obj.offsetTop;
@@ -62,7 +62,7 @@ function getPoint (obj) {
 function animate(time) {
   var obj = document.getElementById("testDiv");
   var l = obj.offsetLeft;
-  while (obj = obj.offsetParent) {
+  while (obj == obj.offsetParent) {
     obj = obj.offsetParent;
     if (obj != undefined) {
       l += obj.offsetLeft;

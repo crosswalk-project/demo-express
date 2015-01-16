@@ -29,13 +29,16 @@
                     "copylist": {
                         "manifest.json": "manifest.json",
                         "css": "css",
+                        "fonts": "fonts",
                         "icon.png": "icon.png",
                         "index.html": "index.html",
                         "js": "js",
                         "res": "res",
                         "samples": "samples",
                         "samples-wrt": "samples",
-                        "tests.android.xml": "tests.xml"
+                        "tests.android.xml": "tests.xml",
+                        "tests_list.html": "tests_list.html",
+                        "VERSION": "VERSION"
                     },
                     "install-path": "."
                 },
@@ -96,6 +99,7 @@
                     "copylist": {
                         "manifest.json": "manifest.json",
                         "css": "css",
+                        "fonts": "fonts",
                         "icon.png": "icon.png",
                         "index.html": "index.html",
                         "js": "js",
@@ -103,7 +107,9 @@
                         "samples": "samples",
                         "samples-cordova/cordova-incl.js": "cordova-incl.js",
                         "samples-cordova": "samples",
-                        "tests.android.xml": "tests.xml"
+                        "tests.android.xml": "tests.xml",
+                        "tests_list.html": "tests_list.html",
+                        "VERSION": "VERSION"
                     },
                     "install-path": "."
                 }
@@ -117,9 +123,7 @@
             "copylist": {
                 "LICENSE": "LICENSE",
                 "inst.wgt.py": "inst.py",
-                "res/css": "res/css",
-                "res/font": "res/font",
-                "res/images": "res/images"
+                "res/": "res/"
             },
             "subapp-list": {
                 ".": {
@@ -131,12 +135,15 @@
                     "copylist": {
                         "config.xml": "config.xml",
                         "css": "css",
+                        "fonts": "fonts",
                         "icon.png": "icon.png",
                         "index.html": "index.html",
                         "js": "js",
                         "res": "res",
                         "samples": "samples",
-                        "tests.tizen.xml": "tests.xml"
+                        "tests.tizen.xml": "tests.xml",
+                        "tests_list.html": "tests_list.html",
+                        "VERSION": "VERSION"
                     },
                     "install-path": ".",
                     "sign-flag": "true"
@@ -171,13 +178,16 @@
                     "copylist": {
                         "config.xml": "config.xml",
                         "css": "css",
+                        "fonts": "fonts",
                         "icon.png": "icon.png",
                         "index.html": "index.html",
                         "js": "js",
                         "manifest.json": "manifest.json",
                         "res": "res",
                         "samples": "samples",
-                        "tests.tizen.xml": "tests.xml"
+                        "tests.tizen.xml": "tests.xml",
+                        "tests_list.html": "tests_list.html",
+                        "VERSION": "VERSION"
                     },
                     "install-path": ".",
                     "sign-flag": "true"

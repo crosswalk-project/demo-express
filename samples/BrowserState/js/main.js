@@ -37,17 +37,17 @@ function init() {
 window.onload = init;
 
 function make1lineListItem(value) {
-  return '<li>' + value + '</li>';
+  return '<div class="panel-body">' + value + '</div>';
 }
 
 function makeDividerListItem(value) {
-  return '<li data-role="list-divider">' + value + '</li>';
+  return '<div class="panel-heading">' + value + '</div>';
 }
 
 function browserStatusSuccess() {
   gInfo = makeDividerListItem("Browser status")
           + make1lineListItem("online status : " + navigator.onLine);
-  $("#info-list1").html(gInfo).trigger("create").listview("refresh");
+  $("#info-list1").html(gInfo);
 }
 
 function connectionSuccess() {
@@ -56,7 +56,7 @@ function connectionSuccess() {
   gInfo = makeDividerListItem("Connection status")
           + make1lineListItem("bandwidth : " + bandwidth)
           + make1lineListItem("metered : " + metered);
-  $("#info-list2").html(gInfo).trigger("create").listview("refresh");
+  $("#info-list2").html(gInfo);
 }
 
 window.ononline = function () {

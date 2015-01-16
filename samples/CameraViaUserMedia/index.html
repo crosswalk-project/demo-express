@@ -29,50 +29,46 @@ Authors:
         Xin, liu <xinx.liu@intel.com>
 
 -->
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
-        <link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css" />
-        <link rel="stylesheet" type="text/css" href="../../css/main.css" />
-        <script src="../../js/jquery/jquery.js"></script>
-        <script src="../../js/jquery/jquery.mobile.js"></script>
-        <script src="../../js/tests.js"></script>
-        <script src="js/main.js"></script>
-        <style>
-            #observateEare {
-                border: black solid 1px;
-                height: 330px;
-                line-height:330px;
-            }
-        </style>
-    </head>
-    <body>
-        <div data-role="header">
-            <h1 id="main_page_title"></h1>
-        </div>
-        <div data-role="content">
-            <h4>This sample gets the camera preview with the getUserMedia interface.</h4>
-            <div id="observateEare" align="center">
-              <p id="errormassage"></p>
-              <div align="center">
-                <video width="330px" height="330px" id="localView" autoplay="autoplay"></video>
-              </div>
-            </div>
-            <div align="center">
-              <input id="getUserMeida" type="button" value="Start camera preview" />
-              <input id="stopUserMeida" type="button" value="Stop camera preview" />
-            </div>
-        </div>
-        <div data-role="footer" data-position="fixed">
-        </div>
-        <div data-role="popup" id="popup_info">
-          <font class="fontSize">
-            <ol>
-              <li>Click the "Start camera preview" button to launch the preview.</li>
-              <li>Click the "Stop camera preview" button to close the preview.</li>
-            </ol>
-          </font>
-        </div>
-    </body>
-</html>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<script src="../../js/jquery-2.1.3.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/tests.js"></script>
+<script src="js/main.js"></script>
+<style>
+    #observateEare {
+        border: black solid 1px;
+        height: 330px;
+        line-height:330px;
+    }
+</style>
+
+<div id="header">
+    <h3 id="main_page_title"></h3>
+</div>
+<div class="content">
+    <h4>This sample gets the camera preview with the getUserMedia interface.</h4>
+    <div id="observateEare" align="center">
+      <p id="errormassage"></p>
+      <div align="center">
+        <video width="330px" height="330px" id="localView" autoplay="autoplay"></video>
+      </div>
+    </div>
+    <div class="div-bar">
+      <button id="getUserMeida" type="button" class="btn btn-default btn-lg btn-block" style="cursor: pointer; position: relative;">Start camera preview</button>
+      <button id="stopUserMeida" type="button" class="btn btn-default btn-lg btn-block" style="cursor: pointer; position: relative;">Stop camera preview</button>
+    </div>
+</div>
+<div class="footer">
+  <div id="footer"></div>
+</div>
+<div class="modal fade" id="popup_info">
+  <ol>
+    <li>Click the "Start camera preview" button to launch the preview.</li>
+    <li>Click the "Stop camera preview" button to close the preview.</li>
+  </ol>
+</div>

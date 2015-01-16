@@ -18,58 +18,51 @@ Authors:
         Choi, Jongheon <j-h.choi@samsung.com>
 
 -->
-<html>
-<head>
+
 <meta charset="utf-8" />
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" />
-<link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<script src="../../js/jquery/jquery.js"></script>
-<script src="../../js/jquery/jquery.mobile.js"></script>
+<script src="../../js/jquery-2.1.3.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
 <script src="js/jqueryprogressbar.js" type="text/javascript"></script>
 <script src="../../js/tests.js"></script>
 <script src="js/main.js"></script>
-</head>
-<body>
-    <div data-role="page" id="main">
-        <div data-role="header" data-position="fixed" data-tap-toggle="false">
-            <h1 id="main_page_title"></h1>
+
+<div id="header">
+  <h3 id="main_page_title"></h3>
+</div>
+<div class="content">
+    <h4>This sample demonstrates Download feature basic functionalities by downloading a file</h4>
+    <div id="list" class="panel panel-primary">
+        <div class="panel-heading">Download URL</div>
+        <div class="panel-body">
+            <input type="url" class="form-control" id="url" value="http://download.tizen.org/tct/tct-download-tizen-tests-image-hq.png" />
         </div>
-        <div id="content">
-            <h4>This sample demonstrates Download feature basic functionalities by downloading a file</h4>
-            <ul data-role="listview" id="list">
-                <li data-role="list-divider">Download URL</li>
-                <li>
-                    <input type="url" id="url" value="http://download.tizen.org/tct/tct-download-tizen-tests-image-hq.png" />
-                </li>
-                <li data-role="list-divider">Progress Bar</li>
-                <li>
-                    <div data-role="none" id="progressbar"></div>
-                </li>
-                <li data-role="list-divider">Download</li>
-                <li>
-                    <div data-role="button" id="download">Download</div>
-                    <div data-role="button" id="pause">Pause</div>
-                    <div data-role="button" id="resume">Resume</div>
-                    <div data-role="button" id="cancel">Cancel</div>
-                </li>
-                <li data-role="list-divider">Download folder</li>
-                <li class="ui-li-text-ellipsis" data-id="0">N/A</li>
-            </ul>
-            <ul data-role="listview">
-                <li data-role="list-divider">Download list delete</li>
-                <li>
-                    <div data-role="button" id="delete">Delete all</div>
-                </li>
-            </ul>
+        <div class="panel-heading">Progress Bar</div>
+        <div class="panel-body">
+            <div id="progressbar"></div>
         </div>
-        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+        <div class="panel-heading">Download</div>
+        <div class="panel-body">
+            <button type="button" id="download" class="btn btn-default btn-lg btn-block">Download</button>
+            <button type="button" id="pause" class="btn btn-default btn-lg btn-block">Pause</button>
+            <button type="button" id="resume" class="btn btn-default btn-lg btn-block">Resume</button>
+            <button type="button" id="cancel" class="btn btn-default btn-lg btn-block">Cancel</button>
         </div>
-        <div data-role="popup" id="popup_info">
-            <font style="font-size:85%">
-                <p>The Dowonload feature: DownloadManager and DownloadRequest and DownloadCallback interfaces</p><br>
-            </font>
+        <div class="panel-heading">Download folder</div>
+        <div id="downloadFolderList" class="panel-body">N/A</div>
+        <div class="panel-heading">Download list delete</div>
+        <div class="panel-body">
+            <button type="button" id="delete" class="btn btn-default btn-lg btn-block">Delete all</button>
         </div>
     </div>
-</body>
-</html>
+</div>
+<div class="footer">
+  <div id="footer"></div>
+</div>
+<div class="modal fade" id="popup_info">
+  <p>The Dowonload feature: DownloadManager and DownloadRequest and DownloadCallback interfaces</p><br>
+</div>

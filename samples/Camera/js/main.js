@@ -58,17 +58,11 @@ $(document).ready(function(){
     $("#photoShow").html("No photo");
     $("#files")[0].onchange = function(evt) {
         try {
-            // loading
-            $.mobile.showPageLoadingMsg();
-
             var files = evt.target.files; // FileList object
             $("#filename").html(files[0].name);
             drawOnCanvas(files[0]);
-
-            $.mobile.hidePageLoadingMsg();
             EnablePassButton();
         } catch(err) {
-            $.mobile.hidePageLoadingMsg();
             $("#filename").html(err);
         }
     }

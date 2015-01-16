@@ -29,33 +29,33 @@ Authors:
 
 */
 
-$("#back").live('tap', function () {
+$(document).on('click', '#sback', function () {
     window.history.back();
 });
 
-$("#forward").live('tap', function () {
+$(document).on('click', '#sforward', function () {
     window.history.forward();
 });
 
-$(document).live('pageshow', function () {
-    for (var i = 0; i<11;i++) {
+$(document).ready(function () {
+    for (var i = 0; i<11; i++) {
         window.history.pushState(i);
     }
     var state = window.history.state;
     $("#sessionID").text(state);
-    $("#forward").button("disable");
+    $("#sforward").attr('disabled', true);
     window.addEventListener("popstate", function(e) {
         var state = window.history.state;
         $("#sessionID").text(state);
         if (parseInt(state) > 1) {
-            $("#back").button("enable");
+            $("#sback").attr('disabled', false);
         } else {
-            $("#back").button("disable");
+            $("#sback").attr('disabled', true);
         }
         if (parseInt(state) == 10) {
-            $("#forward").button("disable");
+            $("#sforward").attr('disabled', true);
         } else {
-            $("#forward").button("enable");
+            $("#sforward").attr('disabled', false);
         }
     });
 });

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <test_definition>
   <suite name="DemoExpress">
-    <set name="Runtime &amp;amp; Packaging">
+    <set name="Runtime &amp;amp; Packaging" background="brand-primary" icon="glyphicon-asterisk">
       <testcase component="sample" execution_type="manual" id="AppURI" purpose="App URI">
       </testcase>
     </set>
-    <set name="Multimedia &amp;amp; Graphics">
+    <set name="Multimedia &amp;amp; Graphics" background="brand-success" icon="glyphicon-facetime-video">
       <testcase component="sample" execution_type="manual" id="AnimationTransform" purpose="Animation Transform">
       </testcase>
       <testcase component="sample" execution_type="manual" id="AudioPlay" purpose="Audio Play">
@@ -29,7 +29,7 @@
       <testcase component="sample" execution_type="manual" id="WebRTC" purpose="WebRTC">
       </testcase>
     </set>
-    <set name="Networking &amp;amp; Storage">
+    <set name="Networking &amp;amp; Storage" background="brand-warning" icon="glyphicon-link">
       <testcase component="sample" execution_type="manual" id="FileReader" purpose="FileReader">
       </testcase>
       <testcase component="sample" execution_type="manual" id="IndexedDB" purpose="IndexedDB">
@@ -45,7 +45,7 @@
       <testcase component="sample" execution_type="manual" id="WebStorage" purpose="Web Storage">
       </testcase>
     </set>
-    <set name="Performance &amp;amp; Optimization">
+    <set name="Performance &amp;amp; Optimization" background="brand-danger" icon="glyphicon-th-large">
       <testcase component="sample" execution_type="manual" id="AnimationTiming" purpose="Animation Timing">
       </testcase>
       <testcase component="sample" execution_type="manual" id="HrtimeTizen" purpose="High Resolution Time">
@@ -67,7 +67,7 @@
       <testcase component="sample" execution_type="manual" id="Workers" purpose="Workers">
       </testcase>
     </set>
-    <set name="Device &amp;amp; Hardware">
+    <set name="Device &amp;amp; Hardware" background="brand-info" icon="glyphicon-hdd">
       <testcase component="sample" execution_type="manual" id="Accelerometer" purpose="Accelerometer">
         <capability name="accelerometer"/>
       </testcase>
@@ -97,27 +97,27 @@
       <testcase component="sample" execution_type="manual" id="WebGL" purpose="WebGL">
       </testcase>
     </set>
-    <set name="Social">
+    <set name="Social" background="bs-purple" icon="glyphicon-heart">
       <testcase component="sample" execution_type="manual" id="ContactsManager" purpose="Contacts Manager">
       </testcase>
     </set>
-    <set name="UI">
+    <set name="UI" background="bs-purple-light" icon="glyphicon-magnet">
       <testcase component="sample" execution_type="manual" id="Clipboard" purpose="Clipboard">
       </testcase>
       <testcase component="sample" execution_type="manual" id="DragandDrop" purpose="Drag and Drop">
       </testcase>
     </set>
-    <set name="Security">
+    <set name="Security" background="brand-warning3" icon="glyphicon-warning-sign">
       <testcase component="sample" execution_type="manual" id="Sandbox" purpose="Sandbox">
       </testcase>
     </set>
-    <set name="Experimental API">
+    <set name="Experimental API" background="brand-success3" icon="glyphicon-adjust">
       <testcase component="sample" execution_type="manual" id="DeviceCapabilities" purpose="Device Capabilities">
       </testcase>
       <testcase component="sample" execution_type="manual" id="SIMD" purpose="SIMD">
       </testcase>
     </set>
-    <set name="Tizen Extension APIs">
+    <set name="Tizen Extension APIs" background="brand-primary3" icon="glyphicon-send">
       <testcase component="sample" execution_type="manual" id="ApplicationManager" purpose="ApplicationManager">
       </testcase>
       <testcase component="sample" execution_type="manual" id="AudioSystem" purpose="AudioSystem">
@@ -142,7 +142,7 @@
       <testcase component="sample" execution_type="manual" id="SystemSettingScreen" purpose="SystemSetting Screen">
       </testcase>
     </set>
-    <set name="Others APIs">
+    <set name="Others APIs" background="brand-danger3" icon="glyphicon-gift">
       <testcase component="sample" execution_type="manual" id="MediaRenderer" purpose="Media Renderer">
       </testcase>
       <testcase component="sample" execution_type="manual" id="MediaServer" purpose="Media Server">

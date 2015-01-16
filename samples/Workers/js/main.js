@@ -34,14 +34,14 @@ function calcuateWorker() {
     work.onmessage = function (e) {
         var out = e.data;
         $("#outPut").text("1+2+3+....+100000 = " + out);
-        $("#start").removeClass("ui-disabled");
+        $("#start").attr('disabled', false);
     };
 }
 
 $(document).ready(function () {
     DisablePassButton();
     $("#start").click(function () {
-        $(this).addClass("ui-disabled");
+        $(this).attr('disabled', true);
         calcuateWorker();
         EnablePassButton();
     });

@@ -1,6 +1,7 @@
 {
     "version": "0.2",
-    "name": "DemoExpress",
+    "name": "DemoEx",
+    "permissions": [],
     "description": "DemoExpress",
     "file_name": "manifest.json",
     "app": {

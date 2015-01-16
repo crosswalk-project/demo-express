@@ -50,8 +50,8 @@ function resourceTiming() {
 }
 
 function loadingImg() {
-  gInfo = '<a href="javascript:resourceFetchSuccess()" id="requestShow" data-role="button" class="opt">Load image</a>';
-  $("#info-list1").html(gInfo).trigger("create").listview("refresh");
+  gInfo = '<button onclick="javascript:resourceFetchSuccess()" id="requestShow" type="button" class="tagBtn btn btn-default btn-lg btn-block">Load image</button>';
+  $("#info-list1").html(gInfo);
 }
 
 function resourceFetchSuccess(){
