@@ -1,0 +1,75 @@
+<!--
+ Copyright (c) 2014 Intel Corporation. All rights reserved.
+
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+     <TextView
+            android:id="@+id/xwalk_des"  
+            android:layout_width="wrap_content"  
+            android:layout_height="wrap_content"/>
+
+     <TextView  
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FDF5E6" /> 
+
+     <TextView  
+            android:id="@+id/text2"  
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FDF5E6" /> 
+
+     <TextView  
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FDF5E6" />
+
+  <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <ImageButton
+            android:id="@+id/prev"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:scaleType="center"
+            android:src="@android:drawable/ic_media_previous" />
+
+    <ImageButton
+            android:id="@+id/next"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:scaleType="center"
+            android:src="@android:drawable/ic_media_next" />
+
+    <ImageButton
+            android:id="@+id/pause"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:scaleType="center"
+            android:src="@android:drawable/ic_media_pause"/>
+    
+    <Button android:id="@+id/run_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="Run Animation"/>
+  </LinearLayout>
+
+  <org.xwalk.core.XWalkView xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/xwalkview1"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent" >
+
+  </org.xwalk.core.XWalkView>
+
+</LinearLayout>
