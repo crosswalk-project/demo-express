@@ -40,6 +40,7 @@ import logging
 import zipfile
 import signal
 import subprocess
+import re
 from optparse import OptionParser
 
 reload(sys)
@@ -48,7 +49,7 @@ sys.setdefaultencoding('utf8')
 TOOL_VERSION = "v0.1"
 VERSION_FILE = "VERSION"
 DEFAULT_CMD_TIMEOUT = 600
-PKG_TYPES = ["apk", "xpk", "wgt", "apk-aio", "cordova", "embeddingapi"]
+PKG_TYPES = ["apk", "xpk", "wgt", "apk-aio", "cordova-aio", "cordova", "embeddingapi"]
 PKG_MODES = ["shared", "embedded"]
 PKG_ARCHS = ["x86", "arm"]
 PKG_BLACK_LIST = []
@@ -63,7 +64,7 @@ BUILD_ROOT_PKG = None
 BUILD_ROOT_PKG_APP = None
 LOG = None
 LOG_LEVEL = logging.DEBUG
-
+BUILD_TIME = time.strftime('%Y%m%d',time.localtime(time.time()))
 
 class ColorFormatter(logging.Formatter):
 
@@ -257,6 +258,17 @@ def updateCopylistPrefix(src_default, dest_default, src_sub, dest_sub):
 
 
 def buildSRC(src=None, dest=None, build_json=None):
+    if not os.path.exists(src):
+        LOG.info("+Src dir does not exist, skip build src process ...")
+        return True
+
+
+    if checkContains(BUILD_PARAMETERS.pkgtype, "EMBEDDINGAPI") and BUILD_PARAMETERS.caseversion:
+        tests_xml_v = os.path.join(BUILD_ROOT_SRC, "tests_" + BUILD_PARAMETERS.caseversion + ".xml")
+        tests_xml = os.path.join(BUILD_ROOT_SRC, "tests.xml")
+        if not doCopy(tests_xml_v, tests_xml):
+            return False
+
     if not doCopy(src, dest):
         return False
     if "blacklist" in build_json:
@@ -421,17 +433,18 @@ def packWGT(build_json=None, app_src=None, app_dest=None, app_name=None):
     if not zipDir(app_src, os.path.join(app_dest, "%s.wgt" % app_name)):
         return False
 
-    if safelyGetValue(build_json, "sign-flag") == "true":
-        if not os.path.exists(os.path.join(BUILD_ROOT, "signing")):
-            if not doCopy(
-                    os.path.join(BUILD_PARAMETERS.pkgpacktools, "signing"),
-                    os.path.join(BUILD_ROOT, "signing")):
+    if BUILD_PARAMETERS.signature == True:
+        if safelyGetValue(build_json, "sign-flag") == "true":
+            if not os.path.exists(os.path.join(BUILD_ROOT, "signing")):
+                if not doCopy(
+                        os.path.join(BUILD_PARAMETERS.pkgpacktools, "signing"),
+                        os.path.join(BUILD_ROOT, "signing")):
+                    return False
+            signing_cmd = "%s --dist platform %s" % (
+                os.path.join(BUILD_ROOT, "signing", "sign-widget.sh"),
+                os.path.join(app_dest, "%s.wgt" % app_name))
+            if not doCMD(signing_cmd, DEFAULT_CMD_TIMEOUT):
                 return False
-        signing_cmd = "%s --dist platform %s" % (
-            os.path.join(BUILD_ROOT, "signing", "sign-widget.sh"),
-            os.path.join(app_dest, "%s.wgt" % app_name))
-        if not doCMD(signing_cmd, DEFAULT_CMD_TIMEOUT):
-            return False
 
     return True
 
@@ -454,7 +467,10 @@ def packAPK(build_json=None, app_src=None, app_dest=None, app_name=None):
     cmd_opt = ""
     url_opt = ""
     mode_opt = ""
+    arch_opt = ""
     icon_opt = ""
+    version_opt = ""
+    pkg_opt = ""
 
     common_opts = safelyGetValue(build_json, "apk-common-opts")
     if common_opts is None:
@@ -463,6 +479,14 @@ def packAPK(build_json=None, app_src=None, app_dest=None, app_name=None):
     tmp_opt = safelyGetValue(build_json, "apk-ext-opt")
     if tmp_opt:
         ext_opt = "--extensions='%s'" % os.path.join(BUILD_ROOT_SRC, tmp_opt)
+
+    tmp_opt = safelyGetValue(build_json, "apk-version-opt")
+    if tmp_opt:
+        version_opt = "--app-version='%s'" % ''.join([tmp_opt,BUILD_TIME])
+
+    tmp_opt = safelyGetValue(build_json, "apk-pkg-opt")
+    if tmp_opt:
+        pkg_opt = "--package='org.xwalk.%s'" % tmp_opt
 
     tmp_opt = safelyGetValue(build_json, "apk-cmd-opt")
     if tmp_opt:
@@ -482,6 +506,16 @@ def packAPK(build_json=None, app_src=None, app_dest=None, app_name=None):
     else:
         mode_opt = "--mode=%s" % BUILD_PARAMETERS.pkgmode
 
+    tmp_opt = safelyGetValue(build_json, "apk-arch-opt")
+    if tmp_opt:
+        if tmp_opt in PKG_ARCHS:
+            arch_opt = "--arch=%s" % tmp_opt
+        else:
+            LOG.error("Got wrong app arch: %s" % tmp_opt)
+            return False
+    else:
+        arch_opt = "--arch=%s" % BUILD_PARAMETERS.pkgarch
+
     tmp_opt = safelyGetValue(build_json, "apk-icon-opt")
     if tmp_opt:
         icon_opt = "--icon=%s" % tmp_opt
@@ -492,24 +526,24 @@ def packAPK(build_json=None, app_src=None, app_dest=None, app_name=None):
 
     if safelyGetValue(build_json, "apk-type") == "MANIFEST":
         pack_cmd = "python make_apk.py --package=org.xwalk.%s " \
-            "--manifest=%s/manifest.json  %s --arch=%s %s %s %s" % (
-                app_name, app_src, mode_opt, BUILD_PARAMETERS.pkgarch,
-                ext_opt, cmd_opt, common_opts)
+            "--manifest=%s/manifest.json  %s %s %s %s %s %s %s" % (
+                app_name, app_src, mode_opt, arch_opt,
+                ext_opt, cmd_opt, common_opts, version_opt, pkg_opt)
     elif safelyGetValue(build_json, "apk-type") == "HOSTEDAPP":
         if not url_opt:
             LOG.error(
                 "Fail to find the key \"apk-url-opt\" for hosted APP packing")
             return False
         pack_cmd = "python make_apk.py --package=org.xwalk.%s --name=%s %s " \
-                   "--arch=%s %s %s %s %s" % (
-                       app_name, app_name, mode_opt, BUILD_PARAMETERS.pkgarch, ext_opt,
-                       cmd_opt, url_opt, common_opts)
+                   "%s %s %s %s %s %s %s" % (
+                       app_name, app_name, mode_opt, arch_opt, ext_opt,
+                       cmd_opt, url_opt, common_opts, version_opt, pkg_opt)
     else:
         pack_cmd = "python make_apk.py --package=org.xwalk.%s --name=%s " \
                    "--app-root=%s --app-local-path=index.html %s %s " \
-                   "--arch=%s %s %s %s" % (
+                   "%s %s %s %s %s %s" % (
                        app_name, app_name, app_src, icon_opt, mode_opt,
-                       BUILD_PARAMETERS.pkgarch, ext_opt, cmd_opt, common_opts)
+                       arch_opt, ext_opt, cmd_opt, common_opts, version_opt, pkg_opt)
 
     orig_dir = os.getcwd()
     os.chdir(os.path.join(BUILD_ROOT, "crosswalk"))
@@ -597,6 +631,29 @@ def packEmbeddingAPI(
         build_json=None, app_src=None, app_dest=None, app_name=None):
     app_name = app_name.replace("-", "_")
 
+    if BUILD_PARAMETERS.caseversion:
+        test_path = os.path.join(app_src, "src/org/xwalk/embedding/test")
+        if not doRemove([test_path]):
+            return False
+        test_source = os.path.join(BUILD_ROOT_SRC, app_name, "src/org/xwalk/embedding/test/", BUILD_PARAMETERS.caseversion)
+        test_dest = os.path.join(app_src, "src/org/xwalk/embedding/test/", BUILD_PARAMETERS.caseversion)
+        LOG.info("test_source: %s" % test_source)
+        LOG.info("test_dest: %s" % test_dest)
+        if not doCopy(test_source, test_dest):
+            return False
+
+        xml_source = os.path.join(BUILD_ROOT_SRC, app_name, "AndroidManifest.xml")
+        xml_source_tmp = os.path.join(BUILD_ROOT_SRC, app_name, "AndroidManifest_tmp.xml")
+        xml_dest = os.path.join(app_src, "AndroidManifest.xml")
+        replaceCopy(xml_source, xml_source_tmp, "org.xwalk.embedding.test", "org.xwalk.embedding.test." + BUILD_PARAMETERS.caseversion)
+        replaceCopy(xml_source_tmp, xml_dest, "EmbeddingApiTestUnit", "EmbeddingApiTestUnit" + BUILD_PARAMETERS.caseversion)
+        inst_source = os.path.join(BUILD_ROOT_SRC, "inst.apk.py")
+        inst_dest = os.path.join(BUILD_ROOT_PKG, "inst.py")
+        replaceCopy(inst_source, inst_dest, "org.xwalk.embedding.test", "org.xwalk.embedding.test." + BUILD_PARAMETERS.caseversion)
+        main_source = os.path.join(BUILD_ROOT_SRC, app_name, "src/org/xwalk/embedding/MainActivity.java")
+        main_dest = os.path.join(app_src, "src/org/xwalk/embedding/MainActivity.java")
+        replaceCopy(main_source, main_dest, "org.xwalk.embedding.test", "org.xwalk.embedding.test." + BUILD_PARAMETERS.caseversion)
+
     library_dir_name = safelyGetValue(build_json, "embeddingapi-library-name")
     if not library_dir_name:
         LOG.error("Fail to get embeddingapi-library-name ...")
@@ -629,9 +686,8 @@ def packEmbeddingAPI(
     (return_code, output) = doCMDWithOutput("android list target")
     api_level = ""
     for line in output:
-        if "API level" in line:
+        if "API level:" in line:
             api_level = line.split(":")[1].strip()
-            break
     if not api_level:
         LOG.error("Fail to get Android API Level")
         os.chdir(orig_dir)
@@ -692,7 +748,7 @@ def packEmbeddingAPI(
         return False
 
     if not doCopy(
-            os.path.join(orig_dir, "bin", "%s-debug.apk" % app_name),
+            os.path.join(app_src, "bin", "%s-debug.apk" % app_name),
             os.path.join(app_dest, "%s.apk" % app_name)):
         os.chdir(orig_dir)
         return False
@@ -753,6 +809,9 @@ def createIndexFile(index_file_path=None, hosted_app=None):
 
 
 def buildSubAPP(app_dir=None, build_json=None, app_dest_default=None):
+    app_dir_inside = safelyGetValue(build_json, "app-dir")
+    if app_dir_inside:
+        app_dir = app_dir_inside
     LOG.info("+Building sub APP(s) from %s ..." % app_dir)
     app_dir = os.path.join(BUILD_ROOT_SRC, app_dir)
     app_name = safelyGetValue(build_json, "app-name")
@@ -851,6 +910,21 @@ def buildPKG(build_json=None):
 
     return True
 
+def replaceCopy(readfile,writefile,content,newContent): 
+    ffrom=open(readfile,"r")  
+    fto=open(writefile,"w")  
+    while True:  
+        l = ffrom.readline()  
+        if not l:  
+            break  
+        if 'org.xwalk.embedding.test' in l:
+            temp = ""
+            temp=re.sub(content,newContent,l)
+            fto.write(temp)
+        else:
+            temp1 = l  
+            fto.write(temp1)  
+    fto.close()
 
 def main():
     global LOG
@@ -886,6 +960,12 @@ def main():
             dest="pkgarch",
             help="specify the apk arch, e.g. x86, arm")
         opts_parser.add_option(
+            "--cv",
+            "--cversion",
+            dest="caseversion",
+            default="", 
+            help="specify the embeddingapi case version, e.g. v1, v2, v3 ...")
+        opts_parser.add_option(
             "-d",
             "--dest",
             dest="destdir",
@@ -904,6 +984,11 @@ def main():
             dest="bnotclean",
             action="store_true",
             help="disable the build root clean after the packing")
+        opts_parser.add_option(
+            "--sign",
+            dest="signature",
+            action="store_true",
+            help="signature operation will be done when packing wgt")
         opts_parser.add_option(
             "-v",
             "--version",
@@ -934,6 +1019,7 @@ def main():
 
     if not BUILD_PARAMETERS.srcdir:
         BUILD_PARAMETERS.srcdir = os.getcwd()
+    BUILD_PARAMETERS.srcdir = os.path.expanduser(BUILD_PARAMETERS.srcdir)
 
     if not os.path.exists(
             os.path.join(BUILD_PARAMETERS.srcdir, "..", "..", VERSION_FILE)):
@@ -941,7 +1027,8 @@ def main():
                 os.path.join(BUILD_PARAMETERS.srcdir, "..", VERSION_FILE)):
             if not os.path.exists(
                     os.path.join(BUILD_PARAMETERS.srcdir, VERSION_FILE)):
-                LOG.info("Not found pkg version file, try to use option --pkg-version")
+                LOG.info(
+                    "Not found pkg version file, try to use option --pkg-version")
                 pkg_version_file_path = None
             else:
                 pkg_version_file_path = os.path.join(
@@ -1000,15 +1087,22 @@ def main():
                 PKG_ARCHS)
             sys.exit(1)
 
-    if BUILD_PARAMETERS.pkgtype == "apk-aio":
+    if BUILD_PARAMETERS.pkgtype == "apk-aio" or \
+       BUILD_PARAMETERS.pkgtype == "cordova-aio":
         if not BUILD_PARAMETERS.destdir or not os.path.exists(
                 BUILD_PARAMETERS.destdir):
             LOG.error("No all-in-one installation dest dir found, exit ...")
             sys.exit(1)
 
+    elif not BUILD_PARAMETERS.destdir:
+        BUILD_PARAMETERS.destdir = BUILD_PARAMETERS.srcdir
+    BUILD_PARAMETERS.destdir = os.path.expanduser(BUILD_PARAMETERS.destdir)
+
     if not BUILD_PARAMETERS.pkgpacktools:
         BUILD_PARAMETERS.pkgpacktools = os.path.join(
             BUILD_PARAMETERS.srcdir, "..", "..", "tools")
+    BUILD_PARAMETERS.pkgpacktools = os.path.expanduser(
+        BUILD_PARAMETERS.pkgpacktools)
 
     config_json = None
     if BUILD_PARAMETERS.pkgcfg:
@@ -1061,27 +1155,36 @@ def main():
         exitHandler(1)
 
     LOG.info("+Building package ...")
-    if BUILD_PARAMETERS.pkgtype == "apk-aio":
+    if BUILD_PARAMETERS.pkgtype == "apk-aio" or \
+       BUILD_PARAMETERS.pkgtype == "cordova-aio":
         pkg_file_list = os.listdir(os.path.join(BUILD_ROOT, "pkg"))
         for i_file in pkg_file_list:
             if not doCopy(
                     os.path.join(BUILD_ROOT, "pkg", i_file),
                     os.path.join(BUILD_PARAMETERS.destdir, i_file)):
                 exitHandler(1)
-    else:
-        if not BUILD_PARAMETERS.destdir:
-            dest_dir = BUILD_PARAMETERS.srcdir
-        else:
-            dest_dir = BUILD_PARAMETERS.destdir
-
+    elif BUILD_PARAMETERS.pkgtype == "embeddingapi" and BUILD_PARAMETERS.caseversion:
         pkg_file = os.path.join(
-            dest_dir,
+            BUILD_PARAMETERS.destdir,
+            "%s-%s-%s-%s.%s.zip" %
+            (PKG_NAME,
+             pkg_main_version,
+             pkg_release_version,
+             BUILD_PARAMETERS.caseversion,
+             BUILD_PARAMETERS.pkgtype))
+        
+        LOG.info("pkg_file: %s" % pkg_file)
+        if not zipDir(os.path.join(BUILD_ROOT, "pkg"), pkg_file):
+            exitHandler(1)
+    else:
+        pkg_file = os.path.join(
+            BUILD_PARAMETERS.destdir,
             "%s-%s-%s.%s.zip" %
             (PKG_NAME,
              pkg_main_version,
              pkg_release_version,
              BUILD_PARAMETERS.pkgtype))
-
+        
         if not zipDir(os.path.join(BUILD_ROOT, "pkg"), pkg_file):
             exitHandler(1)
 
