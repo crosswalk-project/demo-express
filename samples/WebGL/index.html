@@ -29,99 +29,92 @@ Authors:
         Lin, Wanming <wanmingx.lin@intel.com>
 
 -->
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
-    <link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script src="../../js/jquery/jquery.js"></script>
-    <script src="../../js/jquery/jquery.mobile.js"></script>
-    <script src="js/SpinningBox.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/slider.tooltip.js"></script>
-    <script src="js/khronos/webgl-utils.js"></script>
-    <script src="js/khronos/webgl-debug.js"></script>
-    <script src="js/khronos/J3DI.js"></script>
-    <script src="js/khronos/J3DIMath.js"></script>
-    <script src="../../js/tests.js"></script>
-    <script id="vshader" type="x-shader/x-vertex">
-        uniform mat4 u_modelViewProjMatrix;
-        uniform mat4 u_normalMatrix;
-        uniform vec3 lightDir;
 
-        attribute vec3 vNormal;
-        attribute vec4 vColor;
-        attribute vec4 vPosition;
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/slider.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="../../js/jquery-2.1.3.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="js/SpinningBox.js"></script>
+<script src="js/main.js"></script>
+<script src="js/bootstrap-slider.js"></script>
+<script src="js/khronos/webgl-utils.js"></script>
+<script src="js/khronos/webgl-debug.js"></script>
+<script src="js/khronos/J3DI.js"></script>
+<script src="js/khronos/J3DIMath.js"></script>
+<script src="../../js/tests.js"></script>
+<script id="vshader" type="x-shader/x-vertex">
+    uniform mat4 u_modelViewProjMatrix;
+    uniform mat4 u_normalMatrix;
+    uniform vec3 lightDir;
 
-        varying float v_Dot;
-        varying vec4 v_Color;
+    attribute vec3 vNormal;
+    attribute vec4 vColor;
+    attribute vec4 vPosition;
 
-        void main()
-        {
-        gl_Position = u_modelViewProjMatrix * vPosition;
-        v_Color = vColor;
-        vec4 transNormal = u_normalMatrix * vec4(vNormal, 1);
-        v_Dot = max(dot(transNormal.xyz, lightDir), 0.0);
-        }
-    </script>
-    <script id="fshader" type="x-shader/x-fragment">
-        precision mediump float;
+    varying float v_Dot;
+    varying vec4 v_Color;
 
-        varying float v_Dot;
-        varying vec4 v_Color;
+    void main()
+    {
+    gl_Position = u_modelViewProjMatrix * vPosition;
+    v_Color = vColor;
+    vec4 transNormal = u_normalMatrix * vec4(vNormal, 1);
+    v_Dot = max(dot(transNormal.xyz, lightDir), 0.0);
+    }
+</script>
+<script id="fshader" type="x-shader/x-fragment">
+    precision mediump float;
 
-        void main()
-        {
-        gl_FragColor = vec4(v_Color.xyz * v_Dot, v_Color.a);
-        }
-    </script>
-</head>
-<body>
-<div data-role="header">
-    <h1 id="main_page_title"></h1>
+    varying float v_Dot;
+    varying vec4 v_Color;
+
+    void main()
+    {
+    gl_FragColor = vec4(v_Color.xyz * v_Dot, v_Color.a);
+    }
+</script>
+
+<div id="header">
+  <h3 id="main_page_title"></h3>
 </div>
-<div data-role= "content">
-    <h4>This sample demonstrates the 3D cube is drawn with red, yellow, blue, green and light blue colors, rotate smoothly and correctly. And the functionality of play and pause, rotate direction left or right, size of the cube from 1 to 5, rotate speed from 1 to 10 levels.</h4>
-    <div id="viewArea">
-        <div id="mainTester">
-            <canvas id="canvas" width="330" height="300">
-                Not support the &lt;canvas&gt;&gt; element. Ouch! failed!
-            </canvas>
-        </div>
+<div class="content">
+  <h4>This sample demonstrates the 3D cube is drawn with red, yellow, blue, green and light blue colors, rotate smoothly and correctly. And the functionality of play and pause, rotate direction left or right, size of the cube from 1 to 5, rotate speed from 1 to 10 levels.</h4>
+  <div id="viewArea" align="center">
+    <div id="mainTester" align="center">
+      <canvas id="canvas" width="300" height="300">
+          Not support the &lt;canvas&gt;&gt; element. Ouch! failed!
+      </canvas>
     </div>
-    <div class="containing-element">
-        <label for="flip-1">Status</label>
-        <select name="flip-1" id="flip-1" data-role="slider">
-            <option value="paused">Pause</option>
-            <option value="running" selected>Play</option>
-        </select>
-        <fieldset data-role="controlgroup" data-type="horizontal">
-            <legend>Direction</legend>
-            <input type="radio" name="radio-choice-2" id="direction-1" value="right" checked="checked" />
-            <label for="direction-1">To-Right</label>
-            <input type="radio" name="radio-choice-2" id="direction-2" value="left" />
-            <label for="direction-2">To-Left</label>
-        </fieldset>
-        <label for="slider-1">Size</label>
-        <input type="range" name="slider-1" id="slider-1" data-highlight="true" min="1" max="5" value="3" data-show-value="true" class="hideButton">
-        <label for="speed-1">Speed</label>
-        <input type="range" name="speed-1" id="speed-1" data-highlight="true" min="1" max="10" value="5" data-show-value="true" class="hideButton">
-    </div>
+  </div>
+  <label>Status</label>
+  <div class='btn-group' style="width: 100%">
+    <button id="running" type="button" class="btn btn-default btn-lg bar-grid-a" onclick="running()">Play</button>
+    <button id="paused" type="button" class="btn btn-default btn-lg bar-grid-a" onclick="paused()">Pause</button>
+  </div>
+  <label>Direction</label>
+  <div class='btn-group' style="width: 100%">
+    <button type="button" id="direction-1" class="btn btn-default btn-lg bar-grid-a" onclick="setToRight()">right</button>
+    <button type="button" id="direction-2" class="btn btn-default btn-lg bar-grid-a" onclick="setToLeft()">left</button>
+  </div>
+  <label>Size</label>
+  <div style="margin-top: 30px"><input id="slider-1" data-slider-id='ex1Slider' type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="3" style="width: 100%"/></div>
+  <label for="speed-1">Speed</label>
+  <div style="margin-top: 30px"><input id="speed-1" data-slider-id='ex2Slider' type="text" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="5" style="width: 100%"/></div>
 </div>
-<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+<div class="footer">
+  <div id="footer"></div>
 </div>
-<div data-role="popup" id="popup_info" data-theme="a">
-  <font class="fontSize">
-    <ol>
-      <li>Click the "Status" slider to play or pause the animation.</li>
-      <li>Click the "Direction" buttons to change the rotation direction.</li>
-      <li>Click the "Size" slider to change the animation size.</li>
-      <li>Click the "Speed" slider to change the rotation speed.</li>
-    </ol>
-    <p>The WebGL is drew by WebGLRenderingContext interface, requestAnimationFrame and cancelAnimationFrame method.</p>
-  </font>
+<div class="modal fade" id="popup_info">
+  <ol>
+    <li>Click the "Status" slider to play or pause the animation.</li>
+    <li>Click the "Direction" buttons to change the rotation direction.</li>
+    <li>Click the "Size" slider to change the animation size.</li>
+    <li>Click the "Speed" slider to change the rotation speed.</li>
+  </ol>
+  <p>The WebGL is drew by WebGLRenderingContext interface, requestAnimationFrame and cancelAnimationFrame method.</p>
 </div>
-</body>
-</html>

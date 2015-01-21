@@ -38,18 +38,15 @@ function html_console(message) {
 // -------------------------------------------
 
 function initialize() {
-    $.mobile.showPageLoadingMsg();
     DisablePassButton();
     try {
         navigator.geolocation.watchPosition(successCallback, errorCallback, { maximumAge: 60000});
     } catch (err) {
-        $.mobile.hidePageLoadingMsg();
         jQuery("#errormessage").html("<p>Error Message: <font color='red'>" + err.message + "</font></p>");
     }
 }
 
 function successCallback (position) {
-    $.mobile.hidePageLoadingMsg();
     EnablePassButton();
     var coordinates = position.coords;
     jQuery("#latitudeDiv").text("Latitude: " + coordinates.latitude);
@@ -58,7 +55,6 @@ function successCallback (position) {
 }
 
 function errorCallback (error) {
-    $.mobile.hidePageLoadingMsg();
     var positionError_const =["PERMISSION DENIED", "POSITION UNAVAILABLE", "TIMEOUT"];
     var index = error.code-0-1;
     jQuery("#errormessage").html("<p>Error Message: <font color='red'>" + positionError_const[index] + "</font></p>");

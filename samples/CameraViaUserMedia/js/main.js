@@ -30,38 +30,41 @@ Authors:
 */
 $(document).ready(function(){
     DisablePassButton();
+    $("#getUserMeida").click(getUserMeida);
+    $("#stopUserMeida").click(stopUserMeida);
     $("#errormassage").html("No video");
-    //getUserMedia
-    $("#getUserMeida")[0].onclick = function() {
-        try {
-            navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
-            navigator.getUserMedia({video: true}, function(s){
-                var url = webkitURL.createObjectURL(s);
-                $("#localView")[0].src = url;
-                $("#localView").show();
-                $("#errormassage").hide();
-                EnablePassButton();
-            }, function(error){
-                $("#errormassage").show();
-                $("#errormassage").html("Get user media occur error:<font color='red'>PERMISSION DENIED</font>");
-            });
-        } catch (e) {
-            $("#localView").hide();
-            $("#errormassage").html("Get usr media occur error,with error message:<font color='red'>"+e.message+"</font>");
-        }
-    }
-
-    //stop getUserMedia
-    $("#stopUserMeida")[0].onclick = function() {
-        try {
-            navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
-            navigator.getUserMedia();
-            $("#errormassage").show();
-            $("#errormassage").html("No video");
-        } catch (e) {
-            $("#localView").hide();
-            $("#errormassage").show();
-            $("#errormassage").html("No video");
-        }
-    }
 });
+
+//getUserMedia
+function getUserMeida () {
+    try {
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+        navigator.getUserMedia({video: true}, function(s){
+            var url = webkitURL.createObjectURL(s);
+            $("#localView")[0].src = url;
+            $("#localView").show();
+            $("#errormassage").hide();
+            EnablePassButton();
+        }, function(error){
+            $("#errormassage").show();
+            $("#errormassage").html("Get user media occur error:<font color='red'>PERMISSION DENIED</font>");
+        });
+    } catch (e) {
+        $("#localView").hide();
+        $("#errormassage").html("Get usr media occur error,with error message:<font color='red'>"+e.message+"</font>");
+    }
+}
+
+//stop getUserMedia
+function stopUserMeida () {
+    try {
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+        navigator.getUserMedia();
+        $("#errormassage").show();
+        $("#errormassage").html("No video");
+    } catch (e) {
+        $("#localView").hide();
+        $("#errormassage").show();
+        $("#errormassage").html("No video");
+    }
+}

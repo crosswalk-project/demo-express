@@ -33,7 +33,7 @@ var system = navigator.system || xwalk.experimental.system;
 
 var gInfo;
 
-var init = function () {
+function init() {
     try {
         system.getCPUInfo().then(onCpuSuccess, onError);
         system.getMemoryInfo().then(onMemorySuccess, onError);
@@ -41,20 +41,20 @@ var init = function () {
         system.getDisplayInfo().then(onDisplaySuccess, onError);
         system.getAVCodecs().then(onAVCodecsSuccess, onError);
     } catch (e) {
-        alert("Exception: " + e.message);
+        $("#popup_info").modal(showMessage("error", "Exception: " + e.message));
     }
 };
 
 function makelineListItem(value) {
-    return '<li>' + value + '</li>';
+    return '<div class="panel-body">' + value + '</div>';
 }
 
 function makeDividerListItem(value) {
-    return '<li data-role="list-divider">' + value + '</li>';
+    return '<div class="panel-heading">' + value + '</div>';
 }
 
 function onError(e) {
-    alert("Error: " + e.message);
+    $("#popup_info").modal(showMessage("error", "Error: " + e.message));
 }
 
 function onCpuSuccess(cpuInfo) {
@@ -62,14 +62,14 @@ function onCpuSuccess(cpuInfo) {
             + makelineListItem("NumOfProcessors : " + cpuInfo.numOfProcessors)
             + makelineListItem("ArchName : " + cpuInfo.archName)
             + makelineListItem("Load : " + cpuInfo.load);
-    $("#cpu").html(gInfo).trigger("create").listview("refresh");
+    $("#cpu").html(gInfo);
 }
 
 function onMemorySuccess(memoryInfo) {
     gInfo = makeDividerListItem("SystemMemory Status")
             + makelineListItem("Capacity : " + memoryInfo.capacity)
             + makelineListItem("AvailCapacity : " + memoryInfo.availCapacity);
-    $("#memory").html(gInfo).trigger("create").listview("refresh");
+    $("#memory").html(gInfo);
 }
 
 function onStorageSuccess(storageInfo) {
@@ -79,7 +79,7 @@ function onStorageSuccess(storageInfo) {
             + makelineListItem("StorageUnit name : " + storageInfo.storages[0].name)
             + makelineListItem("StorageUnit type : " + storageInfo.storages[0].type)
             + makelineListItem("StorageUnit capacity : " + storageInfo.storages[0].capacity);
-    $("#storage").html(gInfo).trigger("create").listview("refresh");
+    $("#storage").html(gInfo);
 }
 
 function onDisplaySuccess(displayInfo) {
@@ -97,7 +97,7 @@ function onDisplaySuccess(displayInfo) {
             + makelineListItem("DisplayUnit height : " + displayInfo.displays[0].height)
             + makelineListItem("DisplayUnit colorDepth : " + displayInfo.displays[0].colorDepth)
             + makelineListItem("DisplayUnit pixelDepth : " + displayInfo.displays[0].pixelDepth);
-    $("#display").html(gInfo).trigger("create").listview("refresh");
+    $("#display").html(gInfo);
 }
 
 function onAVCodecsSuccess(avcodecsInfo) {
@@ -106,7 +106,9 @@ function onAVCodecsSuccess(avcodecsInfo) {
             + makelineListItem("VideoCodec format: " + avcodecsInfo.videoCodecs[0].format)
             + makelineListItem("VideoCodec hwAccel: " + avcodecsInfo.videoCodecs[0].hwAccel)
             + makelineListItem("VideoCodec encode: " + avcodecsInfo.videoCodecs[0].encode);
-    $("#codec").html(gInfo).trigger("create").listview("refresh");
+    $("#codec").html(gInfo);
 }
 
-$(document).bind("pageinit", init);
+window.onload = function(){
+  init();
+};

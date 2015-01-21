@@ -31,53 +31,48 @@ Authors:
 
 -->
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" />
-    <link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css" />
-    <script src="../../js/jquery/jquery.js"></script>
-    <script src="../../js/jquery/jquery.mobile.js"></script>
-    <script src="../../js/tests.js"></script>
-    <script src="js/main.js"></script>
-  </head>
-  <body>
-    <div data-role="header">
-      <h1 id="main_page_title"></h1>
-    </div>
-    <div data-role="content">
-      <h4>This sample demonstrates the 2D Canvas graphics for image rotation, scale, transform, vampix.</h4>
-      <div style="margin: 0px auto; width:300px;">
-        <h3>Original Picture</p>
-        <img src="../../res/images/ryb-100x100.png"/>
-        <p id="title">Target Picture</p>
-        <canvas id="myCanvas" width="300" height="240" style="border:1px solid #c3c3c3;">
-          Your browser does not support the canvas element.
-        </canvas>
-      </div>
-      <script>
-        var c=document.getElementById("myCanvas");
-        var cxt=c.getContext("2d");
-        var img=new Image();
-        img.src="../../res/images/ryb-100x100.png";
-        cxt.drawImage(img,0,0);
-      </script>
-      <button onclick="rotate_90()">Rotate 90deg</button>
-      <button onclick="rotate_180()">Rotate 180deg</button>
-      <button onclick="rotate_270()">Rotate 270deg</button>
-      <button onclick="rotate_360()">Rotate 360deg</button>
-      <button onclick="scale_half()">Scale 50%</button>
-      <button onclick="scale_double()">Scale 200%</button>
-      <button onclick="transform()">Transform</button>
-      <button onclick="to_blackWhite()">Vampix</button>
-    </div>
-    <div data-role="footer" data-position="fixed">
-    </div>
-    <div data-role="popup" id="popup_info">
-      <font style="font-size:85%">
-          <p>It is designed by &lt;canvas&gt; tag</p>
-      </font>
-    </div>
-  </body>
-</html>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" />
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<script src="../../js/jquery-2.1.3.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/tests.js"></script>
+<script src="js/main.js"></script>
+
+<div id="header">
+  <h3 id="main_page_title"></h3>
+</div>
+<div class="content">
+  <h4>This sample demonstrates the 2D Canvas graphics for image rotation, scale, transform, vampix.</h4>
+  <div style="margin: 0px auto; width:300px;">
+    <h3>Original Picture</p>
+    <img src="../../res/images/ryb-100x100.png"/>
+    <p id="title">Target Picture</p>
+    <canvas id="myCanvas" width="300" height="240" style="border:1px solid #c3c3c3;">
+      Your browser does not support the canvas element.
+    </canvas>
+  </div>
+  <script>
+    var c=document.getElementById("myCanvas");
+    var cxt=c.getContext("2d");
+    var img=new Image();
+    img.src="../../res/images/ryb-100x100.png";
+    cxt.drawImage(img,0,0);
+  </script>
+  <button onclick="rotate_90()" type="button" class="btn btn-default btn-lg btn-block">Rotate 90deg</button>
+  <button onclick="rotate_180()" type="button" class="btn btn-default btn-lg btn-block">Rotate 180deg</button>
+  <button onclick="rotate_270()" type="button" class="btn btn-default btn-lg btn-block">Rotate 270deg</button>
+  <button onclick="rotate_360()" type="button" class="btn btn-default btn-lg btn-block">Rotate 360deg</button>
+  <button onclick="scale_half()" type="button" class="btn btn-default btn-lg btn-block">Scale 50%</button>
+  <button onclick="scale_double()" type="button" class="btn btn-default btn-lg btn-block">Scale 200%</button>
+  <button onclick="transform()" type="button" class="btn btn-default btn-lg btn-block">Transform</button>
+  <button onclick="to_blackWhite()" type="button" class="btn btn-default btn-lg btn-block">Vampix</button>
+</div>
+<div class="footer">
+  <div id="footer"></div>
+</div>
+<div class="modal fade" id="popup_info">
+  <p>It is designed by &lt;canvas&gt; tag</p>
+</div>

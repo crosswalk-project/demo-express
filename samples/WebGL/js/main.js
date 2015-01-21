@@ -34,11 +34,33 @@ var multiple = 5;
 var isRunning = false;
 var isInit = true;
 var testFlag = {
-    status: false,
-    direction: false,
     size:false,
     speed:false
 };
+
+function running() {
+    if (!isInit) {
+        reStart();
+        $("#running").attr('disabled', true);
+        $("#paused").attr('disabled', false);
+        $("#direction-1").attr('disabled', false);
+        $("#direction-2").attr('disabled', false);
+        $("#slider-1").slider('enable');
+        $("#speed-1").slider('enable');
+    } else {
+        isInit = false;
+    }
+}
+
+function paused() {
+    stop();
+    $("#running").attr('disabled', false);
+    $("#paused").attr('disabled', true);
+    $("#direction-1").attr('disabled', true);
+    $("#direction-2").attr('disabled', true);
+    $("#slider-1").slider('disable');
+    $("#speed-1").slider('disable');
+}
 
 function start() {
     var c = document.getElementById("canvas");
@@ -102,6 +124,8 @@ function resume() {
 }
 
 function setToRight() {
+    $("#direction-1").addClass("ui-btn-active");
+    $("#direction-2").removeClass("ui-btn-active");
     if(incAngle < 0) {
         incAngle = -incAngle;
     }
@@ -109,6 +133,8 @@ function setToRight() {
 }
 
 function setToLeft() {
+    $("#direction-1").removeClass("ui-btn-active");
+    $("#direction-2").addClass("ui-btn-active");
     if(incAngle > 0) {
         incAngle = -incAngle;
     }
@@ -138,27 +164,21 @@ function setSpeed(value) {
 }
 
 function checkEnable() {
-    if (testFlag.status && testFlag.direction
-        && testFlag.size && testFlag.speed) {
+    if (testFlag.size && testFlag.speed) {
         EnablePassButton();
     }
 }
 
 $(document).ready(function(){
-    start();
-    // animation-left-right status changes
-    $("input[type='radio']").bind( "change", function(event, ui) {
-        if (this.value == "left") {
-            setToLeft();
-            testFlag.direction = true;
-            checkEnable();
-        } else {
-            setToRight();
-        }
+    $("#slider-1").slider({
+      tooltip: 'always'
     });
+    $("#speed-1").slider({
+      tooltip: 'always'
+    });
+    start();
     DisablePassButton();
-
-    /* Hide input*/
-    $("#slider-1").hide();
-    $("#speed-1").hide();
+    $("#running").attr('disabled', true);
+    $("#paused").attr('disabled', false);
+    $("#direction-1").addClass("ui-btn-active");
 });

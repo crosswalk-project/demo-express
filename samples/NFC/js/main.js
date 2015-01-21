@@ -41,8 +41,8 @@ function addMessage(obj) {
 }
 
 function initNFC() {
-    $(".tagBtn").button("disable");
-    $(".peerBtn").button("disable");
+    $(".tagBtn").attr('disabled', true);
+    $(".peerBtn").attr('disabled', true);
     startPoll();
 }
 
@@ -55,23 +55,23 @@ navigator.nfc.addEventListener('peerlost', peerLost);
 
 function tagFound(e) {
     tag = e.tag;
-    $(".tagBtn").button("enable");
+    $(".tagBtn").attr('disabled', false);
 }
 
 function tagLost(e) {
     tag = null;
-    $(".tagBtn").button("disable");
+    $(".tagBtn").attr('disabled', true);
 }
 
 function peerFound(e) {
     peer = e.peer;
     peer.addEventListener('messageread', onMessageRead);
-    $(".peerBtn").button("enable");
+    $(".peerBtn").attr('disabled', false);
 }
 
 function peerLost(e) {
     peer = null;
-    $(".peerBtn").button("disable");
+    $(".peerBtn").attr('disabled', true);
 }
 
 function onMessageRead(e) {

@@ -32,48 +32,39 @@ Authors:
 
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
-<link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css">
-<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<script src="../../js/jquery/jquery.js"></script>
-<script src="../../js/jquery/jquery.mobile.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<script src="../../js/jquery-2.1.3.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
 <script src="../../js/tests.js"></script>
 <script src="js/main.js"></script>
 
-<div data-role="header">
-  <h1 id="main_page_title"></h1>
+<div id="header">
+  <h3 id="main_page_title"></h3>
 </div>
 
-<div data-role="content" class="content">
+<div class="content">
   <h4>This sample demonstrates screen orientation lock/unlock methods.</h4>
 
   <div id="d">
     <img src="../../res/images/ryb-100x100.png" width="100%" height="100%">
   </div>
 
-  <div data-role="controlgroup" data-type="horizontal" class="q">
-    <a class="b" id="b1" data-role="button">Lock to protrait primary</a>
-  </div>
-  <div data-role="controlgroup" data-type="horizontal" class="q">
-    <a class="b" id="b2" data-role="button">Lock to protrait secondary</a>
-  </div>
-  <div data-role="controlgroup" data-type="horizontal" class="q">
-    <a class="b" id="b3" data-role="button">Lock to landscape primary</a>
-  </div>
-  <div data-role="controlgroup" data-type="horizontal" class="q">
-    <a class="b" id="b4" data-role="button">Lock to landscape secondary</a>
-  </div>
-  <div data-role="controlgroup" data-type="horizontal" class="q">
-    <a class="b" id="b5" data-role="button">Unlock (view same as protrait primary)</a>
+  <div>
+    <button id="b1" class="btn btn-default btn-lg btn-block">Lock to protrait primary</button>
+    <button id="b2" class="btn btn-default btn-lg btn-block">Lock to protrait secondary</button>
+    <button id="b3" class="btn btn-default btn-lg btn-block">Lock to landscape primary</button>
+    <button id="b4" class="btn btn-default btn-lg btn-block">Lock to landscape secondary</button>
+    <button id="b5" class="btn btn-default btn-lg btn-block">Unlock (view same as protrait primary)</button>
   </div>
 </div>
 
-<div data-role="footer" data-position="fixed">
+<div class="footer">
+  <div id="footer"></div>
 </div>
-
-<div data-role="popup" id="popup_info">
-  <font class="fontSize">
-    <p>Screen orientation features: lockOrientation and unlockOrientation.</p>
-  </font>
+<div class="modal fade" id="popup_info">
+  <p>Screen orientation features: lockOrientation and unlockOrientation.</p>
 </div>
 

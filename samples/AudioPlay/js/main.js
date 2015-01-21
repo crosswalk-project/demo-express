@@ -32,6 +32,9 @@ Authors:
 var testTarget;
 
 $(document).ready(function(){
+    $("#slider-1").slider({
+	    tooltip: 'always'
+    });
     DisablePassButton();
     document.getElementById("MediaPlayback").volume = 0.6;
     $("#slider-1").hide();

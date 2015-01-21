@@ -68,7 +68,7 @@ function createsuccess(files) {
         $("#fileName").attr("value", "");
         $("#fileWrite").attr("value", "");
         $("#filePreview").html("Create " + fileName + " file successfully.");
-        $("#readfile").removeClass("ui-disabled");
+        $("#readfile").attr('disabled', false);
       }, function(e) {
         $("#filePreview").html("CreateFile error: " + e.message);
       }, "UTF-8");
@@ -103,7 +103,7 @@ function onerror(error) {
 }
 
 $(document).ready(function() {
-  $("#readfile").addClass("ui-disabled");
+  $("#readfile").attr('disabled', true);
   $("#createfile").click(createfile);
   $("#readfile").click(readfile);
 });

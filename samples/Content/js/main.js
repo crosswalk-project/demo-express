@@ -33,21 +33,14 @@ var text = "";
 var list;
 var dirs;
 var cons;
-var reminder;
 var flag = true;
-
-function hideDiv() {
-  setTimeout(function(){reminder.style.visibility = "hidden";},"5000");
-}
 
 function start() {
   tizen.content.getDirectories(getDirectoriesCB, errorCB);
 }
 
 function errorCB(err) {
-  reminder.innerHTML =  'The following error occurred: ' +  err.name;
-  reminder.style.visibility = "visible";
-  hideDiv();
+  $("#popup_info").modal(showMessage("error", 'The following error occurred: ' +  err.name));
 }
 
 function printDirectory(directory, index, directories) {
@@ -82,9 +75,7 @@ function printContent(content, index, contents) {
 }
 
 function findError(err) {
-  reminder.innerHTML =  'Find Files error: ' +  err.name;
-  reminder.style.visibility = "visible";
-  hideDiv();
+  $("#popup_info").modal(showMessage("error", 'Find Files error: ' +  err.name));
 }
 
 function scan(num) {
@@ -92,15 +83,11 @@ function scan(num) {
 }
 
 function scanSuccess(path) {
-  reminder.innerHTML = "scanning is completed. " + JSON.stringify(path);
-  reminder.style.visibility = "visible";
-  hideDiv();
+  $("#popup_info").modal(showMessage("success", "scanning is completed. " + JSON.stringify(path)));
 }
 
 function scanError(err) {
-  reminder.innerHTML = "scanning error. " + err.name;
-  reminder.style.visibility = "visible";
-  hideDiv();
+  $("#popup_info").modal(showMessage("error", "scanning error. " + err.name));
 }
 
 function getDirectoriesCB(directories) {
@@ -111,22 +98,15 @@ function getDirectoriesCB(directories) {
 
 $(document).ready(function(){
   list = document.getElementById("result");
-  reminder = document.getElementById("reminder");
   var listener= {
     oncontentadded: function(content) {
-      reminder.innerHTML = content.contentURI + ' content is added';
-      reminder.style.visibility = "visible";
-      hideDiv();
+      $("#popup_info").modal(showMessage("success", content.contentURI + ' content is added'));
     },
     oncontentupdated: function(content) {
-      reminder.innerHTML = content.contentURI + ' content is updated';
-      reminder.style.visibility = "visible";
-      hideDiv();
+      $("#popup_info").modal(showMessage("success", content.contentURI + ' content is updated'));
     },
     oncontentremoved: function(id) {
-      reminder.innerHTML = id + ' is removed';
-      reminder.style.visibility = "visible";
-      hideDiv();
+      $("#popup_info").modal(showMessage("success", id + ' is removed'));
     }
  };
  tizen.content.setChangeListener(listener);

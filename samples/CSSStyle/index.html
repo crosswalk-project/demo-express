@@ -30,106 +30,97 @@ Authors:
 
 -->
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
-    <link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script src="../../js/jquery/jquery.js"></script>
-    <script src="../../js/jquery/jquery.mobile.js"></script>
-    <script src="../../js/tests.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery/slider.tooltip.js"></script>
-    <style>
-        .normalSpan {
-            display:none;
-            color:red;
-        }
-        .columnSpan {
-            visibility:hidden;
-            color:red;
-        }
-    </style>
-  </head>
-  <body>
-    <div data-role="header">
-      <h1 id="main_page_title"></h1>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/slider.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="../../js/jquery-2.1.3.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/tests.js"></script>
+<script src="js/main.js"></script>
+<script src="js/jquery/bootstrap-slider.js"></script>
+<style>
+    .normalSpan {
+        display:none;
+        color:red;
+    }
+    .columnSpan {
+        visibility:hidden;
+        color:red;
+    }
+</style>
+<div id="header">
+  <h3 id="main_page_title"></h3>
+</div>
+<div class="content">
+    <h4>This sample demonstrates CSS properties over time using CSS background, multicolumn, font, color, text, userinterface.</h4>
+    <div id="d">
+      <div id="text-div">
+        <div id="p"><span class="normalSpan">A</span>
+          By<span class="nbsp">using</span><span class="nbsp">functionality</span><span class="nbsp">described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</span>
+          <h3 id="h" style="font-weight: bold; font-size: 1.17em;"><span class="columnSpan">A</span>column span</h3>
+          The main benefit of using CSS-based columns is flexibility; content can flow from one column to another.
+        </div>
+      </div>
     </div>
-    <div data-role="content" class="content">
-        <h4>This sample demonstrates CSS properties over time using CSS background, multicolumn, font, color, text, userinterface.</h4>
-        <div id="d">
-          <div id="text-div">
-            <div id="p"><span class="normalSpan">A</span>
-              By&nbsp;using&nbsp;functionality&nbsp;described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.
-              <h3 id="h"><span class="columnSpan">A</span>column span</h3>
-              The main benefit of using CSS-based columns is flexibility; content can flow from one column to another.
-            </div>
-          </div>
-        </div>
-        <div data-role="controlgroup" data-type="horizontal" class="q">
-            <label for="slider-1">Mulcolumn</label>
-            <a id="on" data-role="button">On</a>
-            <a id="off" data-role="button">Off</a>
-        </div>
-        <div data-role="controlgroup" class="s">
-            <label for="slider-1">Transparency</label>
-            <input name="slider-1" id="slider-1" min="0" max="1" step=".01" value="1" data-highlight="true" data-show-value="true" type="range">
-        </div>
-        <div data-role="controlgroup" data-type="horizontal" class="u">
-            <label for="slider-1">Font Color</label>
-            <a id="red" data-role="button">Red</a>
-            <a id="green" data-role="button">Green</a>
-            <a id="blue" data-role="button">Blue</a>
-        </div>
-        <div data-role="controlgroup" data-type="horizontal" class="q">
-            <label for="slider-1">Text Align</label>
-            <a id="left" data-role="button">Left</a>
-            <a id="right" data-role="button">Right</a>
-        </div>
-        <div data-role="controlgroup" data-type="horizontal" class="q">
-            <label for="slider-1">Text Transform</label>
-            <a id="upper" data-role="button">Uppercase</a>
-            <a id="lower" data-role="button">Lowercase</a>
-        </div>
-        <div data-role="controlgroup" data-type="horizontal" class="q">
-            <label for="slider-1">Text Shadow</label>
-            <a id="shadow1" data-role="button">Shadow1</a>
-            <a id="shadow2" data-role="button">Shadow2</a>
-        </div>
-        <div data-role="controlgroup" data-type="horizontal" class="q">
-            <label for="slider-1">Box Shadow</label>
-            <a id="box-shadow1" data-role="button">Shadow1</a>
-            <a id="box-shadow2" data-role="button">Shadow2</a>
-        </div>
-        <div data-role="controlgroup" class="s">
-            <label for="slider-2">Outline offset</label>
-            <input name="slider-2" id="slider-2" min="0" max="15" step="1" value="5" data-highlight="true" data-show-value="true" type="range">
-        </div>
-        <div data-role="controlgroup" data-type="horizontal" class="q">
-            <label for="slider-1">Border</label>
-            <a id="border1" data-role="button">Border1</a>
-            <a id="border2" data-role="button">Border2</a>
-        </div>
-        <div data-role="controlgroup" data-type="horizontal" class="u">
-            <label for="slider-1">Text Decoration</label>
-            <a id="decoration1" data-role="button">Underline</a>
-            <a id="decoration2" data-role="button">Through</a>
-            <a id="decoration3" data-role="button">Overline</a>
-        </div>
-        <div data-role="controlgroup" data-type="horizontal" class="q">
-            <label for="slider-1">Word Break</label>
-            <a id="break1" data-role="button">Break All</a>
-            <a id="break2" data-role="button">Break Word</a>
-        </div>
+    <label class="textArr">Mulcolumn</label>
+    <div class='btn-group' style="width: 100%">
+      <button id="on" type="button" class="btn btn-default btn-lg bar-grid-a">On</button>
+      <button id="off" type="button" class="btn btn-default btn-lg bar-grid-a">Off</button>
     </div>
-    <div data-role="footer" data-position="fixed">
+    <label class="textArr">Transparency</label>
+    <div style="width: 96%; margin-top: 30px; margin-left: 2%"><input id="slider-1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="100" style="width: 100%"/></div>
+    <label class="textArr">Font Color</label>
+    <div class='btn-group' style="width: 100%">
+        <button id="red" type="button" class="btn btn-default btn-lg bar-grid-b">Red</button>
+        <button id="green" type="button" class="btn btn-default btn-lg bar-grid-b">Green</button>
+        <button id="blue" type="button" class="btn btn-default btn-lg bar-grid-b">Blue</button>
     </div>
-    <div data-role="popup" id="popup_info">
-      <font class="fontSize">
-        <p>The visual effect of CSS properties: background, multicolumn, font, color, text, userinterface display in the dotted line box.</p>
-      </font>
+    <label class="textArr">Text Align</label>
+    <div class='btn-group' style="width: 100%">
+        <button id="left" type="button" class="btn btn-default btn-lg bar-grid-a">Left</button>
+        <button id="right" type="button" class="btn btn-default btn-lg bar-grid-a">Right</button>
     </div>
-  </body>
-</html>
+    <label class="textArr">Text Transform</label>
+    <div class='btn-group' style="width: 100%">
+        <button id="upper" type="button" class="btn btn-default btn-lg bar-grid-a">Uppercase</button>
+        <button id="lower" type="button" class="btn btn-default btn-lg bar-grid-a">Lowercase</button>
+    </div>
+    <label class="textArr">Text Shadow</label>
+    <div class='btn-group' style="width: 100%">
+        <button id="shadow1" type="button" class="btn btn-default btn-lg bar-grid-a">Shadow1</button>
+        <button id="shadow2" type="button" class="btn btn-default btn-lg bar-grid-a">Shadow2</button>
+    </div>
+    <label class="textArr">Box Shadow</label>
+    <div class='btn-group' style="width: 100%">
+        <button id="box-shadow1" type="button" class="btn btn-default btn-lg bar-grid-a">Shadow1</button>
+        <button id="box-shadow2" type="button" class="btn btn-default btn-lg bar-grid-a">Shadow2</button>
+    </div>
+    <label for="slider-2">Outline offset</label>
+    <div style="width: 100%; margin-top: 30px;"><input id="slider-2" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="15" data-slider-step="1" data-slider-value="5" style="width: 100%"/></div>
+    <label class="textArr">Border</label>
+    <div class='btn-group' style="width: 100%">
+        <button id="border1" type="button" class="btn btn-default btn-lg bar-grid-a">Border1</button>
+        <button id="border2" type="button" class="btn btn-default btn-lg bar-grid-a">Border2</button>
+    </div>
+    <label class="textArr">Text Decoration</label>
+    <div class='btn-group' style="width: 100%">
+        <button id="decoration1" type="button" class="btn btn-default btn-lg bar-grid-b">Underline</button>
+        <button id="decoration2" type="button" class="btn btn-default btn-lg bar-grid-b">Through</button>
+        <button id="decoration3" type="button" class="btn btn-default btn-lg bar-grid-b">Overline</button>
+    </div>
+    <label class="textArr">Word Break</label>
+    <div class='btn-group' style="width: 100%">
+        <button id="break1" type="button" class="btn btn-default btn-lg bar-grid-a">Break All</button>
+        <button id="break2" type="button" class="btn btn-default btn-lg bar-grid-a">Break Word</button>
+    </div>
+</div>
+<div class="footer">
+  <div id="footer"></div>
+</div>
+<div class="modal fade" id="popup_info">
+  <p>The visual effect of CSS properties: background, multicolumn, font, color, text, userinterface display in the dotted line box.</p>
+</div>

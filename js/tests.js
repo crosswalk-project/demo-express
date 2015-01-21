@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2013 Intel Corporation.
+Copyright (c) 2014 Intel Corporation.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -25,100 +25,68 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Authors:
-        Wang, Jing J <jing.j.wang@intel.com>
-        Li, Hao <haox.li@intel.com>
-        Fan, Yugang <yugang.fan@intel.com>
-        Jiazhen, Shentu <jiazhenx.shentu@intel.com>
-
+        Liu, Yun <yunx.liu@intel.com>
 */
 
-function EnablePassButton(){
-  $('#pass_button').removeClass("ui-disabled");
+var popup_info, tid, subid, sid, title;
+var lstorage = window.localStorage;
+var addr = window.location.href;
+var id = location.search.split('=')[1];
+var isSubcase = false;
+var keyarr = JSON.parse(lstorage.getItem(id));
+var purpose = keyarr.purpose;
+
+if(location.search.indexOf('subkey=') > 0) {
+  isSubcase = true;
+  subid = keyarr.id;
+  tid = keyarr.tid;
+  title = tid + " - " + subid;
+} else {
+  sid = keyarr.sid;
+  tid = id;
+  title = tid;
 }
 
-function DisablePassButton(){
-  $('#pass_button').addClass("ui-disabled");
+function EnablePassButton() {
+  $('#pass_button').attr('disabled', false);
 }
 
-function getAppName() {
-  var lpath = window.parent._appURL;
-  var from = lpath.lastIndexOf("samples/") + 6;
-  var to = lpath.lastIndexOf("/");
-  return lpath.substring(from, to);
+function DisablePassButton() {
+  $('#pass_button').attr('disabled', true);
 }
 
-function backAppsHome() {
-  if (document.getElementById("wgt_name")) {
-    test = $("#wgt_name").attr("value");
+function back() {
+  var url;
+  if(isSubcase) {
+    url = addr.substring(0, addr.indexOf("/" + tid + "/") + tid.length + 2) + "index.html?tid=" + tid;
   } else {
-    test = document.title;
+    url = addr.substring(0, addr.indexOf("/samples/")) + "/tests_list.html?sid=" + sid;
   }
-  window.parent.launchMain(test);
+  window.location.href = url;
 }
 
 function reportResult(res) {
-  if (document.getElementById("wgt_name")) {
-    test = $("#wgt_name").attr("value");
-  } else if (document.getElementById("sub_test")) {
-    var length = $("a h2").length;
-    var pass_num = 0;
-    var fail_num = 0;
-    $("a h2").each(function () {
-      var color = $(this).css("color");
-      if (color == "rgb(0, 128, 0)") {
-        pass_num++;
-      } else if (color == "rgb(255, 0, 0)") {
-        fail_num++;
-      }
-    });
-    res = [pass_num,fail_num,length-pass_num-fail_num, res];
-    test = document.title;
+  var storearr;
+  if (isSubcase) {
+    storearr = {id: subid, result: res, tid: tid};
   } else {
-    test = document.title;
+    storearr = {purpose: purpose, num: 1, pass: "0", fail: "0", result: res, sid: sid};
   }
-  window.sessionStorage.setItem(test, res);
-  backAppsHome();
+  lstorage.setItem(id, JSON.stringify(storearr));
+  back();
 }
 
-function getParms() {
-  var parms = new Array();
-  var str = location.search.substring(1);
-  var items = str.split('&');
-  for ( var i = 0; i < items.length; i++) {
-    var pos = items[i].indexOf('=');
-    if (pos > 0) {
-      var key = items[i].substring(0, pos);
-      var val = items[i].substring(pos + 1);
-      if (!parms[key]) {
-        var rawVal = decodeURI(val);
-        if (rawVal.indexOf(',') < 0)
-          parms[key] = rawVal;
-        else
-          parms[key] = rawVal.split(',');
-      }
-    }
-  }
-  return parms["test_name"];
+function help() {
+  showMessage("help", popup_info);
 }
 
 $(document).ready(function(){
-  var testname = getParms();
-  document.title = testname;
-  $("#main_page_title").text(testname);
-});
-
-$(document).bind('pagecreate', function () {
-  var footbar = $(':jqmData(role=footer)');
-  footbar.empty();
-  footbar.attr("data-tap-toggle", "false");
-  footbar.append("<div data-role=\"controlgroup\" data-type=\"horizontal\" align=\"center\">" +
-      "<a href=\"#popup_info\" data-icon=\"info\" data-role=\"button\" data-rel=\"popup\" data-transition=\"pop\">Help</a>" +
-      "<a href=\"javascript:backAppsHome();\" data-role=\"button\" data-rel=\"popup\" data-icon=\"home\">Back</a></div>");
-  footbar.trigger("create");
-  $(':jqmData(role=footer)').find(':jqmData(role=button) > span:first-child').css('padding', '15px 10px 15px 30px');
-  $("#popup_info").popup( "option", "theme", "a");
-  var maxHeight = $(window).height() - 100 + "px";
-  $("#popup_info").css("max-height", maxHeight);
-  $("#popup_info").css("margin-bottom", "30px");
-  $("#popup_info").css("overflow-y", "auto");
+  document.title = title;
+  $("#main_page_title").text(title);
+  $("#main_page_title").css({"font-weight":"bold", "font-size":"140%"});
+  $("#header").addClass("navbar navbar-default navbar-fixed-top text-center");
+  $("#footer").html("<div id='btn-group' class='btn-group'></div>");
+  $("#btn-group").html("<button type='button' id='help' onclick='help()' class='btn btn-default' data-toggle='modal' data-target='#popup_info'><span class='glyphicon glyphicon-info-sign'></span><span class='nbsp'>Help</span></button><button type='button' class='btn btn-default' onclick='javascript: back();'><span class='glyphicon glyphicon-circle-arrow-left'></span><span class='nbsp'>Back</span></button>");
+  $("#footer").addClass("container text-center");
+  popup_info = $("#popup_info").html();
 });

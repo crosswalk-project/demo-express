@@ -37,7 +37,7 @@ for(var i = 0; i < array.length; i++) {
     }
 }
 
-$(document).delegate("#main", "pageinit", function() {
+$(document).ready(function() {
     document.addEventListener(visibilitychange, notification);
     DisablePassButton();
 });

@@ -1,25 +1,26 @@
 The slider.tooltip.js comes from
-https://github.com/jquery/jquery-mobile/tree/1.3-stable
+https://github.com/seiyria/bootstrap-slider/blob/master/js/bootstrap-slider.js
 with some modifications.
 
--  define( [ "jquery", "./slider" ], function( $ ) {
-+  //define( [ "jquery", "./slider" ], function( $ ) {
+	setValue: function(val, triggerSlideEvent) {
++   var ID = this.element.id;
++   if (ID == "slider-1") {
++     var value1 = sliderValue / 100;
++     document.getElementById("MediaPlayback").volume = value1;
++   }
 
-        if (o.popupEnabled) {
-             this._positionPopup();
--            this._popup.html(Math.round(newValue));
-+            this._popup.html(Math.round(newValue*100)+"%" );
-+            document.getElementById("MediaPlayback").volume = newValue;
-         }
-         if (o.showValue) {
--            this._handleText.html(Math.round(newValue));
-+            this._handleText.html(Math.round(newValue*100)+"%");
-+            document.getElementById("MediaPlayback").volume = newValue;
-         }
-
+  _setText: function(val) {
+-   element.innerText = text;
++   if (this.element.id == "slider-1") {
++     var text1 = text + "%";
++     element.innerText = text1;
++   } else {
++     element.innerText = text;
++ 	}
+  }
 jQuery Mobile v@VERSION
 http://jquerymobile.com
 
-Copyright 2010, 2013 jQuery Foundation, Inc. and other contributors
+Copyright 2010, 2014 jQuery Foundation, Inc. and other contributors
 Released under the MIT license.
 http://jquery.org/license

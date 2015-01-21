@@ -33,7 +33,7 @@ var init = function () {
         tizen.systeminfo.addPropertyValueChangeListener("SIM", onSimSuccess);
         tizen.systeminfo.addPropertyValueChangeListener("PERIPHERAL", onPeripheralSuccess);
     } catch (e) {
-        alert("Exception: " + e.message);
+        $("#popup_info").modal(showMessage("error", "Exception: " + e.message));
     }
     getPropertyValue();
 };
@@ -53,20 +53,20 @@ function getPropertyValue() {
         tizen.systeminfo.getPropertyValue("SIM", onSimSuccess);
         tizen.systeminfo.getPropertyValue("PERIPHERAL", onPeripheralSuccess);
     } catch (e) {
-        alert("Exception: " + e.message);
+        $("#popup_info").modal(showMessage("error", "Exception: " + e.message));
     }
 }
 
 function onError(e) {
-    alert("Error: " + e.message);
+    $("#popup_info").modal(showMessage("error", "Error: " + e.message));
 }
 
 function make1lineListItem(value) {
-    return '<li>' + value + '</li>';
+    return '<div class="panel-body">' + value + '</div>';
 }
 
 function makeDividerListItem(value) {
-    return '<li data-role="list-divider">' + value + '</li>';
+    return '<div class="panel-heading">' + value + '</div>';
 }
 
 function onWifiNetworkSuccess(wifi) {
@@ -76,14 +76,14 @@ function onWifiNetworkSuccess(wifi) {
             + make1lineListItem("IPAddress : " + wifi.ipAddress)
             + make1lineListItem("IPv6Address : " + wifi.ipv6Address)
             + make1lineListItem("SignalStrength : " + wifi.signalStrength);
-    $("#info-list1").html(gInfo).trigger("create").listview("refresh");
+    $("#info-list1").html(gInfo);
 }
 
 function onDeviceOrientationSuccess(orientation) {
     gInfo = makeDividerListItem("DEVICE_ORIENTATION Status")
             + make1lineListItem("Status : " + orientation.status)
             + make1lineListItem("AutoRotation : " + (orientation.isAutoRotation == true ? "Yes" : "No"));
-    $("#info-list2").html(gInfo).trigger("create").listview("refresh");
+    $("#info-list2").html(gInfo);
 }
 
 function onDisplaySuccess(display) {
@@ -98,14 +98,14 @@ function onDisplaySuccess(display) {
             + makeDividerListItem("Physical size")
             + make1lineListItem("Width : " + display.physicalWidth)
             + make1lineListItem("Height : " + display.physicalHeight);
-    $("#info-list4").html(gInfo).trigger("create").listview("refresh");
+    $("#info-list4").html(gInfo);
 }
 
 function onBatterySuccess(battery) {
     gInfo = makeDividerListItem("BATTERY Status")
             + make1lineListItem("Level : " + (battery.level * 100) + "%")
             + make1lineListItem("Charging : " + (battery.isCharging == true ? "Yes" : "No"));
-    $("#info-list3").html(gInfo).trigger("create").listview("refresh");
+    $("#info-list3").html(gInfo);
 }
 
 function onStorageSuccess(storages) {
@@ -117,13 +117,13 @@ function onStorageSuccess(storages) {
                + make1lineListItem("Available capacity : " + Math.floor(storages.units[i].availableCapacity / 1000000) + " MB")
                + make1lineListItem("Removable : " + (storages.units[i].isRemovable == true ? "Yes" : "No"));
     }
-    $("#info-list5").html(gInfo).trigger("create").listview("refresh");
+    $("#info-list5").html(gInfo);
 }
 
 function onCpuSuccess(cpu) {
     gInfo = makeDividerListItem("CPU Status")
             + make1lineListItem("Load : " + cpu.load);
-    $("#info-list6").html(gInfo).trigger("create").listview("refresh");
+    $("#info-list6").html(gInfo);
 }
 
 function onBuildSuccess(build) {
@@ -131,20 +131,20 @@ function onBuildSuccess(build) {
             + make1lineListItem("Model : " + build.model)
             + make1lineListItem("Manufacturer : " + build.manufacturer)
             + make1lineListItem("BuildVersion : " + build.buildVersion);
-    $("#info-list7").html(gInfo).trigger("create").listview("refresh");
+    $("#info-list7").html(gInfo);
 }
 
 function onLocaleSuccess(locale) {
     gInfo = makeDividerListItem("LOCALE Status")
             + make1lineListItem("Language : " + locale.language)
             + make1lineListItem("Country : " + locale.country);
-    $("#info-list8").html(gInfo).trigger("create").listview("refresh");
+    $("#info-list8").html(gInfo);
 }
 
 function onNetworkSuccess(network) {
     gInfo = makeDividerListItem("NETWORK Status")
             + make1lineListItem("NetworkType : " + network.networkType);
-    $("#info-list9").html(gInfo).trigger("create").listview("refresh");
+    $("#info-list9").html(gInfo);
 }
 
 function onCellularNetworkSuccess(cellular) {
@@ -160,7 +160,7 @@ function onCellularNetworkSuccess(cellular) {
             + make1lineListItem("IsRoaming : " + cellular.isRoaming)
             + make1lineListItem("IsFlightMode : " + cellular.isFlightMode)
             + make1lineListItem("IMEI : " + cellular.imei);
-    $("#info-list10").html(gInfo).trigger("create").listview("refresh");
+    $("#info-list10").html(gInfo);
 }
 
 function onSimSuccess(sim) {
@@ -173,13 +173,15 @@ function onSimSuccess(sim) {
             + make1lineListItem("Mnc : " + sim.mnc)
             + make1lineListItem("Msin : " + sim.msin)
             + make1lineListItem("Spn : " + sim.spn);
-    $("#info-list11").html(gInfo).trigger("create").listview("refresh");
+    $("#info-list11").html(gInfo);
 }
 
 function onPeripheralSuccess(peripheral) {
     gInfo = makeDividerListItem("PERIPHERAL Status")
             + make1lineListItem("IsVideoOutputOn : " + peripheral.isVideoOutputOn);
-    $("#info-list12").html(gInfo).trigger("create").listview("refresh");
+    $("#info-list12").html(gInfo);
 }
 
-$(document).bind("pageinit", init);
+window.onload = function(){
+  init();
+};

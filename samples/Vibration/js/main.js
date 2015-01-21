@@ -31,11 +31,17 @@ Authors:
 
 var vibration_time, vibration_periods, vibration_number;
 
-jQuery(document).ready(function() {
+$(document).ready(function() {
   DisablePassButton();
-  // style setting
-  $(':jqmData(role=content)').css("text-align", "center");
-  $(':jqmData(role=content)').find(':jqmData(role=button) > span:first-child').css('padding', '15px 30px');
+  $("#slider-1").slider({
+    tooltip: 'always'
+  });
+  $("#slider-2").slider({
+    tooltip: 'always'
+  });
+  $("#slider-3").slider({
+    tooltip: 'always'
+  });
 
   vibration_time = Number($("#slider-1").val())*1000;
   vibration_periods = Number($("#slider-2").val())*1000;

@@ -30,52 +30,48 @@ Authors:
         Wang, Hongjuan <hongjuanx.wang@intel.com>
 
 -->
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
-    <link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/main.css" />
-    <script src="../../js/jquery/jquery.js"></script>
-    <script src="../../js/jquery/jquery.mobile.js"></script>
-    <script src="../../js/tests.js"></script>
-  </head>
-  <body>
-    <div data-role="page" id="main">
-      <div data-role="header">
-        <h1 id="main_page_title"></h1>
-      </div>
-      <div data-role="content" class="content">
-        <h4>This sample demonstrates enable scheme "app://", "mailto:", "market:", "sms:", "tel:", "geo:"</h4>
-        <h4>Pre-condition</h4>
-        <ul>
-          <li>Connect to network</li>
-          <li>Map Application is installed on device such as google map</li>
-        </ul>
-        <h4>Test Step</h4>
-        <ol>
-          <li>Download app named like "schemescheck.apk" from <a href="https://github.com/crosswalk-project/demo-express/releases">https://github.com/crosswalk-project/demo-express/releases</a>
-          (The schemescheck demos apk might be included in .zip files in this page), then install and it</li>
-          <li>Click "geo"</li>
-          <li>Click "mailto"</li>
-          <li>Click "open market"</li>
-          <li>Click "send sms"</li>
-          <li>Click "make call"</li>
-        </ol>
-      </div>
-      <div data-role="footer" data-position="fixed">
-      </div>
-      <div data-role="popup" id="popup_info">
-        <p>Expected Result</p>
-        <ol>
-          <li>Install apk and launch it successfully</li>
-          <li>Popup the map app</li>
-          <li>Popup the email app</li>
-          <li>Popup the Market app</li>
-          <li>Popup the Sms app</li>
-          <li>Popup the Tel app</li>
-        </ol>
-      </div>
-    </div>
-  </body>
-</html>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<script src="../../js/jquery-2.1.3.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/tests.js"></script>
+
+<div id="header">
+  <h3 id="main_page_title"></h3>
+</div>
+<div class="content">
+  <h4>This sample demonstrates enable scheme "app://", "mailto:", "market:", "sms:", "tel:", "geo:"</h4>
+  <h4>Pre-condition</h4>
+  <ul>
+    <li>Connect to network</li>
+    <li>Map Application is installed on device such as google map</li>
+  </ul>
+  <h4>Test Step</h4>
+  <ol>
+    <li>Download app named like "schemescheck.apk" from <a href="https://github.com/crosswalk-project/demo-express/releases">https://github.com/crosswalk-project/demo-express/releases</a>
+    (The schemescheck demos apk might be included in .zip files in this page), then install and it</li>
+    <li>Click "geo"</li>
+    <li>Click "mailto"</li>
+    <li>Click "open market"</li>
+    <li>Click "send sms"</li>
+    <li>Click "make call"</li>
+  </ol>
+</div>
+<div class="footer">
+  <div id="footer"></div>
+</div>
+<div class="modal fade" id="popup_info">
+  <p>Expected Result</p>
+  <ol>
+    <li>Install apk and launch it successfully</li>
+    <li>Popup the map app</li>
+    <li>Popup the email app</li>
+    <li>Popup the Market app</li>
+    <li>Popup the Sms app</li>
+    <li>Popup the Tel app</li>
+  </ol>
+</div>

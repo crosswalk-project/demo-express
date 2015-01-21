@@ -89,21 +89,14 @@ function startRead(index) {
                 reader.readAsText(file, "UTF-8");
                 filetype = "text";
             } catch(e) {
-                $.mobile.hidePageLoadingMsg();
                 $("#filePreview").html("Cannot pre-view this type of file!");
             }
         }
         EnablePassButton();
         // Handle progress, success, and errors
-        reader.onloadstart = loadstart;
         reader.onload = loaded;
-        reader.onloadend = loadend;
         reader.onerror = errorHandler;
     }
-}
-function loadstart(evt) {
-    // loading
-    $.mobile.showPageLoadingMsg();
 }
 
 function loaded(evt) {
@@ -117,9 +110,6 @@ function loaded(evt) {
     }
 }
 
-function loadend(evt) {
-    $.mobile.hidePageLoadingMsg();
-}
 
 function errorHandler(evt) {
    $("#messageInfo").addClass("errorMessage");

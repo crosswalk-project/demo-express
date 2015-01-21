@@ -30,14 +30,14 @@ Authors:
 
 -->
 
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css" />
-<link rel="stylesheet" type="text/css" href="../../css/main.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" />
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<script src="../../js/jquery/jquery.js"></script>
-<script src="../../js/jquery/jquery.mobile.js"></script>
+<script src="../../js/jquery-2.1.3.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
 <script src="../../js/tests.js"></script>
 <script src="js/main.js"></script>
 <style type="text/css">
@@ -48,32 +48,26 @@ Authors:
       font-weight: bold; 
     }
 </style>
-</head>
-<body>
-  <div data-role="page" id="main">
-    <div data-role="header" data-position="fixed" data-tap-toggle="false">
-      <h1 id="main_page_title"></h1>
-    </div>
-    <div data-role="content">
-      <h4>This sample demonstrates the timing information related to HTML elements.</h4>
-      <p>Make sure the device is connected to an available network.</p>
-      <div class="observate" id="showDiv">
-        <p id="fetchStart_redirectStart"><span>Fetch start timing:</span> N/A</p>
-        <p id="domainLookupStart_redirectStart"><span>Domain lookup timing:</span> N/A</p>
-        <p id="connectStart_domainLookupEnd"><span>Connect start timing compare with domain end timing:</span> N/A</p>
-        <p id="responseEnd_requestStart"><span>Response end timing compare with request start timing:</span> N/A</p>
-        <p id="responseEnd_redirectStart"><span>End to end resource fetch:</span> N/A</p>
-      </div>
-      <div id="imageDiv"><img id="image"/></div>
-      <ul data-role="listview" id="info-list1"></ul>
-    </div>
-    <div data-role="footer" data-position="fixed" data-tap-toggle="false">
-    </div>
-    <div data-role="popup" id="popup_info">
-      <font class="fontSize">
-        <p>It is designed by PerformanceTiming API.</p>
-      </font>
-    </div>
+
+<div id="header">
+  <h3 id="main_page_title"></h3>
+</div>
+<div class="content">
+  <h4>This sample demonstrates the timing information related to HTML elements.</h4>
+  <p>Make sure the device is connected to an available network.</p>
+  <div class="observate" id="showDiv">
+    <p id="fetchStart_redirectStart"><span>Fetch start timing:</span> N/A</p>
+    <p id="domainLookupStart_redirectStart"><span>Domain lookup timing:</span> N/A</p>
+    <p id="connectStart_domainLookupEnd"><span>Connect start timing compare with domain end timing:</span> N/A</p>
+    <p id="responseEnd_requestStart"><span>Response end timing compare with request start timing:</span> N/A</p>
+    <p id="responseEnd_redirectStart"><span>End to end resource fetch:</span> N/A</p>
   </div>
-</body>
-</html>
+  <div id="imageDiv"><img id="image"/></div>
+  <div id="info-list1"></div>
+</div>
+<div class="footer">
+  <div id="footer"></div>
+</div>
+<div class="modal fade" id="popup_info">
+  <p>It is designed by PerformanceTiming API.</p>
+</div>

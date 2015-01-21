@@ -38,6 +38,7 @@ function sendResourceTiming() {
   if (resourceList.length > 0) {
     for (i = 0; i < resourceList.length; i++) {
       if (resourceList[i].initiatorType == 'img') {
+        $("#test").css("border", "1px solid black");
         $("#info").css("display", "block");
         document.getElementById("name").innerHTML = "Name: " + resourceList[i].name;
         document.getElementById("entryType").innerHTML = "Entry type: " + resourceList[i].entryType;
@@ -51,7 +52,6 @@ function sendResourceTiming() {
 
 $(document).ready(function() {
   DisablePassButton();
-  $("#test").css("border", "1px solid black");
   $("#info").css("display", "none");
   $("#loadimg").click(loadimg);
 });

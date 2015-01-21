@@ -44,17 +44,17 @@ function status() {
 
 function show() {
     $("#infobox").text("Could not connect to speech server. \n" + $("#infobox").text());
-    $("#start").closest(".ui-btn").show();
-    $("#stop").closest(".ui-btn").hide();
-    $("#abort").button("disable");
+    $("#start").show();
+    $("#stop").hide();
+    $("#abort").attr('disabled', true);
     clearTimeout(showId);
 }
 
-$("#start").live("tap", function () {
+function start() {
     testFlag.green = true;
-    $("#start").closest(".ui-btn").hide();
-    $("#stop").closest(".ui-btn").show();
-    $("#abort").button("enable");
+    $("#start").hide();
+    $("#stop").show();
+    $("#abort").attr('disabled', false);
     clearTimeout(showId);
     showId = setTimeout("show()", 10000);
     window.speechReco = new webkitSpeechRecognition();
@@ -76,9 +76,9 @@ $("#start").live("tap", function () {
     };
     speechReco.onerror = function(err) {
         $("#infobox").text("Could not connect to speech server. \nSpeechRecognition error - " + err.error + "\n" + $("#infobox").text());
-        $("#start").closest(".ui-btn").show();
-        $("#stop").closest(".ui-btn").hide();
-        $("#abort").button("disable");
+        $("#start").show();
+        $("#stop").hide();
+        $("#abort").attr('disabled', true);
         speechReco.stop();
         $("#infobox").text("SpeechRecognition stop.\n" + $("#infobox").text());
     };
@@ -89,27 +89,27 @@ $("#start").live("tap", function () {
     $("#infobox").text("SpeechRecognition start.");
     clearTimeout(showId);
     status();
-});
+}
 
-$("#stop").live("tap", function () {
+function stop() {
     testFlag.red = true;
-    $("#start").closest(".ui-btn").show();
-    $("#stop").closest(".ui-btn").hide();
-    $("#abort").button("disable");
+    $("#start").show();
+    $("#stop").hide();
+    $("#abort").attr('disabled', true);
     speechReco.stop();
     $("#infobox").text("SpeechRecognition stop.\n" + $("#infobox").text());
     status();
-});
+}
 
-$("#abort").live("tap", function () {
+function abort() {
     testFlag.blue = true;
     speechReco.abort();
     $("#infobox").text("SpeechRecognition abort.\n" + $("#infobox").text());
     status();
-});
+}
 
-$(document).live('pageshow', function () {
+$(document).ready(function(){
     DisablePassButton();
-    $("#stop").closest(".ui-btn").hide();
-    $("#abort").button("disable");
+    $("#stop").hide();
+    $("#abort").attr('disabled', true);
 });

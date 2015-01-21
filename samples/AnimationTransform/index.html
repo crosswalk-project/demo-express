@@ -30,52 +30,45 @@ Authors:
 
 -->
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
-        <link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <script src="../../js/jquery/jquery.js"></script>
-        <script src="../../js/jquery/jquery.mobile.js"></script>
-        <script src="../../js/tests.js"></script>
-        <script>
-          function reloadTest() {
-                document.location.reload();
-          }
-        </script>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="../../js/jquery-2.1.3.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/tests.js"></script>
+<script>
+  function reloadTest() {
+        document.location.reload();
+  }
+</script>
 
-    </head>
+<div id="header">
+  <h3 id="main_page_title"></h3>
+</div>
 
-    <body>
-        <div data-role="header">
-            <h1 id="main_page_title"></h1>
-        </div>
-
-    <div data-role="content">
-      <h4>This sample demonstrates an Animation Transform with 6 effects:.</h4>
-        <p>1. Color is changing in order of green, pink, blue, green, red, green</p>
-        <p>2. Square/Circle move with 20 degree direction from left to right</p>
-        <p>3. when rotate direction from left to right, square is rotate in 2D(180degree), circle is rotate in 3D(Y-axis)</p>
-        <p>4. Square/circle is transfering between square/circle when moving from right to left</p>
-        <p>5. "SQUARE" is in black font, "CIRCLE" is in white font</p>
-        <p>6. About frame box border, style is outset in green, with gray shadow. </p>
-      <div class="display_box">
-        <div id="box">
-          <div id="testbox1" style="color:black; top:25%"> SQUARE </div>
-          <div id="testbox2" style="color:white; top:25%"> CIRCLE </div>
-        </div>
-      </div>
-      <p><a href="javascript: reloadTest();" data-role="button">Test Again</a></p>
+<div class="content">
+  <h4>This sample demonstrates an Animation Transform with 6 effects:.</h4>
+    <p>1. Color is changing in order of green, pink, blue, green, red, green</p>
+    <p>2. Square/Circle move with 20 degree direction from left to right</p>
+    <p>3. when rotate direction from left to right, square is rotate in 2D(180degree), circle is rotate in 3D(Y-axis)</p>
+    <p>4. Square/circle is transfering between square/circle when moving from right to left</p>
+    <p>5. "SQUARE" is in black font, "CIRCLE" is in white font</p>
+    <p>6. About frame box border, style is outset in green, with gray shadow. </p>
+  <div class="display_box">
+    <div id="box">
+      <div id="testbox1" style="color:black; top:25%"> SQUARE </div>
+      <div id="testbox2" style="color:white; top:25%"> CIRCLE </div>
     </div>
+  </div>
+  <p><button onclick="javascript: reloadTest();" type="button" class="btn btn-default btn-lg btn-block">Test Again</button></p>
+</div>
 
-    <div data-role="footer" data-position="fixed">
-    </div>
-    <div data-role="popup" id="popup_info">
-      <font style="font-size:85%">
-        <p>The animation transform is drew by properties: keyframes, transform, animation.</p>
-      </font>
-    </div>
-    </body>
-</html>
+<div class="footer">
+  <div id="footer"></div>
+</div>
+<div class="modal fade" id="popup_info">
+  <p>The animation transform is drew by properties: keyframes, transform, animation.</p>
+</div>

@@ -71,13 +71,13 @@ App.query = function () {
     }
     var noRecord = true;
     document.getElementById("noRecord").innerHTML = "";
-    $("#btnDelete").button("enable");
+    $("#btnDelete").attr('disabled', false);
     cursorRequest.onsuccess = function (e) {
         var result = e.target.result;
         if (!result || !result.value){
             if(noRecord){
                 document.getElementById("noRecord").innerHTML="No Record";
-                $("#btnDelete").button("disable");
+                $("#btnDelete").attr('disabled', true);
             }
             return false;
         }

@@ -20,44 +20,48 @@ Authors:
 
 var path;
 
-$(document).delegate("#main", "pageinit", function() {
-    $("#imageHS").delegate("li", "vclick", function() {
-        path = $(this).data("url");
-        setSystemProperty("HOME_SCREEN", path, onScreenSetSuccess);
-    });
-    $("#imageLS").delegate("li", "vclick", function() {
-        path = $(this).data("url");
-        setSystemProperty("LOCK_SCREEN", path, onScreenSetSuccess);
-    });
-    $("#imageHG").bind("vclick", function() {
-        var hs_path = $("#imageHS").find("li").data("url");
-        if(hs_path == "" || hs_path == null) {
-            $("#list1>li[data-id]").html("Error: there is no any picture file found.")
-        }
-        getSystemProperty("HOME_SCREEN", onScreenGetSuccess);
-        return false;
-    });
-    $("#imageLG").bind("vclick", function() {
-        var ls_path = $("#imageLS").find("li").data("url");
-        if(ls_path == "" || ls_path == null) {
-            $("#list2>li[data-id]").html("Error: there is no any picture file found.");
-        }
-        getSystemProperty("LOCK_SCREEN", onScreenGetSuccess);
-        return false;
-    });
+window.onload = function(){
     fileImage();
+};
+
+$(document).on('click', '#imageHS', function () {
+    path = $(this).data("url");
+    setSystemProperty("HOME_SCREEN", path, onScreenSetSuccess);
+});
+
+$(document).on('click', '#imageLS', function () {
+    path = $(this).data("url");
+    setSystemProperty("LOCK_SCREEN", path, onScreenSetSuccess);
+});
+
+$(document).on('click', '#imageHG', function () {
+    var hs_path = $("#imageHS").find("div").data("url");
+    if(hs_path == "" || hs_path == null) {
+        $("#list1").html("Error: there is no any picture file found.")
+    }
+    getSystemProperty("HOME_SCREEN", onScreenGetSuccess);
+    return false;
+});
+
+$(document).on('click', '#imageLG', function () {
+    var ls_path = $("#imageLS").find("li").data("url");
+    if(ls_path == "" || ls_path == null) {
+        $("#list2").html("Error: there is no any picture file found.");
+    }
+    getSystemProperty("LOCK_SCREEN", onScreenGetSuccess);
+    return false;
 });
 
 function onError(e) {
-    alert("Error: " + e.message);
+    $("#popup_info").modal(showMessage("error", "Error: " + e.message));
 }
 
 function onScreenSetSuccess() {
-    alert("Change of SCREEN image");
+    $("#popup_info").modal(showMessage("success", "Change of SCREEN image"));
 }
 
 function onScreenGetSuccess(value) {
-    alert("Image(Get) path : " + value);
+    $("#popup_info").modal(showMessage("success", "Image(Get) path : " + value));
     var canvas = document.getElementById("canvas");
     var cx = canvas.getContext("2d");
     var image = new Image();
@@ -68,9 +72,9 @@ function onScreenGetSuccess(value) {
 function setSystemProperty(property, path, onSuccess) {
     try {
         tizen.systemsetting.setProperty(property, path, onSuccess, onError);
-        console.log(path);
+        $("#popup_info").modal(showMessage("success", path));
     } catch (e) {
-        alert("Exception: " + e.message);
+        $("#popup_info").modal(showMessage("error", "Exception: " + e.message));
     }
 }
 
@@ -78,7 +82,7 @@ function getSystemProperty(property, onSuccess) {
     try {
         tizen.systemsetting.getProperty(property, onSuccess, onError);
     } catch (e) {
-        alert("Exception: " + e.message);
+        $("#popup_info").modal(showMessage("error", "Exception: " + e.message));
     }
 }
 
@@ -87,35 +91,35 @@ function fileImage() {
     var len, last, ext;
     function onsuccess(files) {
         if(files.length > 0) {
-            $("#list1>li[data-id]").remove();
-            $("#list2>li[data-id]").remove();
-        }
-        for (var i = 0; i < files.length; i++)
-        {
-            if(files[i].isFile == true)
+            $("#list1").html("");
+            $("#list2").html("");
+            for (var i = 0; i < files.length; i++)
             {
-                len = files[i].name.length;
-                last = files[i].name.lastIndexOf(".");
-                ext = files[i].name.substring(last, len);
-                if(ext == ".jpg" || ext == ".jpeg" || ext == ".bmp" || ext == ".png" || ext == ".gif")
+                if(files[i].isFile == true)
                 {
-                    var Url = files[i].toURI();
-                    Url = Url.replace("file:///", "/");
-                    str += '<li data-url="' + Url + '"><img src="' + files[i].toURI() + '" alt="" />' + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + files[i].name + '</li>';
-                    length++;
-                    if(length >= 6)
-                        break;
+                    len = files[i].name.length;
+                    last = files[i].name.lastIndexOf(".");
+                    ext = files[i].name.substring(last, len);
+                    if(ext == ".jpg" || ext == ".jpeg" || ext == ".bmp" || ext == ".png" || ext == ".gif")
+                    {
+                        var Url = files[i].toURI();
+                        Url = Url.replace("file:///", "/");
+                        str += '<div class="panel-body" data-url="' + Url + '"><img src="' + files[i].toURI() + '" alt="" />' + "<span class='nbsp3'>" + files[i].name + '</span></div>';
+                        length++;
+                        if(length >= 6)
+                            break;
+                    }
                 }
             }
         }
         if(length == 0)
-            alert("Not found Image files.\nPlease add image files.\nAdd Path: " + documentsDir.toURI() + "/");
-        $("#imageHS").html(str).trigger("create").listview("refresh");
-        $("#imageLS").html(str).trigger("create").listview("refresh");
+            $("#popup_info").modal(showMessage("error", "Not found Image files.\nPlease add image files.\nAdd Path: " + documentsDir.toURI() + "/"));
+        $("#imageHS").html(str);
+        $("#imageLS").html(str);
     }
 
     function onerror(error) {
-        console.log("The error " + error.message + " occurred when listing the files in the selected folder");
+        $("#popup_info").modal(showMessage("error", "The error " + error.message + " occurred when listing the files in the selected folder"));
     }
 
     tizen.filesystem.resolve(
@@ -124,7 +128,7 @@ function fileImage() {
                 documentsDir = dir;
                 dir.listFiles(onsuccess, onerror);
             }, function(e) {
-                alert("Error " + e.message);
+                $("#popup_info").modal(showMessage("error", "Error " + e.message));
             }, "r"
     );
 }

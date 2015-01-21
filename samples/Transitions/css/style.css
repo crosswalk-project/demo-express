@@ -36,7 +36,7 @@ Authors:
 }
 .trans_list {
   width: 10%;
-  height: 34px;
+  /*height: 34px;*/
   margin:10px 0;
   background-color:#000000;
   color:#fff;

@@ -46,9 +46,9 @@ function status() {
 
 function show() {
   fancy_log("Could not connect pc1 and pc2!", "black");
-  $("#startbutton").removeClass("ui-disabled");
-  $("#stopbutton").addClass("ui-disabled");
-  $("#pc1_send").addClass("ui-disabled");
+  $("#startbutton").attr('disabled', false);
+  $("#stopbutton").attr('disabled', true);
+  $("#pc1_send").attr('disabled', true);
   clearTimeout(showId);
 }
 
@@ -111,20 +111,20 @@ function handleSendChannelStateChange() {
   var readyState = dc1.readyState;
   fancy_log("Channel state is: " + readyState, "black");
   if (readyState == "open") {
-    $("#startbutton").addClass("ui-disabled");
-    $("#stopbutton").removeClass("ui-disabled");
-    $("#pc1_send").removeClass("ui-disabled");
+    $("#startbutton").attr('disabled', true);
+    $("#stopbutton").attr('disabled', false);
+    $("#pc1_send").attr('disabled', false);
   } else {
-    $("#startbutton").removeClass("ui-disabled");
-    $("#stopbutton").addClass("ui-disabled");
-    $("#pc1_send").addClass("ui-disabled");
+    $("#startbutton").attr('disabled', false);
+    $("#stopbutton").attr('disabled', true);
+    $("#pc1_send").attr('disabled', true);
   }
 }
 
 function start() {
   testFlag.green = true;
   $("#datawindow").html("Connecting......");
-  $("#startbutton").addClass("ui-disabled");
+  $("#startbutton").attr('disabled', true);
   clearTimeout(showId);
   showId = setTimeout("show()", 30000);
 
@@ -169,8 +169,8 @@ function stop() {
 
 $(document).ready(function() {
   DisablePassButton();
-  $("#stopbutton").addClass("ui-disabled");
-  $("#pc1_send").addClass("ui-disabled");
+  $("#stopbutton").attr('disabled', true);
+  $("#pc1_send").attr('disabled', true);
 
   $("#startbutton").click(start);
   $("#stopbutton").click(stop);

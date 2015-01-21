@@ -29,73 +29,65 @@ Authors:
         Xu, Kang <kangx.xu@intel.com>
 
 -->
-<html>
-<head>
+
 <meta charset="utf-8" />
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" />
-<link rel="stylesheet" type="text/css" href="../../css/jquery.mobile.css" />
-<link rel="stylesheet" type="text/css" href="../../css/main.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<script src="../../js/jquery/jquery.js"></script>
-<script src="../../js/jquery/jquery.mobile.js"></script>
+<script src="../../js/jquery-2.1.3.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
 <script src="../../js/tests.js"></script>
 <script src="js/main.js"></script>
 <style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
 
-    table,td,th {
-        border : 1px solid black;
-    }
+  table,td,th {
+    border : 1px solid black;
+  }
 
-    td,th {
-        width: 32%;
-    }
+  td,th {
+    width: 32%;
+  }
+  .deraction {
+    padding-top: 10px;
+    padding-bottom: 0px;
+  }
 </style>
-</head>
-<body>
-<div data-role="page">
-    <div data-role="header" data-position="fixed" data-tap-toggle="false">
-        <h1 id="main_page_title"></h1>
-    </div>
-    <div data-role="content">
-        <h4>This sample demonstrates the contacts manager can create, edit, query user's contacts.</h4>
-        <ul data-role="listview">
-            <li data-role="list-divider">Contacts Save</li>
-            <li>Family Name:<input id="familyName" type="text" value="David"></input></li>
-            <li>Given Name:<input id="givenName" type="text" value="Beckham"></input></li>
-            <li>Phone Number:<input id="number" type="text" value="13913976543"></input></li>
-            <li>
-                <div id="save" data-role="button">Save</div>
-            </li>
-        </ul>
-        <ul data-role="listview">
-            <li data-role="list-divider">Contacts Query</li>
-            <li>Family Name:<input id="queryName" type="text"></input></li>
-            <li>
-                <div id="query" data-role="button">Query</div>
-            </li>
-        </ul>
-        <ul data-role="listview" id="summary">
-            <li data-role="list-divider">Contacts Clear</li>
-            <li>
-                <div id="clear" data-role="button">Clear</div>
-            </li>
-        </ul>
-        <ul data-role="listview">
-            <li data-role="list-divider">Contacts List</li>
-            <li><table id="tableList"></table></li>
-        </ul>
-    </div>
-    <div data-role="footer" data-position="fixed" data-tap-toggle="false">
-    </div>
-    <div data-role="popup" id="popup_info">
-        <font style="font-size:85%">
-            <p>This sample is designed by the save, find, clear method of ContactsManager interface</p>
-        </font>
+
+<div id="header">
+    <h3 id="main_page_title"></h3>
+</div>
+<div class="content">
+    <h4>This sample demonstrates the contacts manager can create, edit, query user's contacts.</h4>
+    <div class="panel panel-primary">
+        <div class="panel-heading">Contacts Save</div>
+        <div class="panel-body deraction">Family Name:<input id="familyName" type="text" value="David" class="form-control"></input></div>
+        <div class="panel-body deraction">Given Name:<input id="givenName" type="text" value="Beckham" class="form-control"></input></div>
+        <div class="panel-body">Phone Number:<input id="number" type="text" value="13913976543" class="form-control"></input></div>
+        <div class="panel-body">
+            <button id="save" type="button" class="btn btn-default btn-lg btn-block">Save</button>
+        </div>
+        <div class="panel-heading">Contacts Query</div>
+        <div class="panel-body deraction">Family Name:<input id="queryName" type="text" class="form-control"></input></div>
+        <div class="panel-body">
+            <div id="query" type="button" class="btn btn-default btn-lg btn-block">Query</div>
+        </div>
+        <div class="panel-heading">Contacts Clear</div>
+        <div class="panel-body">
+            <div id="clear" type="button" class="btn btn-default btn-lg btn-block">Clear</div>
+        </div>
+        <div class="panel-heading">Contacts List</div>
+        <div class="panel-body"><table id="tableList"></table></div>
     </div>
 </div>
-</body>
-</html>
+<div class="footer">
+  <div id="footer"></div>
+</div>
+<div class="modal fade" id="popup_info">
+  <p>This sample is designed by the save, find, clear method of ContactsManager interface</p>
+</div>

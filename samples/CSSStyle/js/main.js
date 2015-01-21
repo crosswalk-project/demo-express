@@ -49,6 +49,12 @@ function status(){
 }
 
 $(document).ready(function(){
+    $("#slider-1").slider({
+	    tooltip: 'always'
+    });
+    $("#slider-2").slider({
+	    tooltip: 'always'
+    });
     DisablePassButton();
     /** CSS Multicolumn */
     $("#on").click(function(){
