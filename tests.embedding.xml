@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="./testcase.xsl"?>
 <test_definition>
-  <suite name="sample-embedding">
+  <suite name="samples-embedding">
     <set name="XWalkView">
-      <testcase component="Crosswalk Use Cases/Embedding API" execution_type="manual" id="XWalkView" platform="android" priority="P0" purpose="XWalkView Basic Function Test" status="approved" type="functional_positive">
+      <testcase component="sample" execution_type="manual" id="XWalkView" platform="android" priority="P0" purpose="XWalkView Basic Function Test" status="approved" type="functional_positive">
         <description>
-          <pre_condition />
-          <post_condition />
           <steps>
             <step order="1">
               <step_desc>0</step_desc>
@@ -16,10 +14,8 @@
           <test_script_entry test_script_expected_result="0" />
         </description>
       </testcase>
-      <testcase component="Crosswalk Use Cases/Embedding API" execution_type="manual" id="LoadMultiPages" platform="android" priority="P0" purpose="Load Multi Pages Test" status="approved" type="functional_positive">
+      <testcase component="sample" execution_type="manual" id="LoadMultiPages" platform="android" priority="P0" purpose="Load Multi Pages Test" status="approved" type="functional_positive">
         <description>
-          <pre_condition />
-          <post_condition />
           <steps>
             <step order="1">
               <step_desc>0</step_desc>
@@ -29,10 +25,8 @@
           <test_script_entry test_script_expected_result="0" />
         </description>
       </testcase>
-      <testcase component="Crosswalk Use Cases/Embedding API" execution_type="manual" id="XWalkViewHideAndShow" platform="android" priority="P0" purpose="Test The Video will pause when XWalkView hide" status="approved" type="functional_positive">
+      <testcase component="sample" execution_type="manual" id="XWalkViewHideAndShow" platform="android" priority="P0" purpose="Test The Video will pause when XWalkView hide" status="approved" type="functional_positive">
         <description>
-          <pre_condition />
-          <post_condition />
           <steps>
             <step order="1">
               <step_desc>0</step_desc>
@@ -42,10 +36,8 @@
           <test_script_entry test_script_expected_result="0" />
         </description>
       </testcase>
-      <testcase component="Crosswalk Use Cases/Embedding API" execution_type="manual" id="Extension" platform="android" priority="P0" purpose="Extension Test" status="approved" type="functional_positive">
+      <testcase component="sample" execution_type="manual" id="Extension" platform="android" priority="P0" purpose="Extension Test" status="approved" type="functional_positive">
         <description>
-          <pre_condition />
-          <post_condition />
           <steps>
             <step order="1">
               <step_desc>0</step_desc>
@@ -55,10 +47,8 @@
           <test_script_entry test_script_expected_result="0" />
         </description>
       </testcase>
-      <testcase component="Crosswalk Use Cases/Embedding API" execution_type="manual" id="MultipleSurfaceViews" platform="android" priority="P0" purpose="Multiple SurfaceViews Test" status="approved" type="functional_positive">
+      <testcase component="sample" execution_type="manual" id="MultipleSurfaceViews" platform="android" priority="P0" purpose="Multiple SurfaceViews Test" status="approved" type="functional_positive">
         <description>
-          <pre_condition />
-          <post_condition />
           <steps>
             <step order="1">
               <step_desc>0</step_desc>
@@ -68,10 +58,8 @@
           <test_script_entry test_script_expected_result="0" />
         </description>
       </testcase>
-      <testcase component="Crosswalk Use Cases/Embedding API" execution_type="manual" id="MultipleTextureViews" platform="android" priority="P0" purpose="Multiple TextureViews Test" status="approved" type="functional_positive">
+      <testcase component="sample" execution_type="manual" id="MultipleTextureViews" platform="android" priority="P0" purpose="Multiple TextureViews Test" status="approved" type="functional_positive">
         <description>
-          <pre_condition />
-          <post_condition />
           <steps>
             <step order="1">
               <step_desc>0</step_desc>
