@@ -41,6 +41,7 @@ var uint16 = new Uint16Array(buffer, int32.byteOffset + int32.byteLength, 2);
 var int16 = new Int16Array(buffer, uint16.byteOffset + uint16.byteLength, 2);
 var uint8 = new Uint8Array(buffer, int16.byteOffset + int16.byteLength, 2);
 var int8 = new Int8Array(buffer, uint8.byteOffset + uint8.byteLength, 2);
+var index = 0;
 
 $(document).ready(function () {
     DisablePassButton();
@@ -59,19 +60,20 @@ function showArray(tab, arr1, arr2, value) {
     var td = "";
     for (var i = 0; i < 2; i++) {
         if(arr1[i] == value) {
-            td = td + "<td>" + arr1[i] + "</td>";
+            td = td + "<td id = " + index + "" + i +  ">" + arr1[i] + "</td>";
         } else {
-            td = td + "<td>" + "U" + "</td>";
+            td = td + "<td id = " + index + "" + i +  ">" + "U" + "</td>";
         }
     }
     for (var i = 0; i < 2; i++) {
         if(arr2[i] == value) {
-            td = td + "<td>" + arr2[i] + "</td>";
+            td = td + "<td id = " + index + "" + (i + 2) +  ">" + arr2[i] + "</td>";
         } else {
-            td = td + "<td>" + "U" + "</td>";
+            td = td + "<td id = " + index + "" + (i + 2) +  ">" + "U" + "</td>";
         }
     }
     tab.html(tab.html() + "<tr>" + td + "</tr>");
+    index ++;
 }
 
 function fillValue(arr, num, value) {
@@ -91,6 +93,7 @@ function getValue(table, value) {
     showArray(tab, uint32, int32, value);
     showArray(tab, uint16, int16, value);
     showArray(tab, uint8, int8, value);
+    index = 0;
 }
 
 function setValue() {
