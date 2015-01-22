@@ -46,12 +46,13 @@ Authors:
 </div>
 <div class="content">
   <h4>This sample demonstrates enable scheme content: content://media/external/images/media</h4>
-  <div class="div-bar">
-    <input type="text" class="form-control div-bar-b" id="imageId" />
-  </div>
-  <div class="div-bar">
-    <a id="imageUri" onclick="return setImageId();" class="btn btn-default btn-lg btn-block">Open Image</a>
-  </div>
+  <h4>Test Steps</h4>
+  <ol>
+    <li>Install the apk named like "schemecontent", then run command in terminal:<br/>
+      $ adb shell content query --uri content://media/external/images/media</li>
+    <li>Set the "_id" value to "Image Id" textarea</li>
+    <li>Click the link "Open Image"</li>
+  </ol>
 </div>
 <div class="footer">
   <div id="footer"></div>
@@ -61,13 +62,6 @@ Authors:
   <ol>
     <li>There is at least 1 image in the device</li>
     <li>Connect a device to host by usb</li>
-  </ol>
-  <p>Test Steps</p>
-  <ol>
-    <li>Run command in terminal:<br/>
-      $ adb shell content query --uri content://media/external/images/media</li>
-    <li>Set the "_id" value to "Image Id" textarea</li>
-    <li>Click the link "Open Image"</li>
   </ol>
   <p>Expected Results</p>
   <ol>
