@@ -428,8 +428,6 @@ def packXPK(build_json=None, app_src=None, app_dest=None, app_name=None):
 
 
 def packWGT(build_json=None, app_src=None, app_dest=None, app_name=None):
-    if BUILD_PARAMETERS.apppostfix:
-        app_name = app_name + "-" + BUILD_PARAMETERS.apppostfix
     if not zipDir(app_src, os.path.join(app_dest, "%s.wgt" % app_name)):
         return False
 
@@ -553,8 +551,6 @@ def packAPK(build_json=None, app_src=None, app_dest=None, app_name=None):
 
     files = glob.glob(os.path.join(BUILD_ROOT, "crosswalk", "*.apk"))
     if files:
-        if BUILD_PARAMETERS.apppostfix:
-            app_name = app_name + "-" + BUILD_PARAMETERS.apppostfix
         if not doCopy(files[0], os.path.join(app_dest, "%s.apk" % app_name)):
             os.chdir(orig_dir)
             return False
@@ -602,9 +598,6 @@ def packCordova(build_json=None, app_src=None, app_dest=None, app_name=None):
             return False
     os.chdir(pack_tool)
 
-    if not doRemove([os.path.join(pack_tool, app_name, "assets", "www")]):
-        os.chdir(orig_dir)
-        return False
     if not doCopy(app_src, os.path.join(pack_tool, app_name, "assets", "www")):
         os.chdir(orig_dir)
         return False
@@ -614,12 +607,9 @@ def packCordova(build_json=None, app_src=None, app_dest=None, app_name=None):
         os.chdir(orig_dir)
         return False
 
-    app_name_origin = app_name
-    if BUILD_PARAMETERS.apppostfix:
-        app_name = app_name + "-" + BUILD_PARAMETERS.apppostfix
     if not doCopy(os.path.join(
-            BUILD_ROOT, "cordova", app_name_origin, "bin", "%s-debug.apk" %
-            app_name_origin),
+            BUILD_ROOT, "cordova", app_name, "bin", "%s-debug.apk" %
+            app_name),
             os.path.join(app_dest, "%s.apk" % app_name)):
         os.chdir(orig_dir)
         return False
@@ -998,11 +988,7 @@ def main():
         opts_parser.add_option(
             "--pkg-version",
             dest="pkgversion",
-            help="specify the pkg version, e.g. --pkg-version=0.0.0.1")
-        opts_parser.add_option(
-            "--app-postfix",
-            dest="apppostfix",
-            help="specify the app postfix, e.g. --app-postfix=v0.2-x86")
+            help="specify the pkg version, e.g. 0.0.0.1")
 
         if len(sys.argv) == 1:
             sys.argv.append("-h")
