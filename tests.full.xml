@@ -191,7 +191,7 @@
       </testcase>
     </set>
     <!--
-    <set name="Cordova">
+    <set name="Cordova" background="bs-purple-lighter1" icon="glyphicon-sound-dolby">
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaInfo" purpose="CordovaInfo">
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaAccelerometer" purpose="CordovaAccelerometer">
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaContacts" purpose="CordovaContacts">
