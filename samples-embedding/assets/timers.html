@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Clock Page</title>
+<style type="text/css">
+  body{ font-size:30px;}
+</style>
+</head>
+<body>
+  <br/>
+  <ul>
+    <li>Click pause/resume button to pause/resume this clock.</li>
+    <li>Click "Run Animation" button to scaled down or scaled up the page view.</li>
+    <li>Click prev button to navigate to the prev page.</li>
+    <li>Click next button to navigate to the next page.</li>
+  </ul>
+  <br/>
+  <p>A script on this page starts this clock:</p>
+  <h1><p id="demo"></p></h1>
+
+<script>
+  var myVar=setInterval(function(){myTimer()},1000);
+
+  function myTimer()
+  {
+    var d=new Date();
+    var t=d.toLocaleTimeString();
+    document.getElementById("demo").innerHTML=t;
+  }
+</script>
+
+</body>
+</html>

@@ -2,7 +2,7 @@
   "name": "OnlineTest",
   "app": {
     "launch": {
-      "local_path": "index.html"
+      "local_path": "page3.html"
     }
   },
   "description": "Manifest test",

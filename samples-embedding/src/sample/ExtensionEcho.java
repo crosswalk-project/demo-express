@@ -35,4 +35,8 @@ public class ExtensionEcho extends XWalkExtension {
     public String onSyncMessage(int instanceID, String message) {
         return "From java sync:" + message;
     }
+
+    public void print() {
+        System.out.println("execute");
+    }
 }
