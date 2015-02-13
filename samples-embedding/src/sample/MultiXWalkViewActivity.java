@@ -18,6 +18,7 @@ import android.widget.TextView;
 public class MultiXWalkViewActivity extends XWalkBaseActivity {
 
     private XWalkView mXWalkView2;
+    private XWalkView mXWalkView3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +45,16 @@ public class MultiXWalkViewActivity extends XWalkBaseActivity {
 
         mXWalkView2 = new XWalkView(this, this);
         parent.addView(mXWalkView2, params);
+
+        mXWalkView3 = new XWalkView(this, this);
+        parent.addView(mXWalkView3, params);
         
         textDes = (TextView) super.findViewById(R.id.description);
-        textDes.setText("This sample demonstrates XWalkView can load multi pages at one time. One load page directly, another load app from manifest.");
+        textDes.setText("This sample demonstrates XWalkView can load multi pages at one time. Page1 and Page2 load page directly, Page3 load app from manifest.");
 
-        mXWalkView.load("file:///android_asset/pause_timers.html", null);
-        
+        mXWalkView.load("file:///android_asset/page1.html", null);
+
+        mXWalkView2.load("file:///android_asset/page2.html", null);
         String manifestContent = "";
         try {
             manifestContent = getAssetsFileContent(this.getAssets(), "manifest.json");
@@ -57,7 +62,8 @@ public class MultiXWalkViewActivity extends XWalkBaseActivity {
             e.printStackTrace();
             return;
         }
-        mXWalkView2.loadAppFromManifest("file:///android_asset/", manifestContent);
+        mXWalkView3.loadAppFromManifest("file:///android_asset/", manifestContent);
+
     }
 
     private String getAssetsFileContent(AssetManager assetManager, String fileName)

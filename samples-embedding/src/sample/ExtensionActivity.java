@@ -7,9 +7,7 @@ package org.xwalk.embedded.api.sample;
 import org.xwalk.embedded.api.sample.ExtensionEcho;
 import org.xwalk.core.XWalkView;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class ExtensionActivity extends XWalkBaseActivity {
@@ -27,11 +25,13 @@ public class ExtensionActivity extends XWalkBaseActivity {
         setContentView(R.layout.xwview_extension_layout);
 
         textDes = (TextView) super.findViewById(R.id.extension_des);
-        textDes.setText("This sample is designed for extension feature. If the extension give a correct feedback, this page will contains 'passed' in green color.");
+        textDes.setText("This sample is designed for extension feature. " +
+        		"If the extension give a correct feedback, this page will show the" +
+        		" feedback message from extension and contain 'passed' in green color.");
 
         mExtension = new ExtensionEcho();
         mXWalkView = (XWalkView) findViewById(R.id.xwalkview_extension);
-
+        mExtension.print();
         mXWalkView.load("file:///android_asset/echo.html", null);
     }
 }

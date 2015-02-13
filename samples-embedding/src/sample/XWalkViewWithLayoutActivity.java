@@ -11,7 +11,6 @@ import org.xwalk.core.XWalkView;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -54,10 +53,9 @@ public class XWalkViewWithLayoutActivity extends XWalkBaseActivity {
         url = navigationItem.getUrl();
         originalUrl = navigationItem.getOriginalUrl();
         title = navigationItem.getTitle();
-
-        text1.setText(title);
-        text2.setText(url);
-        text3.setText(originalUrl);
+        text1.setText("Current Page Title: " + title);
+        text2.setText("Current Page Url: " + url);
+        text3.setText("Original Page Url: " + originalUrl);
     }
 
     @Override
@@ -103,6 +101,9 @@ public class XWalkViewWithLayoutActivity extends XWalkBaseActivity {
         text1 = (TextView) super.findViewById(R.id.text1);
         text2 = (TextView) super.findViewById(R.id.text2);
         text3 = (TextView) super.findViewById(R.id.text3);
+        text1.setText("Current Page Title: ");
+        text2.setText("Current Page Url: ");
+        text3.setText("Original Page Url: ");
 
         mPrevButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -134,14 +135,13 @@ public class XWalkViewWithLayoutActivity extends XWalkBaseActivity {
 
         textDes = (TextView) super.findViewById(R.id.xwalk_des);
         textDes.setText("This sample demonstrates the basic functions of XWalkView. contains navigate forward and backward, pause timers, and scale the view.");
-        mXWalkView.load("file:///android_asset/window_navigate.html", null);
+        mXWalkView.load("file:///android_asset/navigate.html", null);
     }
 
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-
         // Reset the preference for animatable XWalkView.
         XWalkPreferences.setValue(XWalkPreferences.ANIMATABLE_XWALK_VIEW, false);
     }
