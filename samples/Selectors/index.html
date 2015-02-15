@@ -60,13 +60,13 @@ Authors:
   <div style="border: 1px solid #000; height: 40px;">
     <div id="table">
       <table width="100px" border="0" cellspacing="0" cellpadding="0" class="tab_center">
-        <tr><td class="td1">1</td><td class="td1">2</td><td class="td1">3</td></tr>
+        <tr><td class="td1" id="d1">1</td><td class="td1"  id="d2">2</td><td class="td1"  id="d3">3</td></tr>
       </table>
     </div>
   </div>
   <div style="margin-top:15px">
-    <button onclick="javascript:selectors()" class="btn btn-default btn-lg btn-block">querySelector</button>
-    <button onclick="javascript:selectorsAll()" class="btn btn-default btn-lg btn-block">querySelectorAll</button>
+    <button id="querySelector" onclick="javascript:selectors()" class="btn btn-default btn-lg btn-block">querySelector</button>
+    <button id="querySelectorAll" onclick="javascript:selectorsAll()" class="btn btn-default btn-lg btn-block">querySelectorAll</button>
   </div>
   <script>
     function selectors() {
