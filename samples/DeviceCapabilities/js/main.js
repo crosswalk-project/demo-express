@@ -45,8 +45,8 @@ function init() {
     }
 };
 
-function makelineListItem(value) {
-    return '<div class="panel-body">' + value + '</div>';
+function makelineListItem(item, value) {
+    return '<div class="panel-body">' + item + " : " + '<span id="'+ item + '">' + value + '</span></div>';
 }
 
 function makeDividerListItem(value) {
@@ -59,53 +59,53 @@ function onError(e) {
 
 function onCpuSuccess(cpuInfo) {
     gInfo = makeDividerListItem("SystemCPU Status")
-            + makelineListItem("NumOfProcessors : " + cpuInfo.numOfProcessors)
-            + makelineListItem("ArchName : " + cpuInfo.archName)
-            + makelineListItem("Load : " + cpuInfo.load);
+            + makelineListItem("NumOfProcessors", cpuInfo.numOfProcessors)
+            + makelineListItem("ArchName", cpuInfo.archName)
+            + makelineListItem("Load", cpuInfo.load);
     $("#cpu").html(gInfo);
 }
 
 function onMemorySuccess(memoryInfo) {
     gInfo = makeDividerListItem("SystemMemory Status")
-            + makelineListItem("Capacity : " + memoryInfo.capacity)
-            + makelineListItem("AvailCapacity : " + memoryInfo.availCapacity);
+            + makelineListItem("Capacity", memoryInfo.capacity)
+            + makelineListItem("AvailCapacity", memoryInfo.availCapacity);
     $("#memory").html(gInfo);
 }
 
 function onStorageSuccess(storageInfo) {
     gInfo = makeDividerListItem("StorageUnit Status")
-            + makelineListItem("StorageUnit number : " + storageInfo.storages.length)
-            + makelineListItem("StorageUnit id : " + storageInfo.storages[0].id)
-            + makelineListItem("StorageUnit name : " + storageInfo.storages[0].name)
-            + makelineListItem("StorageUnit type : " + storageInfo.storages[0].type)
-            + makelineListItem("StorageUnit capacity : " + storageInfo.storages[0].capacity);
+            + makelineListItem("StorageUnit number", storageInfo.storages.length)
+            + makelineListItem("StorageUnit id", storageInfo.storages[0].id)
+            + makelineListItem("StorageUnit name", storageInfo.storages[0].name)
+            + makelineListItem("StorageUnit type", storageInfo.storages[0].type)
+            + makelineListItem("StorageUnit capacity", storageInfo.storages[0].capacity);
     $("#storage").html(gInfo);
 }
 
 function onDisplaySuccess(displayInfo) {
     gInfo = makeDividerListItem("DisplayUnit Status")
-            + makelineListItem("DisplayUnit number : " + displayInfo.displays.length)
-            + makelineListItem("DisplayUnit id : " + displayInfo.displays[0].id)
-            + makelineListItem("DisplayUnit name : " + displayInfo.displays[0].name)
-            + makelineListItem("DisplayUnit primary : " + displayInfo.displays[0].primary)
-            + makelineListItem("DisplayUnit external : " + displayInfo.displays[0].external)
-            + makelineListItem("DisplayUnit deviceXDPI : " + displayInfo.displays[0].deviceXDPI)
-            + makelineListItem("DisplayUnit deviceYDPI : " + displayInfo.displays[0].deviceYDPI)
-            + makelineListItem("DisplayUnit availWidth : " + displayInfo.displays[0].availWidth)
-            + makelineListItem("DisplayUnit availHeight : " + displayInfo.displays[0].availHeight)
-            + makelineListItem("DisplayUnit width : " + displayInfo.displays[0].width)
-            + makelineListItem("DisplayUnit height : " + displayInfo.displays[0].height)
-            + makelineListItem("DisplayUnit colorDepth : " + displayInfo.displays[0].colorDepth)
-            + makelineListItem("DisplayUnit pixelDepth : " + displayInfo.displays[0].pixelDepth);
+            + makelineListItem("DisplayUnit number", displayInfo.displays.length)
+            + makelineListItem("DisplayUnit id", displayInfo.displays[0].id)
+            + makelineListItem("DisplayUnit name", displayInfo.displays[0].name)
+            + makelineListItem("DisplayUnit primary", displayInfo.displays[0].primary)
+            + makelineListItem("DisplayUnit external", displayInfo.displays[0].external)
+            + makelineListItem("DisplayUnit deviceXDPI", displayInfo.displays[0].deviceXDPI)
+            + makelineListItem("DisplayUnit deviceYDPI", displayInfo.displays[0].deviceYDPI)
+            + makelineListItem("DisplayUnit availWidth", displayInfo.displays[0].availWidth)
+            + makelineListItem("DisplayUnit availHeight", displayInfo.displays[0].availHeight)
+            + makelineListItem("DisplayUnit width", displayInfo.displays[0].width)
+            + makelineListItem("DisplayUnit height", displayInfo.displays[0].height)
+            + makelineListItem("DisplayUnit colorDepth", displayInfo.displays[0].colorDepth)
+            + makelineListItem("DisplayUnit pixelDepth", displayInfo.displays[0].pixelDepth);
     $("#display").html(gInfo);
 }
 
 function onAVCodecsSuccess(avcodecsInfo) {
     gInfo = makeDividerListItem("AVCodecs Status")
-            + makelineListItem("AudioCodec format: " + avcodecsInfo.audioCodecs[0].format)
-            + makelineListItem("VideoCodec format: " + avcodecsInfo.videoCodecs[0].format)
-            + makelineListItem("VideoCodec hwAccel: " + avcodecsInfo.videoCodecs[0].hwAccel)
-            + makelineListItem("VideoCodec encode: " + avcodecsInfo.videoCodecs[0].encode);
+            + makelineListItem("AudioCodec format", avcodecsInfo.audioCodecs[0].format)
+            + makelineListItem("VideoCodec format", avcodecsInfo.videoCodecs[0].format)
+            + makelineListItem("VideoCodec hwAccel", avcodecsInfo.videoCodecs[0].hwAccel)
+            + makelineListItem("VideoCodec encode", avcodecsInfo.videoCodecs[0].encode);
     $("#codec").html(gInfo);
 }
 

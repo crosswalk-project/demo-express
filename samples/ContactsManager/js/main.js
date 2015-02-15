@@ -71,6 +71,7 @@ function tableSave() {
     var tdGivenName = document.createElement("td");
     var tdFamilyName = document.createElement("td");
     var tdNumber = document.createElement("td");
+    contactTr.id = usrFamilyName;
     tdGivenName.innerHTML = usrGivenName;
     tdFamilyName.innerHTML = usrFamilyName;
     tdNumber.innerHTML = usrNumber;
@@ -133,7 +134,7 @@ function onQuery() {
 
 $(document).ready(function () {
     DisablePassButton();
-    $("#save").click(onSave);
-    $("#query").click(onQuery);
-    $("#clear").click(onClear);
+    $("#saveButton").click(onSave);
+    $("#queryButton").click(onQuery);
+    $("#clearButton").click(onClear);
 });
