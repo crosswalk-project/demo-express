@@ -27,6 +27,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Authors:
         Shentu, Jiazhen <jiazhenx.shentu@intel.com>
+        Li, Hao <haox.li@intel.com>
 
 -->
 
@@ -34,6 +35,7 @@ Authors:
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
 <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../../css/main.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="../../js/jquery-2.1.3.min.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/common.js"></script>
@@ -46,24 +48,19 @@ Authors:
 <div class="content">
   <h4>This sample demonstrates the Web Speech functionality with SpeechRecognition interface.</h4>
   <p>Make sure the device is able to access speech recognition service.</p>
-  <p>Make sure the mic is available.</p>
+  <p>Make sure the microphone is available.</p>
   <p>Note: this sample currently only support on nexus.</p>
-  <textarea id="infobox" readonly="readonly" style="height:200px; width: 100%"></textarea>
-  <div class="div-bar">
-    <div class="bar-grid-a">
-      <button id="start" type="button" class="btn btn-default btn-lg btn-block" onclick="start()">start</button>
-      <button id="stop" type="button" class="btn btn-default btn-lg btn-block" style="margin-top: 0px;" onclick="stop()">stop</button>
-    </div>
-    <div class="bar-grid-a">
-      <button id="abort" type="button" class="btn btn-default btn-lg btn-block" onclick="abort()">abort</button>
+  <div id="div_start">
+    <div id="start_button" class="mic" onclick="javascript:startButton(event)"></div>
+    <div id="results">
+      <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
     </div>
   </div>
+  <div id="info"></div>
 </div>
 <div class="footer">
   <div id="footer"></div>
 </div>
 <div class="modal fade" id="popup_info">
-  <p class="nbsp2">1. Click "start" button to connect to speech recongnition service</p>
-  <p class="nbsp2">2. Speak whatever you want to the test device</p>
-  <p class="nbsp2">3. Click "stop" button or "abort" button to stop service connection</p>
+  <p class="nbsp2">Click on the microphone icon and begin speaking whatever you want</p>
 </div>
