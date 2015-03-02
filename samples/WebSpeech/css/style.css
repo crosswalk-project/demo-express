@@ -1,0 +1,68 @@
+/*
+Copyright (C) 2015 Intel Corporation. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  * Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the
+    distribution.
+  * Neither the name of Intel Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Authors:
+        Li, Hao <haox.li@intel.com>
+
+*/
+
+#info {
+    font-size: 16px;
+}
+
+#start_button {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    float: right;
+    width: 50px;
+    height: 50px;
+    margin-top: 2px;
+    margin-right: 2px;
+}
+
+.mic {
+    background: url(data:image/gif;base64,R0lGODlhMgAyAKUzAJmZmZqampubm5ycnJ2dnZ6enp+fn6CgoKGhoaKioqOjo6SkpKWlpaampqenp6mpqaqqqqurq6ysrK2tra6urrGxsbKysrOzs7W1tba2trm5ubq6ury8vL29vb6+vr+/v8DAwMHBwcbGxsrKys7Ozs/Pz9HR0dLS0tPT09TU1Nra2tzc3N7e3t/f3+Dg4OLi4uTk5OXl5efn5////////////////////////////////////////////////////yH5BAEUAD8ALAAAAAAyADIAAAb+wJ9wSCwaj8ikcslsOp/QqHRKrVqv2Kx2y+16v+CweEw+ykaeUxlpMiQOC8e6KDMMBIKBQjIfihQDAYICBTJ9Px0IAoKCBiuHiYEBeY6QiowClX2Ji4MGLJadjaCbl56kc5yMAQWoax0HogCfZCcdKkIdCaIBBi1CIhyGXh8XHUIlC6IDA0MEEy5fKA8QQw27eQ4gQjEGB2EECKgVBQYE20IfDxVhHA4RRDKuLQUIuGEKChZILAcNGWNaHGDAgAQRGB8COJhQ5oUEBg0GLHig6MEBDX1IUAhAgIABAxfuHeqGAMMhIwcUfDhZBMGCYyyHCIiwIeaQEB1S2NzJs6cKz59AgwodSvRKEAA7) no-repeat center;
+}
+
+.mic-speaking {
+    background: url(data:image/gif;base64,R0lGODlhMgAyAMZQAPsDQ/sJR/sNSvsRTfscVfwmXfwyZvxBcfxMevxSfvxWgfxXgv1tkv1ylpmZmZqampubm/1+npycnJ2dnf2BoZ6enp+fn6CgoKGhoaKioqOjo6SkpKWlpaampqenp/2PrKmpqaqqqqurq6ysrP2Ur62tra6urrGxsbKysv2ctbOzs7W1tba2trm5uf6lvLq6uv6nvf6ovry8vL29vb6+vr+/v8DAwMHBwcbGxsrKyv68zf6+zs7Ozs/Pz9HR0dLS0tPT09TU1Nra2v7R3Nzc3N7e3t/f3+Dg4P7Z4+Li4v7c5eTk5OXl5efn5//l7P/q8P///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH/C05FVFNDQVBFMi4wAwEAAAAh+QQJFAB/ACwAAAAAMgAyAAAH/oB/goOEhYaHiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6foKGio6SHTTk0P6WIPhYZFxseq4VNFhIQEBIaI7ODOBoSD8IQFU29fzMYEMLCFkS9MMnBD7nOsxEAycvDzhGlMADZyswQFkUAMKTh4tvN5wCj4OHa5Obh6aEI6/TMFe8Iogbsu9DOgT0AA0L9mCFkXoZ2DywYCYdDhjFPNVTMCNdjQzsJEtZNKHHkExAQIdZ1eJjLg41wTCxcCDUBwzsAJypYmPAyXA0QJ0LJ8CBiHYAmNwEYqYBBiCgNGlAYNVrkQgcWo4xc4MCBh9ElNR54KFEqyQgOHSRsAKEMxIUWNr14mHgwYYIFCyqcHvsTE8OKvYUuaKgBmBCGDTMKD4Ig4oViQTdmBHlMubLly5gza97MuTOjQAAh+QQJFAB/ACwAAAAAMgAyAAAH/oB/goOEhYaHiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6foKGimjoNBgACBg06o4RPDQCxTTk0P7EADU+jLrcAPhYZFxsevS6hsLdNFhIQEBIaI70Nn8i3OBoSD9oQFU3Snby9ADMYENraFkTixppP4rHk2Q/O6e+6mdW95Obb9eLTmd7BK3cO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) no-repeat center;
+}
+
+.mic-slash {
+    background: url(data:image/gif;base64,R0lGODlhMgAyAKUzAJmZmZqampubm5ycnJ2dnZ6enp+fn6CgoKGhoaKioqOjo6SkpKWlpaampqenp6mpqaqqqqurq6ysrK2tra6urrGxsbKysrOzs7W1tba2trm5ubq6ury8vL29vb6+vr+/v8DAwMHBwcbGxsrKys7Ozs/Pz9HR0dLS0tPT09TU1Nra2tzc3N7e3t/f3+Dg4OLi4uTk5OXl5efn5////////////////////////////////////////////////////yH5BAEUAD8ALAAAAAAyADIAAAb+wJ9wSCwaj8ikcslsOp/QqHRKrVqv2Kx2y+16v+CweEw+ykaeUxlpMiQOC8e6KDMMBIKBQjIfihQDAYICBTJ9Px0IAoKCBiuHiYEBeY6QiowClX2Ji4MGLJadjaCbl56kc5yMAQWoax0HogCfZCcdKkIdCaIBBi1CIhyGXh8XHUIlC6IDA0MEEy5fKA8QQw27eQ4gQjEGB2EECKgVBQYE20IfDxVhHA4RRDKuLQUIuGEKChZILAcNGWNaHGDAgAQRGB8COJhQ5oUEBg0GLHig6MEBDX1IUAhAgIABAxfuHeqGAMMhIwcUfDhZBMGCYyyHCIiwIeaQEB1S2NzJs6cKz59AgwodSvRKEAA7) no-repeat center;
+}
+
+#results {
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+    min-height: 150px;
+}
