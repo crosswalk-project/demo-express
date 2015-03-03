@@ -34,22 +34,27 @@ function drawOnCanvas(file) {
 
   reader.onload = function (e) {
     var dataURL = e.target.result;
-        var c = document.createElement("Canvas");
-        ctx = c.getContext('2d');
-        img = new Image();
+    var c = document.createElement("Canvas");
+    ctx = c.getContext('2d');
+    img = new Image();
 
     img.onload = function() {
-      c.width = img.width;
-      c.height = img.height;
+      var fheight = $('#photoShow').height();
+      var fwidth = fheight / img.height * img.width;
+      //if the calculated image width > div width,
+      //calculate the height following the width again
+      if (fwidth > $('#photoShow').width()) {
+        fwidth = $('#photoShow').width();
+        fheight = fwidth / img.width * img.height;
+      }
 
-      var fheight = 180;
-      var fwidth = fheight / img.height * img.width
+      c.width = fwidth;
+      c.height = fheight;
       ctx.drawImage(img, 0, 0, fwidth, fheight);
     };
     img.src = dataURL;
     $('#photoShow').html(c);
   };
-
   reader.readAsDataURL(file);
 }
 
