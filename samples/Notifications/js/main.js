@@ -28,7 +28,16 @@ Authors:
         Xin, liu <xinx.liu@intel.com>
 
 */
+
 var notification;
+var button_Flag = false;
+
+jQuery(document).ready(function() {
+  $("#showNotification").attr('disabled', button_Flag);
+  $("#closeNotification").attr('disabled', !button_Flag);
+});
+
+
 function showNotification() {
   notification = typeof Notification != "undefined" ? new Notification("New Email Received", {
       body: "Room 101",
@@ -39,8 +48,20 @@ function showNotification() {
       tag: "tom"
     });
   notification.show();
+
+  button_Flag = true;
+  changeButtionState(button_Flag);
 }
 
 function closeNotification() {
   notification.close();
+
+  button_Flag = false;
+  changeButtionState(button_Flag);
+  
+}
+
+function changeButtionState(flag){
+  $("#showNotification").attr('disabled', flag);
+  $("#closeNotification").attr('disabled', !flag);
 }
