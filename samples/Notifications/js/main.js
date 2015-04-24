@@ -39,7 +39,8 @@ jQuery(document).ready(function() {
 
 
 function showNotification() {
-  notification = typeof Notification != "undefined" ? new Notification("New Email Received", {
+  if (Notification.permission === "granted") {
+    notification = typeof Notification != "undefined" ? new Notification("New Email Received", {
       body: "Room 101",
       tag: "tom"
     })
@@ -47,7 +48,23 @@ function showNotification() {
       body: "Room 101",
       tag: "tom"
     });
-  notification.show();
+  } else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function (permission) {
+      if (!('permission' in Notification)) {
+        Notification.permission = permission;
+      }
+      if (permission === "granted") {
+        notification = typeof Notification != "undefined" ? new Notification("New Email Received", {
+          body: "Room 101",
+          tag: "tom"
+        })
+        : window.webkitNotifications.createNotification("New Email Received", {
+          body: "Room 101",
+          tag: "tom"
+        });
+      }
+    });
+  }
 
   button_Flag = true;
   changeButtionState(button_Flag);
@@ -58,7 +75,6 @@ function closeNotification() {
 
   button_Flag = false;
   changeButtionState(button_Flag);
-  
 }
 
 function changeButtionState(flag){
