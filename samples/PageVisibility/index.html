@@ -44,15 +44,15 @@ Authors:
   <h3 id="main_page_title"></h3>
 </div>
 <div class="content">
-    <h4>This sample demonstrates the device is able to handle pageVisible event when lock and unlock the screen by gesture.</h4>
+    <h4>This sample demonstrates the device is able to handle pageVisible event when app page hidden/display.</h4>
     <div>
-        <p>1.Press power key to lock the screen, then press power key again to unlock the screen.</p>
-        <p>2.Check if the visibilitystate attribute is set to hidden and the hidden attribute is set to true when lock the screen.</p>
+        <p>1.Change the page visibility by switch app page to background and switch it back or lock and unlock the screen.</p>
+        <p>2.Check if the visibilitystate attribute is set to hidden/true when page is switch to background or screen is locked.</p>
+        <p>2.Check if the visibilitystate attribute is set to visible/false when page is switch back to foreground or screen is unlocked.</p>
         <div class="panel panel-primary" style="margin-bottom: 5px">
           <div id="homeList1" class="panel-heading">Screen-lock State</div>
           <div class="panel-body" id="lock"></div>
         </div>
-        <p style="margin-top: 10px">Check if the visibilitystate attribute is set to visible and the hidden attribute is set to false when unlock the screen.</p>
         <div class="panel panel-primary">
           <div id="homeList2" class="panel-heading">Screen-unlock State</div>
           <div class="panel-body" id="unlock"></div>
