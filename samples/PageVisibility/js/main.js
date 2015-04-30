@@ -49,11 +49,11 @@ function notification() {
     var hidden = doc_hidden == 0 ? false : true;
     var date = new Date().toString().substr(4, 20);
     if(visibilitystate === "hidden" && hidden) {
-        $("#lock").html(function(i, origText) {return origText  + date + "<br>" + "visibilitystate : " + visibilitystate + "<br>" + " hidden : " + hidden + "<br>"});
+        $("#lock").html(function(i, origText) {return date + "<br>" + "visibilitystate : " + visibilitystate + "<br>" + " hidden : " + hidden + "<br>"});
     } else if (visibilitystate === "visible" && !hidden) {
-         $("#unlock").html(function(i, origText) {return origText + date + "<br>" + "visibilitystate : " + visibilitystate + "<br>" + " hidden : " + hidden + "<br>"});
+         $("#unlock").html(function(i, origText) {return date + "<br>" + "visibilitystate : " + visibilitystate + "<br>" + " hidden : " + hidden + "<br>"});
     }else {
-        $("#lock").html(function(i, origText) {return origText + date + "<br>" + "Fail " + "<br>"});
-        $("#unlock").html(function(i, origText) {return origText + date + "<br>" + "Fail " + "<br>"});
+        $("#lock").html(function(i, origText) {return date + "<br>" + "Fail " + "<br>"});
+        $("#unlock").html(function(i, origText) {return date + "<br>" + "Fail " + "<br>"});
     }
 }
