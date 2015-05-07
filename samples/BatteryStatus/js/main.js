@@ -26,48 +26,43 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Authors:
         Xin, liu <xinx.liu@intel.com>
+        Wang, Chunyan <chunyanx.wang@intel.com>
 
 */
-var newBattery = navigator.battery||navigator.webkitBattery;
 
-function init(){
-  var canvas=document.getElementById('myCanvas');
-  var ctx=canvas.getContext('2d');
-  var end_x = 0;
-  if (newBattery != undefined && newBattery.level != undefined) {
-    end_x = newBattery.level * 200;
-    $("#charging").html("Charging status: " + newBattery.charging ? 'charging' : 'not charging');
-    $("#charging").html("Discharging time: " + newBattery.dischargingTime / 60);
+
+window.onload = function() {
+
+  function updateBatteryStatus(battery) {
+    var canvas=document.getElementById('myCanvas');
+    var ctx=canvas.getContext('2d');
+    var end_x = 0;
+
+    end_x = battery.level * 200;
+    $("#charging").html("Charging status: " + (battery.charging ? 'charging' : 'not charging'));
+    $("#level").html("Battery level: " + Math.round(battery.level * 100) + "%");
+    $("#discharging").html("Discharging time: " + battery.dischargingTime / 60);
+
+    ctx.fillStyle="#CCCCCC";
+    ctx.fillRect(40, 50, 200, 100);
+    ctx.fillRect(240, 85, 10, 30);
+    ctx.fillStyle="#33CC00";
+    ctx.fillRect(40, 50, end_x, 100);
   }
-  ctx.fillStyle="#CCCCCC";
-  ctx.fillRect(40, 50, 200, 100);
-  ctx.fillRect(240, 85, 10, 30);
-  ctx.fillStyle="#33CC00";
-  ctx.fillRect(40, 50, end_x, 100);
+
+  navigator.getBattery().then(function(battery) {
+    updateBatteryStatus(battery);
+
+    battery.onchargingchange = function() {
+      updateBatteryStatus(battery);
+    }
+
+    battery.onlevelchange = function() {
+      updateBatteryStatus(battery);
+    }
+
+    battery.ondischargingtimechange = function() {
+      updateBatteryStatus(battery);
+    }
+  });
 }
-
-window.onload = init;
-
-newBattery.addEventListener('levelchange', function () {
-  var canvas=document.getElementById('myCanvas');
-  var ctx=canvas.getContext('2d');
-  var end_x = 0;
-  if (newBattery != undefined && newBattery.level != undefined) {
-    end_x = newBattery.level * 200;
-    $("#charging").html("Charging status: " + newBattery.charging ? 'charging' : 'not charging');
-    $("#charging").html("Discharging time: " + newBattery.dischargingTime / 60);
-  }
-  ctx.fillStyle="#CCCCCC";
-  ctx.fillRect(40, 50, 200, 100);
-  ctx.fillRect(240, 85, 10, 30);
-  ctx.fillStyle="#33CC00";
-  ctx.fillRect(40, 50, end_x, 100);
-}, false);
-
-newBattery.addEventListener('chargingchange', function () {
-  $("#charging").html("Charging status: " + newBattery.charging ? 'charging' : 'not charging');
-}, false);
-
-newBattery.addEventListener('dischargingtimechange', function () {
-  $("#charging").html("Discharging time: " + newBattery.dischargingTime / 60);
-}, false);

@@ -27,6 +27,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Authors:
         Liu.Xin <xinx.liu@intel.com>
+        Wang, Chunyan <chunyanx.wang@intel.com>
 
 -->
 
@@ -43,7 +44,7 @@ Authors:
   .d{
     border: 1px solid #000;
     width: 300px;
-    height: 220px;
+    height: 210px;
   }
   .f{
     height: 5px;
@@ -58,12 +59,11 @@ Authors:
 <div class="content">
   <h4>This sample demonstrates the battery status of device by charging/discharging the device.</h4>
   <div class="d">
-    <canvas id="myCanvas" width="1000"></canvas>
+    <canvas id="myCanvas" width="300"></canvas>
     <p id="charging" class="f">Charging status: N/A</p>
+    <p id="level" class="f">Battery level: N/A</p>
     <p id="discharging" class="f">Discharging time: N/A</p>
   </div>
-  <p id="charging"></p>
-  <p id="discharging"></p>
 </div>
 <div class="footer">
   <div id="footer"></div>
