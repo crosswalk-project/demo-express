@@ -30,6 +30,7 @@ Authors:
 */
 
 $(document).ready( function() {
+
   $("#b1").click( function() {
     screen.orientation.lock("portrait-primary");
   });
@@ -42,11 +43,25 @@ $(document).ready( function() {
   $("#b4").click( function() {
     screen.orientation.lock("landscape-secondary");
   });
-  $("#b5").click( function() {
-    screen.orientation.unlock();
-  });
-});
 
-$(window).unload( function() {
-  screen.orientation.unlock();
+  document.getElementById("start").onclick = function() {
+    document.onwebkitfullscreenchange = function() {
+      //https://w3c.github.io/screen-orientation/#locking-the-screen-orientation
+      //a user agent might require a document's top-level browsing context to be fullscreen (see Interaction with FullScreen API) in order to allow an orientation lock.
+      screen.orientation.unlock();
+      document.getElementById("start").style.display = "none";
+      document.getElementById("cancel").style.display = "";
+    }
+    document.documentElement.webkitRequestFullScreen();
+  }
+
+  document.getElementById("cancel").onclick = function() {
+    document.onwebkitfullscreenchange = function() {
+      document.getElementById("start").style.display = "";
+      document.getElementById("cancel").style.display = "none";
+    }
+    screen.orientation.unlock();
+    document.webkitCancelFullScreen();
+  }
+
 });
