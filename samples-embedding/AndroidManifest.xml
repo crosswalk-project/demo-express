@@ -8,7 +8,7 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.xwalk.embedded.api.sample"
+    package="org.xwalk.embedding.api.demo"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -28,12 +28,12 @@
 
     
     <application
-        android:name="android.app.Application"
+        android:name="org.xwalk.core.XWalkApplication"
         android:icon="@drawable/icon"
         android:hardwareAccelerated="true"
         android:label="DemoEx-Em">
         <activity
-            android:name=".XWalkEmbeddedAPISample"
+            android:name="org.xwalk.embedding.api.demo.XWalkEmbeddedAPISample"
             android:label="DemoEx-Em">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,9 +42,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".XWalkViewWithLayoutActivity"
+            android:name="org.xwalk.embedding.api.demo.XWalkViewWithLayoutActivity"
             android:label="XWalkView"
-            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            android:parentActivityName="org.xwalk.embedding.api.demo.XWalkEmbeddedAPISample" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,9 +52,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MultiXWalkViewActivity"
+            android:name="org.xwalk.embedding.api.demo.MultiXWalkViewActivity"
             android:label="Load Multi pages"
-            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            android:parentActivityName="org.xwalk.embedding.api.demo.XWalkEmbeddedAPISample" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -62,9 +62,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".OnHideOnShowActivity"
+            android:name="org.xwalk.embedding.api.demo.OnHideOnShowActivity"
             android:label="XWalkView Hide And Show"
-            android:parentActivityName=".XWalkEmbeddedAPISample">
+            android:parentActivityName="org.xwalk.embedding.api.demo.XWalkEmbeddedAPISample">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -72,27 +72,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ExtensionActivity"
+            android:name="org.xwalk.embedding.api.demo.ExtensionActivity"
             android:label="Extension"
-            android:parentActivityName=".XWalkEmbeddedAPISample">
+            android:parentActivityName="org.xwalk.embedding.api.demo.XWalkEmbeddedAPISample">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".MultiSurfaceViewsActivity"
+            android:name="org.xwalk.embedding.api.demo.MultiSurfaceViewsActivity"
             android:label="Multiple SurfaceViews"
-            android:parentActivityName=".XWalkEmbeddedAPISample">
+            android:parentActivityName="org.xwalk.embedding.api.demo.XWalkEmbeddedAPISample">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".MultiTextureViewsActivity"
+            android:name="org.xwalk.embedding.api.demo.MultiTextureViewsActivity"
             android:label="Multiple TextureViews"
-            android:parentActivityName=".XWalkEmbeddedAPISample">
+            android:parentActivityName="org.xwalk.embedding.api.demo.XWalkEmbeddedAPISample">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.SAMPLE_CODE" />

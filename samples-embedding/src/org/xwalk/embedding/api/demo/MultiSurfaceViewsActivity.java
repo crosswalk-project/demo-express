@@ -1,4 +1,4 @@
-package org.xwalk.embedded.api.sample;
+package org.xwalk.embedding.api.demo;
 
 import org.xwalk.core.XWalkPreferences;
 import org.xwalk.core.XWalkView;
@@ -13,6 +13,10 @@ public class MultiSurfaceViewsActivity extends XWalkBaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+	@Override
+	protected void onXWalkReady() {
 
         XWalkPreferences.setValue(XWalkPreferences.ANIMATABLE_XWALK_VIEW, false);
         RelativeLayout root = new RelativeLayout(this);
@@ -43,5 +47,5 @@ public class MultiSurfaceViewsActivity extends XWalkBaseActivity {
         }
 
         setContentView(root);
-    }
+	}
 }

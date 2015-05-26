@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-package org.xwalk.embedded.api.sample;
+package org.xwalk.embedding.api.demo;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,7 +11,6 @@ import org.xwalk.core.XWalkView;
 
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,6 +22,28 @@ public class MultiXWalkViewActivity extends XWalkBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    private String getAssetsFileContent(AssetManager assetManager, String fileName)
+            throws IOException {
+        String result = "";
+        InputStream inputStream = null;
+        try {
+            inputStream = assetManager.open(fileName);
+            int size = inputStream.available();
+            byte[] buffer = new byte[size];
+            inputStream.read(buffer);
+            result = new String(buffer);
+        } finally {
+            if (inputStream != null) {
+                inputStream.close();
+            }
+        }
+        return result;
+    }
+
+	@Override
+	protected void onXWalkReady() {
 
         message = new StringBuffer();
         message.append("Test Purpose: \n\n")
@@ -63,24 +84,5 @@ public class MultiXWalkViewActivity extends XWalkBaseActivity {
             return;
         }
         mXWalkView3.loadAppFromManifest("file:///android_asset/", manifestContent);
-
-    }
-
-    private String getAssetsFileContent(AssetManager assetManager, String fileName)
-            throws IOException {
-        String result = "";
-        InputStream inputStream = null;
-        try {
-            inputStream = assetManager.open(fileName);
-            int size = inputStream.available();
-            byte[] buffer = new byte[size];
-            inputStream.read(buffer);
-            result = new String(buffer);
-        } finally {
-            if (inputStream != null) {
-                inputStream.close();
-            }
-        }
-        return result;
-    }
+	}
 }

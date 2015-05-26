@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-package org.xwalk.embedded.api.sample;
+package org.xwalk.embedding.api.demo;
 
 import org.xwalk.core.XWalkExtension;
 
