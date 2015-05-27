@@ -81,6 +81,11 @@
                     "apk-icon-opt": "",
                     "app-name": "schemescontent",
                     "install-path": "."
+                },
+                "samples/Viewport/ViewportTest": {
+                    "apk-icon-opt": "",
+                    "app-name": "viewport",
+                    "install-path": "."
                 }
             }
         },
