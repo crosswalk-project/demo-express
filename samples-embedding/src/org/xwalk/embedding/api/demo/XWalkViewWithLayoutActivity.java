@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-package org.xwalk.embedded.api.sample;
+package org.xwalk.embedding.api.demo;
 
 import org.xwalk.core.XWalkNavigationHistory;
 import org.xwalk.core.XWalkNavigationItem;
@@ -61,6 +61,18 @@ public class XWalkViewWithLayoutActivity extends XWalkBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        // Reset the preference for animatable XWalkView.
+        XWalkPreferences.setValue(XWalkPreferences.ANIMATABLE_XWALK_VIEW, false);
+    }
+
+	@Override
+	protected void onXWalkReady() {
         // ANIMATABLE_XWALK_VIEW preference key MUST be set before XWalkView creation.
         XWalkPreferences.setValue(XWalkPreferences.ANIMATABLE_XWALK_VIEW, true);
         setContentView(R.layout.xwview_layout);
@@ -136,13 +148,5 @@ public class XWalkViewWithLayoutActivity extends XWalkBaseActivity {
         textDes = (TextView) super.findViewById(R.id.xwalk_des);
         textDes.setText("This sample demonstrates the basic functions of XWalkView. contains navigate forward and backward, pause timers, and scale the view.");
         mXWalkView.load("file:///android_asset/navigate.html", null);
-    }
-
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        // Reset the preference for animatable XWalkView.
-        XWalkPreferences.setValue(XWalkPreferences.ANIMATABLE_XWALK_VIEW, false);
-    }
+	}
 }

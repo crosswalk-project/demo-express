@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-package org.xwalk.embedded.api.sample;
+package org.xwalk.embedding.api.demo;
 
-import org.xwalk.embedded.api.sample.ExtensionEcho;
+import org.xwalk.embedding.api.demo.ExtensionEcho;
 import org.xwalk.core.XWalkView;
 
 import android.os.Bundle;
@@ -16,6 +16,10 @@ public class ExtensionActivity extends XWalkBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+	@Override
+	protected void onXWalkReady() {
         message = new StringBuffer();
         message.append("Test Purpose: \n\n")
         .append("Verifies extension can be supported .\n\n")
@@ -33,5 +37,5 @@ public class ExtensionActivity extends XWalkBaseActivity {
         mXWalkView = (XWalkView) findViewById(R.id.xwalkview_extension);
         mExtension.print();
         mXWalkView.load("file:///android_asset/echo.html", null);
-    }
+	}
 }

@@ -1,4 +1,4 @@
-package org.xwalk.embedded.api.sample;
+package org.xwalk.embedding.api.demo;
 
 import org.xwalk.core.XWalkPreferences;
 import org.xwalk.core.XWalkView;
@@ -20,6 +20,17 @@ public class MultiTextureViewsActivity extends XWalkBaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    private void resize(RelativeLayout views, int width, int height) {
+        for (int i = 0; i < views.getChildCount(); i++) {
+            View child = views.getChildAt(i);
+            child.setLayoutParams(new RelativeLayout.LayoutParams(width, height));
+        }
+    }
+
+	@Override
+	protected void onXWalkReady() {
         XWalkPreferences.setValue(XWalkPreferences.ANIMATABLE_XWALK_VIEW, true);
 
         setContentView(R.layout.multi_texture_views);
@@ -65,12 +76,5 @@ public class MultiTextureViewsActivity extends XWalkBaseActivity {
                 }
             }
         });
-    }
-
-    private void resize(RelativeLayout views, int width, int height) {
-        for (int i = 0; i < views.getChildCount(); i++) {
-            View child = views.getChildAt(i);
-            child.setLayoutParams(new RelativeLayout.LayoutParams(width, height));
-        }
-    }
+	}
 }

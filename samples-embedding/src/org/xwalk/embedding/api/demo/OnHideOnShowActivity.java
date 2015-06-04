@@ -2,12 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-package org.xwalk.embedded.api.sample;
+package org.xwalk.embedding.api.demo;
 
 import org.xwalk.core.XWalkView;
 
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class OnHideOnShowActivity extends XWalkBaseActivity {
@@ -15,6 +14,10 @@ public class OnHideOnShowActivity extends XWalkBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+	@Override
+	protected void onXWalkReady() {
         message = new StringBuffer();
         message.append("Test Purpose: \n\n")
         .append("Verifies XWalkView can hide and show.\n\n")
@@ -35,5 +38,5 @@ public class OnHideOnShowActivity extends XWalkBaseActivity {
         // The web page below will display a video.
         // When home button is pressed, the activity will be in background, and the video will be paused.
         mXWalkView.load("http://www.iandevlin.com/html5/webvtt-example.html", null);
-    }
+	}
 }
