@@ -53,7 +53,28 @@ Authors:
 </div>
 <div class="content">
    <h4>This sample demonstrates the external displays from within web applications.</h4>
-   <p>Connect to a external displays or turn on 'Simulate Secondary Display' in 'Setting'->'Developer options'.</p>
+  Requirement:
+  <ul>
+    <li>
+    Setup Wireless Display
+      <ol>
+        <li>Android 4.2+ with Miracast protocol support.</li>
+        <li>A TV or display with an HDMI port.</li>
+        <li>A Miracast certified wireless display adapter, for example the Netgear PTV3000 (tested)</li>
+        <li>Plug the wireless display adapter into the display’s HDMI port.</li>
+        <li>On the Android device, open the ‘Settings’ app and select the ‘Display’ entry.</li>
+        <li>Turn on ‘Wireless display’ to connect to the available wireless display.</li>
+      </ol>
+    </li>
+    <li>
+    Alertnative: no wireless display
+    <p>If you do not have a wireless display adapter but are willing to run the application on your device, Android gives you the option to use a simulated secondary display for testing purposes. This simulated display appears as an overlay on your device screen. To enable it:</p>
+      <ol>
+        <li>Open the <span style="background-color: gainsboro;">Settings</span> app and select <span style="background-color: gainsboro;">Developer Options</span>.</li>
+        <li>Use the <span style="background-color: gainsboro;">Simulate Secondary Display</span> option to select a display to simulate.</li>
+      </ol>
+    </li>
+  </ul>
   <div class="d">
     <p id="available">Display Availability: N/A</p>
     <p id="result">Result: N/A</p>
