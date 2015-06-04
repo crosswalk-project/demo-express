@@ -62,12 +62,14 @@
                 "samples-wrt/ManifestDemo3/res": {
                     "apk-icon-opt": "",
                     "app-name": "manifestdemo3",
+                    "apk-version-opt":"1.0.0.1",
                     "apk-type":"MANIFEST",
                     "install-path": "."
                 },
                 "samples-wrt/ManifestDemo4/res": {
                     "apk-icon-opt": "",
                     "app-name": "manifestdemo4",
+                    "apk-version-opt":"1.0.0.0.1",
                     "apk-type":"MANIFEST",
                     "install-path": "."
                 },
@@ -94,7 +96,6 @@
                 "*"
             ], 
             "copylist": {
-                "demo-ex-em.png": "samples-embedding/res/drawable-hdpi/icon.png",
                 "inst.em.py": "inst.py", 
                 "tests.embedding.xml": "tests.xml"
             }, 
@@ -102,7 +103,10 @@
                 "samples-embedding": {
                     "app-name": "embeddingapi", 
                     "app-type": "EMBEDDINGAPI", 
-                    "embeddingapi-library-name": "crosswalk-webview"
+                    "embeddingapi-library-name": "crosswalk-webview",
+                    "copylist": {
+                        "../demo-ex-em.png": "res/drawable-hdpi/icon.png"
+                    }
                 }
             }
         },
