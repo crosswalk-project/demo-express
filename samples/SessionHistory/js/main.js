@@ -39,7 +39,7 @@ $(document).on('click', '#sforward', function () {
 
 $(document).ready(function () {
     for (var i = 0; i<11; i++) {
-        window.history.pushState(i, 'title' + i, '?x=' + i);
+        window.history.pushState(i);
     }
     var state = window.history.state;
     $("#sessionID").text(state);
