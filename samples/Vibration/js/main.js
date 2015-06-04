@@ -42,6 +42,8 @@ $(document).ready(function() {
   $("#slider-3").slider({
     tooltip: 'always'
   });
+  $(".tooltip-arrow").css("border-top-color","#D3D0D0");
+  $(".tooltip-inner").css({"color":"black","background-color":"#D3D0D0"});
 
   vibration_time = Number($("#slider-1").val())*1000;
   vibration_periods = Number($("#slider-2").val())*1000;

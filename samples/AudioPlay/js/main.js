@@ -35,6 +35,8 @@ $(document).ready(function(){
     $("#slider-1").slider({
 	    tooltip: 'always'
     });
+    $(".tooltip-arrow").css("border-top-color","#D3D0D0");
+    $(".tooltip-inner").css({"color":"black","background-color":"#D3D0D0"});
     DisablePassButton();
     document.getElementById("MediaPlayback").volume = 0.6;
     $("#slider-1").hide();
