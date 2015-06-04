@@ -55,6 +55,8 @@ $(document).ready(function(){
     $("#slider-2").slider({
 	    tooltip: 'always'
     });
+    $(".tooltip-arrow").css("border-top-color","#D3D0D0");
+    $(".tooltip-inner").css({"color":"black","background-color":"#D3D0D0"});
     DisablePassButton();
     /** CSS Multicolumn */
     $("#on").click(function(){
