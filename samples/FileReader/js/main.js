@@ -57,6 +57,7 @@ function getFileList() {
                 // This fileBlob should be the same with the file
                 if(fileBlob.size == file.size){
                     filesStr = filesStr + "<tr><td width='70%'><a href='javascript:startRead(" + i + ")'>" + file.name + "</a></td><td width='30%'>" + Math.round(file.size/1024) + "KB</td>" + "</tr>";
+                    startRead(i);
                 }
             }
             $("#filesList").show();
