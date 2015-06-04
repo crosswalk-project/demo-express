@@ -29,57 +29,96 @@ Authors:
 
 */
 
-function getStorage(type) {
-  var storage = window[type + 'Storage'];
-  var table = document.getElementsByTagName("table");
-  var addtr = document.createElement("tr");
-  var tdSession = document.createElement("td");
-  var tdLocal = document.createElement("td");
-  tdSession.innerHTML = type + 'Storage';
-  tdLocal.innerHTML = storage.getItem('webstorage-value');
-  addtr.appendChild(tdSession);
-  addtr.appendChild(tdLocal);
-  table[0].appendChild(addtr);
+Array.prototype.indexof = function(key){
+  for(var i=0; i<this.length; i++){
+    if(this[i] == key){
+      return i;
+    }
+  }
+  return -1;
+}
+
+Array.prototype.remove = function(key){
+  var index = this.indexof(key);
+  if( index !== -1){
+    this.splice(index,1)
+  }
+}
+
+Array.prototype.push = function(key){
+  var index = this.indexof(key);
+  if(index == -1){
+    this[this.length] = key;
+  }
+}
+
+localKeyArray = new Array();
+sessionKeyArray = new Array();
+
+function status(){
+  $("#tableList").empty();
+  var table = document.querySelector("table");
+  table.insertRow(0)
+  table.rows[0].insertCell(0).innerHTML = "Storage Type";
+  table.rows[0].insertCell(1).innerHTML = "Key";
+  table.rows[0].insertCell(2).innerHTML = "Value";
+
+  var storages = ["localStorage", "sessionStorage"];
+  var arrays = ["localKeyArray", "sessionKeyArray"];
+  for(var i=0; i<storages.length; i++){
+    var storage = window[storages[i]];
+    var keyArray = window[arrays[i]];
+    for(var j=0; j<keyArray.length; j++){
+      var len = table.rows.length;
+      var key = keyArray[j];
+      var value = storage.getItem(key);
+      if(value !== null){
+        table.insertRow(len);
+        table.rows[len].insertCell(0).innerHTML = storages[i];
+        table.rows[len].insertCell(1).innerHTML = key;
+        table.rows[len].insertCell(2).innerHTML = value;
+      }
+    }
+  }
 }
 
 function onAdd(){
-  $("#tableList").empty();
-  var status = document.querySelector('#status');
   var session = $("#session").val();
   var local = $("#local").val();
-  sessionStorage.setItem("webstorage-value", session);
-  localStorage.setItem("webstorage-value", local);
-  getStorage('session');
-  getStorage('local');
-  status.innerHTML = 'storage added';
+
+  if (session !== "") {
+    sessionStorage.setItem(session, session);
+    sessionKeyArray.push(session);
+  }
+
+  if (local !== "") {
+    localStorage.setItem(local, local);
+    localKeyArray.push(local);
+  }
+
+  status();
+  $("#status").text('Data Stored');
 }
 
 function onRemove(){
   var session = $("#session").val();
   var local = $("#local").val();
-  var status = document.querySelector('#status');
-  $("#tableList").empty();
-  if(session == ""){
-    getStorage('session');
-  }else{
-    sessionStorage.removeItem("value");
-    status.innerHTML = 'storage removed';
+
+  if (session !== "") {
+    sessionStorage.removeItem(session);
+    sessionKeyArray.remove(session);
   }
 
-  if(local == ""){
-    getStorage('local');
-  }else{
-    localStorage.removeItem("value");
-    status.innerHTML = 'storage removed';
+  if (local !== "") {
+    localStorage.removeItem(local);
+    localKeyArray.remove(local);
   }
+
+  status();
+  $("#status").text('Left Data');
 }
 
-
 $(document).ready(function () {
-    var status = document.querySelector('#status');
-    status.innerHTML = 'ready';
     $("#add").click(onAdd);
-    $("#clear").click(onRemove);
+    $("#remove").click(onRemove);
 });
-
-

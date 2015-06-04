@@ -1,3 +1,3 @@
 ## Usecase Design
 
-This sample demonstrates the WebStorage with add and remove operation.
+This sample demonstrates the WebStorage with add, get and remove operation.
