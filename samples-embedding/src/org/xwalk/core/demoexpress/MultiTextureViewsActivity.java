@@ -1,4 +1,4 @@
-package org.xwalk.embedding.api.demo;
+package org.xwalk.core.demoexpress;
 
 import org.xwalk.core.XWalkPreferences;
 import org.xwalk.core.XWalkView;

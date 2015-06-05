@@ -2,10 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-package org.xwalk.embedding.api.demo;
+package org.xwalk.core.demoexpress;
 
-import org.xwalk.embedding.api.demo.ExtensionEcho;
 import org.xwalk.core.XWalkView;
+import org.xwalk.core.demoexpress.ExtensionEcho;
 
 import android.os.Bundle;
 import android.widget.TextView;
