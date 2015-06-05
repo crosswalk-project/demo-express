@@ -101,7 +101,7 @@
             }, 
             "subapp-list": {
                 "samples-embedding": {
-                    "app-name": "embeddingapi", 
+                    "app-name": "demoexpress-embeddingapi", 
                     "app-type": "EMBEDDINGAPI", 
                     "embeddingapi-library-name": "crosswalk-webview",
                     "copylist": {
