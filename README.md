@@ -12,14 +12,14 @@ DemoExpress is a central place to collect web feature samples that demonstrate u
   * Experimental: `Device Capabilities`, `Presentation`, `SIMD`
   * Security: `Sandbox`
   * UI: `Clipboard`
-  * Android specific Web API & Features:
+  * Android specific:
     * Device & Hardware: `Battery Status`, `Camera`, `GamePad`, `Location GPS`, `Vibration`
     * Performance & Optimization: `Page Visibility` 
     * Third Party Framework: `PDFjs`
     * Scheme: `SchemeContent`, `SchemesCheck`
     * Manifest: `ManifestDemo1`, `ManifestDemo2`, `ManifestDemo3`, `ManifestDemo4`, `ManifestDemo5`
     * Cordova: `CordovaInfo`, `CordovaAccelerometer`, `CordovaContacts`, `CordovaLazyLoadJS`, `CordovaNetwork`
-  * Tizen Specific Web API & Features: 
+  * Tizen Specific: 
     * Performance & Optimization: `ViewPort`
     * Tizen Extension APIs: `ApplicationManager`, `AudioSystem`, `Bookmark`, `Content`, `Download`, `Tizen Filesystem`, `MessagePort`, `NBS`, `SystemInfo`, `SystemSetting IncomingCall`, `SystemSetting Screen`
     * Other APIs: `Media Renderer`, `Media Server`, `NFC`, `Drag and Drop`
