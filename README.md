@@ -1,6 +1,6 @@
 ## Introduction
 
-DemoExpress is a central place to collect web feature samples that demonstrate use of W3C standard APIs, Tizen Extension APIs, embedding APIs, and web runtime features. The following samples are published in DemoExpres.
+DemoExpress is a central place to collect web feature samples that demonstrate use of W3C standard APIs, Tizen Extension APIs, embedding APIs, and web runtime features. The following samples are published in DemoExpress.
 * Embedding API (Java): `XwalkView`, `LoadMultiPages`, `XWalkViewHideAndShow`, `XwalkExtension`, `MultipleSurfaceViews`, `MultipleTextureViews`
 * Web API & Feature:
   * Runtime & Packaging: `App URI`
@@ -26,7 +26,7 @@ DemoExpress is a central place to collect web feature samples that demonstrate u
 
 ## Building
 The DemoExpress would be built out to 3 Apps:  
-* DemoEx:baisc DemoExpress App, include webapi and web runtime feature samples, 
+* DemoEx: DemoExpress App, include webapi and web runtime feature samples. 
 * DemoEx-Co: DemoExpress Cordova version App, include web api and web runtime feature samples which packed with Crosswalk-cordova, also include cordova specific features. 
 * DemoEx-Em: DemoExpress Embedding App, include embedding api samples.
 
