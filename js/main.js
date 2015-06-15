@@ -131,7 +131,7 @@ function help() {
 }
 
 function exit() {
-  showMessage("exit", "Are you sure to exit?");
+  showMessage("exit", "Are you sure you want to exit?");
   $("#ifConfirm").click(confirmExit);
 }
 
