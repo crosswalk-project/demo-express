@@ -4,7 +4,7 @@ DemoExpress is a central place to collect web feature samples that demonstrate u
 * Embedding API (Java): `XwalkView`, `LoadMultiPages`, `XWalkViewHideAndShow`, `XwalkExtension`, `MultipleSurfaceViews`, `MultipleTextureViews`
 * Web API & Feature:
   * Runtime & Packaging: `App URI`
-  * Multimedia & Graphics: `Animation Transform`, `Audio Play`, `Canvas`, `CSS Animation`, `CSS Style`, `CSS Style Attribute`, `Flexible Box`, `Media Queries`, `SVG Transformation`, `Transitions`,  `Video Play`, `WebRTC`
+  * Multimedia & Graphics: `Animation Transform`, `Audio Play`, `Canvas`, `CSS Animation`, `CSS Style`, `CSS Style Attribute`, `Flexible Box`, `Media Queries`, `SVG Transformation`, `Transitions`, `Video Play`, `WebRTC`
   * Networking & Storage: `FileReader`, `IndexedDB`, `Session History`, `Web Database`, `Web Messaging`, `Web Speech`, `Web Storage`
   * Performance & Optimization: `Animation Timing`,  `High Resolution Time`, `Navigation Timing`, `Performance Timeline`, `Resource Timing`, `Selectors`, `Typed Array`, `User Timing`, `Workers`
   * Device & Hardware: `Accelerometer`, `Browser State`, `Camera via UserMedia`, `Full Screen`, `Forms`, `HTML Template`, `Input`, `Notifications`, `Screen Orientation`, `ShadowDom`, `Touch`, `WebAudio`, `WebGL`
@@ -13,21 +13,21 @@ DemoExpress is a central place to collect web feature samples that demonstrate u
   * Security: `Sandbox`
   * UI: `Clipboard`
   * Android specific:
-    * Device & Hardware: `Battery Status`, `Camera`, `GamePad`, `Location GPS`, `Vibration`
-    * Performance & Optimization: `Page Visibility` 
+    * Device & Hardware: `Battery Status`, `Camera`, `GamePad`, `Geolocation`, `Vibration`
+    * Performance & Optimization: `Page Visibility`
     * Third Party Framework: `PDFjs`
     * Scheme: `SchemeContent`, `SchemesCheck`
     * Manifest: `ManifestDemo1`, `ManifestDemo2`, `ManifestDemo3`, `ManifestDemo4`, `ManifestDemo5`
     * Cordova: `CordovaInfo`, `CordovaAccelerometer`, `CordovaContacts`, `CordovaLazyLoadJS`, `CordovaNetwork`
-  * Tizen Specific: 
+  * Tizen Specific:
     * Performance & Optimization: `ViewPort`
     * Tizen Extension APIs: `ApplicationManager`, `AudioSystem`, `Bookmark`, `Content`, `Download`, `Tizen Filesystem`, `MessagePort`, `NBS`, `SystemInfo`, `SystemSetting IncomingCall`, `SystemSetting Screen`
     * Other APIs: `Media Renderer`, `Media Server`, `NFC`, `Drag and Drop`
 
 ## Building
-The DemoExpress would be built out to 3 Apps:  
-* DemoEx: DemoExpress App, include webapi and web runtime feature samples. 
-* DemoEx-Co: DemoExpress Cordova version App, include web api and web runtime feature samples which packed with Crosswalk-cordova, also include cordova specific features. 
+The DemoExpress would be built out to 3 Apps:
+* DemoEx: DemoExpress App, include webapi and web runtime feature samples.
+* DemoEx-Co: DemoExpress Cordova version App, include web api and web runtime feature samples which packed with Crosswalk-cordova, also include cordova specific features.
 * DemoEx-Em: DemoExpress Embedding App, include embedding api samples.
 
 Here is the buiding steps:
@@ -47,7 +47,7 @@ Here is the buiding steps:
 
     `$ ./pack.py -t apk -m shared|embedded -a x86|arm --tools='/[userdir]/tools/'`
 
-* Pack DemoExpress-Cordova Crosswalk Android binary, 
+* Pack DemoExpress-Cordova Crosswalk Android binary,
   * Download Crosswalk binary from [Crosswalk release](https://download.01.org/crosswalk/releases/crosswalk/android/).
   * Unzip Crosswalk binary:
 
@@ -73,7 +73,7 @@ Here is the buiding steps:
   * Goto DemoExpress folder to Pack DemoExpress-Cordova package:
 
     `$ ./pack.py -t cordova --tools='/[userdir]/tools/'`
-     
+
 * Pack DemoExpress-Embedding Crosswalk Android binary,
   * Ensure that you have [set up your host environment for Android development](https://crosswalk-project.org/documentation/getting_started/linux_host_setup.html).
   * Set up an Android target to deploy the application to, as described on the [Android target setup](https://crosswalk-project.org/documentation/getting_started/android_target_setup.html) page.
@@ -103,7 +103,7 @@ Here is the buiding steps:
   * Goto DemoExpress folder to Pack DemoExpress-Embedding package:
 
     `$ ./pack.py -t embeddingapi --tools='/[userdir]/tools/'`
-   
+
 * The pack.py script calls the pack command from Android (for Crosswalk-Cordova apps and regular Crosswalk apps)
  * [Run Crosswalk App on Andriod](https://crosswalk-project.org/documentation/getting_started/run_on_android.html)
  * [Develop Crosswalk Cordova App] (https://crosswalk-project.org/documentation/cordova/develop_an_application.html)
@@ -116,7 +116,7 @@ Here is the buiding steps:
 ## Customization
 
 * File 'tests.xml' is provided to customize the samples in DemoExpress. Feel free to disable/enable the samples before packing the package.
-    
+
 * Three sample lists [tests.tizen.xml](https://github.com/crosswalk-project/demo-express/blob/master/tests.tizen.xml) and [tests.android.xml](https://github.com/crosswalk-project/demo-express/blob/master/tests.android.xml), [tests.embedding.xml](https://github.com/crosswalk-project/demo-express/blob/master/tests.embedding.xml) are released for Tizen and Android. The Cordova samples are disabled in `tests.android.xml` by default.
 
 ## License
