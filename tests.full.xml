@@ -128,6 +128,8 @@
     <set name="Security" background="brand-warning3" icon="glyphicon-warning-sign">
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="Sandbox" purpose="Sandbox">
       </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="ManidestCSP" purpose="ManidestCSP">
+      </testcase>
     </set>
     <set name="Experimental API" background="brand-success3" icon="glyphicon-adjust">
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="DeviceCapabilities" purpose="Device Capabilities">
