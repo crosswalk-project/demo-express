@@ -15,6 +15,7 @@
                 ".git"
             ],
             "copylist": {
+                "samples/CSP-Meta/resources": "csp-meta/resources",
                 "LICENSE": "LICENSE",
                 "inst.apk.py": "inst.py"
             },
