@@ -1,0 +1,5 @@
+{
+  "name": "manifest_csp_tests",
+  "start_url": "index.html",
+  "csp": "default-src 'unsafe-inline';connect-src http://w3school.com.cn;style-src 'unsafe-inline';img-src 'self';media-src *;frame-src http://w3school.com.cn;font-src 'self';script-src 'self' 'unsafe-inline'"
+}
