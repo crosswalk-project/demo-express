@@ -46,7 +46,9 @@ $(document).ready(function(){
 
    m.addEventListener("ended", function() {
     endVideo = window.performance.now();
-    document.getElementById("testDiv").innerHTML = "The time for playing video: "+ Math.ceil(endVideo - playVideo) + "ms";
+    document.getElementById("playtime_des").innerHTML = "The time for playing video: ";
+    document.getElementById("playtime").innerHTML = Math.ceil(endVideo - playVideo);
+    document.getElementById("playtime_ms").innerHTML = "ms";
     $("#play2Div").addClass("hideButton");
     $("#playDiv").removeClass("hideButton");
   }, false);

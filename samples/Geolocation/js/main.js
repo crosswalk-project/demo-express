@@ -49,9 +49,9 @@ function initialize() {
 function successCallback (position) {
     EnablePassButton();
     var coordinates = position.coords;
-    jQuery("#latitudeDiv").text("Latitude: " + coordinates.latitude);
-    jQuery("#longitudeDiv").text("Longitude: " + coordinates.longitude);
-    jQuery("#speedDiv").text("Speed: " + coordinates.speed);
+    jQuery("#latitudeDiv").text(coordinates.latitude);
+    jQuery("#longitudeDiv").text(coordinates.longitude);
+    jQuery("#speedDiv").text(coordinates.speed);
 }
 
 function errorCallback (error) {
