@@ -33,22 +33,19 @@ public class MultiTextureViewsActivity extends XWalkBaseActivity {
 	protected void onXWalkReady() {
         XWalkPreferences.setValue(XWalkPreferences.ANIMATABLE_XWALK_VIEW, true);
 
-        setContentView(R.layout.multi_texture_views);
-        RelativeLayout parent = (RelativeLayout) findViewById(R.id.multi_texture_views);
+        setContentView(R.layout.multi_views);
+        LinearLayout parent = (LinearLayout) findViewById(R.id.multi_texture_views);
         textDes = (TextView)findViewById(R.id.multiViews_des);
         textDes.setText("This sample demonstrates Multiple TextureViews can be shown" +
         		" in order. A,B,C views are TextureViews, D,E,F views are WebViews, " +
         		"the sort order of A,B,C are the same with D,E,F when rotate or " +
         		"restore the screen. Click \"Resize\" button to enlarge or reduce the views.");
         mResizeButton = (Button) findViewById(R.id.run_resize);
-        LinearLayout btnLay = (LinearLayout) findViewById(R.id.toolbar2);
-        btnLay.setY(180);
-        btnLay.setX(550);
         root = (RelativeLayout) findViewById(R.id.root_views);
         for (int i = 0; i < 3; i++) {
             XWalkView xWalkView = new XWalkView(this, this);
             xWalkView.setX(i * 100);
-            xWalkView.setY(130 + (i + 1) * 60);
+            xWalkView.setY(30 + i * 70);
             xWalkView.load(null, String.format("<html><head><meta name='viewport' content='width=device-width'/></head>"
                     + "<body style='background-color: %s;'><h1>%s</h1></body></html>", i % 2 == 0 ? "white" : "grey", i == 0 ? "A" : i == 1 ?  "B" : "C"));
             root.addView(xWalkView, 200, 200);
@@ -57,7 +54,7 @@ public class MultiTextureViewsActivity extends XWalkBaseActivity {
         for (int i = 3; i < 6; i++) {
             WebView webView = new WebView(this);
             webView.setX(i * 100);
-            webView.setY(130 + (i + 1) * 60);
+            webView.setY(30 + i * 70);
             webView.loadData(String.format("<html><body style='background-color: %s'><h1>%s</h1></body></html>",
                     i % 2 == 0 ? "white" : "grey", i == 3 ? "D" : i == 4 ?  "E" : "F"), "text/html", "utf-8");
             root.addView(webView, 200, 200);
