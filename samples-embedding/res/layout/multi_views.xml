@@ -6,7 +6,7 @@
      found in the LICENSE file.
 -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/multi_texture_views"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,7 +15,7 @@
   <TextView  
     android:id="@+id/multiViews_des"  
     android:layout_width="match_parent"  
-    android:layout_height="match_parent"/>
+    android:layout_height="wrap_content"/>
   <LinearLayout
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
@@ -35,4 +35,4 @@
     android:orientation="vertical" >
     
   </RelativeLayout>  
-</RelativeLayout>
+</LinearLayout>
