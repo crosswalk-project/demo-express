@@ -93,6 +93,6 @@ function MSecSampler(aSamplePeriod, aDivId) {
     
     this.display = function() {
     	if(this.msDiv === null) this.msDiv = document.getElementById(this.msDivId);
-    	this.msDiv.firstChild.nodeValue = this.ms + " ms";
+    	this.msDiv.firstChild.nodeValue = this.ms;
     };
 }
