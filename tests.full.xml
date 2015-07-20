@@ -102,8 +102,6 @@
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="ScreenOrientation" purpose="Screen Orientation">
       </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="ShadowDom" purpose="ShadowDom">
-      </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="Touch" purpose="Touch">
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="Vibration" purpose="Vibration">
