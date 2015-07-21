@@ -30,7 +30,7 @@ Authors:
 
 function showMessage(type, msg) {
   $("#popup_info").html("<div id='modal-dialog' class='modal-dialog' style='position: fixed'><div class='modal-content'><div class='modal-header' style='padding: 5px;'><button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button><h4 class='modal-title'><span id='myModalLabel' class='glyphicon'></span></h4></div><div id='modal-body' class='modal-body' style='max-height: 100px; overflow: auto;'></div><div id='modal-footer' class='modal-footer' style='padding-top: 5px; padding-bottom: 5px'></div></div></div>");
-  msg = $("<p>").html(msg).text();
+  msg = $("<p>").html(msg);
   $("#modal-body").html(msg);
   switch(type) {
     case "help":
