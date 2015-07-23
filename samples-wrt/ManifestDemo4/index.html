@@ -44,13 +44,18 @@ Authors:
 </div>
 <div class="content">
   <h4>Crosswalk Manifest Demo 4</h4>
-  Download app named like "manifestdemo4.apk" from <a href="https://github.com/crosswalk-project/demo-express/releases">https://github.com/crosswalk-project/demo-express/releases</a> (It might be included in .zip files in this page), then install it.<br/>
-  This demo shows below features:
+  <p>This sample demonstrates mainfest members "icons", "xwalk_version", "orientation", "display" and "xwalk_launch_screen"</p>
+  <p>This demo shows App features can be configured by manifest.json</p>
+  <p>Download app named like "manifestdemo4.apk" from <a href="https://github.com/crosswalk-project/demo-express/releases">https://github.com/crosswalk-project/demo-express/releases</a> (It might be included in .zip files in this page)</p>
+  <p>Check below features after install the app</p>
   <ul>
-    <li>Icon: A jpg format icon (purple background color)</li>
-    <li>Xwalk_version: 1.0.0.0.1</li>
+    <li>Icon: A jpg format icon (purple background) with "Manifest JPG" text</li>
+    <li>Xwalk_version: the value like 1.0.0.0.120150101</li>
+  </ul>
+  <p>Check below features after launch the app</p>
+  <ul>
     <li>Orientation: Landscape mode</li>
-    <li>Splash Screen: Purple background color</li>
+    <li>Splash Screen: "Splash Screen Landscape" text with purple background</li>
     <li>Splash Screen: Landscape mode</li>
     <li>Splash Screen: Ready when the first visually non-empty paint has occurred</li>
     <li>Display: Minimal-ui provides the end-user with some means to access a minimal set of UI elements for controlling navigation (i.e., back, forward, reload, and perhaps some way of viewing the document's address)</li>
@@ -60,15 +65,6 @@ Authors:
   <div id="footer"></div>
 </div>
 <div class="modal fade" id="popup_info">
-  <p>Expected results</p>
-  <ol>
-    <li>Install app successfully, no error, no warning message</li>
-    <li>Display text "Manifest JPG" with purple background normally and the version value as "1.0.0.0.120150101"</li>
-    <li>Display "Splash Screen Landscape" with purple background and landscape screen in Splash Screen</li>
-    <li>Display some descriptions about manifest configuration with landscape screen</li>
-    <li>Display status bar</li>
-  </ol>
-  <p>This sample demonstrates manifest members "icons", "xwalk_version", "orientation", "display", "xwalk_launch_screen"</p>
   <ul>
     <li>Test values include: jpg format icons, five digits version, landscape orientation, minimal-ui display, first-paint ready_when and landscape</li>
     <li>Minimal-ui: This mode is similar to fullscreen, but provides the end-user with some means to access a minimal set of UI elements for controlling navigation (i.e., back, forward, reload, and perhaps some way of viewing the document's address)</li>

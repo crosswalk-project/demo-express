@@ -44,13 +44,18 @@ Authors:
 </div>
 <div class="content">
   <h4>Crosswalk Manifest Demo 2</h4>
-  Download app named like "manifestdemo2.apk" from <a href="https://github.com/crosswalk-project/demo-express/releases">https://github.com/crosswalk-project/demo-express/releases</a> (It might be included in .zip files in this page), then install it.<br/>
-  This demo shows below features:
+  <p>This sample demonstrates mainfest members "icons", "xwalk_version", "orientation", "display" and "xwalk_launch_screen"</p>
+  <p>This demo shows App features can be configured by manifest.json</p>
+  <p>Download app named like "manifestdemo2.apk" from <a href="https://github.com/crosswalk-project/demo-express/releases">https://github.com/crosswalk-project/demo-express/releases</a> (It might be included in .zip files in this page)</p>
+  <p>Check below features after install the app</p>
   <ul>
-    <li>Icon: A gif format icon (green background color)</li>
+    <li>Icon: A gif format icon (green background) with "Manifest GIF" text</li>
     <li>Xwalk_version: 1.0.1</li>
+  </ul>
+  <p>Check below features after launch the app</p>
+  <ul>
     <li>Orientation: Portrait mode</li>
-    <li>Splash Screen: Green background color</li>
+    <li>Splash Screen: "Splash Screen Portrait" text with green background</li>
     <li>Splash Screen: Ready when the DOM and CSSOM have been constructed</li>
     <li>Splash Screen: Portrait mode</li>
     <li>Display: The application displays in the same manner as a native application. The standard UI elements from the context (e.g. the device's status bar) remain visible</li>
@@ -60,4 +65,23 @@ Authors:
   <div id="footer"></div>
 </div>
 <div class="modal fade" id="popup_info">
+  <ul>
+    <li>App configure values include: gif format icons, three digits version, portrait orientation, standalone display, user-interactive ready_when and portrait</li>
+    <li>Standalone: In this mode, the application displays in the same manner as a native application. The standard UI elements from the context (e.g. the device's status bar) remain visible</li>
+    <li>Xwalk_launch_screen members'
+      <ul>
+        <li>Ready_when: The application readiness state at which to hide the launch screen'
+          <ul>
+            <li>User-interactive:'
+              <ul>
+                <li>The first visually non-empty paint has occurred</li>
+                <li>The DOM and CSSOM have been constructed</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Portrait: The launch screen to use for portrait mode</li>
+      </ul>
+    </li>
+  </ul>
 </div>
