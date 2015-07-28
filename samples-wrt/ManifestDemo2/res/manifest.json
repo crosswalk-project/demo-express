@@ -12,7 +12,7 @@
   "display": ["standalone"],
   "xwalk_launch_screen": {
     "ready_when": "user-interactive",
-    "default": {
+    "portrait": {
       "background_color": "#FFBBFF",
       "background_image": "bg.gif",
       "image": "loading-portrait.png",
