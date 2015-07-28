@@ -95,10 +95,6 @@
       <testcase component="sample" execution_type="manual" id="WebGL" purpose="WebGL">
       </testcase>
     </set>
-    <set name="Social" background="bs-purple" icon="glyphicon-heart">
-      <testcase component="sample" execution_type="manual" id="ContactsManager" purpose="Contacts Manager">
-      </testcase>
-    </set>
     <set name="UI" background="bs-purple-light" icon="glyphicon-magnet">
       <testcase component="sample" execution_type="manual" id="Clipboard" purpose="Clipboard">
       </testcase>
