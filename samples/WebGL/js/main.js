@@ -32,24 +32,19 @@ Authors:
 var ORIGIN_SPEED = 0.5;
 var multiple = 5;
 var isRunning = false;
-var isInit = true;
 var testFlag = {
     size:false,
     speed:false
 };
 
 function running() {
-    if (!isInit) {
-        reStart();
-        $("#running").attr('disabled', true);
-        $("#paused").attr('disabled', false);
-        $("#direction-1").attr('disabled', false);
-        $("#direction-2").attr('disabled', false);
-        $("#slider-1").slider('enable');
-        $("#speed-1").slider('enable');
-    } else {
-        isInit = false;
-    }
+    reStart();
+    $("#running").attr('disabled', true);
+    $("#paused").attr('disabled', false);
+    $("#direction-1").attr('disabled', false);
+    $("#direction-2").attr('disabled', false);
+    $("#slider-1").slider('enable');
+    $("#speed-1").slider('enable');
 }
 
 function paused() {
