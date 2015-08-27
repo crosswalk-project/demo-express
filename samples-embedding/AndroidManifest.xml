@@ -31,10 +31,10 @@
         android:name="org.xwalk.core.XWalkApplication"
         android:icon="@drawable/icon"
         android:hardwareAccelerated="true"
-        android:label="DemoEx-Em">
+        android:label="Embedding API Demo">
         <activity
             android:name="org.xwalk.core.demoexpress.XWalkEmbeddedAPISample"
-            android:label="DemoEx-Em">
+            android:label="Embedding API Demo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

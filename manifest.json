@@ -1,6 +1,6 @@
 {
     "xwalk_version": "0.3",
-    "name": "DemoEx",
+    "name": "Web API Demo",
     "xwalk_description": "DemoExpress",
     "xwalk_permissions": [
         "Contacts",
