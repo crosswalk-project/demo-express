@@ -124,7 +124,7 @@
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="Sandbox" purpose="Sandbox">
       </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="ManidestCSP" purpose="ManidestCSP">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="ManifestCSP" purpose="ManifestCSP">
       </testcase>
     </set>
     <set name="Experimental API" background="brand-success3" icon="glyphicon-adjust">
@@ -188,6 +188,8 @@
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="ManifestDemo4" purpose="ManifestDemo4">
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="ManifestDemo5" purpose="ManifestDemo5">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="ManifestDemo6" purpose="ManifestDemo6">
       </testcase>
     </set>
     <!--

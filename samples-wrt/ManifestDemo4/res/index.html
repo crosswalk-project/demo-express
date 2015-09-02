@@ -45,18 +45,4 @@ Authors:
     <li>Splash Screen: Ready when the first visually non-empty paint has occurred</li>
     <li>Display: Minimal-ui provides the end-user with some means to access a minimal set of UI elements for controlling navigation (i.e., back, forward, reload, and perhaps some way of viewing the document's address)</li>
   </ul>
-  <script>
-    function sleep(time) {
-        var date = new Date();
-        var exit = date.getTime() + time;
-        while(true){
-            date = new Date();
-            if(date.getTime() > exit) {
-                window.screen.show();
-                return;
-            }
-        }
-    }
-    sleep(2000);
-  </script>
 </body>
