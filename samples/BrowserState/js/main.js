@@ -37,7 +37,7 @@ function init() {
 window.onload = init;
 
 function make1lineListItem(value) {
-  return '<div class="panel-body">' + value + '</div>';
+  return '<div id ="isonline" class="panel-body">' + value + '</div>';
 }
 
 function makeDividerListItem(value) {
@@ -46,7 +46,7 @@ function makeDividerListItem(value) {
 
 function browserStatusSuccess() {
   gInfo = makeDividerListItem("Browser status")
-          + make1lineListItem("online status : " + navigator.onLine);
+          + make1lineListItem("online status is " + navigator.onLine);
   $("#info-list1").html(gInfo);
 }
 
