@@ -42,18 +42,4 @@ Authors:
     <li>Splash Screen: Can switch screen between portrait and landscape modes</li>
     <li>Splash Screen: Ready when all the resources have been loaded</li>
   </ul>
-  <script>
-    function sleep(time) {
-        var date = new Date();
-        var exit = date.getTime() + time;
-        while(true){
-            date = new Date();
-            if(date.getTime() > exit) {
-                window.screen.show();
-                return;
-            }
-        }
-    }
-    sleep(2000);
-  </script>
 </body>
