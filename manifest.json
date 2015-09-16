@@ -1,5 +1,5 @@
 {
-    "xwalk_version": "0.3",
+    "xwalk_version": "1.0",
     "name": "Web API Demo",
     "xwalk_description": "DemoExpress",
     "xwalk_permissions": [
