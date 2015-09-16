@@ -1,0 +1,7 @@
+{
+  "name": "manifest_demo_7",
+  "start_url": "index.html",
+  "xwalk_view": {
+      "background_color": "#ff01abcd"
+  }
+}

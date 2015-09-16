@@ -191,6 +191,8 @@
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="ManifestDemo6" purpose="ManifestDemo6">
       </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="ManifestDemo7" purpose="ManifestDemo7">
+      </testcase>
     </set>
     <!--
     <set name="Cordova" background="bs-purple-lighter1" icon="glyphicon-sound-dolby">
