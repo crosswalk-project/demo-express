@@ -110,6 +110,12 @@
                     "app-name": "manifestdemo7",
                     "apk-type":"MANIFEST",
                     "install-path": "."
+                },
+                "samples-wrt/ManifestDemo8/res": {
+                    "apk-icon-opt": "",
+                    "app-name": "manifestdemo8",
+                    "apk-type":"MANIFEST",
+                    "install-path": "."
                 }
             }
         },
