@@ -1,22 +1,24 @@
 {
-  "name": "manifest_demo_2",
-  "xwalk_version": "1.0.1",
-  "icons":[
+  "display": [
+    "standalone"
+  ],
+  "icons": [
     {
-      "src": "icon.gif",
-      "sizes": "64x64"
+      "sizes": "64x64",
+      "src": "icon.gif"
     }
   ],
-  "start_url": "index.html", 
+  "name": "manifest_demo_2",
   "orientation": "portrait",
-  "display": ["standalone"],
+  "start_url": "index.html",
   "xwalk_launch_screen": {
-    "ready_when": "user-interactive",
     "portrait": {
       "background_color": "#FFBBFF",
       "background_image": "bg.gif",
       "image": "loading-portrait.png",
       "image_border": "1px repeat stretch"
-    }
-  }
+    },
+    "ready_when": "user-interactive"
+  },
+  "xwalk_version": "1.0.1"
 }

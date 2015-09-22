@@ -1,15 +1,17 @@
 {
-    "xwalk_version": "1.0",
-    "name": "Web API Demo",
-    "xwalk_description": "DemoExpress",
-    "xwalk_permissions": [
-        "Contacts",
-        "Geolocation",
-        "Vibration"
-    ],
-    "start_url": "index.html",
-    "icons": [{
-        "src": "icon.png",
-        "sizes": "128x128"
-    }]
+  "icons": [
+    {
+      "sizes": "128x128",
+      "src": "icon.png"
+    }
+  ],
+  "name": "Web API Demo",
+  "start_url": "index.html",
+  "xwalk_description": "DemoExpress",
+  "xwalk_permissions": [
+    "Contacts",
+    "Geolocation",
+    "Vibration"
+  ],
+  "xwalk_version": "1.0"
 }
