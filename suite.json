@@ -21,7 +21,7 @@
             },
             "subapp-list": {
                 ".": {
-                    "app-name": "webapi-demo",
+                    "app-name": "demoexpress",
                     "apk-type": "MANIFEST",
                     "blacklist": [
                         "*",
