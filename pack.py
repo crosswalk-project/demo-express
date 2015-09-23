@@ -63,6 +63,7 @@ PKG_MODES = ["shared", "embedded"]
 PKG_ARCHS = ["x86", "arm"]
 PKG_BLACK_LIST = []
 PACK_TYPES = ["ant", "gradle", "maven"]
+CORDOVA_PACK_TYPES = ["npm", "local"]
 CROSSWALK_VERSION = ""
 CROSSWALK_BRANCH = ""
 PKG_NAME = None
@@ -663,20 +664,27 @@ def packCordova_cli(
         os.chdir(orig_dir)
         return False
 
-    version_cmd = ""
-    if CROSSWALK_BRANCH == "beta":
-        version_cmd = "--variable XWALK_VERSION=\"org.xwalk:xwalk_core_library_beta:%s\"" % CROSSWALK_VERSION
-    else:
-        version_cmd = "--variable XWALK_VERSION=\"%s\"" % CROSSWALK_VERSION
+    pkg_mode_tmp = "shared"
+    if BUILD_PARAMETERS.pkgmode == "embedded":
+        pkg_mode_tmp = "core"
 
+    xwalk_version = "%s" % CROSSWALK_VERSION
+    if CROSSWALK_BRANCH == "beta":
+        xwalk_version = "org.xwalk:xwalk_%s_library_beta:%s" % (pkg_mode_tmp, CROSSWALK_VERSION)
+
+    webview_plugin_name = "cordova-plugin-crosswalk-webview"
+    install_variable_cmd = ""
     plugin_dirs = os.listdir(plugin_tool)
     for i_dir in plugin_dirs:
         i_plugin_dir = os.path.join(plugin_tool, i_dir)
-        if i_dir == "cordova-plugin-crosswalk-webview":
-            plugin_install_cmd = "cordova plugin add %s %s --variable XWALK_MODE=\"%s\"" \
-                % (i_plugin_dir, version_cmd, BUILD_PARAMETERS.pkgmode)
-        else:
-            plugin_install_cmd = "cordova plugin add %s" % i_plugin_dir
+        plugin_crosswalk_source = i_plugin_dir
+        if i_dir == webview_plugin_name:
+            if BUILD_PARAMETERS.packtype == "npm":
+                plugin_crosswalk_source = webview_plugin_name
+            install_variable_cmd = "--variable XWALK_MODE=\"%s\" --variable XWALK_VERSION=\"%s\"" \
+                    % (BUILD_PARAMETERS.pkgmode, xwalk_version)
+
+        plugin_install_cmd = "cordova plugin add %s %s" % (plugin_crosswalk_source, install_variable_cmd)
         if not doCMD(plugin_install_cmd, DEFAULT_CMD_TIMEOUT):
             os.chdir(orig_dir)
             return False
@@ -915,13 +923,32 @@ def packEmbeddingAPI_ant(
         os.chdir(orig_dir)
         return False
 
-    os.chdir(app_src)
-    if not doCMD("ant debug"):
-        os.chdir(orig_dir)
-        return False
+    release_mode_tmp = "release"
+    if BUILD_PARAMETERS.bnotdebug:
+        LOG.info("Package release mode pkg start ...")
+        ant_cmd = ["ant", "release", '-f', os.path.join(app_src, 'build.xml')]
+        key_store = os.path.join(BUILD_PARAMETERS.pkgpacktools, 'crosswalk', 'xwalk-debug.keystore')
+        if not os.path.exists(key_store):
+            LOG.error("Need to copy xwalk-debug.keystore file from Crosswalk-<version> to crosswalk-test-suite/tools/crosswalk")
+            return False
+        ant_cmd.extend(['-Dkey.store=%s' % os.path.abspath(key_store)])
+        ant_cmd.extend(['-Dkey.alias=xwalkdebugkey'])
+        ant_cmd.extend(['-Dkey.store.password=xwalkdebug'])
+        ant_cmd.extend(['-Dkey.alias.password=xwalkdebug'])
+        ant_result = subprocess.call(ant_cmd)
+        if ant_result != 0:
+            os.chdir(orig_dir)
+            return False
+    else:
+        LOG.info("Package debug mode pkg start ...")
+        os.chdir(app_src)
+        if not doCMD("ant debug"):
+           os.chdir(orig_dir)
+           return False
+        release_mode_tmp = "debug"
 
     if not doCopy(
-            os.path.join(app_src, "bin", "%s-debug.apk" % app_name),
+            os.path.join(app_src, "bin", "%s-%s.apk" % (app_name, release_mode_tmp)),
             os.path.join(app_dest, "%s.apk" % app_name)):
         os.chdir(orig_dir)
         return False
@@ -1430,6 +1457,11 @@ def main():
             "--pack-type",
             dest="packtype",
             help="specify the pack type, e.g. gradle, maven")
+        opts_parser.add_option(
+            "--notdebug",
+            dest="bnotdebug",
+            action="store_true",
+            help="specify the packed pkg is not debug mode")
 
         if len(sys.argv) == 1:
             sys.argv.append("-h")
@@ -1591,6 +1623,16 @@ def main():
                 sys.exit(1)
             parameters_type = BUILD_PARAMETERS.pkgtype + \
                 BUILD_PARAMETERS.subversion
+
+        if (BUILD_PARAMETERS.subversion ==
+                '4.x' and BUILD_PARAMETERS.packtype) and not BUILD_PARAMETERS.packtype in CORDOVA_PACK_TYPES:
+            LOG.error("cordova packtype can only be npm, local")
+            sys.exit(1)
+
+        if (BUILD_PARAMETERS.subversion ==
+                '3.6' or not BUILD_PARAMETERS.subversion) and BUILD_PARAMETERS.packtype:
+            LOG.error("cordova packtype is only for cordova version 4.x")
+            sys.exit(1)
 
         if (BUILD_PARAMETERS.subversion ==
                 '3.6' or not BUILD_PARAMETERS.subversion) and BUILD_PARAMETERS.pkgarch:

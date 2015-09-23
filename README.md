@@ -25,12 +25,12 @@ DemoExpress is a central place to collect web feature samples that demonstrate u
 
 ## Building
 The DemoExpress would be built out to 3 Apps:
-* webapi_demo: Web API Demo App, include webapi and web runtime feature samples.
+* demoexpress: Web API Demo App, include webapi and web runtime feature samples.
 * webapi_cordova_demo: Web API Cordova Demo App, include web api and web runtime feature samples which packed with Crosswalk-cordova, also include cordova specific features.
 * embeddingapi_demo: Embedding API Demo App, include embedding api samples.
 
 Here is the buiding steps:
-* Pack the webapi_demo based on Crosswalk Android binary:
+* Pack the demoexpress based on Crosswalk Android binary:
   * Download Crosswalk binary from [Crosswalk release](https://download.01.org/crosswalk/releases/crosswalk/android/).
   * Unzip Crosswalk binary:
 
@@ -42,7 +42,7 @@ Here is the buiding steps:
 
     `$ mv crosswalk-<version\>\* crosswalk/`
 
-  * Goto DemoExpress folder to pack webapi_demo package:
+  * Goto DemoExpress folder to pack demoexpress package:
 
     `$ ./pack.py -t apk -m shared|embedded -a x86|arm --tools='/[userdir]/tools/'`
 
