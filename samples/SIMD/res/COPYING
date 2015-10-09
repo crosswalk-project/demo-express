@@ -8,3 +8,8 @@ mandelbrot.css
 mandelbrot.html
 mandelbrot.js
 The above files are from https://github.com/PeterJensen/mandelbrot/tree/master/js and licensed under Intel BSD-3-Clause License.
+
+- mandelbrot.js
+Changed due to https://crosswalk-project.org/jira/browse/XWALK-4766:
+SIMD.float32x4 -> SIMD.Float32x4
+SIMD.int32x4 -> SIMD.Int32x4
