@@ -38,10 +38,10 @@ var recognition;
 
 $(document).ready(function(){
     DisablePassButton();
-    if (!('webkitSpeechRecognition' in window) && !("tizen" in window)) {
+    if (!('webkitSpeechRecognition' in window)) {
         upgrade();
     } else {
-        recognition = "tizen" in window ? new tizen.SpeechRecognition() : new webkitSpeechRecognition();
+        recognition = new webkitSpeechRecognition();
         recognition.continuous = true;
         recognition.interimResults = true;
 

@@ -18,10 +18,6 @@ DemoExpress is a central place to collect web feature samples that demonstrate u
     * Scheme: `SchemeContent`, `SchemesCheck`
     * Manifest: `ManifestDemo1`, `ManifestDemo2`, `ManifestDemo3`, `ManifestDemo4`, `ManifestDemo5`
     * Cordova: `CordovaInfo`, `CordovaAccelerometer`, `CordovaContacts`, `CordovaLazyLoadJS`, `CordovaNetwork`
-  * Tizen Specific:
-    * Performance & Optimization: `ViewPort`
-    * Tizen Extension APIs: `ApplicationManager`, `AudioSystem`, `Bookmark`, `Content`, `Download`, `Tizen Filesystem`, `MessagePort`, `NBS`, `SystemInfo`, `SystemSetting IncomingCall`, `SystemSetting Screen`
-    * Other APIs: `Media Renderer`, `Media Server`, `NFC`, `Drag and Drop`
 
 ## Building
 The DemoExpress would be built out to 3 Apps:
@@ -116,7 +112,7 @@ Here is the buiding steps:
 
 * File 'tests.xml' is provided to customize the samples in DemoExpress. Feel free to disable/enable the samples before packing the package.
 
-* Three sample lists [tests.tizen.xml](https://github.com/crosswalk-project/demo-express/blob/master/tests.tizen.xml) and [tests.android.xml](https://github.com/crosswalk-project/demo-express/blob/master/tests.android.xml), [tests.embedding.xml](https://github.com/crosswalk-project/demo-express/blob/master/tests.embedding.xml) are released for Tizen and Android. The Cordova samples are disabled in `tests.android.xml` by default.
+* Two sample lists [tests.android.xml](https://github.com/crosswalk-project/demo-express/blob/master/tests.android.xml), [tests.embedding.xml](https://github.com/crosswalk-project/demo-express/blob/master/tests.embedding.xml) are released for Android. The Cordova samples are disabled in `tests.android.xml` by default.
 
 ## License
 

@@ -136,14 +136,7 @@ function exit() {
 }
 
 function confirmExit() {
-  try {
-    var app = tizen.application.getCurrentApplication();
-    app.exit();
-  } catch(error) {
-    closeWindow();
-  } finally {
-    closeWindow();
-  }
+  closeWindow();
 }
 
 function closeWindow() {
