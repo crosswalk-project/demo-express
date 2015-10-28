@@ -26,8 +26,6 @@
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="VideoPlayAndroid" purpose="Video Play">
       </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="VideoPlayTizen" purpose="Video Play">
-      </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="WebRTC" purpose="WebRTC">
       </testcase>
     </set>
@@ -51,8 +49,6 @@
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="AnimationTiming" purpose="Animation Timing">
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="HrtimeAndroid" purpose="High Resolution Time">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="HrtimeTizen" purpose="High Resolution Time">
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="NavigationTiming" purpose="Navigation Timing">
       </testcase>
@@ -116,8 +112,6 @@
     <set name="UI" background="bs-purple-light" icon="glyphicon-magnet">
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="Clipboard" purpose="Clipboard">
       </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="DragandDrop" purpose="Drag and Drop">
-      </testcase>
     </set>
     <set name="Security" background="brand-warning3" icon="glyphicon-warning-sign">
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="CSP-Meta" purpose="CSP-Meta">
@@ -133,39 +127,6 @@
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="Presentation" purpose="Presentation">
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="SIMD" purpose="SIMD">
-      </testcase>
-    </set>
-    <set name="Tizen Extension APIs" background="brand-primary3" icon="glyphicon-send">
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="ApplicationManager" purpose="ApplicationManager">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="AudioSystem" purpose="AudioSystem">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="Bookmark" purpose="Bookmark">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="Content" purpose="Content">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="Download" purpose="Download">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="TizenFileSystem" purpose="Tizen Filesystem">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="MessagePort" purpose="MessagePort">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="NBS" purpose="NBS">
-        <capability name="nbs"/>
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="SystemInfo" purpose="SystemInfo">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="SystemSettingIncomingCall" purpose="SystemSetting IncomingCall">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="SystemSettingScreen" purpose="SystemSetting Screen">
-      </testcase>
-    </set>
-    <set name="Others APIs" background="brand-danger3" icon="glyphicon-gift">
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="MediaRenderer" purpose="Media Renderer">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="MediaServer" purpose="Media Server">
-      </testcase>
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="tizen" priority="P0" id="NFC" purpose="NFC">
       </testcase>
     </set>
     <set name="Third Party Framework" background="brand-info3" icon="glyphicon-tasks">
