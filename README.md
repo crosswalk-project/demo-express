@@ -84,8 +84,8 @@ Here is the buiding steps:
 
     `$ mv crosswalk-<version\>\* crosswalk/`
 
-  * Download Crosswalk-webview binary from [Crosswalk release](https://download.01.org/crosswalk/releases/crosswalk/android/)
-  * unzip Crosswalk-webview binary:
+  * Download the Crosswalk WebView binary from [Crosswalk release](https://download.01.org/crosswalk/releases/crosswalk/android/)
+  * Unzip the Crosswalk WebView binary:
 
     `$ mkdir -p /[userdir]/tools/crosswalk-webview/`
 
@@ -93,9 +93,9 @@ Here is the buiding steps:
 
     `$ cd /[userdir]/tools/`
 
-    `$ mv crosswalk-webview-<version\>\* Crosswalk-webview/`
+    `$ mv crosswalk-webview-<version\>\* crosswalk-webview/`
 
-  * Goto DemoExpress folder to Pack embeddingapi_demo package:
+  * Go back to DemoExpress folder to create the embeddingapi_demo package:
 
     `$ ./pack.py -t embeddingapi --tools='/[userdir]/tools/'`
 
