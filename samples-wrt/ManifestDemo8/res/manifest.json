@@ -7,6 +7,7 @@
       "background_color": "#01abcd"
     }
   },
+  "xwalk_package_id": "org.xwalk.manifestdemo8",
   "xwalk_view": {
       "background_color": "#ff01abcd"
   }

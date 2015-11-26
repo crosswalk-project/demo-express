@@ -20,5 +20,6 @@
     },
     "ready_when": "complete"
   },
-  "xwalk_version": "1.0"
+  "xwalk_package_id": "org.xwalk.manifestdemo1",
+  "xwalk_app_version": "1.0"
 }

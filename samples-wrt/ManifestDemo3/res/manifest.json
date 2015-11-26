@@ -17,5 +17,5 @@
     },
     "ready_when": "custom"
   },
-  "xwalk_version": "1.0.0.1"
+  "xwalk_package_id": "org.xwalk.manifestdemo3"
 }

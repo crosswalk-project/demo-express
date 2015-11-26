@@ -13,5 +13,6 @@
       "image": "loading-auto.png"
     },
     "ready_when": "custom"
-  }
+  },
+  "xwalk_package_id": "org.xwalk.manifestdemo9"
 }
