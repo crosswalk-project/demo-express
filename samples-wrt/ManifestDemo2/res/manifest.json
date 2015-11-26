@@ -20,5 +20,6 @@
     },
     "ready_when": "user-interactive"
   },
-  "xwalk_version": "1.0.1"
+  "xwalk_package_id": "org.xwalk.manifestdemo2",
+  "xwalk_app_version": "1.0.1"
 }

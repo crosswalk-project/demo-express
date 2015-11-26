@@ -15,5 +15,6 @@
       "image_border": "1px 1px round"
     },
     "ready_when": "complete"
-  }
+  },
+  "xwalk_package_id": "org.xwalk.manifestdemo5"
 }

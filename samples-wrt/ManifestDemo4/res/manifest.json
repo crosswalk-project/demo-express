@@ -20,5 +20,5 @@
     },
     "ready_when": "first-paint"
   },
-  "xwalk_version": "1.0.0.0.1"
+  "xwalk_package_id": "org.xwalk.manifestdemo4"
 }
