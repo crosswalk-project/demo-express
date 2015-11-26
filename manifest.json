@@ -1,17 +1,16 @@
 {
-  "icons": [
-    {
-      "sizes": "128x128",
-      "src": "icon.png"
-    }
-  ],
   "name": "Web API Demo",
   "start_url": "index.html",
-  "xwalk_description": "DemoExpress",
-  "xwalk_permissions": [
+  "xwalk_package_id": "org.xwalk.demoexpress",
+  "xwalk_android_permissions": [
     "Contacts",
     "Geolocation",
     "Vibration"
   ],
-  "xwalk_version": "1.0"
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "128x128"
+    }
+  ]
 }

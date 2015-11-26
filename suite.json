@@ -40,88 +40,40 @@
                         "tests.android.xml": "tests.xml",
                         "tests_list.html": "tests_list.html",
                         "VERSION": "VERSION"
-                    },
-                    "install-path": "."
+                    }
                 },
                 "samples-wrt/SchemesCheck/res": {
-                    "apk-icon-opt": "",
-                    "app-name": "schemescheck",
-                    "install-path": "."
+                    "apk-type":"MANIFEST"
                 },
                 "samples-wrt/ManifestDemo1/res": {
-                    "apk-icon-opt": "",
-                    "app-name": "manifestdemo1",
-                    "apk-type":"MANIFEST",
-                    "install-path": "."
+                    "apk-type":"MANIFEST"
                 },
                 "samples-wrt/ManifestDemo2/res": {
-                    "apk-icon-opt": "",
-                    "app-name": "manifestdemo2",
-                    "apk-type":"MANIFEST",
-                    "install-path": "."
+                    "apk-type":"MANIFEST"
                 },
                 "samples-wrt/ManifestDemo3/res": {
-                    "apk-icon-opt": "",
-                    "app-name": "manifestdemo3",
-                    "apk-version-opt":"1.0.0.1",
-                    "apk-type":"MANIFEST",
-                    "install-path": "."
+                    "apk-type":"MANIFEST"
                 },
                 "samples-wrt/ManifestDemo4/res": {
-                    "apk-icon-opt": "",
-                    "app-name": "manifestdemo4",
-                    "apk-version-opt":"1.0.0.0.1",
-                    "apk-type":"MANIFEST",
-                    "install-path": "."
+                    "apk-type":"MANIFEST"
                 },
                 "samples-wrt/ManifestDemo5/res": {
-                    "apk-icon-opt": "",
-                    "app-name": "manifestdemo5",
-                    "apk-type":"MANIFEST",
-                    "install-path": "."
+                    "apk-type":"MANIFEST"
                 },
                 "samples-wrt/SchemeContent/res": {
-                    "apk-icon-opt": "",
-                    "app-name": "schemescontent",
-                    "install-path": "."
+                    "apk-type":"MANIFEST"
                 },
                 "samples/Viewport/ViewportTest": {
-                    "apk-icon-opt": "",
-                    "app-name": "viewport",
-                    "install-path": "."
+                    "apk-type":"MANIFEST"
                 },
                 "samples-wrt/ManifestCSP/res": {
-                    "apk-icon-opt": "",
-                    "app-name": "manifestcsptest",
                     "apk-type":"MANIFEST",
                     "copylist": {
                         "../../../js/jquery-2.1.3.min.js": "resources/js/jquery.js"
-                    },
-                    "install-path": "."
-                },
-                "samples-wrt/ManifestDemo6/res": {
-                    "apk-icon-opt": "",
-                    "app-name": "manifestdemo6",
-                    "apk-type":"MANIFEST",
-                    "install-path": "."
+                    }
                 },
                 "samples-wrt/ManifestDemo7/res": {
-                    "apk-icon-opt": "",
-                    "app-name": "manifestdemo7",
-                    "apk-type":"MANIFEST",
-                    "install-path": "."
-                },
-                "samples-wrt/ManifestDemo8/res": {
-                    "apk-icon-opt": "",
-                    "app-name": "manifestdemo8",
-                    "apk-type":"MANIFEST",
-                    "install-path": "."
-                },
-                "samples-wrt/ManifestDemo9/res": {
-                    "apk-icon-opt": "",
-                    "app-name": "manifestdemo9",
-                    "apk-type":"MANIFEST",
-                    "install-path": "."
+                    "apk-type":"MANIFEST"
                 }
             }
         },
@@ -162,7 +114,6 @@
                         ".git"
                     ],
                     "copylist": {
-                        "manifest.json": "manifest.json",
                         "css": "css",
                         "fonts": "fonts",
                         "demo-ex-co.png": "icon.png",
@@ -175,8 +126,7 @@
                         "tests.android.xml": "tests.xml",
                         "tests_list.html": "tests_list.html",
                         "VERSION": "VERSION"
-                    },
-                    "install-path": "."
+                    }
                 }
             }
         }
