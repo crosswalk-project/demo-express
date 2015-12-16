@@ -1,12 +1,11 @@
 {
-  "icons": [
-    {
-      "sizes": "128x128",
-      "src": "icon.png"
-    }
-  ],
   "name": "ViewportTest",
   "start_url": "index.html",
-  "xwalk_description": "Viewport Test",
-  "xwalk_version": "0.0.1"
+  "xwalk_package_id": "org.xwalk.viewport",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "128x128"
+    }
+  ]
 }

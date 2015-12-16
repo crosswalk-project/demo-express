@@ -1,24 +1,14 @@
 {
-  "display": [
-    "fullscreen"
-  ],
-  "icons": [
-    {
-      "sizes": "128x128",
-      "src": "icon.png"
-    }
-  ],
   "name": "manifest_demo_1",
+  "display": "fullscreen",
   "orientation": "default",
   "start_url": "index.html",
-  "xwalk_launch_screen": {
-    "default": {
-      "background_color": "#FFBBFF",
-      "background_image": "bg.png",
-      "image": "loading-auto.png",
-      "image_border": "1px 1px 1px"
-    },
-    "ready_when": "complete"
-  },
-  "xwalk_version": "1.0"
+  "xwalk_package_id": "org.xwalk.manifestdemo1",
+  "xwalk_app_version": "1.0",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "128x128"
+    }
+  ]
 }

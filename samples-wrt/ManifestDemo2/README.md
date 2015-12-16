@@ -2,4 +2,4 @@
 
 This sample demonstrates Manifest feature basic functionalities, include:
 
-* "xwalk_version", "start_url", "icons", "orientation", "display", "xwalk_launch_screen"
+* "xwalk_app_version", "start_url", "icons", "orientation", "display"
