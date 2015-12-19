@@ -129,11 +129,11 @@ function start() {
   showId = setTimeout("show()", 30000);
 
   if (typeof RTCPeerConnection != "undefined") {
-    pc1 = new RTCPeerConnection(null, {optional: [{RtpDataChannels: true}]});
-    pc2 = new RTCPeerConnection(null, {optional: [{RtpDataChannels: true}]});
+    pc1 = new RTCPeerConnection(null);
+    pc2 = new RTCPeerConnection(null);
   } else {
-    pc1 = new webkitRTCPeerConnection(null, {optional: [{RtpDataChannels: true}]});
-    pc2 = new webkitRTCPeerConnection(null, {optional: [{RtpDataChannels: true}]});
+    pc1 = new webkitRTCPeerConnection(null);
+    pc2 = new webkitRTCPeerConnection(null);
   }
   dc1 = pc1.createDataChannel("pc1");
   pc1.onicecandidate = gotLocalCandidate;
