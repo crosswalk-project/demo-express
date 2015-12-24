@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/text1"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:text="This sample demostrates XWalkView can save current internal state of this XWalkView and restore the state from the saved bundle data. Firstly click 'Save Instance' button to save page A, then click 'Load Other' to load page B. Lastly you click 'Restore Instance' to restore page A."/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Save Instance"
+        android:id="@+id/button_one"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Load Other"
+        android:id="@+id/button_two"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/button_three"
+        android:text="Restore Instance"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/frameLayout">
+    </FrameLayout>
+</LinearLayout>

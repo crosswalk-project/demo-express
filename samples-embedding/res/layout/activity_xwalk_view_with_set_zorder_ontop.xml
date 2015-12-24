@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="org.xwalk.core.demoexpress.basic.XWalkViewWithSetZOrderOnTop">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Control whether the XWalkView's surface is placed on top of its window. Note this only works when XWalkPreferences.ANIMATABLE_XWALK_VIEW is false. In this sample, the red big button is put on the top of XWalkView in layout formerly. But you can set API setZOrderOnTop true, XWalkView will show on the top as you see."
+        android:id="@+id/textView" />
+
+	<FrameLayout
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:layout_below="@+id/textView" >
+
+    	<org.xwalk.core.XWalkView
+    		android:id="@+id/xwalkview_transparent"
+    		android:layout_width="match_parent"
+    		android:layout_height="match_parent" />
+
+   		<Button
+   	    	android:layout_width="match_parent"
+      		android:layout_height="match_parent"
+      		android:layout_margin="10dp"
+      		android:text="Button"
+      		android:textSize="80sp"
+      		android:background="#ff0000" />
+
+	</FrameLayout>
+
+</RelativeLayout>

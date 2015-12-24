@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (c) 2014 Intel Corporation. All rights reserved.
+
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="org.xwalk.core.demoexpress.basic.XWalkViewWithSetInitialScale">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This sample demostrates XWalkView can set initial scale. If you set InitialScale 100 percent, the green piece will span this 500x500px size perfectly. If you set 150 percent, then green piece will be scaled."
+        android:id="@+id/textView" />
+
+  	<Button
+    	android:id="@+id/set_initialscale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SetInitialScale 150"
+        android:layout_below="@+id/textView" />
+
+    <org.xwalk.core.XWalkView
+        android:layout_width="500px"
+        android:layout_height="500px"
+        android:id="@+id/xwalkview"
+        android:layout_below="@+id/set_initialscale" />
+
+</RelativeLayout>

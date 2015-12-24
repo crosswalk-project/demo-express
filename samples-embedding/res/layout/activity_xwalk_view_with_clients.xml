@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (c) 2014 Intel Corporation. All rights reserved.
+
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This sample demostrates when XWalkView loads a webpage, what functions will be triggered about XWalkResourceClient and XWalkUIClient."
+        android:id="@+id/textView" />
+    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/clear_info"
+        android:text="Clear Info" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="vertical" >
+
+        <EditText
+         	android:id="@+id/text1"
+    		android:layout_width="match_parent"
+    		android:layout_height="match_parent"
+    		android:textColor="#00ff00"
+    		android:editable="false"   />
+
+    </ScrollView>
+
+    <org.xwalk.core.XWalkView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/xwalkview"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </org.xwalk.core.XWalkView>
+
+</LinearLayout>

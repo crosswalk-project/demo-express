@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (c) 2014 Intel Corporation. All rights reserved.
+
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This sample demostrates XWalkView can open local file. Click 'Choose File' button, then select system gallery app and choose one photo. If XWalkUIClient API openFileChooser is invoked, the loaded photo will show."
+        android:id="@+id/textView" />
+
+    <org.xwalk.core.XWalkView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/xwalkview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5" >
+    </org.xwalk.core.XWalkView>
+
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:background="#0000ff" />
+
+</LinearLayout>

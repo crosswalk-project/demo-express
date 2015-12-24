@@ -4,8 +4,6 @@
 <link rel="stylesheet" type="text/css" href="css/page.css">
 </head>
 <body>
- Extension Page: This page shows the feedback message from extension and the execution result.<br/><br/><br/>
-<br/><br/>
 <script>
 
 try {
@@ -14,17 +12,17 @@ try {
     document.write("<br/><font size=40>" + msg + "</font><br/>");
     var expected = "From java:" + d;
     if (msg === expected) {
-      document.write("<br/><font size=40>Async echo <font color=green>passed</font></font>");
-      document.title = "Pass";
+      document.write("<br/><font size=40>Async echo <font color=green>OK</font></font>");
+      document.title = "OK";
     } else {
-      document.write("<br/><font size=40>Async echo <font color=red>failed</font></font>");
-      document.title = "Fail";
+      document.write("<br/><font size=40>Async echo <font color=red>Bad</font></font>");
+      document.title = "Bad";
     }
   });
 } catch(e) {
   console.log(e);
-  document.title = "Fail";
-  document.write("<br/><font size=40>Async echo <font color=red>failed</font></font>");
+  document.title = "Bad";
+  document.write("<br/><font size=40>Async echo <font color=red>Bad</font></font>");
 }
 
 </script>

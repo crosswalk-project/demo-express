@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Copyright (c) 2013-2014 Intel Corporation. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be
+found in the LICENSE file.
+-->
+
+<resources>
+
+    <string name="dispatch_draw_tips">The android robot shown here is drawn in dispatchDraw</string>
+    <string name="on_draw_tips">The android robot shown here is drawn in onDraw</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_xwalk_view_with_dispatch_draw">dispatchDraw()</string>
+    <string name="title_activity_xwalk_view_with_on_touch_event">onTouchEvent()</string>
+    <string name="title_activity_xwalk_view_with_focus_changed">onFocusChanged()</string>
+    <string name="title_activity_xwalk_view_with_scroll_changed">onOverScrolled()</string>
+    <string name="title_activity_xwalk_view_with_size_changed">onSizeChanged()</string>
+    <string name="title_activity_xwalk_view_with_visibility_changed">setVisibility()</string>
+    <string name="title_activity_xwalk_view_with_window_focus_changed">onWindowFocusChanged()</string>
+    <string name="title_activity_xwalk_view_with_windows_visibility_changed">onWindowVisibilityChanged()</string>
+    <string name="title_activity_blank_window_for_visibility_testing">BlankWindowForVisibilityTesting</string>
+    <string name="title_activity_xwalk_view_with_long_click">onLongClick()</string>
+    <string name="title_activity_xwalk_view_with_request_focus">requestFocus()</string>
+    <string name="title_activity_xwalk_view_with_network_available">setNetworkAvailable()</string>
+    <string name="title_activity_xwalk_view_with_console_log">onConsoleMessage()</string>
+    <string name="title_activity_xwalk_view_with_received_title">onReceivedTitle()</string>
+    <string name="title_activity_xwalk_view_with_client_on_request_focus">onRequestFocus()</string>
+    <string name="title_activity_xwalk_view_with_client_key_event">shouldOverrideKeyEvent()</string>
+    <string name="title_activity_xwalk_view_with_client_received_sslerror">onReceivedSslError()</string>
+    <string name="title_activity_xwalk_view_with_layout">XWalkView Basic Functions</string>
+    <string name="title_activity_xwalk_view_with_multi_instance">Multi-Page Loading</string>
+    <string name="title_activity_xwalk_view_with_resource_ui_client">ResourceClient and UIClient</string>
+    <string name="title_activity_xwalk_view_with_preferences">XWalkView Preferences</string>
+    <string name="title_activity_xwalk_view_with_onhide_onshow">XWalkView Hide and Show</string>
+    <string name="title_activity_xwalk_view_with_version_apiversion">XWalkView Version and API Version</string>
+    <string name="title_activity_xwalk_view_with_echo_extension">Echo Extension</string>
+    <string name="title_activity_xwalk_view_with_multi_surfaceviews">Multiple SurfaceViews</string>
+    <string name="title_activity_xwalk_view_with_multi_textureviews">Multiple TextureViews</string>
+    <string name="title_activity_xwalk_view_with_oniconavailable">onIconAvailable() and onReceivedIcon()</string>
+    <string name="title_activity_xwalk_view_with_oncreatewindow_requested">onCreateWindowRequested()</string>
+    <string name="title_activity_xwalk_view_with_shouldoverrideurlloading">shouldOverrideUrlLoading()</string>
+    <string name="title_activity_xwalk_view_with_setzorderontop">setZOrderOnTop()</string>
+    <string name="title_activity_xwalk_view_with_redirection">Redirection</string>
+    <string name="title_activity_xwalk_view_with_clear_cache">Cache Clearing</string>
+    <string name="title_activity_xwalk_view_with_download_listener">XWalkView DownloadListener</string>
+    <string name="title_activity_xwalk_view_with_zoom_in_out">ZoomIn and ZoomOut</string>
+    <string name="title_activity_xwalk_view_with_block_error_redirection">Block and Error Redirection</string>
+    <string name="title_activity_xwalk_view_with_save_state">State Saving</string>
+    <string name="title_activity_xwalk_view_with_input_connection">XWalkView InputConnection</string>
+    <string name="title_activity_xwalk_view_with_dispatch_keyevent">dispatchKeyEvent()</string>
+    <string name="title_activity_xwalk_view_with_set_language">AcceptLanguages Setting</string>
+    <string name="title_activity_xwalk_view_with_cookie_manager">CookieManager Test</string>
+    <string name="title_activity_xwalk_view_with_accept_fileschemecookies">AcceptFileSchemeCookies Test</string>
+    <string name="title_activity_xwalk_view_with_clear_formdata">clearFormData()</string>
+    <string name="title_activity_xwalk_view_with_disable_longclick">setLongClickable()</string>
+    <string name="title_activity_xwalk_view_with_onreceived_loaderror">onReceivedLoadError()</string>
+    <string name="title_activity_xwalk_view_with_transparent">Transparent</string>
+    <string name="title_activity_xwalk_view_with_set_initialscale">InitialScale Setting</string>
+    <string name="title_activity_xwalk_view_with_onunhandled_keyevent">onUnhandledKeyEvent()</string>
+    <string name="title_activity_xwalk_view_with_clearcache_singlefile">clearCacheForSingleFile()</string>
+    <string name="title_activity_xwalk_view_with_encoding_display">Encoding Display</string>
+    <string name="title_activity_xwalk_view_with_open_file_chooser">openFileChooser()</string>
+    <string name="title_activity_xwalk_view_with_multi_instance_overlay">Multi-Instance Overlay</string>
+    <string name="title_activity_xwalk_view_with_window_secure">Window Security</string>
+    <string name="title_activity_xwalk_view_with_on_js_modal_dialog">onJavascriptModalDialog()</string>
+    <string name="title_activity_xwalk_view_with_session_storage">Session Storage</string>
+    <string name="title_activity_xwalk_view_with_close_window">onJavascriptCloseWindow()</string>
+
+</resources>

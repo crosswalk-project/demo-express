@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (c) 2014 Intel Corporation. All rights reserved.
+
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="org.xwalk.core.demoexpress.extended.XWalkViewWithClearFormData">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="This sample demostrates XWalkView can clear form data. Input a 'h' on the edit text and the pull-down list will show. Then click the 'clearFormData' button, the pull-down list will disappear."
+        android:id="@+id/textView" />
+
+  	<Button
+    	android:id="@+id/clear_formdata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ClearFormData"
+        android:layout_below="@+id/textView" />
+
+    <org.xwalk.core.XWalkView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/xwalkview"
+        android:layout_below="@+id/clear_formdata" />
+
+</RelativeLayout>
