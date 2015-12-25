@@ -40,34 +40,36 @@ Here is the buiding steps:
 
   * Goto DemoExpress folder to pack demoexpress package:
 
-    `$ ./pack.py -t apk -m shared|embedded -a x86|arm --tools='/[userdir]/tools/'`
+    `$ ./tools/pack.py -t apk -m shared|embedded -a x86|arm --tools='/[userdir]/tools/'`
 
-* Pack webapi_cordova_demo Crosswalk Android binary,
-  * Download Crosswalk binary from [Crosswalk release](https://download.01.org/crosswalk/releases/crosswalk/android/).
-  * Unzip Crosswalk binary:
+* Pack cordova 4.X webapi_cordova_demo Crosswalk Android binary,
+  * Create "cordova_plugins" directory in /[userdir]/tools/:
 
-    `$ mkdir -p /[userdir]/tools/crosswalk/`
+    `$ mkdir -p /[userdir]/tools/cordova_plugins`
 
-    `$ unzip crosswalk-<version\>.zip -d /[userdir]/tools/`
+  * Git clone cordova-plugin-crosswalk-webview from https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview.git
 
-    `$ cd /[userdir]/tools/`
+    `$ cd /[userdir]/tools/cordova_plugins/`
 
-    `$ mv crosswalk-<version\>\* crosswalk/`
+    `$ git clone https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview.git`
 
-  * Download Crosswalk Cordova binary from [Crosswalk release](https://download.01.org/crosswalk/releases/crosswalk/android/)
-  * unzip Crosswalk Cordova binary:
+  * Create "extra_plugins" directory in /[userdir]/demo-express:
 
-    `$ mkdir -p /[userdir]/tools/cordova/`
+    `$ mkdir -p /[userdir]/demo-express/crosswalk/extra_plugins/`
 
-    `$ unzip crosswalk-cordova-<version\>-<arch\>.zip -d /[userdir]/tools/`
+  * Git clone cordova-admob-pro from https://github.com/floatinghotpot/cordova-admob-pro
+    `$ cd /[userdir]/demo-express/crosswalk/extra_plugins/`
 
-    `$ cd /[userdir]/tools/`
+    `$ git clone https://github.com/floatinghotpot/cordova-admob-pro`
 
-    `$ mv crosswalk-cordova-<version\>\* cordova/`
+  * Rename cordova-admob-pro to cordova-admob-4.X:
+    `$ mv cordova-admob-pro cordova-admob-4.X`
+
+  * Configure the main-version(Crosswalk Version) and the crosswalk-branch(stable/beta) in the /[userdir]/demo-express/tools/VERSION file
 
   * Goto DemoExpress folder to Pack webapi_cordova_demo package:
 
-    `$ ./pack.py -t cordova --tools='/[userdir]/tools/'`
+    `$ ./tools/pack.py -t cordova -m shared|embedded -a x86|arm --sub-version 4.x --tools='/[userdir]/tools/'`
 
 * Pack embeddingapi_demo Crosswalk Android binary,
   * Ensure that you have [set up your host environment for Android development](https://crosswalk-project.org/documentation/getting_started/linux_host_setup.html).
@@ -97,7 +99,7 @@ Here is the buiding steps:
 
   * Go back to DemoExpress folder to create the embeddingapi_demo package:
 
-    `$ ./pack.py -t embeddingapi --tools='/[userdir]/tools/'`
+    `$ ./tools/pack.py -t embeddingapi --tools='/[userdir]/tools/'`
 
 * The pack.py script calls the pack command from Android (for Crosswalk-Cordova apps and regular Crosswalk apps)
  * [Run Crosswalk App on Andriod](https://crosswalk-project.org/documentation/getting_started/run_on_android.html)

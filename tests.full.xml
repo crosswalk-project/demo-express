@@ -165,6 +165,12 @@
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaNetwork" purpose="CordovaNetwork">
       </testcase>
+      <testcase component="Crosswalk Use Cases/Cordova" execution_type="manual" platform="android" priority="P0" status="approved" type="functional_positive" id="InAppBrowser" purpose="In App Browser Test">
+      </testcase>
+      <testcase component="Crosswalk Use Cases/Cordova" execution_type="manual" platform="android" priority="P0" status="approved" type="functional_positive" id="Notification" purpose="Notification Test">
+      </testcase>
+      <testcase component="Crosswalk Use Cases/Cordova" execution_type="manual" platform="android" priority="P0" status="approved" type="functional_positive" id="AdMob" purpose="AdMob Test">
+      </testcase>
     </set>
     -->
   </suite>
