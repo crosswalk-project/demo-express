@@ -3,9 +3,11 @@
   "start_url": "index.html",
   "xwalk_package_id": "org.xwalk.demoexpress",
   "xwalk_android_permissions": [
-    "Contacts",
-    "Geolocation",
-    "Vibration"
+    "CAMERA",
+    "MODIFY_AUDIO_SETTINGS",
+    "RECORD_AUDIO",
+    "ACCESS_FINE_LOCATION",
+    "VIBRATE"
   ],
   "icons": [
     {
