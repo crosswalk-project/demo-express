@@ -2,4 +2,5 @@
 
 This sample demonstrates Manifest feature basic functionalities, include:
 
-* "xwalk_version", "icons", "orientation", "display", "xwalk_launch_screen"
+* "icons" and "xwalk_launch_screen"
+* Set timeout when using method screen.show()

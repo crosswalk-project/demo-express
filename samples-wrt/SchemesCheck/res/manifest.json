@@ -1,11 +1,11 @@
 {
-  "name": "testapp_scheme",
-  "start_url": "index.html",
-  "xwalk_package_id": "org.xwalk.schemescheck",
   "icons": [
     {
-      "src": "icon.png",
-      "sizes": "72x72"
+      "sizes": "128x128",
+      "src": "icon.png"
     }
-  ]
+  ],
+  "name": "testapp_scheme",
+  "start_url": "index.html",
+  "xwalk_version": "1.0.0"
 }

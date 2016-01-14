@@ -44,16 +44,20 @@ Authors:
 </div>
 <div class="content">
   <h4>Crosswalk Manifest Demo 4</h4>
-  <p>This sample demonstrates mainfest members "icons", "orientation", "display"</p>
+  <p>This sample demonstrates mainfest members "icons", "xwalk_version", "orientation", "display" and "xwalk_launch_screen"</p>
   <p>This demo shows App features can be configured by manifest.json</p>
   <p>Download app named like "manifestdemo4.apk" from <a href="https://github.com/crosswalk-project/demo-express/releases">https://github.com/crosswalk-project/demo-express/releases</a> (It might be included in .zip files in this page)</p>
   <p>Check below features after install the app</p>
   <ul>
     <li>Icon: A jpg format icon (purple background) with "Manifest JPG" text</li>
+    <li>Xwalk_version: the value like 1.0.0.0.120150101</li>
   </ul>
   <p>Check below features after launch the app</p>
   <ul>
     <li>Orientation: Landscape mode</li>
+    <li>Splash Screen: "Splash Screen Landscape" text with purple background</li>
+    <li>Splash Screen: Landscape mode</li>
+    <li>Splash Screen: Ready when the first visually non-empty paint has occurred</li>
     <li>Display: Minimal-ui provides the end-user with some means to access a minimal set of UI elements for controlling navigation (i.e., back, forward, reload, and perhaps some way of viewing the document's address)</li>
   </ul>
 </div>
@@ -62,7 +66,20 @@ Authors:
 </div>
 <div class="modal fade" id="popup_info">
   <ul>
-    <li>Test values include: jpg format icons, five digits version, landscape orientation, minimal-ui display</li>
+    <li>Test values include: jpg format icons, five digits version, landscape orientation, minimal-ui display, first-paint ready_when and landscape</li>
     <li>Minimal-ui: This mode is similar to fullscreen, but provides the end-user with some means to access a minimal set of UI elements for controlling navigation (i.e., back, forward, reload, and perhaps some way of viewing the document's address)</li>
+    <li>Xwalk_launch_screen members
+      <ul>
+        <li>Ready_when: The application readiness state at which to hide the launch screen</li>
+        <ul>
+          <li>First-paint:
+            <ul>
+              <li>The first visually non-empty paint has occurred</li>
+            </ul>
+          </li>
+        </ul>
+        <li>Landscape: The launch screen to use for landscape mode</li>
+      </ul>
+    </li>
   </ul>
 </div>
