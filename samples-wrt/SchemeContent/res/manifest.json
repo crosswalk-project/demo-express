@@ -1,8 +1,4 @@
 {
   "name": "schemecontent",
-  "start_url": "index.html",
-  "xwalk_package_id": "org.xwalk.schemescontent",
-  "xwalk_android_permissions": [
-    "READ_EXTERNAL_STORAGE"
-  ]
+  "start_url": "index.html"
 }

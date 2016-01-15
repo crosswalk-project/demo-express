@@ -44,17 +44,20 @@ Authors:
 </div>
 <div class="content">
   <h4>Crosswalk Manifest Demo 1</h4>
-  <p>This sample demonstrates mainfest members "icons", "xwalk_app_version", "orientation", "display"</p>
+  <p>This sample demonstrates mainfest members "icons", "xwalk_version", "orientation", "display" and "xwalk_launch_screen"</p>
   <p>This demo shows App features can be configured by manifest.json</p>
   <p>Download app named like "manifestdemo1.apk" from <a href="https://github.com/crosswalk-project/demo-express/releases">https://github.com/crosswalk-project/demo-express/releases</a> (It might be included in .zip files in this page</p>
   <p>Check below features after install the app</p>
   <ul>
     <li>Icon: A png format icon (blue background) with "Manifest PNG" text</li>
-    <li>Xwalk app version: 1.0</li>
+    <li>Xwalk_version: 1.0</li>
   </ul>
   <p>Check below features after launch the app</p>
   <ul>
     <li>Orientation: Default mode, the app can switch screen between portrait and landscape modes</li>
+    <li>Splash Screen: "Splash Screen Auto" text with blue background</li>
+    <li>Splash Screen: Ready when all the resources have been loaded</li>
+    <li>Splash Screen: Can switch screen between portrait and landscape modes</li>
     <li>Display: The application is displayed so that it fills the entire area of the screen, with none of the runtime's UI elements ("chrome") visible</li>
   </ul>
 </div>
@@ -63,7 +66,21 @@ Authors:
 </div>
 <div class="modal fade" id="popup_info">
   <ul>
-    <li>App configure values include: png format icons, two digits version, default orientation, fullscreen display and default</li>
+    <li>App configure values include: png format icons, two digits version, default orientation, fullscreen display, complete ready_when and default</li>
     <li>Fullscreen: In this mode, the application is displayed so that it fills the entire area of the screen, with none of the runtime's UI elements ('chrome') visible</li>
+    <li>Xwalk_launch_screen members'
+      <ul>
+        <li>Ready_when: The application readiness state at which to hide the launch screen</li>
+        <ul>
+          <li>Complete:
+          <ul>
+            <li>The first visually non-empty paint has occurred</li>
+            <li>All the resources have been loaded</li>
+          </ul>
+          </li>
+        </ul>
+        <li>Default: The launch screen to use for both landscape and portrait mode</li>
+      </ul>
+    </li>
   </ul>
 </div>

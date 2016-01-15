@@ -2,4 +2,4 @@
 
 This sample demonstrates Manifest feature basic functionalities, include:
 
-* "icons"
+* "icons" and default system setting

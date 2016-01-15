@@ -1,11 +1,19 @@
 {
-  "name": "manifest_demo_5",
-  "start_url": "index.html",
-  "xwalk_package_id": "org.xwalk.manifestdemo5",
   "icons": [
     {
-      "src": "icon.webp",
-      "sizes": "128x128"
+      "sizes": "128x128",
+      "src": "icon.webp"
     }
-  ]
+  ],
+  "name": "manifest_demo_5",
+  "start_url": "index.html",
+  "xwalk_launch_screen": {
+    "default": {
+      "background_color": "#BF3EFF",
+      "background_image": "bg.webp",
+      "image": "loading-auto.png",
+      "image_border": "1px 1px round"
+    },
+    "ready_when": "complete"
+  }
 }
