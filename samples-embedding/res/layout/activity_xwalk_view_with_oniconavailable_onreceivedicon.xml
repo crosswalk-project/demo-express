@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/viewgroup"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="If XWalkUIClient API onIconAvailable() and onReceivedIcon() is invoked, the related message will show and the favicon also will be shown."
+        android:id="@+id/textView" />
+    
+    <Button
+        android:id="@+id/change_website"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load Sina" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#00ff00"
+        android:id="@+id/message_tv" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:gravity="center_horizontal"/>
+ 
+    <org.xwalk.core.XWalkView
+        android:id="@+id/xwalkview_embedding"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </org.xwalk.core.XWalkView>
+</LinearLayout>

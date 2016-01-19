@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="org.xwalk.core.demoexpress.extended.XWalkViewWithOnTouchEvent">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="If onTouchEvent is invoked, below will show the 'onTouchEvent is invoked. Action is UP/DOWN/MOVE'"
+        android:id="@+id/textView" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/touch_event_label"
+        android:textColor="#00ff00"
+        android:layout_below="@+id/textView"/>
+    <org.xwalk.core.demoexpress.extended.MyXWalkView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/touch_event_xwalk_view"
+        android:layout_below="@+id/touch_event_label" />
+
+</RelativeLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (c) 2014 Intel Corporation. All rights reserved.
+
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This sample demostrates XWalkView set/get user agent API and setDownloadListener API. You can see what I set user agent string to XWalkView. About setDownloadListener API you can find a download link to try downloading."
+        android:id="@+id/text1" />
+    
+    <Button
+        android:id="@+id/user_agent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Chrome UserAgent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#00ff00"
+        android:id="@+id/message_tv"/>
+
+    <org.xwalk.core.XWalkView
+        android:id="@+id/xwalkview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    </org.xwalk.core.XWalkView>
+
+</LinearLayout>

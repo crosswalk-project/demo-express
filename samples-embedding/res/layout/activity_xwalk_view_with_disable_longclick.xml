@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (c) 2014 Intel Corporation. All rights reserved.
+
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This sample demostrates XWalkView can disable long click, If it works, app can't make copy/paste in baidu search."
+        android:id="@+id/text1" />
+    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/disable_longclick"
+        android:text="Disable LongClick"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#00ff00"
+        android:id="@+id/message_tv"/>
+
+    <org.xwalk.core.XWalkView
+        android:id="@+id/xwalkview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    </org.xwalk.core.XWalkView>
+
+</LinearLayout>

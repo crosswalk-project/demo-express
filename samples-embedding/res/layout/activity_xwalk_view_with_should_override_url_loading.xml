@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/viewgroup"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="If XWalkResourceClient API shouldOverrideUrlLoading is invoked, the message 'shouldOverrideUrlLoading is invoked' and triggered times will show."
+        android:id="@+id/textView" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#00ff00"
+        android:id="@+id/message_tv" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#00ff00"
+        android:id="@+id/message_tv2" />    
+ 
+    <org.xwalk.core.XWalkView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/xwalkview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </org.xwalk.core.XWalkView>
+</LinearLayout>

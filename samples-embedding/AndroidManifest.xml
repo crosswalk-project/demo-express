@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
   Copyright (c) 2014 Intel Corporation. All rights reserved.
 
   Use of this source code is governed by a BSD-style license that can be
   found in the LICENSE file.
 -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.xwalk.core.demoexpress"
     android:versionCode="1"
@@ -26,76 +24,511 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    
     <application
         android:name="org.xwalk.core.XWalkApplication"
         android:icon="@drawable/icon"
         android:hardwareAccelerated="true"
-        android:label="Embedding API Demo">
+        android:label="Embedding API Demo" >
         <activity
-            android:name="org.xwalk.core.demoexpress.XWalkEmbeddedAPISample"
-            android:label="Embedding API Demo">
+            android:name=".XWalkEmbeddedAPISample"
+            android:label="Embedding API Demo" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="org.xwalk.core.demoexpress.XWalkViewWithLayoutActivity"
-            android:label="XWalkView"
-            android:parentActivityName="org.xwalk.core.demoexpress.XWalkEmbeddedAPISample" >
+            android:name=".basic.XWalkViewWithLayoutActivity"
+            android:label="@string/title_activity_xwalk_view_with_layout"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+                <category android:name="XWalkView.Basic" />
             </intent-filter>
         </activity>
         <activity
-            android:name="org.xwalk.core.demoexpress.MultiXWalkViewActivity"
-            android:label="Load Multi pages"
-            android:parentActivityName="org.xwalk.core.demoexpress.XWalkEmbeddedAPISample" >
+            android:name=".basic.XWalkViewWithMultiInstanceActivity"
+            android:label="@string/title_activity_xwalk_view_with_multi_instance"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+                <category android:name="XWalkView.Basic" />
             </intent-filter>
         </activity>
         <activity
-            android:name="org.xwalk.core.demoexpress.OnHideOnShowActivity"
-            android:label="XWalkView Hide And Show"
-            android:parentActivityName="org.xwalk.core.demoexpress.XWalkEmbeddedAPISample">
+            android:name=".client.XWalkViewWithResourceAndUIClient"
+            android:label="@string/title_activity_xwalk_view_with_resource_ui_client"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
             </intent-filter>
         </activity>
         <activity
-            android:name="org.xwalk.core.demoexpress.ExtensionActivity"
-            android:label="Extension"
-            android:parentActivityName="org.xwalk.core.demoexpress.XWalkEmbeddedAPISample">
+            android:name=".misc.XWalkViewWithPreferences"
+            android:label="@string/title_activity_xwalk_view_with_preferences"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+                <category android:name="XWalkView.Misc" />
             </intent-filter>
         </activity>
         <activity
-            android:name="org.xwalk.core.demoexpress.MultiSurfaceViewsActivity"
-            android:label="Multiple SurfaceViews"
-            android:parentActivityName="org.xwalk.core.demoexpress.XWalkEmbeddedAPISample">
+            android:name=".basic.XWalkViewWithOnHideOnShow"
+            android:label="@string/title_activity_xwalk_view_with_onhide_onshow"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+                <category android:name="XWalkView.Basic" />
             </intent-filter>
         </activity>
         <activity
-            android:name="org.xwalk.core.demoexpress.MultiTextureViewsActivity"
-            android:label="Multiple TextureViews"
-            android:parentActivityName="org.xwalk.core.demoexpress.XWalkEmbeddedAPISample">
+            android:name=".basic.XWalkViewWithVersionAndAPIVersion"
+            android:label="@string/title_activity_xwalk_view_with_version_apiversion"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+                <category android:name="XWalkView.Basic" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".misc.XWalkViewWithEchoExtension"
+            android:label="@string/title_activity_xwalk_view_with_echo_extension"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Misc" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".basic.XWalkViewWithMultiSurfaceViews"
+            android:label="@string/title_activity_xwalk_view_with_multi_surfaceviews"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Basic" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".basic.XWalkViewWithMultiTextureViews"
+            android:label="@string/title_activity_xwalk_view_with_multi_textureviews"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Basic" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithOnIconAvailableOnReceivedIcon"
+            android:label="@string/title_activity_xwalk_view_with_oniconavailable"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithOnCreateWindowRequested"
+            android:label="@string/title_activity_xwalk_view_with_oncreatewindow_requested"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithShouldOverrideUrlLoading"
+            android:label="@string/title_activity_xwalk_view_with_shouldoverrideurlloading"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".basic.XWalkViewWithSetZOrderOnTop"
+            android:label="@string/title_activity_xwalk_view_with_setzorderontop"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Basic" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithRedirection"
+            android:label="@string/title_activity_xwalk_view_with_redirection"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".basic.XWalkViewWithClearCache"
+            android:label="@string/title_activity_xwalk_view_with_clear_cache"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Basic" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".basic.XWalkViewWithClearCacheForSingleFile"
+            android:label="@string/title_activity_xwalk_view_with_clearcache_singlefile"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Basic" />
+            </intent-filter>
+        </activity>        
+        <activity
+            android:name=".misc.XWalkViewWithDownloadListenerActivity"
+            android:label="@string/title_activity_xwalk_view_with_download_listener"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Misc" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".basic.XWalkViewWithZoomInAndOut"
+            android:label="@string/title_activity_xwalk_view_with_zoom_in_out"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Basic" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithBlockAndErrorRedirection"
+            android:label="@string/title_activity_xwalk_view_with_block_error_redirection"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".basic.XWalkViewWithSaveState"
+            android:label="@string/title_activity_xwalk_view_with_save_state"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Basic" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithInputConnection"
+            android:label="@string/title_activity_xwalk_view_with_input_connection"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithDispatchKeyEvent"
+            android:label="@string/title_activity_xwalk_view_with_dispatch_keyevent"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".basic.XWalkViewWithSetLanguage"
+            android:label="@string/title_activity_xwalk_view_with_set_language"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Basic" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithDispatchDraw"
+            android:label="@string/title_activity_xwalk_view_with_dispatch_draw"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".misc.XWalkViewWithCookieManagerTest"
+            android:label="@string/title_activity_xwalk_view_with_cookie_manager"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Misc" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithOnTouchEvent"
+            android:label="@string/title_activity_xwalk_view_with_on_touch_event"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".misc.XWalkViewWithAcceptFileSchemeCookies"
+            android:label="@string/title_activity_xwalk_view_with_accept_fileschemecookies"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Misc" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithFocusChanged"
+            android:label="@string/title_activity_xwalk_view_with_focus_changed"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithScrollChanged"
+            android:label="@string/title_activity_xwalk_view_with_scroll_changed"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithSizeChanged"
+            android:label="@string/title_activity_xwalk_view_with_size_changed"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithVisibilityChanged"
+            android:label="@string/title_activity_xwalk_view_with_visibility_changed"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithWindowFocusChanged"
+            android:label="@string/title_activity_xwalk_view_with_window_focus_changed"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithClearFormData"
+            android:label="@string/title_activity_xwalk_view_with_clear_formdata"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithWindowsVisibilityChanged"
+            android:label="@string/title_activity_xwalk_view_with_windows_visibility_changed"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithDisableLongClick"
+            android:label="@string/title_activity_xwalk_view_with_disable_longclick"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.BlankWindowForVisibilityTesting"
+            android:label="@string/title_activity_blank_window_for_visibility_testing" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithOnReceivedLoadError"
+            android:label="@string/title_activity_xwalk_view_with_onreceived_loaderror"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithLongClick"
+            android:label="@string/title_activity_xwalk_view_with_long_click"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithRequestFocus"
+            android:label="@string/title_activity_xwalk_view_with_request_focus"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithClientOnRequestFocus"
+            android:label="@string/title_activity_xwalk_view_with_client_on_request_focus"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extended.XWalkViewWithNetworkAvailable"
+            android:label="@string/title_activity_xwalk_view_with_network_available"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Extended" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithConsoleLog"
+            android:label="@string/title_activity_xwalk_view_with_console_log"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithReceivedTitle"
+            android:label="@string/title_activity_xwalk_view_with_received_title"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithClientKeyEvent"
+            android:label="@string/title_activity_xwalk_view_with_client_key_event"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithClientReceivedSSLError"
+            android:label="@string/title_activity_xwalk_view_with_client_received_sslerror"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".basic.XWalkViewWithTransparent"
+            android:label="@string/title_activity_xwalk_view_with_transparent"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Basic" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".basic.XWalkViewWithSetInitialScale"
+            android:label="@string/title_activity_xwalk_view_with_set_initialscale"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Basic" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithOnUnhandledKeyEvent"
+            android:label="@string/title_activity_xwalk_view_with_onunhandled_keyevent"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".basic.XWalkViewWithEncodingDisplay"
+            android:label="@string/title_activity_xwalk_view_with_encoding_display"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Basic" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithOpenFileChooser"
+            android:label="@string/title_activity_xwalk_view_with_open_file_chooser"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".basic.XWalkViewWithMultiInstanceOverlay"
+            android:label="@string/title_activity_xwalk_view_with_multi_instance_overlay"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Basic" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".basic.XWalkViewWithWindowSecure"
+            android:label="@string/title_activity_xwalk_view_with_window_secure"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Basic" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithOnJavascriptModalDialog"
+            android:label="@string/title_activity_xwalk_view_with_on_js_modal_dialog"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".client.XWalkViewWithOnJavascriptCloseWindow"
+            android:label="@string/title_activity_xwalk_view_with_close_window"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.UIClient.ResourceClient" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".misc.XWalkViewWithSessionStorage"
+            android:label="@string/title_activity_xwalk_view_with_session_storage"
+            android:parentActivityName=".XWalkEmbeddedAPISample" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="XWalkView.Misc" />
             </intent-filter>
         </activity>
     </application>
