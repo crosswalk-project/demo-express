@@ -167,11 +167,11 @@
       </testcase>
       <testcase component="sample" execution_type="manual" id="CordovaNetwork" purpose="CordovaNetwork">
       </testcase>
-      <testcase component="Crosswalk Use Cases/Cordova" execution_type="manual" id="InAppBrowser" purpose="In App Browser Test">
+      <testcase component="sample" execution_type="manual" id="CordovaInAppBrowser" purpose="CordovaInAppBrowser">
       </testcase>
-      <testcase component="Crosswalk Use Cases/Cordova" execution_type="manual" id="Notification" purpose="Notification Test">
+      <testcase component="sample" execution_type="manual" id="CordovaNotification" purpose="CordovaNotification">
       </testcase>
-      <testcase component="Crosswalk Use Cases/Cordova" execution_type="manual" id="AdMob" purpose="AdMob Test">
+      <testcase component="sample" execution_type="manual" id="CordovaAdMob" purpose="CordovaAdMob">
       </testcase>
     </set>
 -->
