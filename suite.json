@@ -96,7 +96,7 @@
                 }
             }
         },
-        "cordova": {
+        "cordova4.x": {
             "blacklist": [
                 "*",
                 ".git"
@@ -114,6 +114,8 @@
                         ".git"
                     ],
                     "copylist": {
+                        "extra_plugins/cordova-admob-4.x": "PACK-TOOL-ROOT/extra_plugins/cordova-admob-4.x",
+                        "samples-cordova/AdMob4.x": "samples/AdMob",
                         "css": "css",
                         "fonts": "fonts",
                         "demo-ex-co.png": "icon.png",

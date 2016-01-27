@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <test_definition>
   <suite name="Web API Demo">
+
     <set name="Runtime &amp;amp; Packaging" background="brand-primary" icon="glyphicon-asterisk">
       <testcase component="sample" execution_type="manual" id="AppURI" purpose="App URI">
       </testcase>
@@ -153,7 +154,8 @@
       <testcase component="sample" execution_type="manual" id="ManifestDemo7" purpose="ManifestDemo7">
       </testcase>
     </set>
-    <!--
+
+<!--
     <set name="Cordova" background="bs-purple-lighter1" icon="glyphicon-sound-dolby">
       <testcase component="sample" execution_type="manual" id="CordovaInfo" purpose="CordovaInfo">
       </testcase>
@@ -165,7 +167,13 @@
       </testcase>
       <testcase component="sample" execution_type="manual" id="CordovaNetwork" purpose="CordovaNetwork">
       </testcase>
+      <testcase component="Crosswalk Use Cases/Cordova" execution_type="manual" id="InAppBrowser" purpose="In App Browser Test">
+      </testcase>
+      <testcase component="Crosswalk Use Cases/Cordova" execution_type="manual" id="Notification" purpose="Notification Test">
+      </testcase>
+      <testcase component="Crosswalk Use Cases/Cordova" execution_type="manual" id="AdMob" purpose="AdMob Test">
+      </testcase>
     </set>
-    -->
+-->
   </suite>
 </test_definition>
