@@ -165,11 +165,11 @@
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaNetwork" purpose="CordovaNetwork">
       </testcase>
-      <testcase component="Crosswalk Use Cases/Cordova" execution_type="manual" platform="android" priority="P0" status="approved" type="functional_positive" id="InAppBrowser" purpose="In App Browser Test">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaInAppBrowser" purpose="CordovaInAppBrowser">
       </testcase>
-      <testcase component="Crosswalk Use Cases/Cordova" execution_type="manual" platform="android" priority="P0" status="approved" type="functional_positive" id="Notification" purpose="Notification Test">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaNotification" purpose="CordovaNotification">
       </testcase>
-      <testcase component="Crosswalk Use Cases/Cordova" execution_type="manual" platform="android" priority="P0" status="approved" type="functional_positive" id="AdMob" purpose="AdMob Test">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CordovaAdMob" purpose="CordovaAdMob">
       </testcase>
     </set>
     -->
