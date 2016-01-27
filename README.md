@@ -26,12 +26,12 @@ DemoExpress is a central place to collect web feature samples that demonstrate u
 
 ## Building
 The DemoExpress would be built out to 3 Apps:
-* demoexpress: Web API Demo App, include webapi and web runtime feature samples.
+* webapi_demo: Web API Demo App, include webapi and web runtime feature samples.
 * webapi_cordova_demo: Web API Cordova Demo App, include web api and web runtime feature samples which packed with Crosswalk-cordova, also include cordova specific features.
 * embeddingapi_demo: Embedding API Demo App, include embedding api samples.
 
 Here is the buiding steps:
-* Pack the demoexpress based on Crosswalk Android binary:
+* Pack the webapi_demo based on Crosswalk Android binary:
   * Download Crosswalk binary from [Crosswalk release](https://download.01.org/crosswalk/releases/crosswalk/android/).
   * Unzip Crosswalk binary:
 
@@ -80,17 +80,6 @@ Here is the buiding steps:
   * Ensure that you have [set up your host environment for Android development](https://crosswalk-project.org/documentation/getting_started/linux_host_setup.html).
   * Set up an Android target to deploy the application to, as described on the [Android target setup](https://crosswalk-project.org/documentation/getting_started/android_target_setup.html) page.
   * Ensure that you have installed the necessary [ADT components for your host](http://developer.android.com/tools/sdk/eclipse-adt.html).
-  * Download Crosswalk binary from [Crosswalk release](https://download.01.org/crosswalk/releases/crosswalk/android/).
-  * Unzip Crosswalk binary:
-
-    `$ mkdir -p /[userdir]/tools/crosswalk/`
-
-    `$ unzip crosswalk-<version\>.zip -d /[userdir]/tools/`
-
-    `$ cd /[userdir]/tools/`
-
-    `$ mv crosswalk-<version\>\* crosswalk/`
-
   * Download the Crosswalk WebView binary from [Crosswalk release](https://download.01.org/crosswalk/releases/crosswalk/android/)
   * Unzip the Crosswalk WebView binary:
 
