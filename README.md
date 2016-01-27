@@ -1,7 +1,12 @@
 ## Introduction
 
 DemoExpress is a central place to collect web feature samples that demonstrate use of W3C standard APIs, Tizen Extension APIs, embedding APIs, and web runtime features. The following samples are published in DemoExpress.
-* Embedding API (Java): `XwalkView`, `LoadMultiPages`, `XWalkViewHideAndShow`, `XwalkExtension`, `MultipleSurfaceViews`, `MultipleTextureViews`
+* Embedding API (Java): 
+  * XwalkView Basic: `LayoutActivity`, `MultiInstanceActivity`, `OnHideOnShow`, `VersionAndAPIVersion`, `MultiSurfaceViews`, `MultiTextureViews`, `SetZOrderOnTop`, `ClearCache`, `ClearCacheForSingleFile`, `ZoomInAndOut`, `SaveState`, `SetLanguage`, `Transparent`, `SetInitialScale`, `EncodingDisplay`, `MultiInstanceOverlay`, `WindowSecure`
+  * XwalkView Extened: `InputConnection`, `DispatchKeyEvent`, `DispatchDraw`, `OnTouchEvent`, `FocusChanged`, `ScrollChanged`, `SizeChanged`, `VisibilityChanged`, `WindowFocusChanged`, `ClearFormData`, `WindowsVisibilityChanged`, `DisableLongClick`, `.extended.BlankWindowForVisibilityTesting`, `LongClick`, `RequestFocus`, `NetworkAvailable` 
+  * XwalkUIClient & XwalkResourceClient: `ResourceAndUIClient`, `OnIconAvailableOnReceivedIcon`, `OnCreateWindowRequested`, `ShouldOverrideUrlLoading`, `Redirection`, `BlockAndErrorRedirection`, `OnReceivedLoadError`, `ClientOnRequestFocus`, `ConsoleLog`, `ReceivedTitle`, `ClientKeyEvent`, `ClientReceivedSSLError`, `OnUnhandledKeyEvent`, `OpenFileChooser`, `OnJavascriptModalDialog`, `OnJavascriptCloseWindow`
+  * MISC: `Preferences`, `EchoExtension`, `DownloadListenerActivity`, `CookieManagerTest`, `AcceptFileSchemeCookies`, `SessionStorage`
+  `LoadMultiPages`, `XWalkViewHideAndShow`, `XwalkExtension`, `MultipleSurfaceViews`, `MultipleTextureViews`
 * Web API & Feature:
   * Runtime & Packaging: `App URI`
   * Multimedia & Graphics: `Animation Transform`, `Audio Play`, `Canvas`, `CSS Animation`, `CSS Style`, `CSS Style Attribute`, `Flexible Box`, `Media Queries`, `SVG Transformation`, `Transitions`, `Video Play`, `WebRTC`
@@ -17,7 +22,7 @@ DemoExpress is a central place to collect web feature samples that demonstrate u
     * Third Party Framework: `PDFjs`
     * Scheme: `SchemeContent`, `SchemesCheck`
     * Manifest: `ManifestDemo1`, `ManifestDemo2`, `ManifestDemo3`, `ManifestDemo4`, `ManifestDemo5`
-    * Cordova: `CordovaInfo`, `CordovaAccelerometer`, `CordovaContacts`, `CordovaLazyLoadJS`, `CordovaNetwork`
+    * Cordova: `CordovaInfo`, `CordovaAccelerometer`, `CordovaContacts`, `CordovaLazyLoadJS`, `CordovaNetwork`, `CordovaInAppBrowser`, `CordovaNotification`,`CordovaAdMob`
 
 ## Building
 The DemoExpress would be built out to 3 Apps:
