@@ -45,7 +45,7 @@ Authors:
 </div>
 
 <div class="content">
-  <h4>This sample demonstrates the sandbox of iframe can be set to 'allow-scripts', 'allow-forms' and 'allow-same-origin'.</h4>
+  <h4>This sample demonstrates the sandbox of iframe can be set to 'allow-scripts', 'allow-forms', 'allow-same-origin' and 'allow-modals'.</h4>
   <ol>
     <li>
       <p>There is a filled green square and no red in the frame below.</p>
@@ -59,6 +59,14 @@ Authors:
       <p>There is text "Filler Text" below.</p>
       <div id="same"></div>
       <iframe id='sandboxIframe' src="res/sandbox-allow-same-origin.html" sandbox="allow-same-origin" onload="callback()" style="display: none" ></iframe>
+    </li>
+    <li>
+      <p>There is no modal dialog opened after click the below iframe buttons(alert, confirm and prompt).</p>
+      <iframe id="frame3" src="res/sandbox-allow-modals.html" sandbox="allow-scripts"></iframe>
+    </li>
+    <li>
+      <p>There are corresponding modal dialogs opened after click the below iframe button(alert, confirm and prompt).</p>
+      <iframe id="frame4" src="res/sandbox-allow-modals.html" sandbox="allow-modals allow-scripts"></iframe>
     </li>
   </ol>
   <script>
