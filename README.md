@@ -5,7 +5,7 @@ DemoExpress is a central place to collect web feature samples that demonstrate u
   * XwalkView Basic: `LayoutActivity`, `MultiInstanceActivity`, `OnHideOnShow`, `VersionAndAPIVersion`, `MultiSurfaceViews`, `MultiTextureViews`, `SetZOrderOnTop`, `ClearCache`, `ClearCacheForSingleFile`, `ZoomInAndOut`, `SaveState`, `SetLanguage`, `Transparent`, `SetInitialScale`, `EncodingDisplay`, `MultiInstanceOverlay`, `WindowSecure`
   * XwalkView Extened: `InputConnection`, `DispatchKeyEvent`, `DispatchDraw`, `OnTouchEvent`, `FocusChanged`, `ScrollChanged`, `SizeChanged`, `VisibilityChanged`, `WindowFocusChanged`, `ClearFormData`, `WindowsVisibilityChanged`, `DisableLongClick`, `.extended.BlankWindowForVisibilityTesting`, `LongClick`, `RequestFocus`, `NetworkAvailable` 
   * XwalkUIClient & XwalkResourceClient: `ResourceAndUIClient`, `OnIconAvailableOnReceivedIcon`, `OnCreateWindowRequested`, `ShouldOverrideUrlLoading`, `Redirection`, `BlockAndErrorRedirection`, `OnReceivedLoadError`, `ClientOnRequestFocus`, `ConsoleLog`, `ReceivedTitle`, `ClientKeyEvent`, `ClientReceivedSSLError`, `OnUnhandledKeyEvent`, `OpenFileChooser`, `OnJavascriptModalDialog`, `OnJavascriptCloseWindow`
-  * MISC: `Preferences`, `EchoExtension`, `DownloadListenerActivity`, `CookieManagerTest`, `AcceptFileSchemeCookies`, `SessionStorage`
+  * MISC: `Preferences`, `EchoExtension`, `DownloadListenerActivity`, `CookieManagerTest`, `AcceptFileSchemeCookies`
   `LoadMultiPages`, `XWalkViewHideAndShow`, `XwalkExtension`, `MultipleSurfaceViews`, `MultipleTextureViews`
 * Web API & Feature:
   * Runtime & Packaging: `App URI`
