@@ -65,7 +65,6 @@ found in the LICENSE file.
     <string name="title_activity_xwalk_view_with_multi_instance_overlay">Multi-Instance Overlay</string>
     <string name="title_activity_xwalk_view_with_window_secure">Window Security</string>
     <string name="title_activity_xwalk_view_with_on_js_modal_dialog">onJavascriptModalDialog()</string>
-    <string name="title_activity_xwalk_view_with_session_storage">Session Storage</string>
     <string name="title_activity_xwalk_view_with_close_window">onJavascriptCloseWindow()</string>
 
 </resources>
