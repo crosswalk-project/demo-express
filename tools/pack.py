@@ -54,7 +54,9 @@ PKG_TYPES = [
     "cordova-aio",
     "cordova",
     "embeddingapi",
-    "deb"]
+    "deb",
+    "msi",
+    "ios"]
 PKG_BLACK_LIST = []
 PACK_TYPES = ["ant", "gradle", "maven"]
 CORDOVA_PACK_TYPES = ["npm", "local"]
@@ -73,7 +75,7 @@ BUILD_TIME = time.strftime('%Y%m%d', time.localtime(time.time()))
 CROSSWALK_BRANCH = ""
 CROSSWALK_VERSION = ""
 DEFAULT_CMD_TIMEOUT = 600
-PKG_MODES = ["shared", "embedded"]
+PKG_MODES = ["shared", "embedded", "lite"]
 PKG_ARCHS = ["x86", "arm", "x86_64", "arm64"]
 
 
@@ -200,12 +202,8 @@ def packAPP(build_json=None, app_src=None, app_dest=None, app_name=None):
         if not build_android.packAPK(build_json, app_src, app_dest, app_name):
             return False
     elif utils.checkContains(BUILD_PARAMETERS.pkgtype, "CORDOVA"):
-        if BUILD_PARAMETERS.subversion == '4.x':
-            if not build_cordova.packCordova_cli(build_json, app_src, app_dest, app_name):
-                return False
-        else:
-            if not build_cordova.packCordova(build_json, app_src, app_dest, app_name):
-                return False
+        if not build_cordova.packCordova(build_json, app_src, app_dest, app_name):
+            return False
     elif utils.checkContains(BUILD_PARAMETERS.pkgtype, "EMBEDDINGAPI") or app_tpye == "EMBEDDINGAPI":
         app_version = None
         if "_" in app_name:
@@ -247,6 +245,12 @@ def packAPP(build_json=None, app_src=None, app_dest=None, app_name=None):
     elif utils.checkContains(BUILD_PARAMETERS.pkgtype, "DEB"):
         if not build_deb.packDeb(build_json, app_src, app_dest, app_name):
             return False
+    elif utils.checkContains(BUILD_PARAMETERS.pkgtype, "MSI"):
+        if not build_msi.packMsi(build_json, app_src, app_dest, app_name):
+            return False
+    elif utils.checkContains(BUILD_PARAMETERS.pkgtype, "ios"):
+        if not build_ios.packIOS(build_json, app_src, app_dest, app_name):
+            return False            
     else:
         LOG.error("Got wrong pkg type: %s" % BUILD_PARAMETERS.pkgtype)
         return False
@@ -322,9 +326,14 @@ def buildPKGAPP(build_json=None):
         if not utils.doCopy(os.path.join(BUILD_ROOT_SRC, "manifest.json"),
                       os.path.join(BUILD_ROOT_SRC_PKG_APP, "manifest.json")):
             return False
-    if not utils.doCopy(os.path.join(BUILD_ROOT_SRC, "icon.png"),
-                  os.path.join(BUILD_ROOT_SRC_PKG_APP, "icon.png")):
-        return False
+    if os.path.exists(os.path.join(BUILD_ROOT_SRC, "icon.png")):
+        if not utils.doCopy(os.path.join(BUILD_ROOT_SRC, "icon.png"),
+                      os.path.join(BUILD_ROOT_SRC_PKG_APP, "icon.png")):
+            return False
+    if os.path.exists(os.path.join(BUILD_ROOT_SRC, "icon.ico")):
+        if not utils.doCopy(os.path.join(BUILD_ROOT_SRC, "icon.ico"),
+                      os.path.join(BUILD_ROOT_SRC_PKG_APP, "icon.ico")):
+            return False
 
     hosted_app = False
     if utils.safelyGetValue(build_json, "hosted-app") == "true":
@@ -400,7 +409,7 @@ def main():
             "-a",
             "--arch",
             dest="pkgarch",
-            help="specify the apk arch, not for embeddingapi, cordova version 3.6, e.g. x86, arm")
+            help="specify the apk arch, not for embeddingapi, e.g. x86, arm")
         opts_parser.add_option(
             "-d",
             "--dest",
@@ -589,7 +598,6 @@ def main():
     pkg_json = None
     global parameters_type
     parameters_type = None
-    cordova_subv_list = ['4.x', '3.6']
 
     if BUILD_PARAMETERS.pkgtype == "cordova" or BUILD_PARAMETERS.pkgtype == "cordova-aio":
 
@@ -603,27 +611,8 @@ def main():
                       PKG_MODES)
             sys.exit(1)
 
-        if BUILD_PARAMETERS.subversion:
-            if not str(BUILD_PARAMETERS.subversion) in cordova_subv_list:
-                LOG.error(
-                    "The argument of cordova --sub-version can only be '3.6' or '4.x' , exit ...")
-                sys.exit(1)
-            parameters_type = BUILD_PARAMETERS.pkgtype + \
-                BUILD_PARAMETERS.subversion
-
-        if (BUILD_PARAMETERS.subversion ==
-                '4.x' and BUILD_PARAMETERS.packtype) and not BUILD_PARAMETERS.packtype in CORDOVA_PACK_TYPES:
+        if BUILD_PARAMETERS.packtype and not BUILD_PARAMETERS.packtype in CORDOVA_PACK_TYPES:
             LOG.error("cordova packtype can only be npm, local")
-            sys.exit(1)
-
-        if (BUILD_PARAMETERS.subversion ==
-                '3.6' or not BUILD_PARAMETERS.subversion) and BUILD_PARAMETERS.packtype:
-            LOG.error("cordova packtype is only for cordova version 4.x")
-            sys.exit(1)
-
-        if (BUILD_PARAMETERS.subversion ==
-                '3.6' or not BUILD_PARAMETERS.subversion) and BUILD_PARAMETERS.pkgarch:
-            LOG.error("Command -a is not for cordova version 3.6")
             sys.exit(1)
 
     if BUILD_PARAMETERS.pkgtype == "embeddingapi":

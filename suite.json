@@ -99,7 +99,7 @@
                 }
             }
         },
-        "cordova4.x": {
+        "cordova": {
             "blacklist": [
                 "*",
                 ".git"
@@ -110,6 +110,7 @@
             },
             "subapp-list": {
                 ".": {
+                    "apk-version-opt": "1.1",
                     "app-name": "webapi-cordova-demo",
                     "apk-type": "MANIFEST",
                     "blacklist": [
@@ -117,7 +118,7 @@
                         ".git"
                     ],
                     "copylist": {
-                        "extra_plugins/cordova-admob-4.x": "PACK-TOOL-ROOT/extra_plugins/cordova-admob-4.x",
+                        "extra_plugins/cordova-admob": "PACK-TOOL-ROOT/extra_plugins/cordova-admob",
                         "css": "css",
                         "fonts": "fonts",
                         "demo-ex-co.png": "icon.png",

@@ -47,7 +47,7 @@ Here is the buiding steps:
 
     `$ ./tools/pack.py -t apk -m shared|embedded -a x86|arm --tools='/[userdir]/tools/'`
 
-* Pack cordova 4.X webapi_cordova_demo Crosswalk Android binary,
+* Pack cordova webapi_cordova_demo Crosswalk Android binary,
   * Create "cordova_plugins" directory in /[userdir]/tools/:
 
     `$ mkdir -p /[userdir]/tools/cordova_plugins`
@@ -67,14 +67,14 @@ Here is the buiding steps:
 
     `$ git clone https://github.com/floatinghotpot/cordova-admob-pro`
 
-  * Rename cordova-admob-pro to cordova-admob-4.X:
-    `$ mv cordova-admob-pro cordova-admob-4.X`
+  * Rename cordova-admob-pro to cordova-admob:
+    `$ mv cordova-admob-pro cordova-admob`
 
   * Configure the main-version(Crosswalk Version) and the crosswalk-branch(stable/beta) in the /[userdir]/demo-express/tools/VERSION file
 
   * Goto DemoExpress folder to Pack webapi_cordova_demo package:
 
-    `$ ./tools/pack.py -t cordova -m shared|embedded -a x86|arm --sub-version 4.x --tools='/[userdir]/tools/'`
+    `$ ./tools/pack.py -t cordova -m shared|embedded -a x86|arm --tools='/[userdir]/tools/'`
 
 * Pack embeddingapi_demo Crosswalk Android binary,
   * Ensure that you have [set up your host environment for Android development](https://crosswalk-project.org/documentation/getting_started/linux_host_setup.html).
