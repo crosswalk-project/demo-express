@@ -27,7 +27,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Authors:
         Liu.Xin <xinx.liu@intel.com>
-
+        Wang, Chunyan <chunyanx.wang@intel.com>
 -->
 
 <meta charset="utf-8" />
@@ -39,24 +39,34 @@ Authors:
 <script src="../../js/common.js"></script>
 <script src="../../js/tests.js"></script>
 <script src="js/main.js"></script>
-<style type="text/css">
-  .d{
-    border: 1px solid #000;
-    width: 100%;
-    height: 200px;
-    margin-bottom: 20px;
+<style>
+  .button {
+    width:130px;
+    margin-top: 10px;
+  }
+  h4 {
+    font-weight:bold;
+    margin-top:15px;
   }
 </style>
-
 <div id="header">
   <h3 id="main_page_title"></h3>
 </div>
 <div class="content">
-   <h4>This sample demonstrates the external displays from within web applications.</h4>
+  <h4>This sample demonstrates the external displays from within web applications.</h4>
   Requirement:
   <ul>
     <li>
-    Setup Wireless Display
+    Setup presentaton display using wired on Windows
+      <ol>
+        <li>Laptop with OS 8.1 or above.</li>
+        <li>A Monitor or Projector, or display with an HDMI, DVI port.</li>
+        <li>Open the ‘Settings’ pannel, select "Project".</li>
+        <li>Open the "Project" pannel, select "Extend".</li>
+      </ol>
+    </li>
+    <li>
+    Setup Wireless Display on Android device
       <ol>
         <li>Android 4.2+ with Miracast protocol support.</li>
         <li>A TV or display with an HDMI port.</li>
@@ -67,29 +77,48 @@ Authors:
       </ol>
     </li>
     <li>
-    Alertnative: no wireless display
-    <p>If you do not have a wireless display adapter but are willing to run the application on your device, Android gives you the option to use a simulated secondary display for testing purposes. This simulated display appears as an overlay on your device screen. To enable it:</p>
+    Alertnative: no wireless display on Android device
+      <p>If you do not have a wireless display adapter but are willing to run the application on your device, Android gives you the option to use a simulated secondary display for testing purposes. This simulated display appears as an overlay on your device screen. To enable it:</p>
       <ol>
         <li>Open the <span style="background-color: gainsboro;">Settings</span> app and select <span style="background-color: gainsboro;">Developer Options</span>.</li>
         <li>Use the <span style="background-color: gainsboro;">Simulate Secondary Display</span> option to select a display to simulate.</li>
       </ol>
     </li>
   </ul>
-  <div class="d">
-    <p id="available">Display Availability: N/A</p>
-    <p id="result">Result: N/A</p>
-    <p id="message">Received message: N/A</p>
+  <div class="row">
+    <div class="col-xs-6">
+      <h3>Presentation Session</h3>
+      <div class="thumbnail">
+        <div>
+          <button id="btnPlay" type="button" class="btn btn-default button" onclick="onClickStart()">START</button>
+        </div>
+        <div style="margin-top: 5px">
+          <button id="btnClose" type="button" class="btn btn-default button" onclick="onClickClose()">TERMINATE</button>
+        </div>
+        <div style="margin-top: 30px; margin-bottom:10px;">
+          <label>Presentation ID</label>
+          <div style="height:1px;background-color:black;"></div>
+          <button id="btnJoin" type="button" class="btn btn-default button" onclick="onClickReconnect()">RECONNECT</button>
+        </div>
+      </div>
+    </div>
+    <div id="presentationStatus" class="col-xs-6">
+      <h3>Status</h3>
+      <div class="thumbnail">
+        <h4>Display availability</h4>
+        <p id="availabilityStatus">unavailable</p>
+        <h4>Session state</h4>
+        <p id="sessionState">no session</p>
+        <h4>Presentation ID</h4>
+        <p id="presentationId">none</p>
+      </div>
+    </div>
   </div>
-  <div>
-    <button onclick="javascript:requestShow()" id="requestShow" type="button" class="tagBtn btn btn-default btn-lg btn-block">Request Show Presentation</button>
-  </div>
-  <div style="margin-top: 5px">
-    <button onclick="javascript:closePresentationWindow()" id="closePresentation" type="button" class="tagBtn btn btn-default btn-lg btn-block">Close Presentation</button>
-  </div>
+  <p id="log" style="color:red;"></p>
 </div>
 <div class="footer">
   <div id="footer"></div>
 </div>
 <div class="modal fade" id="popup_info">
-  <p>This sample is designed by Presentation displayAvailable event</p>
+  <p>This sample is designed by Presentation API for starting a new presentaton session.</p>
 </div>
