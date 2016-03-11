@@ -32,16 +32,28 @@ Authors:
 $(document).ready( function() {
 
   $("#b1").click( function() {
-    screen.orientation.lock("portrait-primary");
+    screen.orientation.lock("any");
   });
   $("#b2").click( function() {
-    screen.orientation.lock("portrait-secondary");
+    screen.orientation.lock("natural");
   });
   $("#b3").click( function() {
-    screen.orientation.lock("landscape-primary");
+    screen.orientation.lock("landscape");
   });
   $("#b4").click( function() {
+    screen.orientation.lock("landscape-primary");
+  });
+  $("#b5").click( function() {
     screen.orientation.lock("landscape-secondary");
+  });
+  $("#b6").click( function() {
+    screen.orientation.lock("portrait");
+  });
+  $("#b7").click( function() {
+    screen.orientation.lock("portrait-primary");
+  });
+  $("#b8").click( function() {
+    screen.orientation.lock("portrait-secondary");
   });
 
   document.getElementById("start").onclick = function() {
