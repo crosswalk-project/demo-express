@@ -8,7 +8,8 @@
     "MODIFY_AUDIO_SETTINGS",
     "RECORD_AUDIO",
     "ACCESS_FINE_LOCATION",
-    "VIBRATE"
+    "VIBRATE",
+    "READ_EXTERNAL_STORAGE"
   ],
   "icons": [
     {
