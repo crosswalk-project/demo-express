@@ -9,7 +9,8 @@
     "RECORD_AUDIO",
     "ACCESS_FINE_LOCATION",
     "VIBRATE",
-    "READ_EXTERNAL_STORAGE"
+    "READ_EXTERNAL_STORAGE",
+    "WRITE_EXTERNAL_STORAGE"
   ],
   "icons": [
     {
