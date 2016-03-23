@@ -31,7 +31,7 @@ Authors:
 window.addEventListener(
     "devicemotion",
     function(evt) {
-        var coordinate = evt.acceleration;
+        var coordinate = evt.accelerationIncludingGravity;
         $("#x").text("X: " + Math.round(coordinate.x-0));
         $("#y").text("Y: " + Math.round(coordinate.y-0));
         $("#z").text("Z: " + Math.round(coordinate.z-0));
