@@ -26,58 +26,103 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Authors:
         Xin, liu <xinx.liu@intel.com>
+        Wang, Chunyan<chunyanx.wang@intel.com>
 
 */
-var presentationWindow = null;
 
-function closePresentationWindow() {
-  if (presentationWindow !== null)
-    presentationWindow.close();
-  reset();
-}
+var connection = null;
+var presUrl = "contents.html";
+var presId;
+var request = null;
+var data = "hello";
 
-function reset() {
-  var msg = $("#message")[0];
-  msg.innerHTML = "Received message: N/A";
-  var result = $("#result")[0];
-  result.innerHTML = "Result: N/A";
-}
+var btnPlay;
+var btnClose;
+var btnJoin;
+var availabilityStatus;
+var sessionState;
+var presentationId;
 
-function showSucceed(w) {
-  var e = $("#result")[0];
-  e.innerHTML = "Result: OK";
-
-  presentationWindow = w;
-  presentationWindow.postMessage("I am from opener window", "*");
-}
-
-function showError(e) {
-  var elem = $("#result")[0];
-  elem.innerHTML = "Result: " + e.name;
-}
-
-function requestShow() {
-  navigator.presentation.requestShow("contents.html", showSucceed, showError);
-}
-
-function init() {
-  var e = $("#available")[0];
-  e.innerHTML = navigator.presentation.displayAvailable ?
-                "Display Availability: true" : "Display Availability: false";
-
-  navigator.presentation.addEventListener("displayavailablechange", function() {
-    e.innerHTML = navigator.presentation.displayAvailable ?
-                  "Display Availability: true" : "Display Availability: false";
-    if (!navigator.presentation.displayAvailable) {
-      var button = $("#available")[0];
-      button.disabled = true;
-    }
+window.onload = function() {
+  init();
+  request = new PresentationRequest(presUrl);
+  //monitor the list of available presentation displays
+  request.getAvailability().then(function(availability) {
+    updateAvailabilityStatus(availability.value);
+    availability.onchange = function() {
+      updateAvailabilityStatus(this.value);
+    };
+  }, function(error) {
+    txtMsg.textContent = error.name;
   });
 }
 
-window.onload = init;
+function init() {
+  btnPlay = document.getElementById("btnPlay");
+  btnClose = document.getElementById("btnClose");
+  btnJoin = document.getElementById("btnJoin");
+  txtMsg = document.getElementById("log");
+  availabilityStatus = document.getElementById("availabilityStatus");
+  sessionState = document.getElementById("sessionState");
+  presentationId = document.getElementById("presentationId");
+  btnPlay.disabled = true;
+  btnClose.disabled = true;
+  btnJoin.disabled = true;
+  txtMsg.innerHTML = "";
+}
 
-window.onmessage = function(evt) {
-  var e = $("#message")[0];
-  e.innerHTML = "Received message: " + evt.data;
+function onClickStart() {
+  btnJoin.disabled = true;
+  request.start().then(function(conn) {
+    onConnectionStart(conn);
+  }, function(error) {
+    txtMsg.textContent = "Session Start error: " + error.message;
+  });
+}
+
+function onClickReconnect() {
+  request.reconnect(presId).then(function(conn) {
+    onConnectionStart(conn);
+  }, function(error) {
+    txtMsg.textContent = "reconnect presentation get error:" + error.message;
+	});
+}
+
+function onClickClose() {
+  if(connection != null) {
+    presId = connection.id;
+    connection.terminate(); 
+    //btnJoin.disabled = false;
+  }
+}
+
+function onConnectionStart(conn) {
+  txtMsg.textContent = "";
+  connection = conn;
+  updateStatus();
+  connection.onstatechange = function() {
+    updateStatus();
+  };
+  connection.onmessage = function(evt) {
+    // receive message from receiver device
+  }
+  connection.send(data);
+}
+
+function updateStatus() {
+  var isConnected = connection !=null &&
+                      connection.state == "connected";
+  btnClose.disabled = !isConnected;
+  if(connection) {
+      sessionState.innerHTML = connection.state;
+      presentationId.innerHTML = connection.id;
+  }
+  if(!isConnected) {
+      presentationId.innerHTML = "none";
+  }
+}
+
+function updateAvailabilityStatus (value) {
+  btnPlay.disabled = !value;
+  availabilityStatus.innerHTML = value ? "available" : "unavailable";
 }
