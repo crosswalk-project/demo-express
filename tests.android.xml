@@ -129,6 +129,8 @@
       </testcase>
       <testcase component="sample" execution_type="manual" id="SIMD" purpose="SIMD">
       </testcase>
+      <testcase component="sample" execution_type="manual" id="FingerPrint" purpose="FingerPrint">
+      </testcase>      
     </set>
     <set name="Third Party Framework" background="brand-info3" icon="glyphicon-tasks">
       <testcase component="sample" execution_type="manual" id="PDFjs" purpose="PDFjs">
@@ -138,7 +140,7 @@
       <testcase component="sample" execution_type="manual" id="SchemeContent" purpose="SchemeContent">
       </testcase>
       <testcase component="sample" execution_type="manual" id="SchemesCheck" purpose="SchemesCheck">
-      </testcase>
+      </testcase> 
     </set>
     <set name="Manifest" background="bs-purple-light3" icon="glyphicon-folder-close">
       <testcase component="sample" execution_type="manual" id="ManifestDemo1" purpose="ManifestDemo1">

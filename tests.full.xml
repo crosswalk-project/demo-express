@@ -128,6 +128,8 @@
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="SIMD" purpose="SIMD">
       </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="FingerPrint" purpose="FingerPrint">
+      </testcase>      
     </set>
     <set name="Third Party Framework" background="brand-info3" icon="glyphicon-tasks">
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="PDFjs" purpose="PDFjs">
