@@ -1,9 +1,9 @@
 ## Introduction
 
-DemoExpress is a central place to collect web feature samples that demonstrate use of W3C standard APIs, Tizen Extension APIs, embedding APIs, and web runtime features. The following samples are published in DemoExpress.
-* Embedding API (Java): 
+DemoExpress is a central place to collect web feature samples that demonstrate use of W3C standard APIs, embedding APIs, and web runtime features. The following samples are published in DemoExpress.
+* Embedding API (Java):
   * XwalkView Basic: `LayoutActivity`, `MultiInstanceActivity`, `OnHideOnShow`, `VersionAndAPIVersion`, `MultiSurfaceViews`, `MultiTextureViews`, `SetZOrderOnTop`, `ClearCache`, `ClearCacheForSingleFile`, `ZoomInAndOut`, `SaveState`, `SetLanguage`, `Transparent`, `SetInitialScale`, `EncodingDisplay`, `MultiInstanceOverlay`, `WindowSecure`
-  * XwalkView Extened: `InputConnection`, `DispatchKeyEvent`, `DispatchDraw`, `OnTouchEvent`, `FocusChanged`, `ScrollChanged`, `SizeChanged`, `VisibilityChanged`, `WindowFocusChanged`, `ClearFormData`, `WindowsVisibilityChanged`, `DisableLongClick`, `.extended.BlankWindowForVisibilityTesting`, `LongClick`, `RequestFocus`, `NetworkAvailable` 
+  * XwalkView Extened: `InputConnection`, `DispatchKeyEvent`, `DispatchDraw`, `OnTouchEvent`, `FocusChanged`, `ScrollChanged`, `SizeChanged`, `VisibilityChanged`, `WindowFocusChanged`, `ClearFormData`, `WindowsVisibilityChanged`, `DisableLongClick`, `.extended.BlankWindowForVisibilityTesting`, `LongClick`, `RequestFocus`, `NetworkAvailable`
   * XwalkUIClient & XwalkResourceClient: `ResourceAndUIClient`, `OnIconAvailableOnReceivedIcon`, `OnCreateWindowRequested`, `ShouldOverrideUrlLoading`, `Redirection`, `BlockAndErrorRedirection`, `OnReceivedLoadError`, `ClientOnRequestFocus`, `ConsoleLog`, `ReceivedTitle`, `ClientKeyEvent`, `ClientReceivedSSLError`, `OnUnhandledKeyEvent`, `OpenFileChooser`, `OnJavascriptModalDialog`, `OnJavascriptCloseWindow`
   * MISC: `Preferences`, `EchoExtension`, `DownloadListenerActivity`, `CookieManagerTest`, `AcceptFileSchemeCookies`
   `LoadMultiPages`, `XWalkViewHideAndShow`, `XwalkExtension`, `MultipleSurfaceViews`, `MultipleTextureViews`
@@ -13,7 +13,7 @@ DemoExpress is a central place to collect web feature samples that demonstrate u
   * Networking & Storage: `FileReader`, `IndexedDB`, `Session History`, `Web Database`, `Web Messaging`, `Web Speech`, `Web Storage`
   * Performance & Optimization: `Animation Timing`,  `High Resolution Time`, `Navigation Timing`, `Performance Timeline`, `Resource Timing`, `Selectors`, `Typed Array`, `User Timing`, `Workers`
   * Device & Hardware: `Accelerometer`, `Browser State`, `Camera via UserMedia`, `Full Screen`, `Forms`, `HTML Template`, `Input`, `Notifications`, `Screen Orientation`, `Touch`, `WebAudio`, `WebGL`
-  * Experimental: `Device Capabilities`, `Presentation`, `SIMD`
+  * Experimental: `Device Capabilities`, `Presentation`, `SIMD`, `FingerPrint`
   * Security: `Sandbox`
   * UI: `Clipboard`
   * Android specific:
@@ -42,6 +42,12 @@ Here is the buiding steps:
     `$ cd /[userdir]/tools/`
 
     `$ mv crosswalk-<version\>\* crosswalk/`
+
+  * The webapi_demo include the FingerPrint example by default, you need to get the FingerPrint extension from [fingerprint extension](https://github.com/crosswalk-project/crosswalk-android-extensions/releases)
+
+    `$ unzip fingerprint.zip -d </path/to/samples/FingerPrint/fingerprint>`
+
+    If you want to authenticate with fingerprint, you need an Android device with touch id sensor and shipped with Android 6.0+ system.
 
   * Goto DemoExpress folder to pack demoexpress package:
 
