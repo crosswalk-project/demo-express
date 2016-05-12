@@ -1,0 +1,34 @@
+# File containing whiteslist for lint errors
+# Format is:
+# ERROR TYPE:file/name/pattern[:line number]
+# e.g.
+# TRAILING WHITESPACE:example/file.html:128
+# to allow trailing whitespace on example/file.html line 128
+
+## Whitespace rules that we can't enforce yet ##
+
+TRAILING WHITESPACE:*.md
+TRAILING WHITESPACE:*.txt
+TRAILING WHITESPACE:COPYING
+TRAILING WHITESPACE:README
+
+## File types that should never be checked ##
+
+*:*.pdf
+*:*.jpg
+*:*.png
+*:*.gif
+*:*.pdf
+*:*.wav
+*:*.mp3
+*:*.m4a
+*:*.oga
+*:*.ogv
+*:*.webm
+*:*.mp4
+*:*.m4v
+*:*.ttf
+*:*.woff
+*:*.eot
+*:*.sfd
+*:*.swf
