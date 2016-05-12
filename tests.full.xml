@@ -176,4 +176,116 @@
     </set>
     -->
   </suite>
+  <suite name="Embedding API Demo">
+    <set name="EmbeddingApi">
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="XWalkViewBasicFunctions" purpose="XWalkView Basic Function Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="Multi-PageLoading" purpose="Multi-Page Loading Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="XWalkViewHideAndShow" purpose="Test The Video will pause when XWalkView hide">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="XWalkViewVersionAndAPIVersion" purpose="XWalkView Version and API Version Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="MultipleSurfaceViews" purpose="Multiple SurfaceViews Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="MultipleTextureViews" purpose="Multiple TextureViews Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="setZOrderOnTop()" purpose="XWalkView's Surface on Top of its Window Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CacheClearing" purpose="Cache Clearing Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="ZoomInAndZoomOut" purpose="ZoomIn And ZoomOut Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="StateSaving" purpose="State Saving Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="AcceptLanguageSetting" purpose="AcceptLanguage Setting Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="Transparent" purpose="XWalkView Transparent Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="InitialScale Setting" purpose="InitialScale Setting Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="clearCacheForSingleFile()" purpose="ClearCacheForSingleFile Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="EncodingDisplay" purpose="Encoding Display Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="Multi-InstanceOverlay" purpose="Multi XWalkView Instance Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="WindowSecurity" purpose="Window Security Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="XWalkViewInputConnection" purpose="XWalkView InputConnection Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="dispatchKeyEvent()" purpose="dispatchKeyEvent() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="dispatchDraw()" purpose="dispatchDraw() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onTouchEvent()" purpose="onTouchEvent() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onFocusChanged()" purpose="onFocusChanged() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onOverScrolled()" purpose="onOverScrolled() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onSizeChanged()" purpose="onSizeChanged() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="setVisibility()" purpose="setVisibility() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onWindowFoucusChanged()" purpose="onWindowFoucusChanged() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="clearFormData()" purpose="clearFormData() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onWindowsVisibilityChanged()" purpose="onWindowsVisibilityChanged() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="setLongClickable()" purpose="setLongClickable() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onLongClick()" purpose="onLongClick() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="requestFocus()" purpose="requestFocus() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="setNetworkAvailable()" purpose="setNetworkAvailable() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="ResourceClientAndUIClient" purpose="XWalkView ResourceClient And UIClient">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onIconAvailable()AndonReceivedIcon()" purpose="onIconAvailable() And onReceivedIcon() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onCreateWindowRequested()" purpose="onCreateWindowRequested() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="shouldOverrideUrlLoading()" purpose="shouldOverrideUrlLoading() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="Redirection" purpose="XWalkView Redirection Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="BlockAndErrorRedirection" purpose="Block And ErrorRedirection Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onReceivedLoadError()" purpose="onReceivedLoadError() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onRequestFocus()" purpose="onRequestFocus() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onConsoloMessage()" purpose="onConsoloMessage() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onReceivedTitle()" purpose="onReceivedTitle() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="shouldOverrideKeyEvent()" purpose="shouldOverrideKeyEvent() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onReceivedSslError()" purpose="onReceivedSslError() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onUnhandledKeyEvent()" purpose="onUnhandledKeyEvent() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="openFileChooser()" purpose="openFileChooser() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onJavascriptModalDialog()" purpose="onJavascriptModalDialog() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="onJavascriptCloseWindow()" purpose="onJavascriptCloseWindow() Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="XWalkViewPreferences" purpose="XWalkView Preferences">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="EchoExtension" purpose="Echo Extension Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="XWalkViewDownloadListener" purpose="DownloadListener Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="CookieManagerTest" purpose="CookieManager Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="AcceptFileSchemeCookiesTest" purpose="AcceptFileSchemeCookies Test">
+      </testcase>
+      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="XWalkViewWithComputeScroll" purpose="XWalkViewWithComputeScroll Test">
+      </testcase>
+    </set>
+  </suite>
 </test_definition>
