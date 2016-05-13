@@ -1,590 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="./testcase.xsl"?>
 <test_definition>
-  <suite name="samples-embedding">
+  <suite name="Embedding API Demo">
     <set name="EmbeddingApi">
-      <testcase component="sample" execution_type="manual" id="XWalkViewBasicFunctions" platform="android" priority="P0" purpose="XWalkView Basic Function Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="XWalkViewBasicFunctions" purpose="XWalkView Basic Function Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="Multi-PageLoading" platform="android" priority="P0" purpose="Multi-Page Loading Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="Multi-PageLoading" purpose="Multi-Page Loading Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="XWalkViewHideAndShow" platform="android" priority="P0" purpose="Test The Video will pause when XWalkView hide" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="XWalkViewHideAndShow" purpose="Test The Video will pause when XWalkView hide">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="XWalkViewVersionAndAPIVersion" platform="android" priority="P0" purpose="XWalkView Version and API Version Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="XWalkViewVersionAndAPIVersion" purpose="XWalkView Version and API Version Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="MultipleSurfaceViews" platform="android" priority="P0" purpose="Multiple SurfaceViews Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="MultipleSurfaceViews" purpose="Multiple SurfaceViews Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="MultipleTextureViews" platform="android" priority="P0" purpose="Multiple TextureViews Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="MultipleTextureViews" purpose="Multiple TextureViews Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="setZOrderOnTop()" platform="android" priority="P0" purpose="XWalkView's Surface on Top of its Window Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="setZOrderOnTop()" purpose="XWalkView's Surface on Top of its Window Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="CacheClearing" platform="android" priority="P0" purpose="Cache Clearing Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="CacheClearing" purpose="Cache Clearing Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="ZoomInAndZoomOut" platform="android" priority="P0" purpose="ZoomIn And ZoomOut Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="ZoomInAndZoomOut" purpose="ZoomIn And ZoomOut Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="StateSaving" platform="android" priority="P0" purpose="State Saving Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="StateSaving" purpose="State Saving Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="AcceptLanguageSetting" platform="android" priority="P0" purpose="AcceptLanguage Setting Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="AcceptLanguageSetting" purpose="AcceptLanguage Setting Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="Transparent" platform="android" priority="P0" purpose="XWalkView Transparent Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="Transparent" purpose="XWalkView Transparent Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="InitialScale Setting" platform="android" priority="P0" purpose="InitialScale Setting Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="InitialScale Setting" purpose="InitialScale Setting Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="clearCacheForSingleFile()" platform="android" priority="P0" purpose="ClearCacheForSingleFile Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="clearCacheForSingleFile()" purpose="ClearCacheForSingleFile Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="EncodingDisplay" platform="android" priority="P0" purpose="Encoding Display Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="EncodingDisplay" purpose="Encoding Display Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="Multi-InstanceOverlay" platform="android" priority="P0" purpose="Multi XWalkView Instance Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="Multi-InstanceOverlay" purpose="Multi XWalkView Instance Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="WindowSecurity" platform="android" priority="P0" purpose="Window Security Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="WindowSecurity" purpose="Window Security Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="XWalkViewInputConnection" platform="android" priority="P0" purpose="XWalkView InputConnection Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="XWalkViewInputConnection" purpose="XWalkView InputConnection Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="dispatchKeyEvent()" platform="android" priority="P0" purpose="dispatchKeyEvent() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="dispatchKeyEvent()" purpose="dispatchKeyEvent() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="dispatchDraw()" platform="android" priority="P0" purpose="dispatchDraw() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="dispatchDraw()" purpose="dispatchDraw() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onTouchEvent()" platform="android" priority="P0" purpose="onTouchEvent() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onTouchEvent()" purpose="onTouchEvent() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onFocusChanged()" platform="android" priority="P0" purpose="onFocusChanged() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onFocusChanged()" purpose="onFocusChanged() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onOverScrolled()" platform="android" priority="P0" purpose="onOverScrolled() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onOverScrolled()" purpose="onOverScrolled() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onSizeChanged()" platform="android" priority="P0" purpose="onSizeChanged() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onSizeChanged()" purpose="onSizeChanged() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="setVisibility()" platform="android" priority="P0" purpose="setVisibility() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="setVisibility()" purpose="setVisibility() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onWindowFoucusChanged()" platform="android" priority="P0" purpose="onWindowFoucusChanged() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onWindowFoucusChanged()" purpose="onWindowFoucusChanged() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="clearFormData()" platform="android" priority="P0" purpose="clearFormData() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="clearFormData()" purpose="clearFormData() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onWindowsVisibilityChanged()" platform="android" priority="P0" purpose="onWindowsVisibilityChanged() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onWindowsVisibilityChanged()" purpose="onWindowsVisibilityChanged() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="setLongClickable()" platform="android" priority="P0" purpose="setLongClickable() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="setLongClickable()" purpose="setLongClickable() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onLongClick()" platform="android" priority="P0" purpose="onLongClick() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onLongClick()" purpose="onLongClick() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="requestFocus()" platform="android" priority="P0" purpose="requestFocus() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="requestFocus()" purpose="requestFocus() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="setNetworkAvailable()" platform="android" priority="P0" purpose="setNetworkAvailable() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="setNetworkAvailable()" purpose="setNetworkAvailable() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="ResourceClientAndUIClient" platform="android" priority="P0" purpose="XWalkView ResourceClient And UIClient" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="ResourceClientAndUIClient" purpose="XWalkView ResourceClient And UIClient">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onIconAvailable()AndonReceivedIcon()" platform="android" priority="P0" purpose="onIconAvailable() And onReceivedIcon() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onIconAvailable()AndonReceivedIcon()" purpose="onIconAvailable() And onReceivedIcon() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onCreateWindowRequested()" platform="android" priority="P0" purpose="onCreateWindowRequested() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onCreateWindowRequested()" purpose="onCreateWindowRequested() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="shouldOverrideUrlLoading()" platform="android" priority="P0" purpose="shouldOverrideUrlLoading() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="shouldOverrideUrlLoading()" purpose="shouldOverrideUrlLoading() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="Redirection" platform="android" priority="P0" purpose="XWalkView Redirection Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="Redirection" purpose="XWalkView Redirection Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="BlockAndErrorRedirection" platform="android" priority="P0" purpose="Block And ErrorRedirection Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="BlockAndErrorRedirection" purpose="Block And ErrorRedirection Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onReceivedLoadError()" platform="android" priority="P0" purpose="onReceivedLoadError() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onReceivedLoadError()" purpose="onReceivedLoadError() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onRequestFocus()" platform="android" priority="P0" purpose="onRequestFocus() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onRequestFocus()" purpose="onRequestFocus() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onConsoloMessage()" platform="android" priority="P0" purpose="onConsoloMessage() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onConsoloMessage()" purpose="onConsoloMessage() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onReceivedTitle()" platform="android" priority="P0" purpose="onReceivedTitle() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onReceivedTitle()" purpose="onReceivedTitle() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="shouldOverrideKeyEvent()" platform="android" priority="P0" purpose="shouldOverrideKeyEvent() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="shouldOverrideKeyEvent()" purpose="shouldOverrideKeyEvent() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onReceivedSslError()" platform="android" priority="P0" purpose="onReceivedSslError() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onReceivedSslError()" purpose="onReceivedSslError() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onUnhandledKeyEvent()" platform="android" priority="P0" purpose="onUnhandledKeyEvent() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onUnhandledKeyEvent()" purpose="onUnhandledKeyEvent() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="openFileChooser()" platform="android" priority="P0" purpose="openFileChooser() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="openFileChooser()" purpose="openFileChooser() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onJavascriptModalDialog()" platform="android" priority="P0" purpose="onJavascriptModalDialog() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onJavascriptModalDialog()" purpose="onJavascriptModalDialog() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="onJavascriptCloseWindow()" platform="android" priority="P0" purpose="onJavascriptCloseWindow() Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="onJavascriptCloseWindow()" purpose="onJavascriptCloseWindow() Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="XWalkViewPreferences" platform="android" priority="P0" purpose="XWalkView Preferences" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="XWalkViewPreferences" purpose="XWalkView Preferences">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="EchoExtension" platform="android" priority="P0" purpose="Echo Extension Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="EchoExtension" purpose="Echo Extension Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="XWalkViewDownloadListener" platform="android" priority="P0" purpose="DownloadListener Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="XWalkViewDownloadListener" purpose="DownloadListener Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="CookieManagerTest" platform="android" priority="P0" purpose="CookieManager Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="CookieManagerTest" purpose="CookieManager Test">
       </testcase>
-      <testcase component="sample" execution_type="manual" id="AcceptFileSchemeCookiesTest" platform="android" priority="P0" purpose="AcceptFileSchemeCookies Test" status="approved" type="functional_positive">
-        <description>
-          <steps>
-            <step order="1">
-              <step_desc>0</step_desc>
-              <expected>0</expected>
-            </step>
-          </steps>
-          <test_script_entry test_script_expected_result="0" />
-        </description>
+      <testcase component="sample" execution_type="manual" id="AcceptFileSchemeCookiesTest" purpose="AcceptFileSchemeCookies Test">
+      </testcase>
+      <testcase component="sample" execution_type="manual" id="XWalkViewWithComputeScroll" purpose="XWalkViewWithComputeScroll Test">
       </testcase>
     </set>
   </suite>
