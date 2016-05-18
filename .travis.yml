@@ -15,4 +15,4 @@ before_script:
   - cd demo-express/
   - cp -f lint.whitelist ../crosswalk-test-suite/tools/lint/
 
-script: python ../crosswalk-test-suite/tools/lint/lint.py -r demo-express
+script: python ../crosswalk-test-suite/tools/lint/lint.py -r demo-express -p
