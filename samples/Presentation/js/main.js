@@ -32,13 +32,13 @@ Authors:
 
 var connection = null;
 var presUrl = "contents.html";
-var presId;
 var request = null;
 var data = "hello";
 
 var btnPlay;
 var btnClose;
 var btnJoin;
+var btnTerminate;
 var availabilityStatus;
 var sessionState;
 var presentationId;
@@ -46,7 +46,6 @@ var presentationId;
 window.onload = function() {
   init();
   request = new PresentationRequest(presUrl);
-  //monitor the list of available presentation displays
   request.getAvailability().then(function(availability) {
     updateAvailabilityStatus(availability.value);
     availability.onchange = function() {
@@ -61,6 +60,7 @@ function init() {
   btnPlay = document.getElementById("btnPlay");
   btnClose = document.getElementById("btnClose");
   btnJoin = document.getElementById("btnJoin");
+  btnTerminate = document.getElementById("btnTerminate");
   txtMsg = document.getElementById("log");
   availabilityStatus = document.getElementById("availabilityStatus");
   sessionState = document.getElementById("sessionState");
@@ -68,11 +68,13 @@ function init() {
   btnPlay.disabled = true;
   btnClose.disabled = true;
   btnJoin.disabled = true;
-  txtMsg.innerHTML = "";
+  btnTerminate.disabled = true;
+  txtMsg.textContent = "";
 }
 
 function onClickStart() {
-  btnJoin.disabled = true;
+  onClickClose();
+  request = new PresentationRequest(presUrl);
   request.start().then(function(conn) {
     onConnectionStart(conn);
   }, function(error) {
@@ -81,48 +83,76 @@ function onClickStart() {
 }
 
 function onClickReconnect() {
+  var presId = localStorage.getItem("presId");
   request.reconnect(presId).then(function(conn) {
     onConnectionStart(conn);
   }, function(error) {
     txtMsg.textContent = "reconnect presentation get error:" + error.message;
-	});
+  });
 }
 
 function onClickClose() {
   if(connection != null) {
-    presId = connection.id;
-    connection.terminate(); 
-    //btnJoin.disabled = false;
+    connection.close();
+  }
+}
+
+function onClickTerminate() {
+  if(connection != null) {
+    connection.terminate();
   }
 }
 
 function onConnectionStart(conn) {
   txtMsg.textContent = "";
   connection = conn;
+  localStorage.setItem("presId", connection.id);
   updateStatus();
-  connection.onstatechange = function() {
+  connection.onconnect = function() {
+    btnClose.disabled = false;
+    btnTerminate.disabled = false;
+    btnJoin.disabled = true;
     updateStatus();
-  };
-  connection.onmessage = function(evt) {
-    // receive message from receiver device
+    connection.onmessage = function(evt) {
+    }
+    connection.send(data);
   }
-  connection.send(data);
+  connection.onclose = function() {
+    updateStatus();
+    reset();
+  };
+  connection.onterminate = function () {
+    localStorage.removeItem("presId");
+    updateStatus();
+    reset();
+  };
 }
 
+function reset() {
+  connection = null;
+  btnClose.disabled = true;
+  btnTerminate.disabled = true;
+  //btnJoin.disabled = !localStorage.getItem("presId");
+};
+
 function updateStatus() {
-  var isConnected = connection !=null &&
+  var isConnected = connection != null &&
                       connection.state == "connected";
   btnClose.disabled = !isConnected;
+  btnTerminate.disabled = !isConnected;
+  //btnJoin.disabled = isConnected;
   if(connection) {
-      sessionState.innerHTML = connection.state;
-      presentationId.innerHTML = connection.id;
+    sessionState.textContent = connection.state;
+    presentationId.textContent = connection.id;
   }
   if(!isConnected) {
-      presentationId.innerHTML = "none";
+    presentationId.textContent = "none";
   }
 }
 
 function updateAvailabilityStatus (value) {
   btnPlay.disabled = !value;
-  availabilityStatus.innerHTML = value ? "available" : "unavailable";
+  availabilityStatus.textContent = value ? "available" : "unavailable";
 }
+
+window.onbeforeunload = onClickTerminate;

@@ -8,7 +8,7 @@ presentation, terminate presentation and reconnect to the presentation
 
 This usecase covers following interface and methods:
 
-* PresentationConnection interface: close send onstatechange onmessage
+* PresentationConnection interface: close send onconnect onclose onterminate onmessage
 * PresentationAvailability interface: onchange
 * PresentationRequest interface: start reconnect getAvailability
 
