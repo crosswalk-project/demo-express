@@ -7,8 +7,9 @@ python:
 
 before_script:
   - sudo apt-get install python-demjson
-  - easy_install demjson
   - sudo apt-get install libxml2-utils
+  - pip install --upgrade setuptools
+  - easy_install demjson
   - pip install html5lib
   - cd ../
   - git clone https://github.com/crosswalk-project/crosswalk-test-suite.git
