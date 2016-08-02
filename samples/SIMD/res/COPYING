@@ -13,3 +13,6 @@ The above files are from https://github.com/PeterJensen/mandelbrot/tree/master/j
 Changed due to https://crosswalk-project.org/jira/browse/XWALK-4766:
 SIMD.float32x4 -> SIMD.Float32x4
 SIMD.int32x4 -> SIMD.Int32x4
+Changed due to https://crosswalk-project.org/jira/browse/CTS-1856:
+SIMD.Bool32x4.anyTrue() -> SIMD.Bool32x4.allTrue()
+Delete for(var j=0; j < 4; j++){}
