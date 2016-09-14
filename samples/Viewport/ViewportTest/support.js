@@ -44,12 +44,15 @@ function addViewport(content) {
 
 function run() {
   document.getElementById("btn1").onclick = function () {
-    addViewport("width=device-width, height=device-height");
+    addViewport("width=1600, height=900");
   }
   document.getElementById("btn2").onclick = function () {
-    addViewport("initial-scale=2.0, user-scalable=no");
+    addViewport("width=device-width, height=device-height");
   }
   document.getElementById("btn3").onclick = function () {
+    addViewport("initial-scale=2.0, user-scalable=no");
+  }
+  document.getElementById("btn4").onclick = function () {
     addViewport("minimum-scale=1.0, maximum-scale=3.0, user-scalable=yes");
   }
 }
