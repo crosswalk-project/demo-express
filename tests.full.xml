@@ -120,8 +120,6 @@
       </testcase>
     </set>
     <set name="Experimental API" background="brand-success3" icon="glyphicon-adjust">
-      <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="DeviceCapabilities" purpose="Device Capabilities">
-      </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="android" priority="P0" id="Presentation" purpose="Presentation">
       </testcase>
       <testcase component="sample" type="functional_positive" status="approved" execution_type="manual" platform="all" priority="P0" id="SIMD" purpose="SIMD">
