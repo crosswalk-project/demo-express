@@ -3,20 +3,22 @@ https://github.com/seiyria/bootstrap-slider/blob/master/js/bootstrap-slider.js
 with some modifications.
 
 	setValue: function(val, triggerSlideEvent) {
-+   var ID = this.element.id;
-+   if (ID == "slider-1") {
-+     var value1 = sliderValue / 100;
-+     document.getElementById("MediaPlayback").volume = value1;
-+   }
-
++       var ID = this.element.id;
++       if (ID == "slider-1") {
++           var value1 = sliderValue / 100;
++           document.getElementById("MediaPlayback").volume = value1;
++       }else if (ID == "playback-1") {
++           document.getElementById("MediaPlayback").playbackRate = sliderValue;
++       }
+    }
   _setText: function(val) {
--   element.innerText = text;
-+   if (this.element.id == "slider-1") {
-+     var text1 = text + "%";
-+     element.innerText = text1;
-+   } else {
-+     element.innerText = text;
-+ 	}
+-     element.innerText = text;
++     if (this.element.id == "slider-1") {
++         var text1 = text + "%";
++         element.innerText = text1;
++     } else {
++         element.innerText = text;
++ 	  }
   }
 jQuery Mobile v@VERSION
 http://jquerymobile.com
