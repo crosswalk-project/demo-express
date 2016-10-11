@@ -592,11 +592,13 @@
 					this._trigger('slide', sliderValue);
 				}
 
-        var ID = this.element.id;
-        if (ID == "slider-1") {
-          var value1 = sliderValue / 100;
-          document.getElementById("MediaPlayback").volume = value1;
-        }
+                var ID = this.element.id;
+                if (ID == "slider-1") {
+                    var value1 = sliderValue / 100;
+                    document.getElementById("MediaPlayback").volume = value1;
+                }else if (ID == "playback-1") {
+                    document.getElementById("MediaPlayback").playbackRate = sliderValue;
+                }
 
 				return this;
 			},
@@ -1093,10 +1095,10 @@
 				}
 			},
 			_setDataVal: function(val) {
-        var ID = this.element.id;
-        if (ID == "slider-1") {
-          val = val + "%";
-        }
+                var ID = this.element.id;
+                if (ID == "slider-1") {
+                    val = val + "%";
+                }
 				var value = "value: '" + val + "'";
 				this.element.setAttribute('data', value);
 				this.element.setAttribute('value', val);
