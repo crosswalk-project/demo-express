@@ -102,9 +102,9 @@ Here is the buiding steps:
     `$ ./tools/pack.py -t embeddingapi --tools='/[userdir]/tools/'`
 
 * The pack.py script calls the pack command from Android (for Crosswalk-Cordova apps and regular Crosswalk apps)
- * [Run Crosswalk App on Andriod](https://crosswalk-project.org/documentation/getting_started/run_on_android.html)
- * [Develop Crosswalk Cordova App] (https://crosswalk-project.org/documentation/cordova/develop_an_application.html)
- * [Embedding Crosswalk] (https://crosswalk-project.org/documentation/embedding_crosswalk.html)
+ * [Run Crosswalk App on Andriod](https://crosswalk-project.org/documentation/android/run_on_android.html)
+ * [Develop Crosswalk Cordova App] (https://crosswalk-project.org/documentation/cordova.html)
+ * [Embedding Crosswalk] (https://crosswalk-project.org/documentation/android/embedding_crosswalk.html)
 
 ## Execution
 * If you build a package using the shared Crosswalk runtime (`--mode=shared` build option), you must ensure that the Crosswalk runtime library is installed on the target device before running DemoExpress. The library can be found at [https://download.01.org/crosswalk/releases/crosswalk/android/canary/&lt;version&gt;/&lt;arch&gt;/crosswalk-apks-&lt;version&gt;-&lt;arch&gt;.zip](https://download.01.org/crosswalk/releases/crosswalk/android/)
